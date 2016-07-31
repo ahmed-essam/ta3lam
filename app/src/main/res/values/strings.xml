@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Ta3allam</string>
+    <string name="title_activity_forget_password">نسيت كلمة المرور</string>
+    <string name="title_activity_register">التسجيل</string>
+    <string name="facebook_app_id">268998430147356</string>
+    <string name="fb_login_protocol_scheme">268998430147356</string>
+    <string name="title_activity_fblogin">FACEBOOK</string>
+    <string name="action_settings">Settings</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="b3fb1fd7487c36d82b8485ee8ace973ef28fcf64">
+        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_ec75f63e39a932fbc5fec63895d509eec12b0cba/classes.dex" />
+    </item>
+    <item
+        jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
+        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-8.1.0_cd2a8b7365ccae4e7e43ebe65aa3a11c947aeb42/classes.dex" />
+    </item>
+    <item
+        jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/8.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
+        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-appindexing-8.1.0_82b8c2c327c4196fe97711c40801ec7f1a2b67e9/classes.dex" />
+    </item>
+
+</items>
