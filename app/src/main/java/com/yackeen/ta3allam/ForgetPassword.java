@@ -1,9 +1,12 @@
 package com.yackeen.ta3allam;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.Locale;
 
@@ -24,6 +27,14 @@ public class ForgetPassword extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Button next=(Button) findViewById(R.id.next);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent forgetpassword2 =new Intent(ForgetPassword.this,ForgetPassword2.class);
+                startActivity(forgetpassword2);
+            }
+        });
 
     }
 

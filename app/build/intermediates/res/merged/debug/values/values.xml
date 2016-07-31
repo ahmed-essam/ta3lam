@@ -403,6 +403,7 @@
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="title_activity_fblogin">FACEBOOK</string>
     <string name="title_activity_forget_password">نسيت كلمة المرور</string>
+    <string name="title_activity_forget_password2">نسيت كلمة المرور</string>
     <string name="title_activity_register">التسجيل</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>

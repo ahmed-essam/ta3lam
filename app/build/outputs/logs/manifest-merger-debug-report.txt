@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:2:1-73:12
+ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:2:1-76:12
 	xmlns:android
 		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:2:11-69
 	package
@@ -18,7 +18,7 @@ ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManife
 	android:name
 		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:5:22-64
 application
-ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:7:5-71:19
+ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:7:5-74:19
 MERGED from [com.android.support:appcompat-v7:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:animated-vector-drawable:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/AndroidManifest.xml:7:5-20
 MERGED from [com.android.support:support-vector-drawable:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/AndroidManifest.xml:7:5-20
@@ -123,42 +123,45 @@ ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManife
 	android:name
 		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:45:19-40
 activity#com.yackeen.ta3allam.Register
-ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:48:9-56:20
+ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:46:9-54:20
 	android:label
-		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:50:13-60
+		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:48:13-60
 	android:theme
-		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:52:13-56
+		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:50:13-56
 	android:parentActivityName
-		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:51:13-48
+		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:49:13-48
 	android:name
-		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:49:13-37
+		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:47:13-37
 meta-data#android.support.PARENT_ACTIVITY
-ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:53:13-55:62
+ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:51:13-53:62
 	android:name
-		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:54:17-63
+		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:52:17-63
 	android:value
-		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:55:17-59
+		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:53:17-59
 activity#com.yackeen.ta3allam.ForgetPassword
-ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:57:9-65:20
+ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:55:9-63:20
 	android:label
-		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:59:13-67
+		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:57:13-67
 	android:theme
-		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:61:13-56
+		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:59:13-56
 	android:parentActivityName
-		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:60:13-48
+		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:58:13-48
 	android:name
-		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:58:13-43
+		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:56:13-43
 activity#com.yackeen.ta3allam.FBLogin
-ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:66:9-54
+ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:64:9-45
 	android:name
-		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:66:19-42
-meta-data#com.google.android.gms.version
-ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:68:9-70:69
-MERGED from [com.google.android.gms:play-services-basement:8.1.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/AndroidManifest.xml:21:9-23:69
+		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:64:19-42
+activity#com.yackeen.ta3allam.ForgetPassword2
+ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:65:9-73:20
+	android:label
+		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:67:13-68
+	android:theme
+		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:69:13-56
+	android:parentActivityName
+		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:68:13-57
 	android:name
-		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:69:13-58
-	android:value
-		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:70:13-66
+		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:66:13-44
 uses-sdk
 INJECTED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/AndroidManifest.xml:21:5-23:78
@@ -197,3 +200,9 @@ MERGED from [com.android.support:support-v4:23.4.0] /home/devar/AndroidStudioPro
 		INJECTED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/AndroidManifest.xml:23:9-75
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:8.1.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/AndroidManifest.xml:21:9-23:69
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:8.1.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/AndroidManifest.xml:22:13-58
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:8.1.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/AndroidManifest.xml:23:13-66
