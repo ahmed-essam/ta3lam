@@ -4,44 +4,45 @@
     api-level="23"
     density="xxhdpi"
     format="7"
-    timestamp="4112835502296"
-    token="7012525953764707690"
-    verifier="CLASS_ADDED" >
+    timestamp="8786898884643"
+    token="7012525953764707690" >
 
     <task
         name="javac"
-        duration="238" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="36" />
+        duration="0" />
     <task
         name="verifier"
-        duration="1" />
+        duration="0" />
 
     <artifact
         location="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/resources-debug.ap_"
         type="RESOURCES" />
-    <artifact
-        location="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex"
-        type="DEX" />
 
-    <build timestamp="3875075479239" >
+    <build timestamp="6372696628863" >
         <artifact
             location="/home/devar/AndroidStudioProjects/Ta3allam/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
-    <build
-        timestamp="4112835502296"
-        verifier="CLASS_ADDED" >
+    <build timestamp="8391496759371" >
         <artifact
-            location="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/resources-debug.ap_"
-            type="RESOURCES" />
+            location="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"
+            type="DEX" />
+    </build>
+    <build timestamp="8685481746550" >
         <artifact
             location="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex"
             type="DEX" />
+    </build>
+    <build timestamp="8786898884643" >
+        <artifact
+            location="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/resources-debug.ap_"
+            type="RESOURCES" />
     </build>
 
 </instant-run>

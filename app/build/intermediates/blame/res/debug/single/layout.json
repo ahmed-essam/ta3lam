@@ -1,7 +1,7 @@
 [
     {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout/com_facebook_device_auth_dialog_fragment.xml",
-        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.0/res/layout/com_facebook_device_auth_dialog_fragment.xml"
+        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/com_facebook_device_auth_dialog_fragment.xml"
     },
     {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout/design_navigation_item_separator.xml",
@@ -9,7 +9,7 @@
     },
     {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout/messenger_button_send_blue_small.xml",
-        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.0/res/layout/messenger_button_send_blue_small.xml"
+        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/messenger_button_send_blue_small.xml"
     },
     {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
@@ -25,11 +25,11 @@
     },
     {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout/messenger_button_send_white_small.xml",
-        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.0/res/layout/messenger_button_send_white_small.xml"
+        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/messenger_button_send_white_small.xml"
     },
     {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout/messenger_button_send_blue_large.xml",
-        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.0/res/layout/messenger_button_send_blue_large.xml"
+        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/messenger_button_send_blue_large.xml"
     },
     {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
@@ -45,7 +45,7 @@
     },
     {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout/com_facebook_tooltip_bubble.xml",
-        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.0/res/layout/com_facebook_tooltip_bubble.xml"
+        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/com_facebook_tooltip_bubble.xml"
     },
     {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout/notification_template_big_media.xml",
@@ -117,7 +117,7 @@
     },
     {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout/messenger_button_send_blue_round.xml",
-        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.0/res/layout/messenger_button_send_blue_round.xml"
+        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/messenger_button_send_blue_round.xml"
     },
     {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout/design_navigation_item.xml",
@@ -152,12 +152,12 @@
         "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/layout/abc_action_menu_layout.xml"
     },
     {
-        "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout/messenger_button_send_white_large.xml",
-        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.0/res/layout/messenger_button_send_white_large.xml"
+        "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout/com_facebook_activity_layout.xml",
+        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/com_facebook_activity_layout.xml"
     },
     {
-        "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout/com_facebook_activity_layout.xml",
-        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.0/res/layout/com_facebook_activity_layout.xml"
+        "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout/messenger_button_send_white_large.xml",
+        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/messenger_button_send_white_large.xml"
     },
     {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout/abc_select_dialog_material.xml",
@@ -169,7 +169,7 @@
     },
     {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout/messenger_button_send_white_round.xml",
-        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.0/res/layout/messenger_button_send_white_round.xml"
+        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/messenger_button_send_white_round.xml"
     },
     {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml",
@@ -233,6 +233,6 @@
     },
     {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout/com_facebook_login_fragment.xml",
-        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.0/res/layout/com_facebook_login_fragment.xml"
+        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/com_facebook_login_fragment.xml"
     }
 ]

@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:2:1-76:12
+ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:2:1-89:12
 	xmlns:android
 		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:2:11-69
 	package
@@ -18,7 +18,7 @@ ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManife
 	android:name
 		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:5:22-64
 application
-ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:7:5-74:19
+ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:7:5-87:19
 MERGED from [com.android.support:appcompat-v7:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:animated-vector-drawable:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/AndroidManifest.xml:7:5-20
 MERGED from [com.android.support:support-vector-drawable:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/AndroidManifest.xml:7:5-20
@@ -38,13 +38,11 @@ MERGED from [com.android.support:support-vector-drawable:23.4.0] /home/devar/And
 MERGED from [com.android.support:support-v4:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:22:5-20
 MERGED from [com.mcxiaoke.volley:library-aar:1.0.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.mcxiaoke.volley/library-aar/1.0.0/AndroidManifest.xml:5:5-19
-MERGED from [com.facebook.android:facebook-android-sdk:4.14.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.0/AndroidManifest.xml:28:5-37:19
-MERGED from [com.android.support:cardview-v7:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.4.0/AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-v4:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:22:5-20
+MERGED from [com.facebook.android:facebook-android-sdk:4.14.1] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/AndroidManifest.xml:28:5-37:19
 MERGED from [com.android.support:customtabs:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/customtabs/23.4.0/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-appindexing:8.1.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/8.1.0/AndroidManifest.xml:19:5-20
-MERGED from [com.google.android.gms:play-services-basement:8.1.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/AndroidManifest.xml:20:5-24:19
+MERGED from [com.android.support:support-v4:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:cardview-v7:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.4.0/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:22:5-20
 	android:supportsRtl
 		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:11:9-35
@@ -64,7 +62,7 @@ ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManife
 		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:15:13-52
 activity#com.facebook.FacebookActivity
 ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:17:9-21:75
-MERGED from [com.facebook.android:facebook-android-sdk:4.14.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.0/AndroidManifest.xml:29:9-32:75
+MERGED from [com.facebook.android:facebook-android-sdk:4.14.1] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/AndroidManifest.xml:29:9-32:75
 	android:label
 		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:20:13-45
 	android:configChanges
@@ -75,7 +73,7 @@ MERGED from [com.facebook.android:facebook-android-sdk:4.14.0] /home/devar/Andro
 		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:18:13-57
 activity#com.facebook.CustomTabActivity
 ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:22:9-33:20
-MERGED from [com.facebook.android:facebook-android-sdk:4.14.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.0/AndroidManifest.xml:33:9-36:20
+MERGED from [com.facebook.android:facebook-android-sdk:4.14.1] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/AndroidManifest.xml:33:9-36:20
 	android:exported
 		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:24:13-36
 	android:name
@@ -162,6 +160,24 @@ ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManife
 		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:68:13-57
 	android:name
 		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:66:13-44
+activity#com.yackeen.ta3allam.FirstLogin
+ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:74:9-77:59
+	android:label
+		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:76:13-63
+	android:theme
+		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:77:13-56
+	android:name
+		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:75:13-39
+activity#com.yackeen.ta3allam.FirstLoign2
+ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:78:9-86:20
+	android:label
+		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:80:13-64
+	android:theme
+		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:82:13-56
+	android:parentActivityName
+		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:81:13-53
+	android:name
+		ADDED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml:79:13-40
 uses-sdk
 INJECTED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/AndroidManifest.xml:21:5-23:78
@@ -184,13 +200,12 @@ MERGED from [com.android.support:support-vector-drawable:23.4.0] /home/devar/And
 MERGED from [com.android.support:support-v4:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-v4:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:20:5-43
 MERGED from [com.mcxiaoke.volley:library-aar:1.0.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.mcxiaoke.volley/library-aar/1.0.0/AndroidManifest.xml:3:5-72
-MERGED from [com.facebook.android:facebook-android-sdk:4.14.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.0/AndroidManifest.xml:24:5-26:41
-MERGED from [com.android.support:cardview-v7:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.4.0/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:support-v4:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:20:5-43
+MERGED from [com.facebook.android:facebook-android-sdk:4.14.1] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/AndroidManifest.xml:24:5-26:41
 MERGED from [com.android.support:customtabs:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/customtabs/23.4.0/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:20:5-43
-MERGED from [com.google.android.gms:play-services-appindexing:8.1.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/8.1.0/AndroidManifest.xml:18:5-42
-MERGED from [com.google.android.gms:play-services-basement:8.1.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:cardview-v7:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.4.0/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-v4:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:20:5-43
 	android:targetSdkVersion
 		INJECTED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml
@@ -200,9 +215,3 @@ MERGED from [com.android.support:support-v4:23.4.0] /home/devar/AndroidStudioPro
 		INJECTED from /home/devar/AndroidStudioProjects/Ta3allam/app/src/main/AndroidManifest.xml
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:23.4.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/AndroidManifest.xml:23:9-75
-meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:8.1.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/AndroidManifest.xml:21:9-23:69
-	android:name
-		ADDED from [com.google.android.gms:play-services-basement:8.1.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/AndroidManifest.xml:22:13-58
-	android:value
-		ADDED from [com.google.android.gms:play-services-basement:8.1.0] /home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/AndroidManifest.xml:23:13-66

@@ -71,6 +71,19 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.yackeen.ta3allam.ForgetPassword" />
         </activity>
+        <activity
+            android:name=".FirstLogin"
+            android:label="@string/title_activity_first_login"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".FirstLoign2"
+            android:label="@string/title_activity_first_loign2"
+            android:parentActivityName=".FirstLogin"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.yackeen.ta3allam.FirstLogin" />
+        </activity>
     </application>
 
 </manifest>

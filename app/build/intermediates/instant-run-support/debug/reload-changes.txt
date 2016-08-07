@@ -1,2 +1,0 @@
-CHANGED,/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/yackeen/ta3allam/ForgetPassword$override.class
-CHANGED,/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/android/tools/fd/runtime/AppPatchesLoaderImpl.class

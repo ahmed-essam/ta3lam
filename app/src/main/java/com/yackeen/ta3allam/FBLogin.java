@@ -1,10 +1,9 @@
 package com.yackeen.ta3allam;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
+
 import android.content.res.Configuration;
-import android.drm.DrmStore;
-import android.net.Uri;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -19,9 +18,7 @@ import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
+
 
 import java.util.Arrays;
 import java.util.Locale;
@@ -48,8 +45,8 @@ public class FBLogin extends AppCompatActivity {
         AppEventsLogger.activateApp(getApplication());
 
         loginButton = (LoginButton) findViewById(R.id.fblogin);
-        loginButton.setReadPermissions("public_profile");
-        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile"));
+        loginButton.setReadPermissions(Arrays.asList("public_profile","email"));
+        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile","email"));
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
@@ -62,8 +59,9 @@ public class FBLogin extends AppCompatActivity {
                     }
                 };
                 profileTracker.startTracking();
+
                 profile = Profile.getCurrentProfile();
-                Toast.makeText(getApplicationContext(), "Hello " + profile.getName(), Toast.LENGTH_LONG).show();
+                Toast.makeText(FBLogin.this,profile.getId()+"",Toast.LENGTH_LONG).show();
             }
 
             @Override
