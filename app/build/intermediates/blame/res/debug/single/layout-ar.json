@@ -8,12 +8,16 @@
         "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/src/main/res/layout-ar/activity_launch_screen.xml"
     },
     {
-        "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout-ar/activity_login.xml",
-        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/src/main/res/layout-ar/activity_login.xml"
-    },
-    {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout-ar/content_forget_password.xml",
         "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/src/main/res/layout-ar/content_forget_password.xml"
+    },
+    {
+        "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout-ar/activity_forget_password.xml",
+        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/src/main/res/layout-ar/activity_forget_password.xml"
+    },
+    {
+        "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout-ar/activity_login.xml",
+        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/src/main/res/layout-ar/activity_login.xml"
     },
     {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout-ar/activity_register.xml",
@@ -24,12 +28,16 @@
         "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/src/main/res/layout-ar/content_forget_password2.xml"
     },
     {
-        "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout-ar/activity_forget_password.xml",
-        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/src/main/res/layout-ar/activity_forget_password.xml"
-    },
-    {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout-ar/activity_fblogin.xml",
         "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/src/main/res/layout-ar/activity_fblogin.xml"
+    },
+    {
+        "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout-ar/fragment_profile.xml",
+        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/src/main/res/layout-ar/fragment_profile.xml"
+    },
+    {
+        "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout-ar/fragment_notifications.xml",
+        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/src/main/res/layout-ar/fragment_notifications.xml"
     },
     {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout-ar/content_first_login.xml",
@@ -48,8 +56,20 @@
         "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/src/main/res/layout-ar/content_register.xml"
     },
     {
+        "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout-ar/activity_home.xml",
+        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/src/main/res/layout-ar/activity_home.xml"
+    },
+    {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout-ar/book_list_item.xml",
         "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/src/main/res/layout-ar/book_list_item.xml"
+    },
+    {
+        "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout-ar/fragment_news_feed.xml",
+        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/src/main/res/layout-ar/fragment_news_feed.xml"
+    },
+    {
+        "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout-ar/fragment_tracks.xml",
+        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/src/main/res/layout-ar/fragment_tracks.xml"
     },
     {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout-ar/category_list_item.xml",

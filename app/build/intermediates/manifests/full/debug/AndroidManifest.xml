@@ -38,7 +38,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.yackeen.ta3allam.LaunchScreen"
+            android:name="com.yackeen.ta3allam.Activity.LaunchScreen"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/FullscreenTheme" >
@@ -48,48 +48,51 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.yackeen.ta3allam.Login" />
+        <activity android:name="com.yackeen.ta3allam.Activity.Login" />
         <activity
-            android:name="com.yackeen.ta3allam.Register"
+            android:name="com.yackeen.ta3allam.Activity.Register"
             android:label="@string/title_activity_register"
-            android:parentActivityName="com.yackeen.ta3allam.Login"
+            android:parentActivityName="com.yackeen.ta3allam.Activity.Login"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.yackeen.ta3allam.Login" />
+                android:value=".Activity.Login" />
         </activity>
         <activity
-            android:name="com.yackeen.ta3allam.ForgetPassword"
+            android:name="com.yackeen.ta3allam.Activity.ForgetPassword"
             android:label="@string/title_activity_forget_password"
-            android:parentActivityName="com.yackeen.ta3allam.Login"
+            android:parentActivityName="com.yackeen.ta3allam.Activity.Login"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.yackeen.ta3allam.Login" />
+                android:value=".Activity.Login" />
         </activity>
-        <activity android:name="com.yackeen.ta3allam.FBLogin" />
+        <activity android:name="com.yackeen.ta3allam.Activity.FBLogin" />
         <activity
-            android:name="com.yackeen.ta3allam.ForgetPassword2"
+            android:name="com.yackeen.ta3allam.Activity.ForgetPassword2"
             android:label="@string/title_activity_forget_password2"
-            android:parentActivityName="com.yackeen.ta3allam.ForgetPassword"
+            android:parentActivityName="com.yackeen.ta3allam.Activity.ForgetPassword"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.yackeen.ta3allam.ForgetPassword" />
+                android:value=".Activity.ForgetPassword" />
         </activity>
         <activity
-            android:name="com.yackeen.ta3allam.FirstLogin"
+            android:name="com.yackeen.ta3allam.Activity.FirstLogin"
             android:label="@string/title_activity_first_login"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.yackeen.ta3allam.FirstLoign2"
+            android:name="com.yackeen.ta3allam.Activity.FirstLoign2"
             android:label="@string/title_activity_first_loign2"
-            android:parentActivityName="com.yackeen.ta3allam.FirstLogin"
+            android:parentActivityName="com.yackeen.ta3allam.Activity.FirstLogin"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.yackeen.ta3allam.FirstLogin" />
+                android:value=".Activity.FirstLogin" />
         </activity>
+        <activity
+            android:name="com.yackeen.ta3allam.Activity.Home"
+            android:label="" />
     </application>
 
 </manifest>
