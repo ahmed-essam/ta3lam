@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 
 import com.yackeen.ta3allam.R;
-import com.yackeen.ta3allam.Capsule.category;
+import com.yackeen.ta3allam.Capsule.Category;
 
 import java.util.List;
 
@@ -35,10 +35,10 @@ public class FirstLoginAdapter extends RecyclerView.Adapter<FirstLoginAdapter.Vi
             questionTextView = (TextView) itemView.findViewById(R.id.question);
         }
     }
-    private List<category> mCategory;
+    private List<Category> mCategory;
     private Context mContext;
 
-    public FirstLoginAdapter(Context context, List<category> categories)
+    public FirstLoginAdapter(Context context, List<Category> categories)
     {
         mContext=context;
         mCategory=categories;
@@ -59,7 +59,7 @@ public class FirstLoginAdapter extends RecyclerView.Adapter<FirstLoginAdapter.Vi
     }
     @Override
     public void onBindViewHolder(FirstLoginAdapter.ViewHolder viewHolder, int position) {
-        category category = mCategory.get(position);
+        Category category = mCategory.get(position);
 
         TextView name = viewHolder.nameTextView;
         name.setText(category.getName());

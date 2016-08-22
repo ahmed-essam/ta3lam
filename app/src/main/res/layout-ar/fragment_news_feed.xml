@@ -4,10 +4,11 @@
     android:layout_height="match_parent"
     tools:context="com.yackeen.ta3allam.Fragment.NewsFeed">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/news"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:scrollbars="vertical"
+        />
 
 </FrameLayout>

@@ -4,6 +4,10 @@
         "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/src/main/res/layout-ar/content_first_loign2.xml"
     },
     {
+        "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout-ar/news_card_view.xml",
+        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/src/main/res/layout-ar/news_card_view.xml"
+    },
+    {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/layout-ar/activity_launch_screen.xml",
         "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/src/main/res/layout-ar/activity_launch_screen.xml"
     },

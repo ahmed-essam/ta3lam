@@ -4,69 +4,35 @@
     api-level="23"
     density="xxhdpi"
     format="7"
-    timestamp="5170634008058"
-    token="7012525953764707690"
-    verifier="COMPATIBLE" >
+    timestamp="1666028138185"
+    token="7012525953764707690" >
 
     <task
         name="javac"
-        duration="121" />
+        duration="0" />
     <task
         name="instant-run-dex"
-        duration="436" />
+        duration="0" />
     <task
         name="instant-run-transform"
-        duration="27" />
+        duration="0" />
     <task
         name="verifier"
-        duration="1" />
+        duration="0" />
 
     <artifact
-        location="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/reload-dex/debug/classes.dex"
-        type="RELOAD_DEX" />
+        location="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/resources-debug.ap_"
+        type="RESOURCES" />
 
-    <build timestamp="1183744761504" >
+    <build timestamp="569472731704" >
         <artifact
             location="/home/devar/AndroidStudioProjects/Ta3allam/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
-    <build timestamp="3950432077098" >
+    <build timestamp="1666028138185" >
         <artifact
             location="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/resources-debug.ap_"
             type="RESOURCES" />
-        <artifact
-            location="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"
-            type="DEX" />
-        <artifact
-            location="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_5/classes.dex"
-            type="DEX" />
-        <artifact
-            location="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_6/classes.dex"
-            type="DEX" />
-        <artifact
-            location="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex"
-            type="DEX" />
-    </build>
-    <build
-        timestamp="5078948205101"
-        verifier="IMPLEMENTED_INTERFACES_CHANGE" >
-        <artifact
-            location="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_1/classes.dex"
-            type="DEX" />
-    </build>
-    <build
-        timestamp="5145932742308"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/builds/debug/5145932742308/classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="5170634008058"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/reload-dex/debug/classes.dex"
-            type="RELOAD_DEX" />
     </build>
 
 </instant-run>

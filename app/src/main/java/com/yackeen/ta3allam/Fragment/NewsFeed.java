@@ -4,11 +4,18 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.yackeen.ta3allam.Adapter.NewsAdapter;
+import com.yackeen.ta3allam.Capsule.News;
 import com.yackeen.ta3allam.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,6 +35,10 @@ public class NewsFeed extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private static RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private static RecyclerView recyclerView;
+    private static ArrayList<News> news;
     private OnFragmentInteractionListener mListener;
 
     public NewsFeed() {
@@ -65,7 +76,24 @@ public class NewsFeed extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_news_feed, container, false);
+        View view=inflater.inflate(R.layout.fragment_news_feed, container, false);
+        recyclerView = (RecyclerView) view.findViewById(R.id.news);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        news = new ArrayList<News>();
+        News news1=new News();
+        news1.setComment(20);
+        news1.setDescription("هذا الموضوع يتكلم عن مش عارف ايه فى نقطة مش عارف ايه وهذا يا حضرات ياخذ مننا وقت كبير للتدبر");
+        news1.setLike(150);
+        news1.setName("الامام/احمد الطيب");
+        news1.setShare(20);
+        news1.setTime("منذ 5 دقائق");
+        news.add(news1);
+        adapter = new NewsAdapter(getContext(),news);
+        recyclerView.setAdapter(adapter);
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

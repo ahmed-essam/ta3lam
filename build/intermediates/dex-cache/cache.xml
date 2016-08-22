@@ -1,2 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.4.0_d3391eff8b217787cab9cf01e57b44acc78d6b7f/classes.dex" />
+    </item>
+    <item
+        jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.mcxiaoke.volley/library-aar/1.0.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="e40b9a81989bd4a846018551c280f8c4d837bf2e">
+        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.mcxiaoke.volley-library-aar-1.0.0_00ed66f4cd268a1a0f9464c007984a8fd301f644/classes.dex" />
+    </item>
+    <item
+        jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="6564370eb4b844c9f03a99bb314b99c07325f7d7">
+        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_2bb0dc3c965e960a31bc98e0c866f29ec509378f/classes.dex" />
+    </item>
+    <item
+        jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="42a3ae86dd3ae2876d3e95c2e6e104ae57a50a65">
+        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.facebook.android-facebook-android-sdk-4.14.1_0b7456feede3a4f8b50802ae5bf7efcc21f1789a/classes.dex" />
+    </item>
+    <item
+        jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
+        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-23.4.0_c2732d77b0b489f4ceb7e03401b4525571881cd9/classes.dex" />
+    </item>
+    <item
+        jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="9999e8f5294a84d8f378d80f362f61e89d8ccff8">
+        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_ec75f63e39a932fbc5fec63895d509eec12b0cba/classes.dex" />
+    </item>
+    <item
+        jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.4.0_5c40a7dd30795aeff0b17b5352cfff9f222d25e7/classes.dex" />
+    </item>
+    <item
+        jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.4.0_18ee04191c9a925d1735fcc606df09e204d3ba4d/classes.dex" />
+    </item>
+    <item
+        jar="/home/devar/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/bolts-tasks-1.4.0_768827593698550bc9c87a3f32635ff792d77748/classes.dex" />
+    </item>
+    <item
+        jar="/home/devar/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.4.0/f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2/picasso-2.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2">
+        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/picasso-2.4.0_780d0593b86e70809e3c23c5b35decc6b2d8511b/classes.dex" />
+    </item>
+    <item
+        jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.4.0_1d89106df865730d44bc42f2cd0dbaa5941489f1/classes.dex" />
+    </item>
+    <item
+        jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/customtabs/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="2d1eaa9e0b98f8fc4c2b989d9b30d4f1480648ac">
+        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-customtabs-23.4.0_8adca10611828c6a759f53b055f8ae535128caef/classes.dex" />
+    </item>
+    <item
+        jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="d9ecde39b460470e655de6e47c05573d2d5a8bfb">
+        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-cardview-v7-23.4.0_d0ac53f98837d702ffdcc601321bd124bf968691/classes.dex" />
+    </item>
+    <item
+        jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.4.0_3d158665fab89a8c92c84122b31459a325749184/classes.dex" />
+    </item>
+    <item
+        jar="/home/devar/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.4.0_c13b605e4ba28c2a118c503d19a43ff004f5b6a2/classes.dex" />
+    </item>
+    <item
+        jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.4.0_fea697651dc7da7cbc858983dccdd4f393371c3e/classes.dex" />
+    </item>
+    <item
+        jar="/home/devar/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.4.0/8ad21bf21784dacce5f2043afb97218cc377e835/bolts-applinks-1.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/bolts-applinks-1.4.0_954441f265655d780a52b5fb0a72d68b04863bfd/classes.dex" />
+    </item>
+
+</items>

@@ -30,10 +30,10 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
     ViewPager viewPager;
     TabLayout tabLayout;
     private int[] tabIcons = {
-           R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher
+           R.drawable.profile,
+            R.drawable.notifications,
+            R.drawable.tracks,
+            R.drawable.home
     };
     public void onFragmentInteraction(Uri uri)
     {
@@ -66,13 +66,14 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
         setupTabIcons();
+        viewPager.setCurrentItem(3);
     }
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new NewsFeed(), "ONE");
-        adapter.addFragment(new Tracks(), "TWO");
-        adapter.addFragment(new Notifications(), "THREE");
-        adapter.addFragment(new Profile(),"FOUR");
+        adapter.addFragment(new Profile());
+        adapter.addFragment(new Notifications());
+        adapter.addFragment(new Tracks());
+        adapter.addFragment(new NewsFeed());
         viewPager.setAdapter(adapter);
     }
     private void setupTabIcons() {
@@ -85,7 +86,6 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
 
         public ViewPagerAdapter(FragmentManager manager) {
             super(manager);
@@ -101,14 +101,9 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
             return mFragmentList.size();
         }
 
-        public void addFragment(Fragment fragment, String title) {
+        public void addFragment(Fragment fragment) {
             mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
         }
 
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return null;
-        }
     }
 }

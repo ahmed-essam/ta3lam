@@ -7,7 +7,14 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/login_bg"
     tools:context=".Activity.Login">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_green"
+        android:layout_above="@+id/email"
+        android:layout_centerHorizontal="true" />
     <EditText
         android:id="@+id/email"
         android:layout_width="match_parent"
@@ -16,8 +23,8 @@
         android:hint="البريد الالكترونى"
         android:drawableRight="@android:drawable/sym_action_email"
         android:layout_margin="12dp"
-        android:backgroundTint="@android:color/holo_green_dark"
-        android:textColorHint="@android:color/holo_green_dark"
+        android:backgroundTint="#29B973"
+        android:textColorHint="#29B973"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/password" />
@@ -30,15 +37,15 @@
         android:hint="كلمة المرور"
         android:drawableRight="@android:drawable/ic_lock_idle_lock"
         android:layout_margin="12dp"
-        android:backgroundTint="@android:color/holo_green_dark"
-        android:textColorHint="@android:color/holo_green_dark"
+        android:backgroundTint="#29B973"
+        android:textColorHint="#29B973"
         />
     <TextView
         android:id="@+id/forgetpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="نسيت كلمة المرور؟"
-        android:textColor="@android:color/holo_green_dark"
+        android:textColor="#29B973"
         android:textStyle="bold"
         android:layout_alignParentLeft="true"
         android:layout_above="@+id/login"
@@ -62,7 +69,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_with_border_button"
         android:text="FACEBOOK"
-        android:textColor="@android:color/holo_green_dark"
+        android:textColor="#29B973"
         android:layout_margin="12dp"
         android:textStyle="bold"
         android:textSize="20sp"
@@ -77,7 +84,7 @@
     android:text="ليس لديك حساب؟ التسجيل الان"
     android:layout_alignParentBottom="true"
     android:layout_centerHorizontal="true"
-    android:textColor="@android:color/holo_green_dark"
+    android:textColor="#29B973"
     android:textStyle="bold"
     />
 </RelativeLayout>

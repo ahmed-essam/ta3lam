@@ -12,13 +12,13 @@ import android.widget.Button;
 
 import com.yackeen.ta3allam.Adapter.FirstLoginAdapter;
 import com.yackeen.ta3allam.R;
-import com.yackeen.ta3allam.Capsule.category;
+import com.yackeen.ta3allam.Capsule.Category;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
 public class FirstLogin extends AppCompatActivity {
-    ArrayList<category>categories;
+    ArrayList<Category>categories;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +45,7 @@ public class FirstLogin extends AppCompatActivity {
         RecyclerView rvCategories = (RecyclerView) findViewById(R.id.categories);
         rvCategories.setHasFixedSize(true);
         categories=new ArrayList<>();
-        category cat=new category();
+        Category cat=new Category();
         cat.setName("علوم شرعية");
         cat.setDescription("تحت الانشاء");
         cat.setLevel(1);
