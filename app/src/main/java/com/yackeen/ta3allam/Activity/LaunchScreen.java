@@ -85,6 +85,7 @@ public class LaunchScreen extends AppCompatActivity {
             public void run() {
                 Intent login=new Intent(LaunchScreen.this,Login.class);
                 startActivity(login);
+                finish();
             }
         },3000);
         delayedHide(100);

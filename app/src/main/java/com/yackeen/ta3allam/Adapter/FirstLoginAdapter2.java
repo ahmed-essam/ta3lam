@@ -1,6 +1,7 @@
 package com.yackeen.ta3allam.Adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +31,7 @@ public class FirstLoginAdapter2 extends RecyclerView.Adapter<FirstLoginAdapter2.
     }
     private List<Book> mBook;
     private Context mContext;
+    int selected_position = -1;
 
     public FirstLoginAdapter2(Context context, List<Book> books)
     {
@@ -51,8 +53,21 @@ public class FirstLoginAdapter2 extends RecyclerView.Adapter<FirstLoginAdapter2.
         return viewHolder;
     }
     @Override
-    public void onBindViewHolder(FirstLoginAdapter2.ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(FirstLoginAdapter2.ViewHolder viewHolder, final int position) {
         Book book = mBook.get(position);
+        if(selected_position == position) {
+            viewHolder.itemView.setBackgroundColor(0xFFF8AC46);
+        }else{
+            viewHolder.itemView.setBackgroundColor(Color.TRANSPARENT);
+        }
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                notifyItemChanged(selected_position);
+                selected_position = position;
+                notifyItemChanged(selected_position);
+            }
+        });
 
         TextView name = viewHolder.nameTextView;
         name.setText(book.getName());

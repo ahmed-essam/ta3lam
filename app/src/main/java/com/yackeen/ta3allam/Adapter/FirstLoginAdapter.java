@@ -1,6 +1,7 @@
 package com.yackeen.ta3allam.Adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +19,6 @@ import java.util.List;
  */
 public class FirstLoginAdapter extends RecyclerView.Adapter<FirstLoginAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
-
         public TextView nameTextView;
         public TextView descriptionTextView;
         public TextView levelTextView;
@@ -37,6 +37,7 @@ public class FirstLoginAdapter extends RecyclerView.Adapter<FirstLoginAdapter.Vi
     }
     private List<Category> mCategory;
     private Context mContext;
+    int selected_position = -1;
 
     public FirstLoginAdapter(Context context, List<Category> categories)
     {
@@ -58,9 +59,21 @@ public class FirstLoginAdapter extends RecyclerView.Adapter<FirstLoginAdapter.Vi
         return viewHolder;
     }
     @Override
-    public void onBindViewHolder(FirstLoginAdapter.ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(FirstLoginAdapter.ViewHolder viewHolder, final int position) {
         Category category = mCategory.get(position);
-
+        if(selected_position == position) {
+            viewHolder.itemView.setBackgroundColor(0xFFF8AC46);
+        }else{
+            viewHolder.itemView.setBackgroundColor(Color.TRANSPARENT);
+        }
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                notifyItemChanged(selected_position);
+                selected_position = position;
+                notifyItemChanged(selected_position);
+            }
+        });
         TextView name = viewHolder.nameTextView;
         name.setText(category.getName());
         TextView description = viewHolder.descriptionTextView;

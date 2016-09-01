@@ -15,6 +15,8 @@ import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.yackeen.ta3allam.Fragment.NewsFeed;
 import com.yackeen.ta3allam.Fragment.Notifications;
@@ -38,15 +40,6 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
     public void onFragmentInteraction(Uri uri)
     {
 
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.menu_home, menu);
-        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
-        SearchManager searchManager = (SearchManager) getSystemService(SEARCH_SERVICE);
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        return true;
     }
 
     @Override

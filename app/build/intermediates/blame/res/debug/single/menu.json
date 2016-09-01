@@ -2,9 +2,5 @@
     {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/menu/menu_fblogin.xml",
         "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/src/main/res/menu/menu_fblogin.xml"
-    },
-    {
-        "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/menu/menu_home.xml",
-        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/src/main/res/menu/menu_home.xml"
     }
 ]

@@ -17,7 +17,7 @@
     },
     {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/color/com_facebook_button_text_color.xml",
-        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/color/com_facebook_button_text_color.xml"
+        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/color/com_facebook_button_text_color.xml"
     },
     {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_dark.xml",
@@ -41,6 +41,6 @@
     },
     {
         "merged": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/color/com_facebook_send_button_text_color.xml",
-        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/color/com_facebook_send_button_text_color.xml"
+        "source": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/color/com_facebook_send_button_text_color.xml"
     }
 ]

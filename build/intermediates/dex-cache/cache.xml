@@ -19,15 +19,15 @@
         jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         revision="23.0.3"
-        sha1="6564370eb4b844c9f03a99bb314b99c07325f7d7">
+        sha1="fb35f90b306ff60720b8a0d52b6a6808727c8303">
         <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_2bb0dc3c965e960a31bc98e0c866f29ec509378f/classes.dex" />
     </item>
     <item
-        jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/jars/classes.jar"
+        jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.3"
-        sha1="42a3ae86dd3ae2876d3e95c2e6e104ae57a50a65">
-        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.facebook.android-facebook-android-sdk-4.14.1_0b7456feede3a4f8b50802ae5bf7efcc21f1789a/classes.dex" />
+        sha1="2cccc95c145e5460f93f0faf4cbafe34325dd73a">
+        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_ec75f63e39a932fbc5fec63895d509eec12b0cba/classes.dex" />
     </item>
     <item
         jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/jars/classes.jar"
@@ -37,11 +37,11 @@
         <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-23.4.0_c2732d77b0b489f4ceb7e03401b4525571881cd9/classes.dex" />
     </item>
     <item
-        jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/jars/classes.jar"
         jumboMode="true"
         revision="23.0.3"
-        sha1="9999e8f5294a84d8f378d80f362f61e89d8ccff8">
-        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_ec75f63e39a932fbc5fec63895d509eec12b0cba/classes.dex" />
+        sha1="820605b42a2d3d9cb9e6c4cc7453fb4f802aedff">
+        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.facebook.android-facebook-android-sdk-4.15.0_fcaa215135d1b306a7917c913db901e98e6fd225/classes.dex" />
     </item>
     <item
         jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
@@ -49,6 +49,13 @@
         revision="23.0.3"
         sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
         <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.4.0_5c40a7dd30795aeff0b17b5352cfff9f222d25e7/classes.dex" />
+    </item>
+    <item
+        jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/2.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="a2af9c72ccaa4c5c049b500ca6ea664a4ce1f7d4">
+        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/de.hdodenhof-circleimageview-2.1.0_558430a6c2a5a9e9e1efc14dcfd32972de3e6eeb/classes.dex" />
     </item>
     <item
         jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
@@ -86,18 +93,18 @@
         <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-customtabs-23.4.0_8adca10611828c6a759f53b055f8ae535128caef/classes.dex" />
     </item>
     <item
-        jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="d9ecde39b460470e655de6e47c05573d2d5a8bfb">
-        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-cardview-v7-23.4.0_d0ac53f98837d702ffdcc601321bd124bf968691/classes.dex" />
-    </item>
-    <item
         jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
         jumboMode="true"
         revision="23.0.3"
         sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
         <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.4.0_3d158665fab89a8c92c84122b31459a325749184/classes.dex" />
+    </item>
+    <item
+        jar="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="d9ecde39b460470e655de6e47c05573d2d5a8bfb">
+        <dex dex="/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-cardview-v7-23.4.0_d0ac53f98837d702ffdcc601321bd124bf968691/classes.dex" />
     </item>
     <item
         jar="/home/devar/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"

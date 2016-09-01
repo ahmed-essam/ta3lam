@@ -63,6 +63,8 @@ public class FBLogin extends AppCompatActivity {
 
                 profile = Profile.getCurrentProfile();
                 Toast.makeText(FBLogin.this,profile.getId()+"",Toast.LENGTH_LONG).show();
+                Intent home=new Intent(FBLogin.this,Home.class);
+                startActivity(home);
             }
 
             @Override
