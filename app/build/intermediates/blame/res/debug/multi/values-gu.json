@@ -1,23 +1,23 @@
 [
     {
-        "outputFile": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/values-gu/values-gu.xml",
+        "outputFile": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-gu\\values-gu.xml",
         "map": [
             {
                 "to": {
                     "startLine": 2,
                     "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 167,
-                    "endOffset": 218
+                    "startOffset": 105,
+                    "endColumn": 150,
+                    "endOffset": 251
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-gu/values-gu.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-gu\\values-gu.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
                         "startOffset": 55,
-                        "endColumn": 167,
-                        "endOffset": 218
+                        "endColumn": 150,
+                        "endOffset": 201
                     }
                 }
             },
@@ -25,18 +25,18 @@
                 "to": {
                     "startLine": 3,
                     "startColumn": 4,
-                    "startOffset": 223,
+                    "startOffset": 256,
                     "endColumn": 110,
-                    "endOffset": 329
+                    "endOffset": 362
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-gu/values-gu.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-gu\\values-gu.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 223,
+                        "startOffset": 206,
                         "endColumn": 110,
-                        "endOffset": 329
+                        "endOffset": 312
                     }
                 }
             },
@@ -44,18 +44,18 @@
                 "to": {
                     "startLine": 4,
                     "startColumn": 4,
-                    "startOffset": 334,
+                    "startOffset": 367,
                     "endColumn": 120,
-                    "endOffset": 450
+                    "endOffset": 483
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-gu/values-gu.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-gu\\values-gu.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 334,
+                        "startOffset": 317,
                         "endColumn": 120,
-                        "endOffset": 450
+                        "endOffset": 433
                     }
                 }
             },
@@ -63,18 +63,18 @@
                 "to": {
                     "startLine": 5,
                     "startColumn": 4,
-                    "startOffset": 455,
+                    "startOffset": 488,
                     "endColumn": 92,
-                    "endOffset": 543
+                    "endOffset": 576
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-gu/values-gu.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-gu\\values-gu.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 455,
+                        "startOffset": 438,
                         "endColumn": 92,
-                        "endOffset": 543
+                        "endOffset": 526
                     }
                 }
             },
@@ -82,18 +82,18 @@
                 "to": {
                     "startLine": 6,
                     "startColumn": 4,
-                    "startOffset": 548,
+                    "startOffset": 581,
                     "endColumn": 70,
-                    "endOffset": 614
+                    "endOffset": 647
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-gu/values-gu.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-gu\\values-gu.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
-                        "startOffset": 548,
+                        "startOffset": 531,
                         "endColumn": 70,
-                        "endOffset": 614
+                        "endOffset": 597
                     }
                 }
             },
@@ -101,18 +101,18 @@
                 "to": {
                     "startLine": 7,
                     "startColumn": 4,
-                    "startOffset": 619,
+                    "startOffset": 652,
                     "endColumn": 71,
-                    "endOffset": 686
+                    "endOffset": 719
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-gu/values-gu.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-gu\\values-gu.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 619,
+                        "startOffset": 602,
                         "endColumn": 71,
-                        "endOffset": 686
+                        "endOffset": 669
                     }
                 }
             },
@@ -120,18 +120,18 @@
                 "to": {
                     "startLine": 8,
                     "startColumn": 4,
-                    "startOffset": 691,
-                    "endColumn": 69,
-                    "endOffset": 756
+                    "startOffset": 724,
+                    "endColumn": 67,
+                    "endOffset": 787
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-gu/values-gu.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-gu\\values-gu.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
-                        "startOffset": 691,
-                        "endColumn": 69,
-                        "endOffset": 756
+                        "startOffset": 674,
+                        "endColumn": 67,
+                        "endOffset": 737
                     }
                 }
             },
@@ -139,18 +139,18 @@
                 "to": {
                     "startLine": 9,
                     "startColumn": 4,
-                    "startOffset": 761,
+                    "startOffset": 792,
                     "endColumn": 71,
-                    "endOffset": 828
+                    "endOffset": 859
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-gu/values-gu.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-gu\\values-gu.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 761,
+                        "startOffset": 742,
                         "endColumn": 71,
-                        "endOffset": 828
+                        "endOffset": 809
                     }
                 }
             },
@@ -158,18 +158,18 @@
                 "to": {
                     "startLine": 10,
                     "startColumn": 4,
-                    "startOffset": 833,
+                    "startOffset": 864,
                     "endColumn": 75,
-                    "endOffset": 904
+                    "endOffset": 935
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-gu/values-gu.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-gu\\values-gu.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 833,
+                        "startOffset": 814,
                         "endColumn": 75,
-                        "endOffset": 904
+                        "endOffset": 885
                     }
                 }
             },
@@ -177,18 +177,18 @@
                 "to": {
                     "startLine": 11,
                     "startColumn": 4,
-                    "startOffset": 909,
-                    "endColumn": 92,
-                    "endOffset": 997
+                    "startOffset": 940,
+                    "endColumn": 97,
+                    "endOffset": 1033
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-gu/values-gu.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-gu\\values-gu.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 909,
-                        "endColumn": 92,
-                        "endOffset": 997
+                        "startOffset": 890,
+                        "endColumn": 97,
+                        "endOffset": 983
                     }
                 }
             },
@@ -196,18 +196,18 @@
                 "to": {
                     "startLine": 12,
                     "startColumn": 4,
-                    "startOffset": 1002,
-                    "endColumn": 77,
-                    "endOffset": 1075
+                    "startOffset": 1038,
+                    "endColumn": 92,
+                    "endOffset": 1126
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-gu/values-gu.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-gu\\values-gu.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
-                        "startOffset": 1002,
-                        "endColumn": 77,
-                        "endOffset": 1075
+                        "startOffset": 988,
+                        "endColumn": 92,
+                        "endOffset": 1076
                     }
                 }
             },
@@ -215,18 +215,18 @@
                 "to": {
                     "startLine": 13,
                     "startColumn": 4,
-                    "startOffset": 1080,
+                    "startOffset": 1131,
                     "endColumn": 77,
-                    "endOffset": 1153
+                    "endOffset": 1204
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-gu/values-gu.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-gu\\values-gu.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 1080,
+                        "startOffset": 1081,
                         "endColumn": 77,
-                        "endOffset": 1153
+                        "endOffset": 1154
                     }
                 }
             },
@@ -234,18 +234,18 @@
                 "to": {
                     "startLine": 14,
                     "startColumn": 4,
-                    "startOffset": 1158,
-                    "endColumn": 89,
-                    "endOffset": 1243
+                    "startOffset": 1209,
+                    "endColumn": 77,
+                    "endOffset": 1282
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-gu/values-gu.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-gu\\values-gu.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
-                        "startOffset": 1158,
-                        "endColumn": 89,
-                        "endOffset": 1243
+                        "startOffset": 1159,
+                        "endColumn": 77,
+                        "endOffset": 1232
                     }
                 }
             },
@@ -253,18 +253,18 @@
                 "to": {
                     "startLine": 15,
                     "startColumn": 4,
-                    "startOffset": 1248,
-                    "endColumn": 107,
-                    "endOffset": 1351
+                    "startOffset": 1287,
+                    "endColumn": 89,
+                    "endOffset": 1372
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-gu/values-gu.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-gu\\values-gu.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
-                        "startOffset": 1248,
-                        "endColumn": 107,
-                        "endOffset": 1351
+                        "startOffset": 1237,
+                        "endColumn": 89,
+                        "endOffset": 1322
                     }
                 }
             },
@@ -272,18 +272,18 @@
                 "to": {
                     "startLine": 16,
                     "startColumn": 4,
-                    "startOffset": 1356,
-                    "endColumn": 63,
-                    "endOffset": 1415
+                    "startOffset": 1377,
+                    "endColumn": 107,
+                    "endOffset": 1480
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-gu/values-gu.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-gu\\values-gu.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
-                        "startOffset": 1356,
-                        "endColumn": 63,
-                        "endOffset": 1415
+                        "startOffset": 1327,
+                        "endColumn": 107,
+                        "endOffset": 1430
                     }
                 }
             },
@@ -291,18 +291,18 @@
                 "to": {
                     "startLine": 17,
                     "startColumn": 4,
-                    "startOffset": 1420,
-                    "endColumn": 66,
-                    "endOffset": 1482
+                    "startOffset": 1485,
+                    "endColumn": 63,
+                    "endOffset": 1544
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-gu/values-gu.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-gu\\values-gu.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
-                        "startOffset": 1420,
-                        "endColumn": 66,
-                        "endOffset": 1482
+                        "startOffset": 1435,
+                        "endColumn": 63,
+                        "endOffset": 1494
                     }
                 }
             },
@@ -310,18 +310,18 @@
                 "to": {
                     "startLine": 18,
                     "startColumn": 4,
-                    "startOffset": 1487,
-                    "endColumn": 146,
-                    "endOffset": 1629
+                    "startOffset": 1549,
+                    "endColumn": 66,
+                    "endOffset": 1611
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-gu/values-gu.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-gu\\values-gu.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
-                        "startOffset": 1487,
-                        "endColumn": 146,
-                        "endOffset": 1629
+                        "startOffset": 1499,
+                        "endColumn": 66,
+                        "endOffset": 1561
                     }
                 }
             },
@@ -329,18 +329,132 @@
                 "to": {
                     "startLine": 19,
                     "startColumn": 4,
-                    "startOffset": 1634,
-                    "endColumn": 60,
-                    "endOffset": 1690
+                    "startOffset": 1616,
+                    "endColumn": 166,
+                    "endOffset": 1778
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-gu/values-gu.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-gu\\values-gu.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
-                        "startOffset": 1634,
+                        "startOffset": 1566,
+                        "endColumn": 166,
+                        "endOffset": 1728
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1783,
+                    "endColumn": 78,
+                    "endOffset": 1857
+                },
+                "from": {
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-gu\\values-gu.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1733,
+                        "endColumn": 78,
+                        "endOffset": 1807
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 1862,
+                    "endColumn": 81,
+                    "endOffset": 1939
+                },
+                "from": {
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-gu\\values-gu.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 1812,
+                        "endColumn": 81,
+                        "endOffset": 1889
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 1944,
+                    "endColumn": 90,
+                    "endOffset": 2030
+                },
+                "from": {
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-gu\\values-gu.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 1894,
+                        "endColumn": 90,
+                        "endOffset": 1980
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 2035,
+                    "endColumn": 140,
+                    "endOffset": 2171
+                },
+                "from": {
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-gu\\values-gu.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 1985,
+                        "endColumn": 140,
+                        "endOffset": 2121
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 2176,
+                    "endColumn": 205,
+                    "endOffset": 2377
+                },
+                "from": {
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\10.0.1\\res\\values-gu\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 285,
+                        "endColumn": 205,
+                        "endOffset": 490
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 2382,
+                    "endColumn": 60,
+                    "endOffset": 2438
+                },
+                "from": {
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-gu\\values-gu.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 2126,
                         "endColumn": 60,
-                        "endOffset": 1690
+                        "endOffset": 2182
                     }
                 }
             }

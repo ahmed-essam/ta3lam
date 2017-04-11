@@ -2,7 +2,7 @@
     <string name="app_name">تعلم</string>
     <string name="title_activity_forget_password">نسيت كلمة المرور</string>
     <string name="title_activity_register">التسجيل</string>
-    <string name="facebook_app_id">268998430147356</string>
+    <string name="facebook_app_id">1866883203550350</string>
     <string name="fb_login_protocol_scheme">268998430147356</string>
     <string name="title_activity_fblogin">FACEBOOK</string>
     <string name="action_settings">Settings</string>
@@ -12,4 +12,16 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email">البريد الالكترونى</string>
+    <string name="password">كلمة المرور</string>
+    <string name="forgot_password"><u>نسيت كلمة المرور؟</u></string>
+    <string name="sign_in"><b>تسجيل الدخول</b></string>
+    <string name="facebook">Facebook</string>
+    <string name="sign_up"><u>ليس لديك حساب؟ سجل الان</u></string>
+    <string name="name">الاسم</string>
+    <string name="register">تسجيل</string>
+    <string name="next">التالي</string>
+    <string name="finish">انتهاء</string>
+    <string name="network_error">خطأ بالشبكة</string>
+    <string name="signing_in">جاري تسجيل الدخول..</string>
 </resources>

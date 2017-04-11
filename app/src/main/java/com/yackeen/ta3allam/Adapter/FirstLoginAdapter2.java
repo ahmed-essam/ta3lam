@@ -1,4 +1,4 @@
-package com.yackeen.ta3allam.Adapter;
+package com.yackeen.ta3allam.adapter;
 
 import android.content.Context;
 import android.graphics.Color;

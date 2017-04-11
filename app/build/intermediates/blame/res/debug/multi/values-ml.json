@@ -1,23 +1,23 @@
 [
     {
-        "outputFile": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/res/merged/debug/values-ml/values-ml.xml",
+        "outputFile": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ml\\values-ml.xml",
         "map": [
             {
                 "to": {
                     "startLine": 2,
                     "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 188,
-                    "endOffset": 239
+                    "startOffset": 105,
+                    "endColumn": 140,
+                    "endOffset": 241
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-ml/values-ml.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-ml\\values-ml.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
                         "startOffset": 55,
-                        "endColumn": 188,
-                        "endOffset": 239
+                        "endColumn": 140,
+                        "endOffset": 191
                     }
                 }
             },
@@ -25,18 +25,18 @@
                 "to": {
                     "startLine": 3,
                     "startColumn": 4,
-                    "startOffset": 244,
+                    "startOffset": 246,
                     "endColumn": 125,
-                    "endOffset": 365
+                    "endOffset": 367
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-ml/values-ml.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-ml\\values-ml.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 244,
+                        "startOffset": 196,
                         "endColumn": 125,
-                        "endOffset": 365
+                        "endOffset": 317
                     }
                 }
             },
@@ -44,18 +44,18 @@
                 "to": {
                     "startLine": 4,
                     "startColumn": 4,
-                    "startOffset": 370,
+                    "startOffset": 372,
                     "endColumn": 118,
-                    "endOffset": 484
+                    "endOffset": 486
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-ml/values-ml.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-ml\\values-ml.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 370,
+                        "startOffset": 322,
                         "endColumn": 118,
-                        "endOffset": 484
+                        "endOffset": 436
                     }
                 }
             },
@@ -63,18 +63,18 @@
                 "to": {
                     "startLine": 5,
                     "startColumn": 4,
-                    "startOffset": 489,
+                    "startOffset": 491,
                     "endColumn": 94,
-                    "endOffset": 579
+                    "endOffset": 581
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-ml/values-ml.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-ml\\values-ml.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 489,
+                        "startOffset": 441,
                         "endColumn": 94,
-                        "endOffset": 579
+                        "endOffset": 531
                     }
                 }
             },
@@ -82,18 +82,18 @@
                 "to": {
                     "startLine": 6,
                     "startColumn": 4,
-                    "startOffset": 584,
+                    "startOffset": 586,
                     "endColumn": 73,
-                    "endOffset": 653
+                    "endOffset": 655
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-ml/values-ml.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-ml\\values-ml.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
-                        "startOffset": 584,
+                        "startOffset": 536,
                         "endColumn": 73,
-                        "endOffset": 653
+                        "endOffset": 605
                     }
                 }
             },
@@ -101,18 +101,18 @@
                 "to": {
                     "startLine": 7,
                     "startColumn": 4,
-                    "startOffset": 658,
+                    "startOffset": 660,
                     "endColumn": 76,
-                    "endOffset": 730
+                    "endOffset": 732
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-ml/values-ml.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-ml\\values-ml.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 658,
+                        "startOffset": 610,
                         "endColumn": 76,
-                        "endOffset": 730
+                        "endOffset": 682
                     }
                 }
             },
@@ -120,18 +120,18 @@
                 "to": {
                     "startLine": 8,
                     "startColumn": 4,
-                    "startOffset": 735,
-                    "endColumn": 66,
+                    "startOffset": 737,
+                    "endColumn": 64,
                     "endOffset": 797
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-ml/values-ml.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-ml\\values-ml.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
-                        "startOffset": 735,
-                        "endColumn": 66,
-                        "endOffset": 797
+                        "startOffset": 687,
+                        "endColumn": 64,
+                        "endOffset": 747
                     }
                 }
             },
@@ -144,13 +144,13 @@
                     "endOffset": 873
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-ml/values-ml.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-ml\\values-ml.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 802,
+                        "startOffset": 752,
                         "endColumn": 75,
-                        "endOffset": 873
+                        "endOffset": 823
                     }
                 }
             },
@@ -163,13 +163,13 @@
                     "endOffset": 952
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-ml/values-ml.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-ml\\values-ml.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 878,
+                        "startOffset": 828,
                         "endColumn": 78,
-                        "endOffset": 952
+                        "endOffset": 902
                     }
                 }
             },
@@ -178,17 +178,17 @@
                     "startLine": 11,
                     "startColumn": 4,
                     "startOffset": 957,
-                    "endColumn": 103,
-                    "endOffset": 1056
+                    "endColumn": 100,
+                    "endOffset": 1053
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-ml/values-ml.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-ml\\values-ml.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 957,
-                        "endColumn": 103,
-                        "endOffset": 1056
+                        "startOffset": 907,
+                        "endColumn": 100,
+                        "endOffset": 1003
                     }
                 }
             },
@@ -196,18 +196,18 @@
                 "to": {
                     "startLine": 12,
                     "startColumn": 4,
-                    "startOffset": 1061,
-                    "endColumn": 83,
-                    "endOffset": 1140
+                    "startOffset": 1058,
+                    "endColumn": 103,
+                    "endOffset": 1157
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-ml/values-ml.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-ml\\values-ml.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
-                        "startOffset": 1061,
-                        "endColumn": 83,
-                        "endOffset": 1140
+                        "startOffset": 1008,
+                        "endColumn": 103,
+                        "endOffset": 1107
                     }
                 }
             },
@@ -215,18 +215,18 @@
                 "to": {
                     "startLine": 13,
                     "startColumn": 4,
-                    "startOffset": 1145,
+                    "startOffset": 1162,
                     "endColumn": 83,
-                    "endOffset": 1224
+                    "endOffset": 1241
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-ml/values-ml.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-ml\\values-ml.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 1145,
+                        "startOffset": 1112,
                         "endColumn": 83,
-                        "endOffset": 1224
+                        "endOffset": 1191
                     }
                 }
             },
@@ -234,18 +234,18 @@
                 "to": {
                     "startLine": 14,
                     "startColumn": 4,
-                    "startOffset": 1229,
-                    "endColumn": 94,
-                    "endOffset": 1319
+                    "startOffset": 1246,
+                    "endColumn": 83,
+                    "endOffset": 1325
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-ml/values-ml.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-ml\\values-ml.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
-                        "startOffset": 1229,
-                        "endColumn": 94,
-                        "endOffset": 1319
+                        "startOffset": 1196,
+                        "endColumn": 83,
+                        "endOffset": 1275
                     }
                 }
             },
@@ -253,18 +253,18 @@
                 "to": {
                     "startLine": 15,
                     "startColumn": 4,
-                    "startOffset": 1324,
-                    "endColumn": 109,
-                    "endOffset": 1429
+                    "startOffset": 1330,
+                    "endColumn": 94,
+                    "endOffset": 1420
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-ml/values-ml.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-ml\\values-ml.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
-                        "startOffset": 1324,
-                        "endColumn": 109,
-                        "endOffset": 1429
+                        "startOffset": 1280,
+                        "endColumn": 94,
+                        "endOffset": 1370
                     }
                 }
             },
@@ -272,18 +272,18 @@
                 "to": {
                     "startLine": 16,
                     "startColumn": 4,
-                    "startOffset": 1434,
-                    "endColumn": 68,
-                    "endOffset": 1498
+                    "startOffset": 1425,
+                    "endColumn": 109,
+                    "endOffset": 1530
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-ml/values-ml.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-ml\\values-ml.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
-                        "startOffset": 1434,
-                        "endColumn": 68,
-                        "endOffset": 1498
+                        "startOffset": 1375,
+                        "endColumn": 109,
+                        "endOffset": 1480
                     }
                 }
             },
@@ -291,18 +291,18 @@
                 "to": {
                     "startLine": 17,
                     "startColumn": 4,
-                    "startOffset": 1503,
-                    "endColumn": 67,
-                    "endOffset": 1566
+                    "startOffset": 1535,
+                    "endColumn": 68,
+                    "endOffset": 1599
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-ml/values-ml.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-ml\\values-ml.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
-                        "startOffset": 1503,
-                        "endColumn": 67,
-                        "endOffset": 1566
+                        "startOffset": 1485,
+                        "endColumn": 68,
+                        "endOffset": 1549
                     }
                 }
             },
@@ -310,18 +310,18 @@
                 "to": {
                     "startLine": 18,
                     "startColumn": 4,
-                    "startOffset": 1571,
-                    "endColumn": 161,
-                    "endOffset": 1728
+                    "startOffset": 1604,
+                    "endColumn": 67,
+                    "endOffset": 1667
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-ml/values-ml.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-ml\\values-ml.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
-                        "startOffset": 1571,
-                        "endColumn": 161,
-                        "endOffset": 1728
+                        "startOffset": 1554,
+                        "endColumn": 67,
+                        "endOffset": 1617
                     }
                 }
             },
@@ -329,18 +329,132 @@
                 "to": {
                     "startLine": 19,
                     "startColumn": 4,
-                    "startOffset": 1733,
-                    "endColumn": 64,
-                    "endOffset": 1793
+                    "startOffset": 1672,
+                    "endColumn": 184,
+                    "endOffset": 1852
                 },
                 "from": {
-                    "file": "/home/devar/AndroidStudioProjects/Ta3allam/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.15.0/res/values-ml/values-ml.xml",
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-ml\\values-ml.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
-                        "startOffset": 1733,
+                        "startOffset": 1622,
+                        "endColumn": 184,
+                        "endOffset": 1802
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1857,
+                    "endColumn": 84,
+                    "endOffset": 1937
+                },
+                "from": {
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-ml\\values-ml.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1807,
+                        "endColumn": 84,
+                        "endOffset": 1887
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 1942,
+                    "endColumn": 86,
+                    "endOffset": 2024
+                },
+                "from": {
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-ml\\values-ml.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 1892,
+                        "endColumn": 86,
+                        "endOffset": 1974
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 2029,
+                    "endColumn": 92,
+                    "endOffset": 2117
+                },
+                "from": {
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-ml\\values-ml.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 1979,
+                        "endColumn": 92,
+                        "endOffset": 2067
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 2122,
+                    "endColumn": 156,
+                    "endOffset": 2274
+                },
+                "from": {
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-ml\\values-ml.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 2072,
+                        "endColumn": 156,
+                        "endOffset": 2224
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 2279,
+                    "endColumn": 218,
+                    "endOffset": 2493
+                },
+                "from": {
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\10.0.1\\res\\values-ml\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 285,
+                        "endColumn": 218,
+                        "endOffset": 503
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 2498,
+                    "endColumn": 64,
+                    "endOffset": 2558
+                },
+                "from": {
+                    "file": "D:\\Development\\Android\\Wrokspace\\Ta3lam_Code_Description\\ta3lam\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.21.1\\res\\values-ml\\values-ml.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 2229,
                         "endColumn": 64,
-                        "endOffset": 1793
+                        "endOffset": 2289
                     }
                 }
             }

@@ -1,4 +1,4 @@
-package com.yackeen.ta3allam.Adapter;
+package com.yackeen.ta3allam.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.yackeen.ta3allam.Capsule.News;
-import com.yackeen.ta3allam.Fragment.NewsFeed;
 import com.yackeen.ta3allam.R;
 
 import java.util.List;

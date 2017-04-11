@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/home/devar/AndroidStudioProjects/Ta3allam/app/src/main/jniLibs"/></dataSet><dataSet config="debug"><source path="/home/devar/AndroidStudioProjects/Ta3allam/app/src/debug/jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="D:\Development\Android\Wrokspace\Ta3lam_Code_Description\ta3lam\app\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="D:\Development\Android\Wrokspace\Ta3lam_Code_Description\ta3lam\app\src\debug\jniLibs"/></dataSet></merger>
