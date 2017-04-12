@@ -3,16 +3,16 @@ package com.yackeen.ta3allam.server.request;
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
 import com.android.volley.ParseError;
-import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.toolbox.HttpHeaderParser;
+import com.android.volley.toolbox.JsonRequest;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
-public class GsonPostRequest<T> extends Request<T> {
+public class GsonPostRequest<T> extends JsonRequest<T> {
 
     private final Gson gson = new Gson();
     private final Class<T> clazz;
@@ -27,7 +27,9 @@ public class GsonPostRequest<T> extends Request<T> {
                            Response.Listener<T> listener,
                            Response.ErrorListener errorListener) {
 
-        super(Method.POST, url, errorListener);
+//        super(Method.POST, url, errorListener);
+        super(Method.POST, url, new Gson().toJson(dataIn), listener,
+                errorListener);
         this.dataIn = dataIn;
         this.clazz = clazz;
         this.headers = headers;
@@ -44,10 +46,10 @@ public class GsonPostRequest<T> extends Request<T> {
         listener.onResponse(response);
     }
 
-    @Override
-    public byte[] getBody() throws AuthFailureError {
-        return gson.toJson(dataIn).getBytes();
-    }
+//    @Override
+//    public byte[] getBody() throws AuthFailureError {
+//        return gson.toJson(dataIn).getBytes();
+//    }
 
     @Override
     protected Response<T> parseNetworkResponse(NetworkResponse response) {
