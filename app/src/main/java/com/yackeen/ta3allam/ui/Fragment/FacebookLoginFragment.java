@@ -113,7 +113,7 @@ public class FacebookLoginFragment extends Fragment {
 
                 GraphRequest request = getJasonObjectCallBack(loginResult);
                 Bundle parameters = new Bundle();
-                parameters.putString("fields", "id,name,Email");
+                parameters.putString("fields", "id,name,email");
                 request.setParameters(parameters);
                 request.executeAsync();
             }
@@ -142,7 +142,7 @@ public class FacebookLoginFragment extends Fragment {
                     id = object.getString(ID);
                     name = object.getString(NAME);
                     email = object.getString(EMAIL);
-                    String deviceToken = UserHelper.getInstance().getDeviceToken();
+                    String deviceToken = UserHelper.getDeviceToken(getActivity());
 
                     LoginRequest body = new LoginRequest();
                     body.isByFacebook = true;
@@ -169,9 +169,13 @@ public class FacebookLoginFragment extends Fragment {
             @Override
             public void onResponse(LoginResponse response) {
 
-                Log.i(TAG, "onResponse: ".concat(response.toString()));
+                UserHelper.dismissProgressDialog();
 
-                UserHelper.getInstance().dismissProgressDialog();
+                Log.i(TAG, "onResponse:IsSuccess "    .concat(String.valueOf(response.isSuccessful)));
+                Log.i(TAG, "onResponse:isFirstTime: " .concat(String.valueOf(response.isFirstTime)));
+                Log.i(TAG, "onResponse:UserType "     .concat(String.valueOf(response.userType)));
+                Log.i(TAG, "onResponse:UserID "       .concat(response.userID));
+                Log.i(TAG, "onResponse:ErrorMessage " .concat(response.errorMessage));
 
                 if (response.isSuccessful) login(response.isFirstTime);
                 else registerNewUser();
@@ -185,7 +189,7 @@ public class FacebookLoginFragment extends Fragment {
             public void onErrorResponse(VolleyError error) {
                 Log.e(TAG, "onErrorResponse: ".concat(error.toString()));
 
-                UserHelper.getInstance().dismissProgressDialog();
+                UserHelper.dismissProgressDialog();
 
                 Toast.makeText(getActivity(), R.string.network_error, Toast.LENGTH_SHORT).show();
             }

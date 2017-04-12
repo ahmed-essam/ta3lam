@@ -84,11 +84,9 @@ public class AppController extends Application {
                 MessageDigest md = MessageDigest.getInstance("SHA");
                 md.update(signature.toByteArray());
                 Log.d("MyHashKeyIs:", Base64.encodeToString(md.digest(),Base64.DEFAULT));
-
             }
         }catch (PackageManager.NameNotFoundException | NoSuchAlgorithmException ignored){
 
         }
-
     }
 }

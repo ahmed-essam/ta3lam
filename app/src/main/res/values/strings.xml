@@ -24,4 +24,5 @@
     <string name="finish">انتهاء</string>
     <string name="network_error">خطأ بالشبكة</string>
     <string name="signing_in">جاري تسجيل الدخول..</string>
+    <string name="registering">جاري التسجيل..</string>
 </resources>

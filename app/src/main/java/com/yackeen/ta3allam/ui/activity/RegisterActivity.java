@@ -87,7 +87,8 @@ public class RegisterActivity extends AppCompatActivity {
                 && TextHelper.isEmail(emailEditText)
                 && TextHelper.isPassword(passwordEditText)){
 
-            if (!this.email.equals(email)) isByFacebook = false;
+            UserHelper.showProgressDialog(this, getString(R.string.register), getString(R.string.registering));
+            if (email != null && !email.equals(emailEditText.getText().toString())) isByFacebook = false;
 
             name = nameEditText.getText().toString().trim();
             email = emailEditText.getText().toString().trim();
@@ -143,6 +144,15 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onResponse(RegisterResponse response) {
 
+                UserHelper.dismissProgressDialog();
+
+                Log.i(TAG, "onResponse:IsSuccess "    .concat(String.valueOf(response.isSuccessful)));
+                Log.i(TAG, "onResponse:ErrorMessage " .concat(response.errorMessage));
+
+                if (response.isSuccessful){
+
+                }else Toast.makeText(RegisterActivity.this, response.errorMessage, Toast.LENGTH_SHORT).show();
+
             }
         };
     }
@@ -153,7 +163,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 Log.e(TAG, "onErrorResponse: ".concat(error.toString()));
 
-                UserHelper.getInstance().dismissProgressDialog();
+                UserHelper.dismissProgressDialog();
                 Toast.makeText(RegisterActivity.this, R.string.network_error, Toast.LENGTH_SHORT).show();
             }
         };

@@ -31,7 +31,7 @@ public class AuthFacebook {
 
         LoginManager.getInstance().registerCallback(mCallbackManager, loginResultFacebookCallback);
 
-        LoginManager.getInstance().logInWithReadPermissions(fragment, Arrays.asList("public_profile", "Email"));
+        LoginManager.getInstance().logInWithReadPermissions(fragment, Arrays.asList("public_profile", "email"));
     }
 
     /**

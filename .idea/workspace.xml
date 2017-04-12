@@ -16,14 +16,45 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="deviceToken" />
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="facebookFragment" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="717f29cb-8c34-44f5-8df9-e1f7b52cb003" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/yackeen/ta3allam/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/yackeen/ta3allam/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/yackeen/ta3allam/R$style.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/yackeen/ta3allam/R$style.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/yackeen/ta3allam/R$styleable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/yackeen/ta3allam/R$styleable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/yackeen/ta3allam/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/yackeen/ta3allam/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/color.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/color.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-hdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-hdpi-v4.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-mdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-mdpi-v4.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xhdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xhdpi-v4.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xxhdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xxhdpi-v4.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/application/AppController.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/application/AppController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/RegisterResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/RegisterResponse.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/provider/AuthFacebook.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/provider/AuthFacebook.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/FacebookLoginFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/FacebookLoginFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/NewPasswordFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/NewPasswordFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/LoginActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/RegisterActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/RegisterActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/util/Constants.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/util/Constants.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/util/UserHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/util/UserHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
     </list>
     <ignored path="ta3lam.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,47 +91,7 @@
     <favorites_list name="ta3lam" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/LoginActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="128" column="59" selection-start-line="128" selection-start-column="59" selection-end-line="128" selection-end-column="59" />
-              <folding>
-                <element signature="method#onCreate#0;class#LoginActivity#0" expanded="false" />
-                <element signature="method#initializeLayoutElements#0;class#LoginActivity#0" expanded="false" />
-                <element signature="method#initializeFacebookFragment#0;class#LoginActivity#0" expanded="false" />
-                <element signature="e#1585#1644#0" expanded="false" />
-                <element signature="e#1774#1832#0" expanded="false" />
-                <element signature="method#onLoginButtonClick#0;class#LoginActivity#0" expanded="false" />
-                <element signature="method#onTextSignUpClick#0;class#LoginActivity#0" expanded="false" />
-                <element signature="method#onTextForgotPasswordClick#0;class#LoginActivity#0" expanded="false" />
-                <element signature="method#getLoginListener#0;class#LoginActivity#0" expanded="false" />
-                <element signature="method#getLoginFailedListener#0;class#LoginActivity#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserHelper.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/util/UserHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
-              <folding>
-                <element signature="method#onTokenRefresh#0;class#UserHelper#0" expanded="false" />
-                <element signature="method#getDeviceToken#0;class#UserHelper#0" expanded="false" />
-                <element signature="method#getInstance#0;class#UserHelper#0" expanded="false" />
-                <element signature="method#isLoggedIn#0;class#UserHelper#0" expanded="false" />
-                <element signature="method#setLoggedIn#0;class#UserHelper#0" expanded="false" />
-                <element signature="method#showProgressDialog#0;class#UserHelper#0" expanded="false" />
-                <element signature="method#dismissProgressDialog#0;class#UserHelper#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -1979,9 +1970,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_facebook_login.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-v17/fragment_facebook_login.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/provider/AuthFacebook.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/VerifyPasswordRequestBody.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/ResetPasswordRequestBody.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/RegisterRequestBody.java" />
@@ -2008,11 +1997,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/util/LruBitmapCache.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/application/Ta3allamApplication.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/server/request/RequestInfo.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/util/Constants.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/server/request/GsonRequest.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/server/api/user/PasswordManagerAPI.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/NewPasswordResponse.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/RegisterResponse.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/VerificationCodeResponse.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/server/api/API.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
@@ -2022,14 +2009,18 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/server/api/user/LoginAPI.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/server/request/GsonPostRequest.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/ResetPasswordPhaseOneFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/RegisterRequest.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/server/api/UserAPI.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/LoginRequest.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/application/AppController.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/NewPasswordFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/RegisterResponse.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/util/UserHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/util/Constants.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/provider/AuthFacebook.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/server/api/UserAPI.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/RegisterRequest.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/RegisterActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/FacebookLoginFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/NewPasswordFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/util/UserHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/LoginActivity.java" />
       </list>
     </option>
   </component>
@@ -2115,6 +2106,38 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ta3lam" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ta3lam" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ta3allam" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -2493,45 +2516,52 @@
       <option name="project" value="LOCAL" />
       <updated>1491913816058</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="First commit">
+      <created>1491913897042</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1491913897042</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.90268457" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.85402685" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8624161" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Assistant" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Assistant" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39932886" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23600605" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23600605" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -2555,31 +2585,43 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="16" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/server/request/GsonPostRequest.java</url>
+          <line>30</line>
+          <properties />
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/server/request/GsonPostRequest.java</url>
+          <line>31</line>
+          <properties />
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/server/request/GsonPostRequest.java</url>
+          <line>32</line>
+          <properties />
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/server/request/GsonPostRequest.java</url>
+          <line>33</line>
+          <properties />
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/server/request/GsonPostRequest.java</url>
+          <line>48</line>
+          <properties />
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="29" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="102" column="24" selection-start-line="102" selection-start-column="24" selection-end-line="102" selection-end-column="24" />
-          <folding>
-            <element signature="e#466#615#0" expanded="false" />
-            <element signature="e#773#1154#0" expanded="false" />
-            <element signature="e#1371#2174#0" expanded="false" />
-            <element signature="e#2188#3115#0" expanded="false" />
-            <element signature="e#3129#3883#0" expanded="false" />
-            <element signature="e#3897#4704#0" expanded="false" />
-            <element signature="e#4718#4947#0" expanded="false" />
-            <element signature="e#4982#5547#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_facebook_login.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -2600,17 +2642,6 @@
       </provider>
       <provider editor-type-id="android-designer2">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/provider/AuthFacebook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="method#login#0;class#AuthFacebook#0" expanded="false" />
-            <element signature="method#onActivityResult#0;class#AuthFacebook#0" expanded="false" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/edit_text_background_disabled.xml" />
@@ -2634,14 +2665,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -2737,21 +2760,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/application/AppController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="72" column="23" selection-start-line="72" selection-start-column="23" selection-end-line="72" selection-end-column="23" />
-          <folding>
-            <element signature="method#onCreate#0;class#AppController#0" expanded="false" />
-            <element signature="method#getInstance#0;class#AppController#0" expanded="false" />
-            <element signature="method#addToRequestQueue#0;class#AppController#0" expanded="false" />
-            <element signature="method#cancelPendingRequests#0;class#AppController#0" expanded="false" />
-            <element signature="method#getImageLoader#0;class#AppController#0" expanded="false" />
-            <element signature="method#printMyHashKey#0;class#AppController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/Home.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -2774,14 +2782,6 @@
             <element signature="method#switchFragment#0;class#PasswordResetActivity#0" expanded="false" />
             <element signature="e#2227#2300#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/util/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2911,39 +2911,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/server/request/GsonPostRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-          <folding>
-            <element signature="method#GsonPostRequest#0;class#GsonPostRequest#0" expanded="false" />
-            <element signature="method#getHeaders#0;class#GsonPostRequest#0" expanded="false" />
-            <element signature="method#getBody#0;class#GsonPostRequest#0" expanded="false" />
-            <element signature="method#parseNetworkResponse#0;class#GsonPostRequest#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/NewPasswordResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/RegisterResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/LoginResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -2961,54 +2932,6 @@
         <state relative-caret-position="204">
           <caret line="13" column="42" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/RegisterRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/LoginRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/FacebookLoginFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="187" column="40" selection-start-line="187" selection-start-column="40" selection-end-line="187" selection-end-column="40" />
-          <folding>
-            <element signature="method#onCreateView#0;class#FacebookLoginFragment#0" expanded="false" />
-            <element signature="method#onViewCreated#0;class#FacebookLoginFragment#0" expanded="false" />
-            <element signature="method#onActivityResult#0;class#FacebookLoginFragment#0" expanded="false" />
-            <element signature="method#initializeLayoutElements#0;class#FacebookLoginFragment#0" expanded="false" />
-            <element signature="method#login#0;class#FacebookLoginFragment#0" expanded="false" />
-            <element signature="method#registerNewUser#0;class#FacebookLoginFragment#0" expanded="false" />
-            <element signature="method#getFacebookCallback#0;class#FacebookLoginFragment#0" expanded="false" />
-            <element signature="class#3310:4107" expanded="false" />
-            <element signature="method#onSuccess#0;class#3310:4107" expanded="false" />
-            <element signature="method#onCancel#0;class#3310:4107" expanded="false" />
-            <element signature="method#onError#0;class#3310:4107" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/NewPasswordFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="108" column="40" selection-start-line="108" selection-start-column="40" selection-end-line="108" selection-end-column="40" />
-          <folding>
-            <element signature="method#onCreateView#0;class#NewPasswordFragment#0" expanded="false" />
-            <element signature="method#onViewCreated#0;class#NewPasswordFragment#0" expanded="false" />
-            <element signature="method#nextButtonClickListener#0;class#NewPasswordFragment#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3033,29 +2956,64 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/RegisterActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/application/AppController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="34" column="27" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
+          <folding>
+            <element signature="method#onCreate#0;class#AppController#0" expanded="false" />
+            <element signature="method#getInstance#0;class#AppController#0" expanded="false" />
+            <element signature="method#addToRequestQueue#0;class#AppController#0" expanded="false" />
+            <element signature="method#cancelPendingRequests#0;class#AppController#0" expanded="false" />
+            <element signature="method#getImageLoader#0;class#AppController#0" expanded="false" />
+            <element signature="method#printMyHashKey#0;class#AppController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/NewPasswordFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
-          <caret line="148" column="62" selection-start-line="148" selection-start-column="62" selection-end-line="148" selection-end-column="62" />
+          <caret line="102" column="54" selection-start-line="102" selection-start-column="54" selection-end-line="102" selection-end-column="54" />
           <folding>
-            <element signature="method#onCreate#0;class#RegisterActivity#0" expanded="false" />
-            <element signature="method#initializeLayoutElements#0;class#RegisterActivity#0" expanded="false" />
-            <element signature="method#checkIntent#0;class#RegisterActivity#0" expanded="false" />
-            <element signature="method#onRegisterButtonClick#0;class#RegisterActivity#0" expanded="false" />
-            <element signature="method#getRegisterByEmailBody#0;class#RegisterActivity#0" expanded="false" />
-            <element signature="method#getRegisterByFacebookBody#0;class#RegisterActivity#0" expanded="false" />
-            <element signature="method#getRegisterListener#0;class#RegisterActivity#0" expanded="false" />
-            <element signature="class#4300:4450" expanded="false" />
-            <element signature="method#onResponse#0;class#4300:4450" expanded="false" />
-            <element signature="method#getRegisterFailedListener#0;class#RegisterActivity#0" expanded="false" />
+            <element signature="method#onCreateView#0;class#NewPasswordFragment#0" expanded="false" />
+            <element signature="method#onViewCreated#0;class#NewPasswordFragment#0" expanded="false" />
+            <element signature="method#initializeLayoutElements#0;class#NewPasswordFragment#0" expanded="false" />
+            <element signature="method#nextButtonClickListener#0;class#NewPasswordFragment#0" expanded="false" />
+            <element signature="method#getListener#0;class#NewPasswordFragment#0" expanded="false" />
+            <element signature="method#getErrorListener#0;class#NewPasswordFragment#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/util/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/provider/AuthFacebook.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="33" column="104" selection-start-line="33" selection-start-column="104" selection-end-line="33" selection-end-column="104" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/server/api/UserAPI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="30" column="103" selection-start-line="30" selection-start-column="103" selection-end-line="30" selection-end-column="103" />
+        <state relative-caret-position="289">
+          <caret line="51" column="112" selection-start-line="51" selection-start-column="112" selection-end-line="51" selection-end-column="112" />
           <folding>
             <element signature="method#getInstance#0;class#UserAPI#0" expanded="false" />
             <element signature="method#login#0;class#UserAPI#0" expanded="false" />
@@ -3065,16 +3023,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/util/UserHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="37" column="11" selection-start-line="37" selection-start-column="11" selection-end-line="37" selection-end-column="11" />
+          <folding>
+            <element signature="method#onTokenRefresh#0;class#UserHelper#0" expanded="false" />
+            <element signature="method#isLoggedIn#0;class#UserHelper#0" expanded="false" />
+            <element signature="method#setLoggedIn#0;class#UserHelper#0" expanded="false" />
+            <element signature="method#showProgressDialog#0;class#UserHelper#0" expanded="false" />
+            <element signature="method#dismissProgressDialog#0;class#UserHelper#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/RegisterRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/LoginResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="30" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/RegisterResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/RegisterActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="140" column="69" selection-start-line="140" selection-start-column="69" selection-end-line="140" selection-end-column="69" />
+          <folding>
+            <element signature="method#onCreate#0;class#RegisterActivity#0" expanded="false" />
+            <element signature="method#initializeLayoutElements#0;class#RegisterActivity#0" expanded="false" />
+            <element signature="method#checkIntent#0;class#RegisterActivity#0" expanded="false" />
+            <element signature="method#onRegisterButtonClick#0;class#RegisterActivity#0" expanded="false" />
+            <element signature="method#getRegisterByEmailBody#0;class#RegisterActivity#0" expanded="false" />
+            <element signature="method#getRegisterByFacebookBody#0;class#RegisterActivity#0" expanded="false" />
+            <element signature="method#getRegisterListener#0;class#RegisterActivity#0" expanded="false" />
+            <element signature="method#getRegisterFailedListener#0;class#RegisterActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="128" column="59" selection-start-line="128" selection-start-column="59" selection-end-line="128" selection-end-column="59" />
+        <state relative-caret-position="415">
+          <caret line="100" column="63" selection-start-line="100" selection-start-column="63" selection-end-line="100" selection-end-column="63" />
           <folding>
             <element signature="method#onCreate#0;class#LoginActivity#0" expanded="false" />
             <element signature="method#initializeLayoutElements#0;class#LoginActivity#0" expanded="false" />
             <element signature="method#initializeFacebookFragment#0;class#LoginActivity#0" expanded="false" />
-            <element signature="e#1585#1644#0" expanded="false" />
-            <element signature="e#1774#1832#0" expanded="false" />
+            <element signature="e#1571#1630#0" expanded="false" />
+            <element signature="e#1760#1818#0" expanded="false" />
             <element signature="method#onLoginButtonClick#0;class#LoginActivity#0" expanded="false" />
             <element signature="method#onTextSignUpClick#0;class#LoginActivity#0" expanded="false" />
             <element signature="method#onTextForgotPasswordClick#0;class#LoginActivity#0" expanded="false" />
@@ -3084,19 +3097,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/util/UserHelper.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/FacebookLoginFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="172" column="0" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
+          <folding>
+            <element signature="method#onCreateView#0;class#FacebookLoginFragment#0" expanded="false" />
+            <element signature="method#onViewCreated#0;class#FacebookLoginFragment#0" expanded="false" />
+            <element signature="method#onActivityResult#0;class#FacebookLoginFragment#0" expanded="false" />
+            <element signature="method#initializeLayoutElements#0;class#FacebookLoginFragment#0" expanded="false" />
+            <element signature="method#registerNewUser#0;class#FacebookLoginFragment#0" expanded="false" />
+            <element signature="method#getFacebookCallback#0;class#FacebookLoginFragment#0" expanded="false" />
+            <element signature="method#onCancel#0;class#3310:4107" expanded="false" />
+            <element signature="method#onError#0;class#3310:4107" expanded="false" />
+            <element signature="method#getJasonObjectCallBack#0;class#FacebookLoginFragment#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../Gradle/gradle-2.12/caches/modules-2/files-2.1/com.google.code.gson/gson/2.4/b98251e078d1809f889324fe90dbc4996919c02a/gson-2.4-sources.jar!/com/google/gson/Gson.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="536" column="16" selection-start-line="536" selection-start-column="16" selection-end-line="536" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/server/request/GsonPostRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/LoginRequest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
-          <folding>
-            <element signature="method#onTokenRefresh#0;class#UserHelper#0" expanded="false" />
-            <element signature="method#getDeviceToken#0;class#UserHelper#0" expanded="false" />
-            <element signature="method#getInstance#0;class#UserHelper#0" expanded="false" />
-            <element signature="method#isLoggedIn#0;class#UserHelper#0" expanded="false" />
-            <element signature="method#setLoggedIn#0;class#UserHelper#0" expanded="false" />
-            <element signature="method#showProgressDialog#0;class#UserHelper#0" expanded="false" />
-            <element signature="method#dismissProgressDialog#0;class#UserHelper#0" expanded="false" />
-          </folding>
+          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>

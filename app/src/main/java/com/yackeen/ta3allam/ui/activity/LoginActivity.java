@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (UserHelper.getInstance().isLoggedIn(this)) startActivity(new Intent(this, Home.class));
+        if (UserHelper.isLoggedIn(this)) startActivity(new Intent(this, Home.class));
         setContentView(R.layout.activity_login);
 
         initializeLayoutElements();
@@ -73,14 +73,14 @@ public class LoginActivity extends AppCompatActivity {
                 && TextHelper.isEmail(emailEditText)
                 && TextHelper.isPassword(passwordEditText)){
 
-            UserHelper.getInstance().showProgressDialog(this, getString(R.string.sign_in), getString(R.string.signing_in));
+            UserHelper.showProgressDialog(this, getString(R.string.sign_in), getString(R.string.signing_in));
 
             LoginRequest body = new LoginRequest();
             body.isByFacebook = false;
             body.FacebookID = "";
             body.Email = emailEditText.getText().toString();
             body.Password = passwordEditText.getText().toString();
-            body.DeviceToken = UserHelper.getInstance().getDeviceToken();
+            body.DeviceToken = UserHelper.getDeviceToken(this);
 
             API.getUserAPIs().login(
                     body,
@@ -104,8 +104,13 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(LoginResponse response) {
 
-                Log.i(TAG, "onResponse: ".concat(response.toString()));
-                UserHelper.getInstance().dismissProgressDialog();
+                UserHelper.dismissProgressDialog();
+
+                Log.i(TAG, "onResponse:IsSuccess "    .concat(String.valueOf(response.isSuccessful)));
+                Log.i(TAG, "onResponse:isFirstTime: " .concat(String.valueOf(response.isFirstTime)));
+                Log.i(TAG, "onResponse:UserType "     .concat(String.valueOf(response.userType)));
+                Log.i(TAG, "onResponse:UserID "       .concat(response.userID));
+                Log.i(TAG, "onResponse:ErrorMessage " .concat(response.errorMessage));
 
                 if (response.isSuccessful){
 
@@ -133,7 +138,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 Log.e(TAG, "onErrorResponse: ".concat(error.toString()));
 
-                UserHelper.getInstance().dismissProgressDialog();
+                UserHelper.dismissProgressDialog();
                 Toast.makeText(LoginActivity.this, R.string.network_error, Toast.LENGTH_SHORT).show();
             }
         };

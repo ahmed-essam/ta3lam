@@ -93,7 +93,7 @@ public class NewPasswordFragment extends Fragment{
             @Override
             public void onResponse(ResetPasswordResponse response) {
 
-                UserHelper.getInstance().dismissProgressDialog();
+                UserHelper.dismissProgressDialog();
 
                 if (response.isSuccessful) activity.switchFragment(new ResetPasswordFragment());
                 else Toast.makeText(activity, response.errorMessage, Toast.LENGTH_SHORT).show();
@@ -106,7 +106,7 @@ public class NewPasswordFragment extends Fragment{
             public void onErrorResponse(VolleyError error) {
                 Log.e(TAG, "onErrorResponse: ".concat(error.toString()));
 
-                UserHelper.getInstance().dismissProgressDialog();
+                UserHelper.dismissProgressDialog();
 
                 Toast.makeText(getActivity(), R.string.network_error, Toast.LENGTH_SHORT).show();
             }

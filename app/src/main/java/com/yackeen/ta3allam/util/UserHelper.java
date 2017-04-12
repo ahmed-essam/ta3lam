@@ -17,44 +17,42 @@ import static com.yackeen.ta3allam.util.Constants.LOGIN;
 
 public class UserHelper extends FirebaseInstanceIdService {
 
-    private String deviceToken;
+    private static final String TOKEN = "deviceToken";
     private static ProgressDialog dialog;
-    private static UserHelper instance = new UserHelper();
 
     @Override
     public void onTokenRefresh() {
         super.onTokenRefresh();
 
-        deviceToken = FirebaseInstanceId.getInstance().getToken();
+        String deviceToken = FirebaseInstanceId.getInstance().getToken();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
+        prefs.edit().putString(TOKEN, deviceToken).apply();
         Log.d("deviceToken", deviceToken);
     }
-    public String getDeviceToken(){
+    public static String getDeviceToken(Context context){
 
-        return deviceToken;
-    }
-    public static UserHelper getInstance(){
-
-        return instance;
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getString(TOKEN, "");
     }
 
-    //State
-    public boolean isLoggedIn(Context context){
+    //User State
+    public static boolean isLoggedIn(Context context){
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         return prefs.getBoolean(LOGIN, false);
     }
-    public void setLoggedIn(Context context, boolean state){
+    public static void setLoggedIn(Context context, boolean state){
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         prefs.edit().putBoolean(LOGIN, state).apply();
     }
 
     //UI
-    public void showProgressDialog(Context context, String title, String message){
+    public static void showProgressDialog(Context context, String title, String message){
 
         dialog = ProgressDialog.show(context, title, message, true);
     }
-    public void dismissProgressDialog(){
+    public static void dismissProgressDialog(){
 
         if (dialog != null){
 
