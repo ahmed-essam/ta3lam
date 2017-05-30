@@ -2,8 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layoutDirection="rtl"
     android:descendantFocusability="beforeDescendants"
     android:focusableInTouchMode="true">
+
 
     <ImageView
         android:layout_weight="50"
@@ -26,20 +28,20 @@
             android:id="@+id/edit_text_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin"
-            android:layout_marginRight="@dimen/margin"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_marginEnd="@dimen/margin"
             android:layout_marginBottom="@dimen/margin"
             android:padding="@dimen/padding"
             android:textDirection="ltr"
-            android:gravity="right|center"
+            android:gravity="end|center"
             android:textColor="@color/colorTextPrimary"
             android:textSize="@dimen/text_body_size"
             android:textColorHint="@color/colorTextSecondary"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:drawableRight="@drawable/ic_lock_green_18dp"
-            android:drawableEnd="@drawable/ic_lock_green_18dp"
-            android:drawablePadding="@dimen/edit_text_padding"/>
+            android:drawableStart="@drawable/ic_lock_green_18dp"
+            android:drawablePadding="@dimen/edit_text_padding"
+            android:drawableLeft="@drawable/ic_lock_green_18dp" />
 
         <Button
             android:id="@+id/btn_finish"

@@ -35,8 +35,7 @@
 
         </activity>
         <activity android:name=".ui.activity.FirstLogin"
-            android:label="@string/title_activity_first_login"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/title_activity_first_login">
 
         </activity>
         <activity android:name=".ui.activity.Home"

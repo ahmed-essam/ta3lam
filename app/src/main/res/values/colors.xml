@@ -15,7 +15,7 @@
 
     <!--Background-->
     <color name="colorCardBackground">#FFFFFF</color>
-    <color name="colorLayoutBackground">#EEEEEE</color>
+    <color name="colorLayoutBackground">#DDDDDD</color>
     <color name="colorDivider">#BDBDBD</color>
 
     <!--Colors-->

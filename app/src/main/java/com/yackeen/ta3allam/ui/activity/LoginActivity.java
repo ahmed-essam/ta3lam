@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     }else {
 
-                        startActivity(new Intent(LoginActivity.this, Home.class));
+                        startActivity(new Intent(LoginActivity.this, FirstLogin.class));
                         finish();
 
                     }//end inner if

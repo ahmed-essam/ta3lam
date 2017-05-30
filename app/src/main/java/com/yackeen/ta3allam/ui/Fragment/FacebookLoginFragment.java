@@ -89,7 +89,7 @@ public class FacebookLoginFragment extends Fragment {
 
         }else {
 
-            getActivity().startActivity(new Intent(getActivity(), Home.class));
+            getActivity().startActivity(new Intent(getActivity(), FirstLogin.class));
             getActivity().finish();
 
         }//end inner if
@@ -150,6 +150,8 @@ public class FacebookLoginFragment extends Fragment {
                     body.Email = email;
                     body.Password = "";
                     body.DeviceToken = deviceToken;
+
+                    UserHelper.showProgressDialog(getActivity(), getString(R.string.sign_in), getString(R.string.signing_in));
 
                     API.getUserAPIs().login(
                             body,
