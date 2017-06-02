@@ -1,5 +1,4 @@
 package com.yackeen.ta3allam.adapter;
-
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;

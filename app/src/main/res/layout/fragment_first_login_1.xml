@@ -50,7 +50,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="80"
-            android:padding="@dimen/padding"/>
+            android:padding="@dimen/padding"
+            android:id="@+id/first_login_recyclerview1"/>
 
         <Button
             android:id="@+id/btn_next"

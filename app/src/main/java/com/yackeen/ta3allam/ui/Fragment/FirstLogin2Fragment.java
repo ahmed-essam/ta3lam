@@ -1,5 +1,6 @@
 package com.yackeen.ta3allam.ui.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.widget.Button;
 
 import com.yackeen.ta3allam.R;
 import com.yackeen.ta3allam.ui.activity.FirstLogin;
+import com.yackeen.ta3allam.ui.activity.Home;
 
 public class FirstLogin2Fragment extends Fragment {
 
@@ -26,8 +28,11 @@ public class FirstLogin2Fragment extends Fragment {
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Home.class);
+                startActivity(intent);
 
-                ((FirstLogin)getActivity()).switchFragment(new FirstLogin1Fragment());
+
+//                ((FirstLogin)getActivity()).switchFragment(new FirstLogin1Fragment());
             }
         });
     }

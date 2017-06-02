@@ -10,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.raizlabs.android.dbflow.sql.language.Case;
 import com.yackeen.ta3allam.ui.Fragment.NewsFeed;
 import com.yackeen.ta3allam.ui.Fragment.Notifications;
 import com.yackeen.ta3allam.ui.Fragment.Profile;
@@ -52,6 +53,54 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
         tabLayout.setupWithViewPager(viewPager);
         setupTabIcons();
         viewPager.setCurrentItem(3);
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+
+                switch (tab.getPosition()){
+                    case 0:
+                        tab.setIcon(R.drawable.profile_active);
+                        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
+                        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
+                        tabLayout.getTabAt(3).setIcon(tabIcons[3]);
+                        break;
+                    case 1:
+                        tab.setIcon(R.drawable.notifications_active);
+                        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
+                        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
+                        tabLayout.getTabAt(3).setIcon(tabIcons[3]);
+                        break;
+                    case 2:
+                        tab.setIcon(R.drawable.tracks_active);
+                        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
+                        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
+                        tabLayout.getTabAt(3).setIcon(tabIcons[3]);
+                        break;
+                    case 3:
+                        tab.setIcon(R.drawable.home_active);
+                        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
+                        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
+                        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
+                        break;
+                    default:
+                        break;
+                }
+
+
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
     }
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
@@ -65,7 +114,7 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
         tabLayout.getTabAt(0).setIcon(tabIcons[0]);
         tabLayout.getTabAt(1).setIcon(tabIcons[1]);
         tabLayout.getTabAt(2).setIcon(tabIcons[2]);
-        tabLayout.getTabAt(3).setIcon(tabIcons[3]);
+        tabLayout.getTabAt(3).setIcon(R.drawable.home_active);
     }
 
 
