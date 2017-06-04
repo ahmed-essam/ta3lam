@@ -14,14 +14,14 @@ import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.Random;
 
-import static com.yackeen.ta3allam.util.Constants.LOGIN;
+
 
 public class UserHelper extends FirebaseInstanceIdService {
 
     private static AppController appContext = AppController.getInstance();
     private static final String TOKEN = "deviceToken";
     private static ProgressDialog dialog;
-
+    public static final String LOGIN = "isLoggedIn";
     @Override
     public void onTokenRefresh() {
         super.onTokenRefresh();

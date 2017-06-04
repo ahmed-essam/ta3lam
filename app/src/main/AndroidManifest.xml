@@ -39,7 +39,8 @@
 
         </activity>
         <activity android:name=".ui.activity.Home"
-            android:theme="@style/AppTheme.NoActionBar">
+
+            android:windowSoftInputMode="stateHidden|adjustPan">
 
         </activity>
         <activity android:name=".ui.activity.PasswordResetActivity">

@@ -10,6 +10,6 @@ public class Constants {
     public static final String PASSWORD = "Password";
     public static final String CONFIRM_PASSWORD = "ConfirmPassword";
     public static final String DEVICE_TOKEN = "DeviceToken";
-    public static final String LOGIN = "isLoggedIn";
+
 }
 
