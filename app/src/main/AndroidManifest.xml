@@ -3,6 +3,7 @@
     package="com.yackeen.ta3allam">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:name=".application.AppController"
@@ -47,9 +48,15 @@
 
         </activity>
 
-        <service android:name=".util.UserHelper">
+        <service android:name=".services.MyFirebaseInstanceIdService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <service android:name=".services.MessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 

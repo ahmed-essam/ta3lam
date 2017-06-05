@@ -1,35 +1,27 @@
 {
   "project_info": {
-    "project_number": "784808089237",
-    "firebase_url": "https://ta3allam-1b77e.firebaseio.com",
-    "project_id": "ta3allam-1b77e",
-    "storage_bucket": "ta3allam-1b77e.appspot.com"
+    "project_number": "722337508132",
+    "firebase_url": "https://ta3lamtest.firebaseio.com",
+    "project_id": "ta3lamtest",
+    "storage_bucket": "ta3lamtest.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:784808089237:android:eaf4974c82c81def",
+        "mobilesdk_app_id": "1:722337508132:android:eaf4974c82c81def",
         "android_client_info": {
           "package_name": "com.yackeen.ta3allam"
         }
       },
       "oauth_client": [
         {
-          "client_id": "784808089237-9u6863aqpm9q83clparql7vvvdpns3dd.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.yackeen.ta3allam",
-            "certificate_hash": "8507a7a3dba5f0fb125983dfb5e43cc26e51edc8"
-          }
-        },
-        {
-          "client_id": "784808089237-f8e9e9otou0ssijhd51hqd1031lu7ehn.apps.googleusercontent.com",
+          "client_id": "722337508132-8fm4kud7cm6v472e324cjgvelkef9b91.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyADZT-Tjmab8wdwiO0pFmmIH4GSNXyPXsE"
+          "current_key": "AIzaSyCftyimLxfhMCOZaFabwqkpftVlhl07Qkk"
         }
       ],
       "services": {
@@ -37,13 +29,8 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "784808089237-f8e9e9otou0ssijhd51hqd1031lu7ehn.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2

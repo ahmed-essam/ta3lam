@@ -16,26 +16,11 @@ import java.util.Random;
 
 
 
-public class UserHelper extends FirebaseInstanceIdService {
+public class UserHelper {
 
     private static AppController appContext = AppController.getInstance();
-    private static final String TOKEN = "deviceToken";
     private static ProgressDialog dialog;
     public static final String LOGIN = "isLoggedIn";
-    @Override
-    public void onTokenRefresh() {
-        super.onTokenRefresh();
-
-        String deviceToken = FirebaseInstanceId.getInstance().getToken();
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
-        prefs.edit().putString(TOKEN, deviceToken).apply();
-        Log.d("deviceToken", deviceToken);
-    }
-    public static String getDeviceToken(Context context){
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.getString(TOKEN, "");
-    }
 
     //User State
     public static boolean isLoggedIn(Context context){
