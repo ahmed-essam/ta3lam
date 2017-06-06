@@ -14,6 +14,7 @@ import com.yackeen.ta3allam.R;
 import com.yackeen.ta3allam.model.dto.request.LoginRequest;
 import com.yackeen.ta3allam.model.dto.response.LoginResponse;
 import com.yackeen.ta3allam.server.api.API;
+import com.yackeen.ta3allam.services.MyFirebaseInstanceIdService;
 import com.yackeen.ta3allam.ui.Fragment.FacebookLoginFragment;
 import com.yackeen.ta3allam.util.TextHelper;
 import com.yackeen.ta3allam.util.UserHelper;
@@ -80,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
             body.FacebookID = "";
             body.Email = emailEditText.getText().toString();
             body.Password = passwordEditText.getText().toString();
-            body.DeviceToken = UserHelper.getDeviceToken(this);
+            body.DeviceToken = MyFirebaseInstanceIdService.getDeviceToken(this);
 
             API.getUserAPIs().login(
                     body,
@@ -113,6 +114,7 @@ public class LoginActivity extends AppCompatActivity {
                 Log.i(TAG, "onResponse:ErrorMessage " .concat(response.errorMessage));
 
                 if (response.isSuccessful){
+                    UserHelper.saveStringInSharedPreferences(UserHelper.USER_ID,response.userID);
 
                     if (response.isFirstTime){
 

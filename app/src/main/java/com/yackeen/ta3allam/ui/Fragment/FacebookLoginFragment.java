@@ -24,6 +24,7 @@ import com.yackeen.ta3allam.model.dto.request.LoginRequest;
 import com.yackeen.ta3allam.model.dto.response.LoginResponse;
 import com.yackeen.ta3allam.provider.AuthFacebook;
 import com.yackeen.ta3allam.server.api.API;
+import com.yackeen.ta3allam.services.MyFirebaseInstanceIdService;
 import com.yackeen.ta3allam.ui.activity.FirstLogin;
 import com.yackeen.ta3allam.ui.activity.Home;
 import com.yackeen.ta3allam.ui.activity.RegisterActivity;
@@ -142,7 +143,7 @@ public class FacebookLoginFragment extends Fragment {
                     id = object.getString(ID);
                     name = object.getString(NAME);
                     email = object.getString(EMAIL);
-                    String deviceToken = UserHelper.getDeviceToken(getActivity());
+                    String deviceToken = MyFirebaseInstanceIdService.getDeviceToken(getActivity());
 
                     LoginRequest body = new LoginRequest();
                     body.isByFacebook = true;

@@ -1,21 +1,33 @@
 package com.yackeen.ta3allam.server.api;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 import com.yackeen.ta3allam.application.AppController;
+import com.yackeen.ta3allam.model.dto.request.FirstLogin1Request;
+import com.yackeen.ta3allam.model.dto.request.FirstLogin2Request;
 import com.yackeen.ta3allam.model.dto.request.LoginRequest;
 import com.yackeen.ta3allam.model.dto.request.RegisterRequest;
 import com.yackeen.ta3allam.model.dto.request.ResetPasswordRequest;
+import com.yackeen.ta3allam.model.dto.response.FirstLoginResponse1;
+import com.yackeen.ta3allam.model.dto.response.FirstLoginResponse2;
 import com.yackeen.ta3allam.model.dto.response.LoginResponse;
 import com.yackeen.ta3allam.model.dto.response.RegisterResponse;
 import com.yackeen.ta3allam.model.dto.response.ResetPasswordResponse;
 import com.yackeen.ta3allam.server.request.GsonPostRequest;
+import com.yackeen.ta3allam.services.MyFirebaseInstanceIdService;
+import com.yackeen.ta3allam.ui.activity.FirstLogin;
+import com.yackeen.ta3allam.util.UserHelper;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class UserAPI {
 
     private final String BaseURL = "http://yaken.cloudapp.net/Ta3llam/Api/User/";
+    private final String AppBaseURL = "http://yaken.cloudapp.net/Ta3llam/Api/";
 
     //Tags
     private final String TAG = "userAPI";
@@ -86,5 +98,33 @@ public class UserAPI {
                 errorListener
         );
         appContext.addToRequestQueue(request);
+    }
+    public void getAllCourses(FirstLogin1Request body, Listener<FirstLoginResponse1> listener, ErrorListener errorListener, Context context){
+        String url = AppBaseURL.concat("Courses/GetCoursesList");
+        Map map = new HashMap();
+        map.put("UserID", UserHelper.getUserId(context));
+        map.put("Token", MyFirebaseInstanceIdService.getDeviceToken(context));
+        GsonPostRequest<FirstLoginResponse1> request = new GsonPostRequest<>(
+                url,
+                body,
+                FirstLoginResponse1.class,
+                map,
+                listener,
+                errorListener
+        );appContext.addToRequestQueue(request);
+    }
+    public void getAllbooks(FirstLogin2Request body, Listener<FirstLoginResponse2> listener, ErrorListener errorListener, Context context){
+        String url = AppBaseURL.concat("Books/GetBooksList");
+        Map map = new HashMap();
+        map.put("UserID", UserHelper.getUserId(context));
+        map.put("Token", MyFirebaseInstanceIdService.getDeviceToken(context));
+        GsonPostRequest<FirstLoginResponse2> request = new GsonPostRequest<>(
+                url,
+                body,
+                FirstLoginResponse2.class,
+                map,
+                listener,
+                errorListener
+        );appContext.addToRequestQueue(request);
     }
 }

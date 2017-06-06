@@ -64,7 +64,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     {
         News news=mNews.get(position);
         ImageView profileImage=viewHolder.profileImage;
-        Picasso.with(getmContext()).load(news.getImage()).into(profileImage);
+        Picasso.with(getmContext()).load(news.getImage()).error(R.drawable.default_emam).into(profileImage);
         TextView name=viewHolder.nameTextView;
         name.setText(news.getName());
         TextView time=viewHolder.timeTextView;

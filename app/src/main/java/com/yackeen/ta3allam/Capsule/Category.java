@@ -1,16 +1,34 @@
 package com.yackeen.ta3allam.Capsule;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by devar on 7/31/16.
  */
 public class Category {
+    @SerializedName("ID")
+    private int id;
+    @SerializedName("Name")
     private String name;
+    @SerializedName("Description")
     private String description;
+    @SerializedName("LevelsNumber")
     private int level;
+    @SerializedName("TeachersNumber")
     private int teacher;
+    @SerializedName("StudentsNumber")
     private int student;
+    @SerializedName("QuestionsNumber")
     private int question;
-    
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getTeacher() {
         return teacher;
     }
