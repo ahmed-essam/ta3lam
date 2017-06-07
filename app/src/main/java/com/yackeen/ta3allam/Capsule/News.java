@@ -1,16 +1,47 @@
 package com.yackeen.ta3allam.Capsule;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by devar on 8/22/16.
  */
 public class News {
+    @SerializedName("BookID")
+    private int bookId;
+    @SerializedName("PostID")
+    private int PostId;
+    @SerializedName("TeacherPictureUR")
     private String image;
+    @SerializedName("TeacherName")
     private String name;
+    @SerializedName("Datetime")
     private String time;
+    @SerializedName("Body")
     private String description;
+    @SerializedName("SharesNumber")
     private int share;
+    @SerializedName("CommentsNumber")
     private int comment;
+    @SerializedName("LikesNumber")
     private int like;
+    @SerializedName("IsLiked")
+    private boolean liked;
+
+    public int getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
+    }
+
+    public int getPostId() {
+        return PostId;
+    }
+
+    public void setPostId(int postId) {
+        PostId = postId;
+    }
 
     public String getImage() {
         return image;
@@ -68,4 +99,11 @@ public class News {
         this.like = like;
     }
 
+    public boolean isLiked() {
+        return liked;
+    }
+
+    public void setLiked(boolean liked) {
+        this.liked = liked;
+    }
 }

@@ -7,15 +7,28 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.yackeen.ta3allam.Capsule.Category;
 import com.yackeen.ta3allam.adapter.NewsAdapter;
 import com.yackeen.ta3allam.Capsule.News;
 import com.yackeen.ta3allam.R;
+import com.yackeen.ta3allam.model.dto.request.NewsRequest;
+import com.yackeen.ta3allam.model.dto.response.FirstLoginResponse1;
+import com.yackeen.ta3allam.model.dto.response.NewsResponse;
+import com.yackeen.ta3allam.server.api.API;
+import com.yackeen.ta3allam.util.UserHelper;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import static com.google.android.gms.plus.PlusOneDummyView.TAG;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,7 +48,7 @@ public class NewsFeed extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private static RecyclerView.Adapter adapter;
+    private static NewsAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private static RecyclerView recyclerView;
     private static ArrayList<News> news;
@@ -82,18 +95,17 @@ public class NewsFeed extends Fragment {
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        news = new ArrayList<News>();
-        News news1=new News();
-        news1.setComment(20);
-        news1.setDescription("هذا الموضوع يتكلم عن مش عارف ايه فى نقطة مش عارف ايه وهذا يا حضرات ياخذ مننا وقت كبير للتدبر");
-        news1.setLike(150);
-        news1.setName("الامام/احمد الطيب");
-        news1.setShare(20);
-        news1.setTime("منذ 5 دقائق");
-        news.add(news1);
-        adapter = new NewsAdapter(getContext(),news);
+        adapter = new NewsAdapter(getContext());
+        FeachNewsFromApi();
         recyclerView.setAdapter(adapter);
         return view;
+    }
+    public void FeachNewsFromApi(){
+        NewsRequest body = new NewsRequest();
+        body.setUserID(UserHelper.getUserId(getContext()));
+        Log.e(TAG, "FeachNewsFromApi: "+body.getUserID());
+        API.getUserAPIs().getAllNews(body,getNewsListener(),
+                getNewsFailedListener(),getContext());
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -134,5 +146,28 @@ public class NewsFeed extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+    //network response
+    private Response.Listener<NewsResponse> getNewsListener(){
+        return new Response.Listener<NewsResponse>() {
+            @Override
+            public void onResponse(NewsResponse response) {
+                Log.e(TAG,"network_response:"+response.HomePosts.size());
+                List<News> newsList = response.HomePosts;
+                Log.d(TAG,"network_response:"+newsList.size());
+                adapter.addAll(newsList);
+            }
+
+        };
+    }
+    private Response.ErrorListener getNewsFailedListener(){
+        return new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "onErrorResponse: ".concat(error.toString()));
+                Toast.makeText(getActivity(), R.string.network_error, Toast.LENGTH_SHORT).show();
+
+            }
+        };
     }
 }

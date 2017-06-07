@@ -9,11 +9,13 @@ import com.yackeen.ta3allam.application.AppController;
 import com.yackeen.ta3allam.model.dto.request.FirstLogin1Request;
 import com.yackeen.ta3allam.model.dto.request.FirstLogin2Request;
 import com.yackeen.ta3allam.model.dto.request.LoginRequest;
+import com.yackeen.ta3allam.model.dto.request.NewsRequest;
 import com.yackeen.ta3allam.model.dto.request.RegisterRequest;
 import com.yackeen.ta3allam.model.dto.request.ResetPasswordRequest;
 import com.yackeen.ta3allam.model.dto.response.FirstLoginResponse1;
 import com.yackeen.ta3allam.model.dto.response.FirstLoginResponse2;
 import com.yackeen.ta3allam.model.dto.response.LoginResponse;
+import com.yackeen.ta3allam.model.dto.response.NewsResponse;
 import com.yackeen.ta3allam.model.dto.response.RegisterResponse;
 import com.yackeen.ta3allam.model.dto.response.ResetPasswordResponse;
 import com.yackeen.ta3allam.server.request.GsonPostRequest;
@@ -40,6 +42,7 @@ public class UserAPI {
     }
     private AppController appContext = AppController.getInstance();
 
+//user APIs
     public void login(LoginRequest body, Listener<LoginResponse> listener, ErrorListener errorListener){
 
         String url = BaseURL.concat("Login");
@@ -99,6 +102,8 @@ public class UserAPI {
         );
         appContext.addToRequestQueue(request);
     }
+
+    // app APIs
     public void getAllCourses(FirstLogin1Request body, Listener<FirstLoginResponse1> listener, ErrorListener errorListener, Context context){
         String url = AppBaseURL.concat("Courses/GetCoursesList");
         Map map = new HashMap();
@@ -125,6 +130,23 @@ public class UserAPI {
                 map,
                 listener,
                 errorListener
-        );appContext.addToRequestQueue(request);
+        );
+        appContext.addToRequestQueue(request);
     }
+    public void getAllNews(NewsRequest body, Listener<NewsResponse> listener, ErrorListener errorListener, Context context){
+        String url = BaseURL.concat("DoGetUserHomeDetails");
+        Map map = new HashMap();
+        map.put("UserID", UserHelper.getUserId(context));
+        map.put("Token", MyFirebaseInstanceIdService.getDeviceToken(context));
+        GsonPostRequest<NewsResponse> request = new GsonPostRequest<>(
+                url,
+                body,
+                NewsResponse.class,
+                map,
+                listener,
+                errorListener
+        );
+        appContext.addToRequestQueue(request);
+    }
+
 }

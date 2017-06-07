@@ -36,7 +36,7 @@ public class FirstLoginAdapter2 extends RecyclerView.Adapter<FirstLoginAdapter2.
         }
         public void bindView(Book book){
             nameTextView.setText(book.getName());
-            levelTextView.setText(book.getLevel());
+            levelTextView.setText(Integer.toString(book.getLevel()));
             teacherTextView.setText(book.getTeacher());
             Log.e(TAG, "bindView2: "+book.getName());
         }
@@ -94,9 +94,9 @@ public class FirstLoginAdapter2 extends RecyclerView.Adapter<FirstLoginAdapter2.
         return mBook.size();
     }
     //method to add list to adapter
-    public void addAll(List<Book> categoryList) {
+    public void addAll(List<Book> bookList) {
         this.mBook.clear();
-        this.mBook.addAll(categoryList);
+        this.mBook.addAll(bookList);
         notifyDataSetChanged();
 
     }

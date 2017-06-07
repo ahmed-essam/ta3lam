@@ -12,6 +12,7 @@ import com.squareup.picasso.Picasso;
 import com.yackeen.ta3allam.Capsule.News;
 import com.yackeen.ta3allam.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -39,10 +40,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     }
     private List<News> mNews;
     private Context mContext;
-    public NewsAdapter(Context context,List<News> news)
+    public NewsAdapter(Context context)
     {
         mContext=context;
-        mNews=news;
+        mNews=new ArrayList<>();
     }
     public Context getmContext() {
         return mContext;
@@ -81,5 +82,12 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     @Override
     public int getItemCount() {
         return mNews.size();
+    }
+
+
+    public void addAll(List<News> newsList){
+        this.mNews.clear();
+        this.mNews.addAll(newsList);
+        notifyDataSetChanged();
     }
 }
