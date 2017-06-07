@@ -5,15 +5,18 @@ import android.util.Log;
 
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
+import com.yackeen.ta3allam.Capsule.Follower;
 import com.yackeen.ta3allam.application.AppController;
 import com.yackeen.ta3allam.model.dto.request.FirstLogin1Request;
 import com.yackeen.ta3allam.model.dto.request.FirstLogin2Request;
+import com.yackeen.ta3allam.model.dto.request.FollowerRequest;
 import com.yackeen.ta3allam.model.dto.request.LoginRequest;
 import com.yackeen.ta3allam.model.dto.request.NewsRequest;
 import com.yackeen.ta3allam.model.dto.request.RegisterRequest;
 import com.yackeen.ta3allam.model.dto.request.ResetPasswordRequest;
 import com.yackeen.ta3allam.model.dto.response.FirstLoginResponse1;
 import com.yackeen.ta3allam.model.dto.response.FirstLoginResponse2;
+import com.yackeen.ta3allam.model.dto.response.FollwerResponse;
 import com.yackeen.ta3allam.model.dto.response.LoginResponse;
 import com.yackeen.ta3allam.model.dto.response.NewsResponse;
 import com.yackeen.ta3allam.model.dto.response.RegisterResponse;
@@ -142,6 +145,21 @@ public class UserAPI {
                 url,
                 body,
                 NewsResponse.class,
+                map,
+                listener,
+                errorListener
+        );
+        appContext.addToRequestQueue(request);
+    }
+    public void getUserProfileDetail(FollowerRequest body, Listener<FollwerResponse> listener, ErrorListener errorListener, Context context){
+        String url = BaseURL.concat("GetUserProfileDetails");
+        Map map = new HashMap();
+        map.put("UserID", UserHelper.getUserId(context));
+        map.put("Token", MyFirebaseInstanceIdService.getDeviceToken(context));
+        GsonPostRequest<FollwerResponse> request = new GsonPostRequest<>(
+                url,
+                body,
+                FollwerResponse.class,
                 map,
                 listener,
                 errorListener
