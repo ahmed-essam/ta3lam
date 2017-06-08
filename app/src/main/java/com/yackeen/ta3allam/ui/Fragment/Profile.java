@@ -18,14 +18,17 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.squareup.picasso.Picasso;
 import com.yackeen.ta3allam.Capsule.Follower;
+import com.yackeen.ta3allam.Capsule.UserBooks;
 import com.yackeen.ta3allam.R;
 import com.yackeen.ta3allam.adapter.FollowersAdapter;
+import com.yackeen.ta3allam.adapter.GridCoursesAdapter;
 import com.yackeen.ta3allam.model.dto.request.FirstLogin2Request;
 import com.yackeen.ta3allam.model.dto.request.FollowerRequest;
 import com.yackeen.ta3allam.model.dto.response.FollwerResponse;
 import com.yackeen.ta3allam.server.api.API;
 import com.yackeen.ta3allam.util.UserHelper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -60,6 +63,7 @@ public class Profile extends Fragment {
     private TextView about;
     CircleImageView userImage;
     GridView gridView;
+    GridCoursesAdapter gridCoursesAdapter;
     public Profile() {
         // Required empty public constructor
     }
@@ -101,6 +105,9 @@ public class Profile extends Fragment {
         track = (TextView)rootView.findViewById(R.id.type);
         about = (TextView)rootView.findViewById(R.id.about);
         userImage=(CircleImageView)rootView.findViewById(R.id.profile_image);
+        gridView =(GridView)rootView.findViewById(R.id.courses_grid);
+        gridCoursesAdapter = new GridCoursesAdapter(getContext(),R.layout.grid_item_laayout);
+        gridView.setAdapter(gridCoursesAdapter);
         followerRecyclerView = (RecyclerView)rootView.findViewById(R.id.followers_list);
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         manager.setOrientation(LinearLayoutManager.HORIZONTAL);
@@ -109,6 +116,15 @@ public class Profile extends Fragment {
         followersAdapter = new FollowersAdapter(getContext());
         feachDataFromApi();
         followerRecyclerView.setAdapter(followersAdapter);
+        List<UserBooks> userBooksList = new ArrayList<>();
+        UserBooks userBooks = new UserBooks();
+        userBooks.setBookName("النهضه");
+        userBooks.setTeacherName("احمد الطيب");
+        userBooks.setPercentage(0.37);
+        userBooksList.add(userBooks);
+        gridCoursesAdapter.clear();
+        gridCoursesAdapter.addAll(userBooksList);
+        gridCoursesAdapter.notifyDataSetChanged();
 
         return rootView;
     }

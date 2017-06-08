@@ -119,6 +119,7 @@
     <orderEntry type="library" exported="" name="palette-v7-24.0.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-wearable-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-cast-framework-10.0.1" level="project" />
+    <orderEntry type="library" exported="" name="circleprogress-1.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-places-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-wallet-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-maps-10.0.1" level="project" />

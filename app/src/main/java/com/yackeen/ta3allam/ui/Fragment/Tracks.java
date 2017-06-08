@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.lzyzsd.circleprogress.DonutProgress;
 import com.yackeen.ta3allam.R;
 
 /**
@@ -27,6 +28,7 @@ public class Tracks extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private DonutProgress donutProgress;
 
     private OnFragmentInteractionListener mListener;
 
@@ -65,7 +67,10 @@ public class Tracks extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tracks, container, false);
+        View rootView =inflater.inflate(R.layout.fragment_tracks, container, false);
+        donutProgress =(DonutProgress)rootView.findViewById(R.id.donut_progress);
+        donutProgress.setProgress((int)(Math.random() * 100));
+        return rootView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
