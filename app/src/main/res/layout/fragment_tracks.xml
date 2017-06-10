@@ -6,20 +6,13 @@
     tools:context=".ui.Fragment.Tracks">
 
     <!-- TODO: Update blank fragment layout -->
-    <!--<android.support.v7.widget.RecyclerView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="0dp"-->
-        <!--android:layout_weight="80"-->
-        <!--android:id="@+id/track_recyclerview"-->
-        <!--android:background="@color/colorTextSecondaryLight"-->
-        <!--&gt;</android.support.v7.widget.RecyclerView>-->
-    <com.github.lzyzsd.circleprogress.DonutProgress
-        android:layout_marginLeft="50dp"
-        android:id="@+id/donut_progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:donut_progress="10"
-        app:donut_finished_color="@color/colorPrimaryDark"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="80"
+        android:id="@+id/track_recyclerview"
+        android:background="@color/colorTextSecondaryLight"
+        ></android.support.v7.widget.RecyclerView>
 
     
 

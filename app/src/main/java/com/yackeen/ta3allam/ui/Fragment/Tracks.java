@@ -28,8 +28,6 @@ public class Tracks extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private DonutProgress donutProgress;
-
     private OnFragmentInteractionListener mListener;
 
     public Tracks() {
@@ -68,9 +66,7 @@ public class Tracks extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView =inflater.inflate(R.layout.fragment_tracks, container, false);
-        donutProgress =(DonutProgress)rootView.findViewById(R.id.donut_progress);
-        donutProgress.setProgress((int)(Math.random() * 100));
-        return rootView;
+     return rootView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
