@@ -23,6 +23,42 @@ import static com.google.android.gms.plus.PlusOneDummyView.TAG;
  */
 
 public class TracksAdapter extends RecyclerView.Adapter<TracksAdapter.ViewHolder>{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        public TextView nameTextView;
+        public TextView descriptionTextView;
+        public TextView levelTextView;
+        public TextView teacherTextView;
+        public TextView studentTextView;
+        public TextView questionTextView;
+        LinearLayout mlinearLayout;
+        public ViewHolder(View itemView) {
+            super(itemView);
+            nameTextView = (TextView) itemView.findViewById(R.id.name);
+            descriptionTextView = (TextView) itemView.findViewById(R.id.decription);
+            levelTextView = (TextView) itemView.findViewById(R.id.level);
+            teacherTextView = (TextView) itemView.findViewById(R.id.teacher);
+            studentTextView = (TextView) itemView.findViewById(R.id.student);
+            questionTextView = (TextView) itemView.findViewById(R.id.question);
+            mlinearLayout = (LinearLayout) itemView.findViewById(R.id.category_linear);
+        }
+        public void bindView(Category category){
+            mlinearLayout.setBackgroundColor(mContext.getResources().getColor(R.color.colorLayoutBackground));
+            nameTextView.setText(category.getName());
+            descriptionTextView.setText(category.getDescription());
+            levelTextView.setText(category.getLevel() + "مستوى");
+            teacherTextView.setText(category.getTeacher() + "معلم");
+            studentTextView.setText(category.getStudent() + "طالب");
+            questionTextView.setText(category.getQuestion() + "سؤال");
+
+        }
+
+        @Override
+        public void onClick(View view) {
+            notifyItemChanged(selected_position);
+            selected_position = getPosition();
+            notifyItemChanged(selected_position);
+        }
+    }
 
     private List<Category> mCategory;
     private Context mContext;
@@ -64,6 +100,7 @@ public class TracksAdapter extends RecyclerView.Adapter<TracksAdapter.ViewHolder
     public int getItemCount() {
         return mCategory.size();
     }
+
     //method to add list to adapter
     public void addAll(List<Category> categoryList) {
         this.mCategory.clear();
@@ -72,40 +109,6 @@ public class TracksAdapter extends RecyclerView.Adapter<TracksAdapter.ViewHolder
 
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView nameTextView;
-        public TextView descriptionTextView;
-        public TextView levelTextView;
-        public TextView teacherTextView;
-        public TextView studentTextView;
-        public TextView questionTextView;
-        LinearLayout mlinearLayout;
-        public ViewHolder(View itemView) {
-            super(itemView);
-            nameTextView = (TextView) itemView.findViewById(R.id.name);
-            descriptionTextView = (TextView) itemView.findViewById(R.id.decription);
-            levelTextView = (TextView) itemView.findViewById(R.id.level);
-            teacherTextView = (TextView) itemView.findViewById(R.id.teacher);
-            studentTextView = (TextView) itemView.findViewById(R.id.student);
-            questionTextView = (TextView) itemView.findViewById(R.id.question);
-            mlinearLayout = (LinearLayout) itemView.findViewById(R.id.category_linear);
-        }
-        public void bindView(Category category){
-            mlinearLayout.setBackgroundColor(mContext.getResources().getColor(R.color.colorLayoutBackground));
-            nameTextView.setText(category.getName());
-            descriptionTextView.setText(category.getDescription());
-            levelTextView.setText(category.getLevel() + "مستوى");
-            teacherTextView.setText(category.getTeacher() + "معلم");
-            studentTextView.setText(category.getStudent() + "طالب");
-            questionTextView.setText(category.getQuestion() + "سؤال");
 
-        }
 
-        @Override
-        public void onClick(View view) {
-            notifyItemChanged(selected_position);
-            selected_position = getPosition();
-            notifyItemChanged(selected_position);
-        }
-    }
 }

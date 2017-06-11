@@ -4,12 +4,27 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.github.lzyzsd.circleprogress.DonutProgress;
+import com.yackeen.ta3allam.Capsule.Category;
 import com.yackeen.ta3allam.R;
+import com.yackeen.ta3allam.adapter.TracksAdapter;
+import com.yackeen.ta3allam.model.dto.request.FirstLogin1Request;
+import com.yackeen.ta3allam.model.dto.response.FirstLoginResponse1;
+import com.yackeen.ta3allam.server.api.API;
+
+import java.util.List;
+
+import static com.google.android.gms.plus.PlusOneDummyView.TAG;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +44,9 @@ public class Tracks extends Fragment {
     private String mParam1;
     private String mParam2;
     private OnFragmentInteractionListener mListener;
+    private TracksAdapter tracksAdapter;
+    private RecyclerView tracksRecyclerView;
+    private String TAG="Tracks_fragmnet";
 
     public Tracks() {
         // Required empty public constructor
@@ -66,7 +84,43 @@ public class Tracks extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView =inflater.inflate(R.layout.fragment_tracks, container, false);
+        tracksRecyclerView = (RecyclerView)rootView.findViewById(R.id.track_recyclerview);
+        tracksRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        tracksRecyclerView.setHasFixedSize(true);
+        tracksAdapter=new TracksAdapter(getContext());
+        feachCategoriesFromApi();
+        tracksRecyclerView.setAdapter(tracksAdapter);
      return rootView;
+    }
+    public void feachCategoriesFromApi(){
+        FirstLogin1Request body = new FirstLogin1Request();
+        API.getUserAPIs().getAllCourses(body,getCoursesListener(),
+                getCoursesFailedListener(),getContext());
+
+
+    }
+    //network response
+    private Response.Listener<FirstLoginResponse1> getCoursesListener(){
+        return new Response.Listener<FirstLoginResponse1>() {
+            @Override
+            public void onResponse(FirstLoginResponse1 response) {
+                Log.e(TAG,"network_response:"+response.CoursesList.size());
+                List<Category> courses = response.CoursesList;
+                Log.d(TAG,"network_response:"+courses.size());
+                tracksAdapter.addAll(courses);
+
+            }
+        };
+    }
+    private Response.ErrorListener getCoursesFailedListener(){
+        return new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "onErrorResponse: ".concat(error.toString()));
+                Toast.makeText(getActivity(), R.string.network_error, Toast.LENGTH_SHORT).show();
+
+            }
+        };
     }
 
     // TODO: Rename method, update argument and hook method into UI event
