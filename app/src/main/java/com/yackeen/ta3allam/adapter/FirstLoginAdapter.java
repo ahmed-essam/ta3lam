@@ -6,7 +6,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.yackeen.ta3allam.R;
@@ -28,6 +30,7 @@ public class FirstLoginAdapter extends RecyclerView.Adapter<FirstLoginAdapter.Vi
         public TextView teacherTextView;
         public TextView studentTextView;
         public TextView questionTextView;
+        LinearLayout categorylayout;
         public ViewHolder(View itemView) {
             super(itemView);
             nameTextView = (TextView) itemView.findViewById(R.id.name);
@@ -36,6 +39,8 @@ public class FirstLoginAdapter extends RecyclerView.Adapter<FirstLoginAdapter.Vi
             teacherTextView = (TextView) itemView.findViewById(R.id.teacher);
             studentTextView = (TextView) itemView.findViewById(R.id.student);
             questionTextView = (TextView) itemView.findViewById(R.id.question);
+            categorylayout = (LinearLayout)itemView.findViewById(R.id.category_linear);
+            itemView.setOnClickListener(this);
         }
         public void bindView(Category category){
             nameTextView.setText(category.getName());
@@ -52,6 +57,8 @@ public class FirstLoginAdapter extends RecyclerView.Adapter<FirstLoginAdapter.Vi
             notifyItemChanged(selected_position);
             selected_position = getPosition();
             notifyItemChanged(selected_position);
+//            categorylayout.setBackgroundColor(itemView.getResources().getColor(R.color.colorAccent));
+            Toast.makeText(mContext,"clicked",Toast.LENGTH_SHORT).show();
         }
     }
     private List<Category> mCategory;
@@ -74,7 +81,6 @@ public class FirstLoginAdapter extends RecyclerView.Adapter<FirstLoginAdapter.Vi
         LayoutInflater inflater = LayoutInflater.from(context);
 
         View categoryView = inflater.inflate(R.layout.category_list_item, parent, false);
-
         ViewHolder viewHolder = new ViewHolder(categoryView);
         return viewHolder;
     }

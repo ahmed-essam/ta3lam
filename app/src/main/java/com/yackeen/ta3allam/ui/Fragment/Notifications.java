@@ -4,11 +4,28 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.yackeen.ta3allam.Capsule.Category;
+import com.yackeen.ta3allam.Capsule.Notification;
 import com.yackeen.ta3allam.R;
+import com.yackeen.ta3allam.adapter.NotificationsAdapter;
+import com.yackeen.ta3allam.model.dto.request.FirstLogin1Request;
+import com.yackeen.ta3allam.model.dto.request.NotificationsRequest;
+import com.yackeen.ta3allam.model.dto.response.FirstLoginResponse1;
+import com.yackeen.ta3allam.model.dto.response.NotificationsResponse;
+import com.yackeen.ta3allam.server.api.API;
+import com.yackeen.ta3allam.util.UserHelper;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +44,9 @@ public class Notifications extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private String TAG="notifications_fragment";
+    private RecyclerView notificationRecyclerView;
+    private NotificationsAdapter notificationsAdapter;
 
     private OnFragmentInteractionListener mListener;
 
@@ -65,10 +85,50 @@ public class Notifications extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_notifications, container, false);
+        View rootView=inflater.inflate(R.layout.fragment_notifications, container, false);
+        notificationRecyclerView=(RecyclerView)rootView.findViewById(R.id.notification_recyclerview);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        notificationRecyclerView.setLayoutManager(layoutManager);
+        notificationsAdapter = new NotificationsAdapter(getContext());
+        feachNotificationsFromApi();
+        notificationRecyclerView.setAdapter(notificationsAdapter);
+        return rootView;
+    }
+    public void feachNotificationsFromApi(){
+        NotificationsRequest body = new NotificationsRequest();
+        body.setUserID(UserHelper.getUserId(getContext()));
+        API.getUserAPIs().getAllNotifications(body,getNotificationListener(),
+                getNotificationsFailedListener(),getContext());
+
+
+    }
+    //network response
+    private Response.Listener<NotificationsResponse> getNotificationListener(){
+        return new Response.Listener<NotificationsResponse>() {
+            @Override
+            public void onResponse(NotificationsResponse response) {
+                Log.e(TAG,"network_response:"+response.AllNotificaions.size());
+                List<Notification> notifications = response.AllNotificaions;
+                Log.d(TAG,"network_response:"+notifications.size());
+                notificationsAdapter.addAll(notifications);
+            }
+
+
+        };
+    }
+    private Response.ErrorListener getNotificationsFailedListener() {
+        return new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "onErrorResponse: ".concat(error.toString()));
+                Toast.makeText(getActivity(), R.string.network_error, Toast.LENGTH_SHORT).show();
+
+            }
+        };
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
+
+        // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);

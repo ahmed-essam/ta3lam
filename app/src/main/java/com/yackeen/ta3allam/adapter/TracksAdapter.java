@@ -1,6 +1,7 @@
 package com.yackeen.ta3allam.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.yackeen.ta3allam.Capsule.Category;
 import com.yackeen.ta3allam.R;
+import com.yackeen.ta3allam.ui.activity.BooksActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +24,8 @@ import static com.google.android.gms.plus.PlusOneDummyView.TAG;
  * Created by ahmed essam on 09/06/2017.
  */
 
-public class TracksAdapter extends RecyclerView.Adapter<TracksAdapter.ViewHolder>{
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class TracksAdapter extends RecyclerView.Adapter<TracksAdapter.TracksViewHolder>{
+    public class TracksViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView nameTextView;
         public TextView descriptionTextView;
         public TextView levelTextView;
@@ -31,15 +33,16 @@ public class TracksAdapter extends RecyclerView.Adapter<TracksAdapter.ViewHolder
         public TextView studentTextView;
         public TextView questionTextView;
         LinearLayout mlinearLayout;
-        public ViewHolder(View itemView) {
+        public TracksViewHolder(View itemView) {
             super(itemView);
+            mlinearLayout = (LinearLayout) itemView.findViewById(R.id.category_linear);
             nameTextView = (TextView) itemView.findViewById(R.id.name);
             descriptionTextView = (TextView) itemView.findViewById(R.id.decription);
             levelTextView = (TextView) itemView.findViewById(R.id.level);
             teacherTextView = (TextView) itemView.findViewById(R.id.teacher);
             studentTextView = (TextView) itemView.findViewById(R.id.student);
             questionTextView = (TextView) itemView.findViewById(R.id.question);
-            mlinearLayout = (LinearLayout) itemView.findViewById(R.id.category_linear);
+            itemView.setOnClickListener(this);
         }
         public void bindView(Category category){
             mlinearLayout.setBackgroundColor(mContext.getResources().getColor(R.color.colorLayoutBackground));
@@ -54,6 +57,9 @@ public class TracksAdapter extends RecyclerView.Adapter<TracksAdapter.ViewHolder
 
         @Override
         public void onClick(View view) {
+            Category category = mCategory.get(getPosition());
+            Intent intent = BooksActivity.newIntent(getmContext(),category.getId());
+            getmContext().startActivity(intent);
             notifyItemChanged(selected_position);
             selected_position = getPosition();
             notifyItemChanged(selected_position);
@@ -75,24 +81,33 @@ public class TracksAdapter extends RecyclerView.Adapter<TracksAdapter.ViewHolder
         return mContext;
     }
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public TracksViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
         View categoryView = inflater.inflate(R.layout.category_list_item, parent, false);
 
-        ViewHolder viewHolder = new ViewHolder(categoryView);
+        TracksAdapter.TracksViewHolder viewHolder = new TracksAdapter.TracksViewHolder(categoryView);
         return viewHolder;
     }
 
+
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(TracksViewHolder holder, int position) {
         if(mCategory.size()!=0) {
             Category category = mCategory.get(position);
             holder.bindView(category);
         }else{
             Log.e(TAG, "onBindViewHolder: empty list" );
         }
+
+    }//method to add list to adapter
+    public void addAll(List<Category> categoryList) {
+        Log.e(TAG, "track_adapter_addAll: "+categoryList.size());
+        this.mCategory.clear();
+        this.mCategory.addAll(categoryList);
+        Log.e(TAG, "addAll: mCategory"+mCategory.size() );
+        notifyDataSetChanged();
 
     }
 
@@ -101,13 +116,7 @@ public class TracksAdapter extends RecyclerView.Adapter<TracksAdapter.ViewHolder
         return mCategory.size();
     }
 
-    //method to add list to adapter
-    public void addAll(List<Category> categoryList) {
-        this.mCategory.clear();
-        this.mCategory.addAll(categoryList);
-        notifyDataSetChanged();
 
-    }
 
 
 

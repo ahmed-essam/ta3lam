@@ -17,6 +17,7 @@
     <color name="colorCardBackground">#FFFFFF</color>
     <color name="colorLayoutBackground">#DDDDDD</color>
     <color name="colorDivider">#BDBDBD</color>
+    <color name="bookItemBackground">#FDFDFE</color>
 
     <!--Colors-->
     <color name="colorFadedWhite80">#55FFFFFF</color>

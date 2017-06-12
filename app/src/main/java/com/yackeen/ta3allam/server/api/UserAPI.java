@@ -12,6 +12,7 @@ import com.yackeen.ta3allam.model.dto.request.FirstLogin2Request;
 import com.yackeen.ta3allam.model.dto.request.FollowerRequest;
 import com.yackeen.ta3allam.model.dto.request.LoginRequest;
 import com.yackeen.ta3allam.model.dto.request.NewsRequest;
+import com.yackeen.ta3allam.model.dto.request.NotificationsRequest;
 import com.yackeen.ta3allam.model.dto.request.RegisterRequest;
 import com.yackeen.ta3allam.model.dto.request.ResetPasswordRequest;
 import com.yackeen.ta3allam.model.dto.response.FirstLoginResponse1;
@@ -19,6 +20,7 @@ import com.yackeen.ta3allam.model.dto.response.FirstLoginResponse2;
 import com.yackeen.ta3allam.model.dto.response.FollwerResponse;
 import com.yackeen.ta3allam.model.dto.response.LoginResponse;
 import com.yackeen.ta3allam.model.dto.response.NewsResponse;
+import com.yackeen.ta3allam.model.dto.response.NotificationsResponse;
 import com.yackeen.ta3allam.model.dto.response.RegisterResponse;
 import com.yackeen.ta3allam.model.dto.response.ResetPasswordResponse;
 import com.yackeen.ta3allam.server.request.GsonPostRequest;
@@ -160,6 +162,21 @@ public class UserAPI {
                 url,
                 body,
                 FollwerResponse.class,
+                map,
+                listener,
+                errorListener
+        );
+        appContext.addToRequestQueue(request);
+    }
+    public void getAllNotifications(NotificationsRequest body, Listener<NotificationsResponse> listener, ErrorListener errorListener, Context context){
+        String url = AppBaseURL.concat("Notifications/GetAllUserNotifications");
+        Map map = new HashMap();
+        map.put("UserID", UserHelper.getUserId(context));
+        map.put("Token", MyFirebaseInstanceIdService.getDeviceToken(context));
+        GsonPostRequest<NotificationsResponse> request = new GsonPostRequest<>(
+                url,
+                body,
+                NotificationsResponse.class,
                 map,
                 listener,
                 errorListener

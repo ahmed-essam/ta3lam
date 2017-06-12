@@ -99,29 +99,7 @@ public class Tracks extends Fragment {
 
 
     }
-    //network response
-    private Response.Listener<FirstLoginResponse1> getCoursesListener(){
-        return new Response.Listener<FirstLoginResponse1>() {
-            @Override
-            public void onResponse(FirstLoginResponse1 response) {
-                Log.e(TAG,"network_response:"+response.CoursesList.size());
-                List<Category> courses = response.CoursesList;
-                Log.d(TAG,"network_response:"+courses.size());
-                tracksAdapter.addAll(courses);
 
-            }
-        };
-    }
-    private Response.ErrorListener getCoursesFailedListener(){
-        return new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e(TAG, "onErrorResponse: ".concat(error.toString()));
-                Toast.makeText(getActivity(), R.string.network_error, Toast.LENGTH_SHORT).show();
-
-            }
-        };
-    }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -160,5 +138,28 @@ public class Tracks extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+    //network response
+    private Response.Listener<FirstLoginResponse1> getCoursesListener(){
+        return new Response.Listener<FirstLoginResponse1>() {
+            @Override
+            public void onResponse(FirstLoginResponse1 response) {
+                Log.e(TAG,"track_network_response:"+response.CoursesList.size());
+                List<Category> courses = response.CoursesList;
+                Log.d(TAG,"track_network_response:"+courses.size());
+                tracksAdapter.addAll(courses);
+
+            }
+        };
+    }
+    private Response.ErrorListener getCoursesFailedListener(){
+        return new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "onErrorResponse: ".concat(error.toString()));
+                Toast.makeText(getActivity(), R.string.network_error, Toast.LENGTH_SHORT).show();
+
+            }
+        };
     }
 }
