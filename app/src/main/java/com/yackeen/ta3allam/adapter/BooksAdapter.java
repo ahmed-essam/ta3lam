@@ -1,6 +1,7 @@
 package com.yackeen.ta3allam.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.yackeen.ta3allam.Capsule.Book;
 import com.yackeen.ta3allam.R;
+import com.yackeen.ta3allam.ui.activity.BookDetailActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +36,7 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.ViewHolder>{
             levelTextView = (TextView) itemView.findViewById(R.id.level);
             teacherTextView = (TextView) itemView.findViewById(R.id.teacher);
             bookLinearLayout = (LinearLayout)itemView.findViewById(R.id.book_item_linear);
+            itemView.setOnClickListener(this);
         }
         public void bindView(Book book){
             bookLinearLayout.setBackgroundColor(itemView.getResources().getColor(R.color.bookItemBackground));
@@ -45,9 +48,9 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.ViewHolder>{
 
         @Override
         public void onClick(View view) {
-            notifyItemChanged(selected_position);
-            selected_position = getPosition();
-            notifyItemChanged(selected_position);
+            Book book = bookList.get(getPosition());
+            Intent intent = BookDetailActivity.newDetailIntent(getmContext(),book);
+            getmContext().startActivity(intent);
         }
     }
     private List<Book> bookList;
@@ -59,6 +62,9 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.ViewHolder>{
         this.bookList= new ArrayList<>();
     }
 
+    public Context getmContext() {
+        return mContext;
+    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

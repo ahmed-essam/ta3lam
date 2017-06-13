@@ -2,10 +2,12 @@ package com.yackeen.ta3allam.Capsule;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by devar on 8/7/16.
  */
-public class Book {
+public class Book implements Serializable {
     @SerializedName("ID")
     private int id;
     @SerializedName("Name")
@@ -14,6 +16,15 @@ public class Book {
     private int level;
     @SerializedName("TeacherName")
     private String teacher;
+    private String CourseName;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getLevel() {
         return level;
@@ -39,4 +50,11 @@ public class Book {
         this.teacher = teacher;
     }
 
+    public String getCourseName() {
+        return CourseName;
+    }
+
+    public void setCourseName(String courseName) {
+        CourseName = courseName;
+    }
 }

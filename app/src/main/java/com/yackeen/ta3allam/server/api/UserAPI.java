@@ -7,6 +7,7 @@ import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 import com.yackeen.ta3allam.Capsule.Follower;
 import com.yackeen.ta3allam.application.AppController;
+import com.yackeen.ta3allam.model.dto.request.BookDetailRequest;
 import com.yackeen.ta3allam.model.dto.request.FirstLogin1Request;
 import com.yackeen.ta3allam.model.dto.request.FirstLogin2Request;
 import com.yackeen.ta3allam.model.dto.request.FollowerRequest;
@@ -15,6 +16,7 @@ import com.yackeen.ta3allam.model.dto.request.NewsRequest;
 import com.yackeen.ta3allam.model.dto.request.NotificationsRequest;
 import com.yackeen.ta3allam.model.dto.request.RegisterRequest;
 import com.yackeen.ta3allam.model.dto.request.ResetPasswordRequest;
+import com.yackeen.ta3allam.model.dto.response.BookDetailResponse;
 import com.yackeen.ta3allam.model.dto.response.FirstLoginResponse1;
 import com.yackeen.ta3allam.model.dto.response.FirstLoginResponse2;
 import com.yackeen.ta3allam.model.dto.response.FollwerResponse;
@@ -183,5 +185,21 @@ public class UserAPI {
         );
         appContext.addToRequestQueue(request);
     }
+    public void getBookDetails(BookDetailRequest body, Listener<BookDetailResponse> listener, ErrorListener errorListener, Context context){
+        String url = AppBaseURL.concat("Books/GetBookDetails");
+        Map map = new HashMap();
+        map.put("UserID", UserHelper.getUserId(context));
+        map.put("Token", MyFirebaseInstanceIdService.getDeviceToken(context));
+        GsonPostRequest<BookDetailResponse> request = new GsonPostRequest<>(
+                url,
+                body,
+                BookDetailResponse.class,
+                map,
+                listener,
+                errorListener
+        );
+        appContext.addToRequestQueue(request);
+    }
+
 
 }
