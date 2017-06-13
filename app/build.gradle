@@ -30,7 +30,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
     //Android
-    
 
     //Back-end
     annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
@@ -38,11 +37,11 @@ dependencies {
     compile "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
     compile "com.github.Raizlabs.DBFlow:dbflow-sqlcipher:${dbflow_version}"
     compile "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:${dbflow_version}"
-    
+
     //Front-end
-    
+
     //Firebase
-    
+
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.android.support:design:25.3.1'

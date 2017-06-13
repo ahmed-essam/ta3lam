@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.yackeen.ta3allam.R;
+import com.yackeen.ta3allam.util.UserHelper;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -19,7 +20,11 @@ public class SplashScreenActivity extends AppCompatActivity {
 
             @Override
             public void run() {
-                startActivity(new Intent(SplashScreenActivity.this, LoginActivity.class));
+                if (UserHelper.getUserId(SplashScreenActivity.this)==null) {
+                    startActivity(new Intent(SplashScreenActivity.this, LoginActivity.class));
+                }else{
+                    startActivity(new Intent(SplashScreenActivity.this, Home.class));
+                }
                 finish();
             }
         }, secondsDelay * 1000);

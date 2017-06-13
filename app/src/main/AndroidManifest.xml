@@ -29,21 +29,21 @@
         </activity>
         <activity
             android:name=".ui.activity.LoginActivity"
-            android:windowSoftInputMode="stateHidden|adjustPan"></activity>
+            android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name=".ui.activity.RegisterActivity"
             android:label="@string/title_activity_register"
-            android:windowSoftInputMode="stateHidden|adjustPan"></activity>
+            android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name=".ui.activity.FirstLogin"
-            android:label="@string/title_activity_first_login"></activity>
+            android:label="@string/title_activity_first_login" />
         <activity
             android:name=".ui.activity.Home"
-            android:windowSoftInputMode="stateHidden|adjustPan"></activity>
-        <activity android:name=".ui.activity.PasswordResetActivity"></activity>
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity android:name=".ui.activity.PasswordResetActivity" />
         <activity
             android:name=".ui.activity.BooksActivity"
-            android:windowSoftInputMode="stateHidden|adjustPan"></activity>
+            android:windowSoftInputMode="stateHidden|adjustPan" />
 
         <service android:name=".services.MyFirebaseInstanceIdService">
             <intent-filter>
@@ -56,7 +56,8 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".ui.activity.BookDetailActivity"></activity>
+        <activity android:name=".ui.activity.BookDetailActivity" />
+        <activity android:name=".ui.activity.ForumsShowActivity"></activity>
     </application>
 
 </manifest>

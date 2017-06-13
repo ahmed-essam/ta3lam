@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -34,17 +35,22 @@ public class BooksActivity extends AppCompatActivity{
     private RecyclerView booksRecyclerView;
     private BooksAdapter booksAdapter;
     private String TAG="Books_activity";
+    private Toolbar bookToolbar;
 
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_books);
+        bookToolbar = (Toolbar)findViewById(R.id.book_toolbar);
+        setSupportActionBar(bookToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         booksRecyclerView = (RecyclerView)findViewById(R.id.books_recyclerView);
         booksRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         booksAdapter = new BooksAdapter(this);
+        feachBooksFromApi();
+        booksRecyclerView.setAdapter(booksAdapter);
 
 
     }

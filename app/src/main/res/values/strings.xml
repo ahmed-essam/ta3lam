@@ -9,6 +9,16 @@
     <string name="title_activity_forget_password2">نسيت كلمة المرور</string>
     <string name="title_activity_first_login">مرحبا بك </string>
     <string name="title_activity_first_loign2">مرحبا بك</string>
+    <string name="follow_button_text">متابعه</string>
+    <string name="share_button_text">اشترك</string>
+    <string name="about_book_detail">عن الكتاب</string>
+    <string name="teacher_book_detail">المُعلم</string>
+    <string name="duration_book_detail">المُده</string>
+    <string name="shares_book_detail">المشاركين</string>
+    <string name="person_share_book_detail">مشارك</string>
+    <string name="followers_book_detail">المتابعين</string>
+    <string name="person_follow_book_detail">متابع</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

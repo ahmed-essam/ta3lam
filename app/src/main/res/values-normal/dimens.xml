@@ -4,6 +4,7 @@
     <dimen name="margin">16dp</dimen>
     <dimen name="padding">16dp</dimen>
     <dimen name="margin_list_secondary_item">56dp</dimen>
+    <dimen name="margin_list_forum_top">80dp</dimen>
 
     <!--Image-->
     <dimen name="list_image_size">40dp</dimen>
