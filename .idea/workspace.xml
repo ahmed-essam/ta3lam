@@ -21,16 +21,99 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="717f29cb-8c34-44f5-8df9-e1f7b52cb003" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/SetUserBookRequest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/SetUserBookResponse.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/response/NewPasswordResponse.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/response/NewsResponse.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/Capsule/BookDetail.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/FirstLoginAdapter2.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/ForumAdapter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/TracksAdapter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/FirstLogin1Request.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/NewPasswordRequest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/NewsRequest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/NotificationsRequest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/RegisterRequest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/SetUserBookRequest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/NewPasswordResponse.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/NewsResponse.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/provider/AuthFacebook.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/services/MessagingService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/NewsFeed.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/Tracks.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/FirstLogin.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/ForumComentsActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/RegisterActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/SplashScreenActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/util/LruBitmapCache.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/util/TextHelper.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/FirstLoginAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/FirstLoginAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/FirstLoginAdapter2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/FirstLoginAdapter2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/FirstLogin2Request.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/FirstLogin2Request.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/server/api/UserAPI.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/server/api/UserAPI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/FirstLogin1Fragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/FirstLogin1Fragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/FirstLogin2Fragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/FirstLogin2Fragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_book_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_book_detail.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_first_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_first_login.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_messages_list.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_messages_list.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_password_reset.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_password_reset.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash_screen.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash_screen.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_news_feed.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_news_feed.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_notifications.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_notifications.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_tracks.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_tracks.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/yackeen/ta3allam/ApplicationTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/yackeen/education/ta3allam/ApplicationTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/Capsule/Book.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/Capsule/Book.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/Capsule/Category.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/Capsule/Category.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/Capsule/Comment.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/Capsule/Comment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/Capsule/Follower.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/Capsule/Follower.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/Capsule/News.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/Capsule/News.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/Capsule/Notification.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/Capsule/Notification.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/Capsule/UserBooks.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/Capsule/UserBooks.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/BooksAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/adapter/BooksAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/CommentsAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/adapter/CommentsAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/FirstLoginAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/adapter/FirstLoginAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/FollowersAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/adapter/FollowersAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/GridCoursesAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/adapter/GridCoursesAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/NewsAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/adapter/NewsAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/NotificationsAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/adapter/NotificationsAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/application/AppController.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/application/AppController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/BookDetailRequest.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/request/BookDetailRequest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/CommentsRequest.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/request/CommentsRequest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/FirstLogin2Request.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/request/FirstLogin2Request.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/FollowerRequest.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/request/FollowerRequest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/ForumRequest.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/request/ForumRequest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/LoginRequest.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/request/LoginRequest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/ResetPasswordRequest.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/request/ResetPasswordRequest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/BookDetailResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/response/BookDetailResponse.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/CommentsResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/response/CommentsResponse.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/FirstLoginResponse1.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/response/FirstLoginResponse1.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/FirstLoginResponse2.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/response/FirstLoginResponse2.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/FollwerResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/response/FollwerResponse.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/ForumResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/response/ForumResponse.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/LoginResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/response/LoginResponse.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/NotificationsResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/response/NotificationsResponse.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/RegisterResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/response/RegisterResponse.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/ResetPasswordResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/response/ResetPasswordResponse.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/SetUserBookResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/response/SetUserBookResponse.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/server/api/API.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/server/api/API.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/server/api/UserAPI.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/server/api/UserAPI.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/server/request/GsonPostRequest.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/server/request/GsonPostRequest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/services/MyFirebaseInstanceIdService.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/services/MyFirebaseInstanceIdService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/FacebookLoginFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/Fragment/FacebookLoginFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/FirstLogin1Fragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/Fragment/FirstLogin1Fragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/FirstLogin2Fragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/Fragment/FirstLogin2Fragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/NewPasswordFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/Fragment/NewPasswordFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/Notifications.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/Fragment/Notifications.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/Profile.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/Fragment/Profile.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/ResetPasswordFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/Fragment/ResetPasswordFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/BookDetailActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/activity/BookDetailActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/BooksActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/activity/BooksActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/ForumsShowActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/activity/ForumsShowActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/Home.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/activity/Home.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/activity/LoginActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/MessagesListActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/activity/MessagesListActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/PasswordResetActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/activity/PasswordResetActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/util/Constants.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/util/Constants.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/util/UserHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/util/UserHelper.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/test/java/com/yackeen/ta3allam/ExampleUnitTest.java" afterPath="$PROJECT_DIR$/app/src/test/java/yackeen/education/ta3allam/ExampleUnitTest.java" />
     </list>
     <ignored path="ta3lam.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,33 +154,30 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="FirstLoginAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/FirstLoginAdapter.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/adapter/FirstLoginAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="53" column="79" selection-start-line="53" selection-start-column="79" selection-end-line="53" selection-end-column="79" />
+            <state relative-caret-position="595">
+              <caret line="51" column="79" selection-start-line="51" selection-start-column="79" selection-end-line="51" selection-end-column="79" />
               <folding>
-                <element signature="e#2873#2874#0" expanded="true" />
-                <element signature="e#2913#2914#0" expanded="true" />
+                <element signature="e#3039#3040#0" expanded="true" />
+                <element signature="e#3079#3080#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="FirstLogin1Fragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/FirstLogin1Fragment.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/Fragment/FirstLogin1Fragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="64" column="132" selection-start-line="64" selection-start-column="132" selection-end-line="64" selection-end-column="132" />
-              <folding>
-                <element signature="e#2472#2811#0" expanded="true" />
-                <element signature="e#2810#2811#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="663">
+              <caret line="60" column="132" selection-start-line="60" selection-start-column="132" selection-end-line="60" selection-end-column="132" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="SetUserBookResponse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/SetUserBookResponse.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/response/SetUserBookResponse.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
               <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
@@ -107,64 +187,74 @@
         </entry>
       </file>
       <file leaf-file-name="FirstLoginAdapter2.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/FirstLoginAdapter2.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/adapter/FirstLoginAdapter2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="59" column="39" selection-start-line="59" selection-start-column="39" selection-end-line="59" selection-end-column="39" />
+            <state relative-caret-position="646">
+              <caret line="52" column="39" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
               <folding>
-                <element signature="e#2125#2126#0" expanded="true" />
+                <element signature="e#1806#1807#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="FirstLogin2Request.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/FirstLogin2Request.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/request/FirstLogin2Request.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
               <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
               <folding>
-                <element signature="e#188#189#0" expanded="true" />
-                <element signature="e#220#221#0" expanded="true" />
-                <element signature="e#267#268#0" expanded="true" />
-                <element signature="e#304#305#0" expanded="true" />
+                <element signature="e#194#195#0" expanded="true" />
+                <element signature="e#226#227#0" expanded="true" />
+                <element signature="e#273#274#0" expanded="true" />
+                <element signature="e#310#311#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="NewsFeed.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/NewsFeed.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/Fragment/NewsFeed.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="81" column="8" selection-start-line="81" selection-start-column="8" selection-end-line="84" selection-end-column="9" />
+            <state relative-caret-position="901">
+              <caret line="80" column="8" selection-start-line="80" selection-start-column="8" selection-end-line="83" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="colors.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <file leaf-file-name="FirstLogin2Fragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/Fragment/FirstLogin2Fragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="17" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="34" />
+            <state relative-caret-position="1105">
+              <caret line="91" column="46" selection-start-line="91" selection-start-column="46" selection-end-line="91" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FirstLogin2Fragment.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/FirstLogin2Fragment.java">
+      <file leaf-file-name="UserAPI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/server/api/UserAPI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="96" column="46" selection-start-line="96" selection-start-column="46" selection-end-line="96" selection-end-column="46" />
+            <state relative-caret-position="0">
+              <caret line="0" column="8" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="36" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="SetUserBookRequest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/SetUserBookRequest.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/request/SetUserBookRequest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
               <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
@@ -2317,7 +2407,7 @@
     <option name="modificationStamps">
       <map>
         <entry key="D:\Development\Android\Wrokspace\Ta3lam_Code_Description\ta3lam" value="4474469150821" />
-        <entry key="E:\yakeen\ta3lam" value="4490461089669" />
+        <entry key="E:\yakeen\ta3lam" value="4490470314344" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -2625,8 +2715,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/BooksActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/category_list_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_books.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/rounded_buton_with_white_border.xml" />
@@ -2665,7 +2753,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_messages_list.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/SplashScreenActivity.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/application/AppController.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/FirstLoginAdapter.java" />
@@ -2676,13 +2763,16 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/server/api/UserAPI.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/FirstLoginAdapter2.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/FirstLogin2Fragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/yackeen/yackeen/ta3allam/server/api/UserAPI.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/server/api/UserAPI.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1378" />
+    <option name="width" value="1370" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -2723,7 +2813,7 @@
       <showMembers />
       <showModules />
       <showLibraryContents />
-      <hideEmptyPackages />
+      <hideEmptyPackages AndroidView="true" />
       <abbreviatePackageNames />
       <autoscrollToSource />
       <autoscrollFromSource />
@@ -2732,20 +2822,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
+      <pane id="PackagesPane">
         <subPane />
       </pane>
+      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2767,28 +2847,6 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="values" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ta3lam" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -2820,196 +2878,22 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="ta3allam" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ta3lam" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ta3allam" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Fragment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ta3lam" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ta3allam" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="activity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ta3lam" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ta3allam" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ta3lam" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ta3allam" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ta3lam" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ta3allam" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dto" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="response" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ta3lam" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ta3allam" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dto" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="request" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ta3lam" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ta3allam" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adapter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ta3lam" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane">
+      <pane id="ProjectPane">
         <subPane />
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
       </pane>
     </panes>
   </component>
@@ -3046,7 +2930,7 @@
       <recent name="E:\yakeen\ta3lam\app" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.FirstLogin">
+  <component name="RunManager" selected="Android App.app">
     <configuration default="false" name="ta3lam [signingReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -3556,7 +3440,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1378" height="744" extended-state="1" />
+    <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -3572,7 +3456,7 @@
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32764506" sideWeight="0.5060514" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24886191" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24885496" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -3612,8 +3496,8 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/Tracks.java</url>
-          <line>146</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/Fragment/Tracks.java</url>
+          <line>143</line>
           <properties />
           <option name="timeStamp" value="34" />
         </line-breakpoint>
@@ -3627,59 +3511,59 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_book_detail.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2142">
           <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="512">
           <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/BooksAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/adapter/BooksAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="524">
           <caret line="51" column="81" selection-start-line="51" selection-start-column="81" selection-end-line="51" selection-end-column="81" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/FollowersAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/adapter/FollowersAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
           <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="65" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/BookDetailActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/activity/BookDetailActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1700">
           <caret line="124" column="48" selection-start-line="124" selection-start-column="48" selection-end-line="124" selection-end-column="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/server/request/GsonPostRequest.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/server/request/GsonPostRequest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
           <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
@@ -3687,13 +3571,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_books.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="45" selection-start-line="1" selection-start-column="49" selection-end-line="3" selection-end-column="45" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_forums_show.xml">
@@ -3703,7 +3587,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/ForumAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/adapter/ForumAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1224">
           <caret line="89" column="47" selection-start-line="89" selection-start-column="47" selection-end-line="89" selection-end-column="47" />
@@ -3726,26 +3610,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-v21/activity_forums_show.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_forum_comentsactivity.xml" />
-    <entry file="file://$PROJECT_DIR$/app/build/generated/source/r/debug/com/yackeen/ta3allam/R.java" />
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/r/debug/yackeen/yackeen/ta3allam/R.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_first_login_1.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="50" column="12" selection-start-line="50" selection-start-column="12" selection-end-line="51" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="50" column="12" selection-start-line="50" selection-start-column="12" selection-end-line="51" selection-end-column="38" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_forums_show.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="83" selection-end-column="14" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/rounded_button.xml">
@@ -3762,35 +3645,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/FirstLogin.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/activity/FirstLogin.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="362">
           <caret line="79" column="5" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/NewsAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/adapter/NewsAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="377">
           <caret line="87" column="3" selection-start-line="87" selection-start-column="3" selection-end-line="91" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/ForumRequest.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/request/ForumRequest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="8" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/CommentsRequest.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/request/CommentsRequest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/Capsule/Comment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/Capsule/Comment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
@@ -3798,30 +3681,30 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/card_view_comment.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
           <caret line="46" column="32" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/CommentsResponse.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/response/CommentsResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/CommentsAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/adapter/CommentsAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/ForumsShowActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/activity/ForumsShowActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="346">
           <caret line="57" column="8" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="51" />
@@ -3829,75 +3712,55 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/news_card_view.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="44" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/messages_list_item.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/messages_list_item.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/Capsule/News.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/Capsule/News.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
           <folding>
-            <element signature="e#820#821#0" expanded="false" />
-            <element signature="e#849#850#0" expanded="false" />
-            <element signature="e#890#891#0" expanded="false" />
-            <element signature="e#926#927#0" expanded="false" />
-            <element signature="e#956#957#0" expanded="false" />
-            <element signature="e#985#986#0" expanded="false" />
-            <element signature="e#1026#1027#0" expanded="false" />
-            <element signature="e#1057#1058#0" expanded="false" />
-            <element signature="e#1089#1090#0" expanded="false" />
-            <element signature="e#1117#1118#0" expanded="false" />
-            <element signature="e#1159#1160#0" expanded="false" />
-            <element signature="e#1193#1194#0" expanded="false" />
-            <element signature="e#1224#1225#0" expanded="false" />
-            <element signature="e#1251#1252#0" expanded="false" />
-            <element signature="e#1291#1292#0" expanded="false" />
-            <element signature="e#1323#1324#0" expanded="false" />
-            <element signature="e#1354#1355#0" expanded="false" />
-            <element signature="e#1381#1382#0" expanded="false" />
-            <element signature="e#1421#1422#0" expanded="false" />
-            <element signature="e#1453#1454#0" expanded="false" />
-            <element signature="e#1491#1492#0" expanded="false" />
-            <element signature="e#1525#1526#0" expanded="false" />
-            <element signature="e#1579#1580#0" expanded="false" />
-            <element signature="e#1625#1626#0" expanded="false" />
-            <element signature="e#1654#1655#0" expanded="false" />
-            <element signature="e#1682#1683#0" expanded="false" />
-            <element signature="e#1721#1722#0" expanded="false" />
-            <element signature="e#1755#1756#0" expanded="false" />
-            <element signature="e#1786#1787#0" expanded="false" />
-            <element signature="e#1816#1817#0" expanded="false" />
-            <element signature="e#1859#1860#0" expanded="false" />
-            <element signature="e#1897#1898#0" expanded="false" />
-            <element signature="e#1925#1926#0" expanded="false" />
-            <element signature="e#1952#1953#0" expanded="false" />
-            <element signature="e#1989#1990#0" expanded="false" />
-            <element signature="e#2021#2022#0" expanded="false" />
-            <element signature="e#2053#2054#0" expanded="false" />
-            <element signature="e#2081#2082#0" expanded="false" />
-            <element signature="e#2124#2125#0" expanded="false" />
-            <element signature="e#2158#2159#0" expanded="false" />
+            <element signature="e#824#825#0" expanded="false" />
+            <element signature="e#894#895#0" expanded="false" />
+            <element signature="e#960#961#0" expanded="false" />
+            <element signature="e#1030#1031#0" expanded="false" />
+            <element signature="e#1093#1094#0" expanded="false" />
+            <element signature="e#1163#1164#0" expanded="false" />
+            <element signature="e#1228#1229#0" expanded="false" />
+            <element signature="e#1295#1296#0" expanded="false" />
+            <element signature="e#1358#1359#0" expanded="false" />
+            <element signature="e#1425#1426#0" expanded="false" />
+            <element signature="e#1495#1496#0" expanded="false" />
+            <element signature="e#1583#1584#0" expanded="false" />
+            <element signature="e#1658#1659#0" expanded="false" />
+            <element signature="e#1725#1726#0" expanded="false" />
+            <element signature="e#1790#1791#0" expanded="false" />
+            <element signature="e#1863#1864#0" expanded="false" />
+            <element signature="e#1929#1930#0" expanded="false" />
+            <element signature="e#1993#1994#0" expanded="false" />
+            <element signature="e#2057#2058#0" expanded="false" />
+            <element signature="e#2128#2129#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/MessagesListActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/activity/MessagesListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -3908,40 +3771,26 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_forum_coments.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
           <caret line="207" column="0" selection-start-line="9" selection-start-column="5" selection-end-line="207" selection-end-column="0" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/ForumResponse.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/response/ForumResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="11" column="51" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#447#448#0" expanded="false" />
-            <element signature="e#481#482#0" expanded="false" />
-            <element signature="e#535#536#0" expanded="false" />
-            <element signature="e#576#577#0" expanded="false" />
-            <element signature="e#620#621#0" expanded="false" />
-            <element signature="e#660#661#0" expanded="false" />
-            <element signature="e#814#815#0" expanded="false" />
-            <element signature="e#845#846#0" expanded="false" />
-            <element signature="e#893#894#0" expanded="false" />
-            <element signature="e#928#929#0" expanded="false" />
-            <element signature="e#965#966#0" expanded="false" />
-            <element signature="e#998#999#0" expanded="false" />
-            <element signature="e#1050#1051#0" expanded="false" />
-            <element signature="e#1089#1090#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/ForumComentsActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/activity/ForumComentsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="65">
           <caret line="45" column="32" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
@@ -3949,17 +3798,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_messages_list.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="48" selection-start-line="40" selection-start-column="48" selection-end-line="40" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="40" column="48" selection-start-line="40" selection-start-column="48" selection-end-line="40" selection-end-column="48" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/activity/SplashScreenActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/activity/SplashScreenActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
@@ -3970,36 +3818,27 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
           <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/application/AppController.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/application/AppController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="31" column="48" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -4012,68 +3851,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/FirstLoginAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/adapter/FirstLoginAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="53" column="79" selection-start-line="53" selection-start-column="79" selection-end-line="53" selection-end-column="79" />
+        <state relative-caret-position="595">
+          <caret line="51" column="79" selection-start-line="51" selection-start-column="79" selection-end-line="51" selection-end-column="79" />
           <folding>
-            <element signature="e#2873#2874#0" expanded="true" />
-            <element signature="e#2913#2914#0" expanded="true" />
+            <element signature="e#3039#3040#0" expanded="true" />
+            <element signature="e#3079#3080#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/NewsFeed.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/Fragment/NewsFeed.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="81" column="8" selection-start-line="81" selection-start-column="8" selection-end-line="84" selection-end-column="9" />
+        <state relative-caret-position="901">
+          <caret line="80" column="8" selection-start-line="80" selection-start-column="8" selection-end-line="83" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/server/api/UserAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="240" column="32" selection-start-line="240" selection-start-column="32" selection-end-line="240" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/FirstLogin2Request.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/request/FirstLogin2Request.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
           <folding>
-            <element signature="e#188#189#0" expanded="true" />
-            <element signature="e#220#221#0" expanded="true" />
-            <element signature="e#267#268#0" expanded="true" />
-            <element signature="e#304#305#0" expanded="true" />
+            <element signature="e#194#195#0" expanded="true" />
+            <element signature="e#226#227#0" expanded="true" />
+            <element signature="e#273#274#0" expanded="true" />
+            <element signature="e#310#311#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/FirstLogin1Fragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/Fragment/FirstLogin1Fragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="64" column="132" selection-start-line="64" selection-start-column="132" selection-end-line="64" selection-end-column="132" />
-          <folding>
-            <element signature="e#2472#2811#0" expanded="true" />
-            <element signature="e#2810#2811#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="663">
+          <caret line="60" column="132" selection-start-line="60" selection-start-column="132" selection-end-line="60" selection-end-column="132" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/adapter/FirstLoginAdapter2.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/adapter/FirstLoginAdapter2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="59" column="39" selection-start-line="59" selection-start-column="39" selection-end-line="59" selection-end-column="39" />
+        <state relative-caret-position="646">
+          <caret line="52" column="39" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
           <folding>
-            <element signature="e#2125#2126#0" expanded="true" />
+            <element signature="e#1806#1807#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/response/SetUserBookResponse.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/response/SetUserBookResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
@@ -4081,7 +3909,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/model/dto/request/SetUserBookRequest.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/model/dto/request/SetUserBookRequest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
@@ -4089,10 +3917,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yackeen/ta3allam/ui/Fragment/FirstLogin2Fragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/ui/Fragment/FirstLogin2Fragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="96" column="46" selection-start-line="96" selection-start-column="46" selection-end-line="96" selection-end-column="46" />
+        <state relative-caret-position="1105">
+          <caret line="91" column="46" selection-start-line="91" selection-start-column="46" selection-end-line="91" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yackeen/education/ta3allam/server/api/UserAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="8" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="36" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="36" />
           <folding />
         </state>
       </provider>

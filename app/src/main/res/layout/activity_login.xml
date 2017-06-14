@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layoutDirection="rtl"
     android:background="@drawable/login_bg"
-    tools:context=".ui.activity.LoginActivity"
+    tools:context="yackeen.education.ta3allam.ui.activity.LoginActivity"
     android:descendantFocusability="beforeDescendants"
     android:focusableInTouchMode="true">
 

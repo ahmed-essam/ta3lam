@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
-    tools:context=".ui.activity.FirstLogin"
+    tools:context="yackeen.education.ta3allam.ui.activity.FirstLogin"
     android:layoutDirection="rtl">
 
     <LinearLayout
