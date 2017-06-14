@@ -31,10 +31,21 @@ import com.yackeen.ta3allam.ui.activity.Home;
 import java.util.List;
 
 public class FirstLogin2Fragment extends Fragment {
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
     private RecyclerView firstLoginRecyclerView2;
     private Button finishButton;
     private FirstLoginAdapter2 firstLoginAdapter2;
     private String TAG="first_login_fragment2";
+
+    public static NewsFeed newInstance(String param1, String param2) {
+        NewsFeed fragment = new NewsFeed();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

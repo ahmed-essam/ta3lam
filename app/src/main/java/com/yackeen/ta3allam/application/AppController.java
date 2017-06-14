@@ -45,7 +45,7 @@ public class AppController extends Application {
 
         //printMyHashKey(this);
     }
-
+//multidexing
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);

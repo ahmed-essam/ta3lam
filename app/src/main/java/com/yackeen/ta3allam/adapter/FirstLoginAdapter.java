@@ -57,13 +57,18 @@ public class FirstLoginAdapter extends RecyclerView.Adapter<FirstLoginAdapter.Vi
             notifyItemChanged(selected_position);
             selected_position = getPosition();
             notifyItemChanged(selected_position);
+
 //            categorylayout.setBackgroundColor(itemView.getResources().getColor(R.color.colorAccent));
             Toast.makeText(mContext,"clicked",Toast.LENGTH_SHORT).show();
         }
     }
     private List<Category> mCategory;
     private Context mContext;
-    int selected_position = -1;
+    private int selected_position = -1;
+
+    public int getSelected_position() {
+        return selected_position;
+    }
 
     public FirstLoginAdapter(Context context)
     {
