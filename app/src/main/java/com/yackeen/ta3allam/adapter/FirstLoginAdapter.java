@@ -49,7 +49,10 @@ public class FirstLoginAdapter extends RecyclerView.Adapter<FirstLoginAdapter.Vi
             teacherTextView.setText(category.getTeacher() + "معلم");
             studentTextView.setText(category.getStudent() + "طالب");
             questionTextView.setText(category.getQuestion() + "سؤال");
-
+           int index= mCategory.indexOf(category);
+            if(index == selected_position){
+                categorylayout.setBackgroundColor(itemView.getResources().getColor(R.color.real_accent_color));
+            }
         }
 
         @Override
@@ -57,8 +60,6 @@ public class FirstLoginAdapter extends RecyclerView.Adapter<FirstLoginAdapter.Vi
             notifyItemChanged(selected_position);
             selected_position = getPosition();
             notifyItemChanged(selected_position);
-
-//            categorylayout.setBackgroundColor(itemView.getResources().getColor(R.color.colorAccent));
             Toast.makeText(mContext,"clicked",Toast.LENGTH_SHORT).show();
         }
     }

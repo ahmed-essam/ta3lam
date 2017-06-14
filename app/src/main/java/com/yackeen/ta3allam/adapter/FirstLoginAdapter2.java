@@ -12,6 +12,10 @@ import android.widget.TextView;
 import com.yackeen.ta3allam.Capsule.Category;
 import com.yackeen.ta3allam.R;
 import com.yackeen.ta3allam.Capsule.Book;
+import com.yackeen.ta3allam.model.dto.request.FirstLogin2Request;
+import com.yackeen.ta3allam.model.dto.request.SetUserBookRequest;
+import com.yackeen.ta3allam.server.api.API;
+import com.yackeen.ta3allam.util.UserHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,10 +51,15 @@ public class FirstLoginAdapter2 extends RecyclerView.Adapter<FirstLoginAdapter2.
             selected_position = getPosition();
             notifyItemChanged(selected_position);
         }
+
     }
     private List<Book> mBook;
     private Context mContext;
     int selected_position = -1;
+
+    public int getSelected_position() {
+        return selected_position;
+    }
 
     public FirstLoginAdapter2(Context context)
     {

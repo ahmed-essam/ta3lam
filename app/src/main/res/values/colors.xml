@@ -21,6 +21,7 @@
     <color name="commentsHeader">#1C7E51</color>
     <color name="cardViewComent">#10713E</color>
     <color name="mesages_header">#2FB171</color>
+    <color name="real_accent_color">#F1AA49</color>
 
     <!--Colors-->
     <color name="colorFadedWhite80">#55FFFFFF</color>

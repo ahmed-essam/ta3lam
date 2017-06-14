@@ -22,27 +22,31 @@ import com.yackeen.ta3allam.adapter.FirstLoginAdapter;
 import com.yackeen.ta3allam.adapter.FirstLoginAdapter2;
 import com.yackeen.ta3allam.model.dto.request.FirstLogin1Request;
 import com.yackeen.ta3allam.model.dto.request.FirstLogin2Request;
+import com.yackeen.ta3allam.model.dto.request.SetUserBookRequest;
 import com.yackeen.ta3allam.model.dto.response.FirstLoginResponse1;
 import com.yackeen.ta3allam.model.dto.response.FirstLoginResponse2;
+import com.yackeen.ta3allam.model.dto.response.SetUserBookResponse;
 import com.yackeen.ta3allam.server.api.API;
 import com.yackeen.ta3allam.ui.activity.FirstLogin;
 import com.yackeen.ta3allam.ui.activity.Home;
+import com.yackeen.ta3allam.util.UserHelper;
 
 import java.util.List;
 
 public class FirstLogin2Fragment extends Fragment {
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String ARG_COURSE_ID = "courseID";
     private RecyclerView firstLoginRecyclerView2;
     private Button finishButton;
     private FirstLoginAdapter2 firstLoginAdapter2;
     private String TAG="first_login_fragment2";
+    private int courseID;
+    private List<Book> books;
+    private int selectedPosition;
 
-    public static NewsFeed newInstance(String param1, String param2) {
-        NewsFeed fragment = new NewsFeed();
+    public static FirstLogin2Fragment newInstance(int param1) {
+        FirstLogin2Fragment fragment = new FirstLogin2Fragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putInt(ARG_COURSE_ID, param1);
         fragment.setArguments(args);
         return fragment;
     }
@@ -50,6 +54,9 @@ public class FirstLogin2Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView= inflater.inflate(R.layout.fragment_first_login_2, container, false);
+        if (getArguments() != null) {
+            courseID = getArguments().getInt(ARG_COURSE_ID);
+        }
         firstLoginRecyclerView2 = (RecyclerView) rootView.findViewById(R.id.first_login_recyclerview2);
         firstLoginRecyclerView2.setHasFixedSize(true);
         firstLoginRecyclerView2.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -60,8 +67,18 @@ public class FirstLogin2Fragment extends Fragment {
     }
     public void feachBooksFromApi(){
         FirstLogin2Request body = new FirstLogin2Request();
+        body.setCourseIDs(courseID);
         API.getUserAPIs().getAllbooks(body,getCoursesListener(),
                 getCoursesFailedListener(),getContext());
+
+
+    }
+    public void setUserBooksToApi(int[] bookIds){
+        SetUserBookRequest body = new SetUserBookRequest();
+        body.setUserID(UserHelper.getUserId(getContext()));
+        body.setBooksIDs(bookIds);
+        API.getUserAPIs().setUserBook(body,setBookListener(),
+                setBookFailedListener(),getContext());
 
 
     }
@@ -74,8 +91,16 @@ public class FirstLogin2Fragment extends Fragment {
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Home.class);
-                startActivity(intent);
+                selectedPosition=firstLoginAdapter2.getSelected_position();
+                if (selectedPosition != -1){
+                    int[] bookID= {books.get(selectedPosition).getId()};
+                    setUserBooksToApi(bookID);
+                    Intent intent = new Intent(getActivity(), Home.class);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(getContext(), "اختر كتاب من فضلك", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
     }
@@ -85,13 +110,31 @@ public class FirstLogin2Fragment extends Fragment {
             @Override
             public void onResponse(FirstLoginResponse2 response) {
                 Log.e(TAG, "network_response:" + response.BooksList.size());
-                List<Book> books = response.BooksList;
+                books = response.BooksList;
                 Log.d(TAG, "network_response:" + books.size());
                 firstLoginAdapter2.addAll(books);
             }
         };
     }
     private Response.ErrorListener getCoursesFailedListener(){
+        return new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "onErrorResponse: ".concat(error.toString()));
+                Toast.makeText(getActivity(), R.string.network_error, Toast.LENGTH_SHORT).show();
+
+            }
+        };
+    }
+    private Response.Listener<SetUserBookResponse> setBookListener(){
+        return new Response.Listener<SetUserBookResponse>() {
+            @Override
+            public void onResponse(SetUserBookResponse response) {
+                Log.e(TAG, "network_response:add_user_book" + response.isSuccess());
+            }
+        };
+    }
+    private Response.ErrorListener setBookFailedListener(){
         return new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {

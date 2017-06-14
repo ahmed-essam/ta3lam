@@ -32,6 +32,7 @@ public class FirstLogin1Fragment extends Fragment {
     private Button nextButton;
     private FirstLoginAdapter firstLoginAdapter;
     private String TAG="first_login_fragment1";
+    List<Category> categories;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -61,6 +62,7 @@ public class FirstLogin1Fragment extends Fragment {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Fragment fragment = FirstLogin2Fragment.newInstance(categories.get(firstLoginAdapter.getSelected_position()).getId());
 
                 ((FirstLogin)getActivity()).switchFragment(new FirstLogin2Fragment());
             }
@@ -73,7 +75,7 @@ public class FirstLogin1Fragment extends Fragment {
             @Override
             public void onResponse(FirstLoginResponse1 response) {
                 Log.e(TAG,"network_response:"+response.CoursesList.size());
-                List<Category> categories = response.CoursesList;
+                categories = response.CoursesList;
                 Log.d(TAG,"network_response:"+categories.size());
                 firstLoginAdapter.addAll(categories);
 

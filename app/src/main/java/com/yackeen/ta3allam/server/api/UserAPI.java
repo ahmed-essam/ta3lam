@@ -18,6 +18,7 @@ import com.yackeen.ta3allam.model.dto.request.NewsRequest;
 import com.yackeen.ta3allam.model.dto.request.NotificationsRequest;
 import com.yackeen.ta3allam.model.dto.request.RegisterRequest;
 import com.yackeen.ta3allam.model.dto.request.ResetPasswordRequest;
+import com.yackeen.ta3allam.model.dto.request.SetUserBookRequest;
 import com.yackeen.ta3allam.model.dto.response.BookDetailResponse;
 import com.yackeen.ta3allam.model.dto.response.CommentsResponse;
 import com.yackeen.ta3allam.model.dto.response.FirstLoginResponse1;
@@ -29,6 +30,7 @@ import com.yackeen.ta3allam.model.dto.response.NewsResponse;
 import com.yackeen.ta3allam.model.dto.response.NotificationsResponse;
 import com.yackeen.ta3allam.model.dto.response.RegisterResponse;
 import com.yackeen.ta3allam.model.dto.response.ResetPasswordResponse;
+import com.yackeen.ta3allam.model.dto.response.SetUserBookResponse;
 import com.yackeen.ta3allam.server.request.GsonPostRequest;
 import com.yackeen.ta3allam.services.MyFirebaseInstanceIdService;
 import com.yackeen.ta3allam.ui.activity.FirstLogin;
@@ -234,6 +236,20 @@ public class UserAPI {
         );
         appContext.addToRequestQueue(request);
     }
-
+    public void setUserBook(SetUserBookRequest body, Listener<SetUserBookResponse> listener, ErrorListener errorListener, Context context){
+        String url = AppBaseURL.concat("Books/SetUserBooks");
+        Map map = new HashMap();
+        map.put("UserID", UserHelper.getUserId(context));
+        map.put("Token", MyFirebaseInstanceIdService.getDeviceToken(context));
+        GsonPostRequest<SetUserBookResponse> request = new GsonPostRequest<>(
+                url,
+                body,
+                SetUserBookResponse.class,
+                map,
+                listener,
+                errorListener
+        );
+        appContext.addToRequestQueue(request);
+    }
 
 }
