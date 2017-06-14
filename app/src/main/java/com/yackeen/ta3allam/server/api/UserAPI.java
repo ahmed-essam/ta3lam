@@ -8,18 +8,22 @@ import com.android.volley.Response.Listener;
 import com.yackeen.ta3allam.Capsule.Follower;
 import com.yackeen.ta3allam.application.AppController;
 import com.yackeen.ta3allam.model.dto.request.BookDetailRequest;
+import com.yackeen.ta3allam.model.dto.request.CommentsRequest;
 import com.yackeen.ta3allam.model.dto.request.FirstLogin1Request;
 import com.yackeen.ta3allam.model.dto.request.FirstLogin2Request;
 import com.yackeen.ta3allam.model.dto.request.FollowerRequest;
+import com.yackeen.ta3allam.model.dto.request.ForumRequest;
 import com.yackeen.ta3allam.model.dto.request.LoginRequest;
 import com.yackeen.ta3allam.model.dto.request.NewsRequest;
 import com.yackeen.ta3allam.model.dto.request.NotificationsRequest;
 import com.yackeen.ta3allam.model.dto.request.RegisterRequest;
 import com.yackeen.ta3allam.model.dto.request.ResetPasswordRequest;
 import com.yackeen.ta3allam.model.dto.response.BookDetailResponse;
+import com.yackeen.ta3allam.model.dto.response.CommentsResponse;
 import com.yackeen.ta3allam.model.dto.response.FirstLoginResponse1;
 import com.yackeen.ta3allam.model.dto.response.FirstLoginResponse2;
 import com.yackeen.ta3allam.model.dto.response.FollwerResponse;
+import com.yackeen.ta3allam.model.dto.response.ForumResponse;
 import com.yackeen.ta3allam.model.dto.response.LoginResponse;
 import com.yackeen.ta3allam.model.dto.response.NewsResponse;
 import com.yackeen.ta3allam.model.dto.response.NotificationsResponse;
@@ -194,6 +198,36 @@ public class UserAPI {
                 url,
                 body,
                 BookDetailResponse.class,
+                map,
+                listener,
+                errorListener
+        );
+        appContext.addToRequestQueue(request);
+    }
+    public void getBookForum(ForumRequest body, Listener<ForumResponse> listener, ErrorListener errorListener, Context context){
+        String url = AppBaseURL.concat("Forum/GetBookPosts");
+        Map map = new HashMap();
+        map.put("UserID", UserHelper.getUserId(context));
+        map.put("Token", MyFirebaseInstanceIdService.getDeviceToken(context));
+        GsonPostRequest<ForumResponse> request = new GsonPostRequest<>(
+                url,
+                body,
+                ForumResponse.class,
+                map,
+                listener,
+                errorListener
+        );
+        appContext.addToRequestQueue(request);
+    }
+    public void getForumComments(CommentsRequest body, Listener<CommentsResponse> listener, ErrorListener errorListener, Context context){
+        String url = AppBaseURL.concat("Forum/DoGetPostComments");
+        Map map = new HashMap();
+        map.put("UserID", UserHelper.getUserId(context));
+        map.put("Token", MyFirebaseInstanceIdService.getDeviceToken(context));
+        GsonPostRequest<CommentsResponse> request = new GsonPostRequest<>(
+                url,
+                body,
+                CommentsResponse.class,
                 map,
                 listener,
                 errorListener

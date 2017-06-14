@@ -2,8 +2,8 @@
     <string name="app_name">تعلم</string>
     <string name="title_activity_forget_password">نسيت كلمة المرور</string>
     <string name="title_activity_register">التسجيل</string>
-    <string name="facebook_app_id">1866883203550350</string>
-    <string name="fb_login_protocol_scheme">268998430147356</string>
+    <string name="facebook_app_id">1207926826002896</string>
+    <string name="fb_login_protocol_scheme">fb1207926826002896</string>
     <string name="title_activity_fblogin">FACEBOOK</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_forget_password2">نسيت كلمة المرور</string>
@@ -18,6 +18,7 @@
     <string name="person_share_book_detail">مشارك</string>
     <string name="followers_book_detail">المتابعين</string>
     <string name="person_follow_book_detail">متابع</string>
+    <string name="comments_header">التعليقات</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -35,4 +36,7 @@
     <string name="network_error">خطأ بالشبكة</string>
     <string name="signing_in">جاري تسجيل الدخول..</string>
     <string name="registering">جاري التسجيل..</string>
+    <string name="add_comment">اضف تعليق</string>
+    <string name="add_comment_button">اضف</string>
+    <string name="message_tittle">الرسائل</string>
 </resources>

@@ -20,11 +20,10 @@ public class SplashScreenActivity extends AppCompatActivity {
 
             @Override
             public void run() {
-                if (UserHelper.getUserId(SplashScreenActivity.this)==null) {
+
                     startActivity(new Intent(SplashScreenActivity.this, LoginActivity.class));
-                }else{
-                    startActivity(new Intent(SplashScreenActivity.this, Home.class));
-                }
+
+
                 finish();
             }
         }, secondsDelay * 1000);

@@ -57,7 +57,9 @@
         </service>
 
         <activity android:name=".ui.activity.BookDetailActivity" />
-        <activity android:name=".ui.activity.ForumsShowActivity"></activity>
+        <activity android:name=".ui.activity.ForumsShowActivity" />
+        <activity android:name=".ui.activity.ForumComentsActivity" />
+        <activity android:name=".ui.activity.MessagesListActivity"></activity>
     </application>
 
 </manifest>

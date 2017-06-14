@@ -72,6 +72,8 @@ public class BookDetailActivity extends AppCompatActivity {
         forumIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = ForumsShowActivity.newIntentForum(BookDetailActivity.this,book.getId());
+                startActivity(intent);
 
             }
         });

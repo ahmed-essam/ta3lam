@@ -2,10 +2,12 @@ package com.yackeen.ta3allam.Capsule;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by devar on 8/22/16.
  */
-public class News {
+public class News implements Serializable{
     @SerializedName("BookID")
     private int bookId;
     @SerializedName("PostID")

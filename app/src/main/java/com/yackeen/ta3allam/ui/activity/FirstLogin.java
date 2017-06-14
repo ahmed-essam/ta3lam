@@ -17,9 +17,11 @@ import com.yackeen.ta3allam.ui.Fragment.FirstLogin1Fragment;
 import com.yackeen.ta3allam.ui.Fragment.NewPasswordFragment;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
-public class FirstLogin extends AppCompatActivity {
+public class FirstLogin extends AppCompatActivity
+{
     private FirstLoginAdapter firstLoginAdapter;
 
     @Override
@@ -74,5 +76,8 @@ public class FirstLogin extends AppCompatActivity {
 
         // Commit the transaction
         transaction.commit();
+
     }
-}
+
+    }
+

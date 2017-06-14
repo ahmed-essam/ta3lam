@@ -28,7 +28,8 @@ def dbflow_version = "4.0.0-beta5"
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-
+    //multidexing
+    compile 'com.android.support:multidex:1.0.1'
     //Android
 
     //Back-end
