@@ -4,6 +4,8 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/category_linear"
+    android:gravity="right"
+    android:background="@android:color/white"
     >
     <TextView
     android:id="@+id/name"
@@ -11,19 +13,22 @@
     android:textColor="#29B973"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:gravity="right"/>
+    android:gravity="right"
+        android:layout_gravity="right"/>
 
     <TextView
         android:id="@+id/decription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:textSize="10sp" />
+        tools:textSize="10sp"
+        android:layout_gravity="right"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
         android:orientation="horizontal"
-        android:layout_marginRight="100dp">
+        android:layout_marginRight="100dp"
+        >
         <TextView
             android:id="@+id/level"
             android:textColor="#29B973"
@@ -34,7 +39,7 @@
             android:textColor="#29B973"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="-"
+            android:text=" - "
             android:gravity="left"/>
         <TextView
             android:id="@+id/teacher"
@@ -46,7 +51,7 @@
             android:textColor="#29B973"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="-"
+            android:text=" - "
             android:gravity="left"/>
         <TextView
             android:id="@+id/student"
@@ -58,7 +63,7 @@
             android:textColor="#29B973"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="-"
+            android:text=" - "
             android:gravity="left"/>
         <TextView
             android:id="@+id/question"

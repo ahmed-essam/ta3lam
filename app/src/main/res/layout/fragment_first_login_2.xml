@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="75"
-            android:background="@color/colorLayoutBackground"/>
+            android:background="@android:color/white"/>
 
     </LinearLayout>
 
@@ -30,7 +30,7 @@
         android:layout_margin="@dimen/margin"
         android:elevation="@dimen/toolbarElevation"
         android:orientation="vertical"
-        android:background="@drawable/background_recycler_view">
+        android:background="#FDFDFE">
 
         <TextView
             android:layout_width="match_parent"

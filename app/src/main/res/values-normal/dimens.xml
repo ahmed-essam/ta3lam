@@ -31,7 +31,7 @@
 
     <!--Elevation-->
     <dimen name="cardElevation">2dp</dimen>
-    <dimen name="toolbarElevation">4dp</dimen>
+    <dimen name="toolbarElevation">5dp</dimen>
     <dimen name="fabElevation">6dp</dimen>
 
 </resources>

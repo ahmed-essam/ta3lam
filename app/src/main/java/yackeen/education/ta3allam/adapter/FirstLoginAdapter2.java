@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import yackeen.education.ta3allam.R;
@@ -25,30 +26,38 @@ public class FirstLoginAdapter2 extends RecyclerView.Adapter<FirstLoginAdapter2.
         public TextView nameTextView;
         public TextView levelTextView;
         public TextView teacherTextView;
+        public LinearLayout bookLinearLayout;
         public ViewHolder(View itemView) {
             super(itemView);
+            bookLinearLayout=(LinearLayout)itemView.findViewById(R.id.book_item_linear);
             nameTextView = (TextView) itemView.findViewById(R.id.name);
             levelTextView = (TextView) itemView.findViewById(R.id.level);
             teacherTextView = (TextView) itemView.findViewById(R.id.teacher);
+            itemView.setOnClickListener(this);
         }
         public void bindView(Book book){
             nameTextView.setText(book.getName());
             levelTextView.setText(Integer.toString(book.getLevel()));
             teacherTextView.setText(book.getTeacher());
             Log.e(TAG, "bindView2: "+book.getName());
+            int index= mBook.indexOf(book);
+            if(index == selected_position){
+                bookLinearLayout.setBackgroundColor(itemView.getResources().getColor(yackeen.education.ta3allam.R.color.real_accent_color));
+            }
         }
 
         @Override
         public void onClick(View view) {
             notifyItemChanged(selected_position);
             selected_position = getPosition();
+            Log.e(TAG, "onClick: "+selected_position);
             notifyItemChanged(selected_position);
         }
 
     }
     private List<Book> mBook;
     private Context mContext;
-    int selected_position = -1;
+    private int selected_position = -1;
 
     public int getSelected_position() {
         return selected_position;

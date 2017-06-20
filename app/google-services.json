@@ -1,27 +1,35 @@
 {
   "project_info": {
-    "project_number": "722337508132",
-    "firebase_url": "https://ta3lamtest.firebaseio.com",
-    "project_id": "ta3lamtest",
-    "storage_bucket": "ta3lamtest.appspot.com"
+    "project_number": "468675420893",
+    "firebase_url": "https://ta3lam-d5afe.firebaseio.com",
+    "project_id": "ta3lam-d5afe",
+    "storage_bucket": "ta3lam-d5afe.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:722337508132:android:eaf4974c82c81def",
+        "mobilesdk_app_id": "1:468675420893:android:fd41945b10e29dca",
         "android_client_info": {
-          "package_name": "com.yackeen.ta3allam"
+          "package_name": "yackeen.education.ta3allam"
         }
       },
       "oauth_client": [
         {
-          "client_id": "722337508132-8fm4kud7cm6v472e324cjgvelkef9b91.apps.googleusercontent.com",
+          "client_id": "468675420893-7gknu9lkek0db4j9fl1uk8fsef98lf5u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "yackeen.education.ta3allam",
+            "certificate_hash": "17f93788ef5731966a87dccb4d80b737504a24c1"
+          }
+        },
+        {
+          "client_id": "468675420893-9984ife912ob5ogppf815gq3j703okit.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCftyimLxfhMCOZaFabwqkpftVlhl07Qkk"
+          "current_key": "AIzaSyDZzUZAd4pZdWhH2CqLgh40cVHteRGwr88"
         }
       ],
       "services": {
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "468675420893-9984ife912ob5ogppf815gq3j703okit.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

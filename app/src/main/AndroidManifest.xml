@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yackeen.ta3allam">
+    package="yackeen.education.ta3allam">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
-        android:name="yackeen.education.ta3allam.application.AppController"
+        android:name=".application.AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        >
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
         <activity
-            android:name="yackeen.education.ta3allam.ui.activity.SplashScreenActivity"
+            android:name=".ui.activity.SplashScreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/FullscreenTheme">
@@ -28,38 +29,40 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="yackeen.education.ta3allam.ui.activity.LoginActivity"
+            android:name=".ui.activity.LoginActivity"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
-            android:name="yackeen.education.ta3allam.ui.activity.RegisterActivity"
+            android:name=".ui.activity.RegisterActivity"
             android:label="@string/title_activity_register"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
-            android:name="yackeen.education.ta3allam.ui.activity.FirstLogin"
+            android:name=".ui.activity.FirstLogin"
             android:label="@string/title_activity_first_login" />
         <activity
-            android:name="yackeen.education.ta3allam.ui.activity.Home"
+            android:name=".ui.activity.Home"
             android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity android:name="yackeen.education.ta3allam.ui.activity.PasswordResetActivity" />
+        <activity android:name=".ui.activity.PasswordResetActivity" />
         <activity
-            android:name="yackeen.education.ta3allam.ui.activity.BooksActivity"
+            android:name=".ui.activity.BooksActivity"
             android:windowSoftInputMode="stateHidden|adjustPan" />
 
-        <service android:name="yackeen.education.ta3allam.services.MyFirebaseInstanceIdService">
+        <service android:name=".services.MyFirebaseInstanceIdService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-        <service android:name="yackeen.education.ta3allam.services.MessagingService">
+        <service android:name=".services.MessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
-        <activity android:name="yackeen.education.ta3allam.ui.activity.BookDetailActivity" />
-        <activity android:name="yackeen.education.ta3allam.ui.activity.ForumsShowActivity" />
-        <activity android:name="yackeen.education.ta3allam.ui.activity.ForumComentsActivity" />
-        <activity android:name="yackeen.education.ta3allam.ui.activity.MessagesListActivity"></activity>
+        <activity android:name=".ui.activity.BookDetailActivity" />
+        <activity android:name=".ui.activity.ForumsShowActivity" />
+        <activity android:name=".ui.activity.ForumComentsActivity" />
+        <activity android:name=".ui.activity.MessagesListActivity" />
+        <activity android:name=".ui.activity.ChatActivity" />
+        <activity android:name=".ui.activity.UserProfileActivity"></activity>
     </application>
 
 </manifest>

@@ -5,12 +5,13 @@ android {
     buildToolsVersion '25.0.0'
 
     defaultConfig {
-        applicationId "com.yackeen.ta3allam"
+        applicationId "yackeen.education.ta3allam"
 //        yackeen.education.ta3allam
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -30,7 +31,7 @@ def dbflow_version = "4.0.0-beta5"
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     //multidexing
-    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.android.support:multidex:1.0.0'
     //Android
 
     //Back-end
@@ -44,6 +45,7 @@ dependencies {
 
     //Firebase
 
+    compile 'com.android.support:multidex:1.0.1'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.android.support:design:25.3.1'

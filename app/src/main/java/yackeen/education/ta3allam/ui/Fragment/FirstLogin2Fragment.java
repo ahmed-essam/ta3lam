@@ -90,8 +90,8 @@ public class FirstLogin2Fragment extends Fragment {
                 if (selectedPosition != -1){
                     int[] bookID= {books.get(selectedPosition).getId()};
                     setUserBooksToApi(bookID);
-                    Intent intent = new Intent(getActivity(), Home.class);
-                    startActivity(intent);
+                    Log.e(TAG, "onClick: "+bookID[0]);
+
                 }else{
                     Toast.makeText(getContext(), "اختر كتاب من فضلك", Toast.LENGTH_SHORT).show();
                 }
@@ -125,6 +125,8 @@ public class FirstLogin2Fragment extends Fragment {
         return new Response.Listener<SetUserBookResponse>() {
             @Override
             public void onResponse(SetUserBookResponse response) {
+                Intent intent = new Intent(getActivity(), Home.class);
+                startActivity(intent);
                 Log.e(TAG, "network_response:add_user_book" + response.isSuccess());
             }
         };

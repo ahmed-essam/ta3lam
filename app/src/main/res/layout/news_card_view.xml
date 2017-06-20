@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
 
     <android.support.v7.widget.CardView
         android:id="@+id/card_view"
@@ -51,14 +52,14 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profileimage"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:src="@mipmap/ic_launcher"
                     card_view:civ_border_color="@color/cardview_light_background"
                     card_view:civ_border_width="2dp"
 
-                    />
+                    android:layout_weight="1" />
 
             </LinearLayout>
 

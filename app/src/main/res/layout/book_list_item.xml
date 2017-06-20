@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:padding="2dp"
     android:id="@+id/book_item_linear"
+    android:background="#FDFDFE"
     >
     <TextView
         android:id="@+id/name"
@@ -11,13 +12,15 @@
         android:textColor="#29B973"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="right"/>
+        android:gravity="right"
+        android:layout_gravity="right"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:orientation="horizontal"
-        android:id="@+id/linear2">
+        android:id="@+id/linear2"
+        >
         <TextView
             android:id="@+id/level"
             android:layout_width="wrap_content"

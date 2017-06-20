@@ -14,7 +14,8 @@
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:theme="@style/ThemeOverlay.AppCompat"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
             android:id="@+id/book_toolbar">
 
             <LinearLayout

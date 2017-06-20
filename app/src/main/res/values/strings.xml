@@ -39,4 +39,6 @@
     <string name="add_comment">اضف تعليق</string>
     <string name="add_comment_button">اضف</string>
     <string name="message_tittle">الرسائل</string>
+    <string name="send_edit">اكتب هنا...</string>
+    <string name="yo3alemalan">يُعلم الان</string>
 </resources>

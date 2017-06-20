@@ -1,5 +1,6 @@
 package yackeen.education.ta3allam.ui.activity;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.support.design.widget.TabLayout;
@@ -9,7 +10,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
+import yackeen.education.ta3allam.R;
 import yackeen.education.ta3allam.ui.Fragment.NewsFeed;
 import yackeen.education.ta3allam.ui.Fragment.Notifications;
 import yackeen.education.ta3allam.ui.Fragment.Profile;
@@ -22,6 +26,7 @@ import java.util.Locale;
 public class Home extends AppCompatActivity implements NewsFeed.OnFragmentInteractionListener,Tracks.OnFragmentInteractionListener,Notifications.OnFragmentInteractionListener,Profile.OnFragmentInteractionListener {
     ViewPager viewPager;
     TabLayout tabLayout;
+    ImageView messagesIcon;
     private int[] tabIcons = {
            yackeen.education.ta3allam.R.drawable.profile,
             yackeen.education.ta3allam.R.drawable.notifications,
@@ -46,6 +51,14 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
         setContentView(yackeen.education.ta3allam.R.layout.activity_home);
         viewPager = (ViewPager) findViewById(yackeen.education.ta3allam.R.id.viewpager);
         setupViewPager(viewPager);
+        messagesIcon= (ImageView)findViewById(R.id.messages);
+        messagesIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Home.this,MessagesListActivity.class);
+                startActivity(intent);
+            }
+        });
 
         tabLayout = (TabLayout) findViewById(yackeen.education.ta3allam.R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);

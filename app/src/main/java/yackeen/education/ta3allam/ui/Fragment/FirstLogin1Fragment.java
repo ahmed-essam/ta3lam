@@ -58,9 +58,13 @@ public class FirstLogin1Fragment extends Fragment {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = FirstLogin2Fragment.newInstance(categories.get(firstLoginAdapter.getSelected_position()).getId());
+                if (firstLoginAdapter.getSelected_position() !=-1) {
+                    Fragment fragment = FirstLogin2Fragment.newInstance(categories.get(firstLoginAdapter.getSelected_position()).getId());
 
-                ((FirstLogin)getActivity()).switchFragment(new FirstLogin2Fragment());
+                    ((FirstLogin) getActivity()).switchFragment(new FirstLogin2Fragment());
+                }else{
+                    Toast.makeText(getContext(), "اختر فئه اولا", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

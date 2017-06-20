@@ -43,6 +43,7 @@ public class ForumComentsActivity extends AppCompatActivity {
     private Button addCommentButton;
     private CommentsAdapter commentsAdapter;
 
+
     private News news;
 
     @Override

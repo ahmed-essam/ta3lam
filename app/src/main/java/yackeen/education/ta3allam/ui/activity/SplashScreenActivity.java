@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 
+import yackeen.education.ta3allam.util.UserHelper;
+
 public class SplashScreenActivity extends AppCompatActivity {
 
     @Override
@@ -17,8 +19,10 @@ public class SplashScreenActivity extends AppCompatActivity {
 
             @Override
             public void run() {
+                if (UserHelper.getUserId(SplashScreenActivity.this)!= null) {
 
-                    startActivity(new Intent(SplashScreenActivity.this, LoginActivity.class));
+                    startActivity(new Intent(SplashScreenActivity.this, Home.class));
+                }
 
 
                 finish();

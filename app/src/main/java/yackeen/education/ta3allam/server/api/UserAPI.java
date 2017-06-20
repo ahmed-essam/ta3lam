@@ -9,23 +9,29 @@ import com.android.volley.Response.Listener;
 import yackeen.education.ta3allam.application.AppController;
 import yackeen.education.ta3allam.model.dto.request.BookDetailRequest;
 import yackeen.education.ta3allam.model.dto.request.CommentsRequest;
+import yackeen.education.ta3allam.model.dto.request.ConversationRequest;
 import yackeen.education.ta3allam.model.dto.request.FirstLogin1Request;
 import yackeen.education.ta3allam.model.dto.request.FirstLogin2Request;
 import yackeen.education.ta3allam.model.dto.request.FollowerRequest;
 import yackeen.education.ta3allam.model.dto.request.ForumRequest;
 import yackeen.education.ta3allam.model.dto.request.LoginRequest;
+import yackeen.education.ta3allam.model.dto.request.MessageListRequest;
 import yackeen.education.ta3allam.model.dto.request.NewsRequest;
 import yackeen.education.ta3allam.model.dto.request.NotificationsRequest;
 import yackeen.education.ta3allam.model.dto.request.RegisterRequest;
 import yackeen.education.ta3allam.model.dto.request.ResetPasswordRequest;
+import yackeen.education.ta3allam.model.dto.request.SendMessageRequest;
 import yackeen.education.ta3allam.model.dto.request.SetUserBookRequest;
 import yackeen.education.ta3allam.model.dto.response.BookDetailResponse;
 import yackeen.education.ta3allam.model.dto.response.CommentsResponse;
+import yackeen.education.ta3allam.model.dto.response.ConversationResponse;
+import yackeen.education.ta3allam.model.dto.response.EmptyResponse;
 import yackeen.education.ta3allam.model.dto.response.FirstLoginResponse1;
 import yackeen.education.ta3allam.model.dto.response.FirstLoginResponse2;
 import yackeen.education.ta3allam.model.dto.response.FollwerResponse;
 import yackeen.education.ta3allam.model.dto.response.ForumResponse;
 import yackeen.education.ta3allam.model.dto.response.LoginResponse;
+import yackeen.education.ta3allam.model.dto.response.MessageListResponse;
 import yackeen.education.ta3allam.model.dto.response.NewsResponse;
 import yackeen.education.ta3allam.model.dto.response.NotificationsResponse;
 import yackeen.education.ta3allam.model.dto.response.RegisterResponse;
@@ -244,6 +250,51 @@ public class UserAPI {
                 url,
                 body,
                 SetUserBookResponse.class,
+                map,
+                listener,
+                errorListener
+        );
+        appContext.addToRequestQueue(request);
+    }
+    public void getUserMessagesContacts(MessageListRequest body, Listener<MessageListResponse> listener, ErrorListener errorListener, Context context){
+        String url = AppBaseURL.concat("Messages/GetMessagesContacts");
+        Map map = new HashMap();
+        map.put("UserID", UserHelper.getUserId(context));
+        map.put("Token", MyFirebaseInstanceIdService.getDeviceToken(context));
+        GsonPostRequest<MessageListResponse> request = new GsonPostRequest<>(
+                url,
+                body,
+                MessageListResponse.class,
+                map,
+                listener,
+                errorListener
+        );
+        appContext.addToRequestQueue(request);
+    }
+    public void getConversationMessages(ConversationRequest body, Listener<ConversationResponse> listener, ErrorListener errorListener, Context context){
+        String url = AppBaseURL.concat("Messages/ConversationMessages");
+        Map map = new HashMap();
+        map.put("UserID", UserHelper.getUserId(context));
+        map.put("Token", MyFirebaseInstanceIdService.getDeviceToken(context));
+        GsonPostRequest<ConversationResponse> request = new GsonPostRequest<>(
+                url,
+                body,
+                ConversationResponse.class,
+                map,
+                listener,
+                errorListener
+        );
+        appContext.addToRequestQueue(request);
+    }
+    public void getSendMessages(SendMessageRequest body, Listener<EmptyResponse> listener, ErrorListener errorListener, Context context){
+        String url = AppBaseURL.concat("Messages/SendMessage");
+        Map map = new HashMap();
+        map.put("UserID", UserHelper.getUserId(context));
+        map.put("Token", MyFirebaseInstanceIdService.getDeviceToken(context));
+        GsonPostRequest<EmptyResponse> request = new GsonPostRequest<>(
+                url,
+                body,
+                EmptyResponse.class,
                 map,
                 listener,
                 errorListener
