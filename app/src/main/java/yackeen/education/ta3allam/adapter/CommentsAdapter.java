@@ -2,6 +2,7 @@ package yackeen.education.ta3allam.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +11,12 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import yackeen.education.ta3allam.Capsule.Comment;
+import yackeen.education.ta3allam.Capsule.Message;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import static com.google.android.gms.plus.PlusOneDummyView.TAG;
 
 /**
  * Created by ahmed essam on 13/06/2017.
@@ -52,6 +57,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
 
     public CommentsAdapter(Context mContext) {
         this.mContext = mContext;
+        comments= new ArrayList<>();
     }
 
     public Context getmContext() {
@@ -82,8 +88,15 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
     }
 
     public void addAll(List<Comment> commentList){
+        Log.e(TAG, "addAll: "+commentList.size());
         this.comments.clear();
         this.comments.addAll(commentList);
+        Log.e(TAG, "addAll: "+comments.size());
+        notifyDataSetChanged();
+    }
+    public void addItem(Comment comment){
+        this.comments.add(comment);
+        Log.e(TAG, "addItem: "+comments.size());
         notifyDataSetChanged();
     }
 }

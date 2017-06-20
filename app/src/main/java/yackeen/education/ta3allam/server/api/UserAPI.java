@@ -7,13 +7,16 @@ import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 
 import yackeen.education.ta3allam.application.AppController;
+import yackeen.education.ta3allam.model.dto.request.AddCommentRequest;
 import yackeen.education.ta3allam.model.dto.request.BookDetailRequest;
+import yackeen.education.ta3allam.model.dto.request.BookFollowRequest;
 import yackeen.education.ta3allam.model.dto.request.CommentsRequest;
 import yackeen.education.ta3allam.model.dto.request.ConversationRequest;
 import yackeen.education.ta3allam.model.dto.request.FirstLogin1Request;
 import yackeen.education.ta3allam.model.dto.request.FirstLogin2Request;
 import yackeen.education.ta3allam.model.dto.request.FollowerRequest;
 import yackeen.education.ta3allam.model.dto.request.ForumRequest;
+import yackeen.education.ta3allam.model.dto.request.LikeAndShareRequest;
 import yackeen.education.ta3allam.model.dto.request.LoginRequest;
 import yackeen.education.ta3allam.model.dto.request.MessageListRequest;
 import yackeen.education.ta3allam.model.dto.request.NewsRequest;
@@ -22,6 +25,7 @@ import yackeen.education.ta3allam.model.dto.request.RegisterRequest;
 import yackeen.education.ta3allam.model.dto.request.ResetPasswordRequest;
 import yackeen.education.ta3allam.model.dto.request.SendMessageRequest;
 import yackeen.education.ta3allam.model.dto.request.SetUserBookRequest;
+import yackeen.education.ta3allam.model.dto.request.UserFollowRequest;
 import yackeen.education.ta3allam.model.dto.response.BookDetailResponse;
 import yackeen.education.ta3allam.model.dto.response.CommentsResponse;
 import yackeen.education.ta3allam.model.dto.response.ConversationResponse;
@@ -301,5 +305,111 @@ public class UserAPI {
         );
         appContext.addToRequestQueue(request);
     }
+    public void addComment(AddCommentRequest body, Listener<EmptyResponse> listener, ErrorListener errorListener, Context context){
+        String url = AppBaseURL.concat("Forum/DoAddPostComment");
+        Map map = new HashMap();
+        map.put("UserID", UserHelper.getUserId(context));
+        map.put("Token", MyFirebaseInstanceIdService.getDeviceToken(context));
+        GsonPostRequest<EmptyResponse> request = new GsonPostRequest<>(
+                url,
+                body,
+                EmptyResponse.class,
+                map,
+                listener,
+                errorListener
+        );
+        appContext.addToRequestQueue(request);
+    }
+    public void likePost(LikeAndShareRequest body, Listener<EmptyResponse> listener, ErrorListener errorListener, Context context){
+        String url = AppBaseURL.concat("Forum/DoLikePost");
+        Map map = new HashMap();
+        map.put("UserID", UserHelper.getUserId(context));
+        map.put("Token", MyFirebaseInstanceIdService.getDeviceToken(context));
+        GsonPostRequest<EmptyResponse> request = new GsonPostRequest<>(
+                url,
+                body,
+                EmptyResponse.class,
+                map,
+                listener,
+                errorListener
+        );
+        appContext.addToRequestQueue(request);
+    }
+    public void sharePost(LikeAndShareRequest body, Listener<EmptyResponse> listener, ErrorListener errorListener, Context context){
+        String url = AppBaseURL.concat("Forum/DoSharePost");
+        Map map = new HashMap();
+        map.put("UserID", UserHelper.getUserId(context));
+        map.put("Token", MyFirebaseInstanceIdService.getDeviceToken(context));
+        GsonPostRequest<EmptyResponse> request = new GsonPostRequest<>(
+                url,
+                body,
+                EmptyResponse.class,
+                map,
+                listener,
+                errorListener
+        );
+        appContext.addToRequestQueue(request);
+    }
+    public void followUser(UserFollowRequest body, Listener<EmptyResponse> listener, ErrorListener errorListener, Context context){
+        String url = AppBaseURL.concat("User/SetUserFollower");
+        Map map = new HashMap();
+        map.put("UserID", UserHelper.getUserId(context));
+        map.put("Token", MyFirebaseInstanceIdService.getDeviceToken(context));
+        GsonPostRequest<EmptyResponse> request = new GsonPostRequest<>(
+                url,
+                body,
+                EmptyResponse.class,
+                map,
+                listener,
+                errorListener
+        );
+        appContext.addToRequestQueue(request);
+    }
+    public void unfollowUser(UserFollowRequest body, Listener<EmptyResponse> listener, ErrorListener errorListener, Context context){
+        String url = AppBaseURL.concat("User/UnfollowUser");
+        Map map = new HashMap();
+        map.put("UserID", UserHelper.getUserId(context));
+        map.put("Token", MyFirebaseInstanceIdService.getDeviceToken(context));
+        GsonPostRequest<EmptyResponse> request = new GsonPostRequest<>(
+                url,
+                body,
+                EmptyResponse.class,
+                map,
+                listener,
+                errorListener
+        );
+        appContext.addToRequestQueue(request);
+    }
+    public void followBook(BookFollowRequest body, Listener<EmptyResponse> listener, ErrorListener errorListener, Context context){
+        String url = AppBaseURL.concat("Books/SetBookFollower");
+        Map map = new HashMap();
+        map.put("UserID", UserHelper.getUserId(context));
+        map.put("Token", MyFirebaseInstanceIdService.getDeviceToken(context));
+        GsonPostRequest<EmptyResponse> request = new GsonPostRequest<>(
+                url,
+                body,
+                EmptyResponse.class,
+                map,
+                listener,
+                errorListener
+        );
+        appContext.addToRequestQueue(request);
+    }
+    public void unfollowBook(BookFollowRequest body, Listener<EmptyResponse> listener, ErrorListener errorListener, Context context){
+        String url = AppBaseURL.concat("Books/UnSetBookFollower");
+        Map map = new HashMap();
+        map.put("UserID", UserHelper.getUserId(context));
+        map.put("Token", MyFirebaseInstanceIdService.getDeviceToken(context));
+        GsonPostRequest<EmptyResponse> request = new GsonPostRequest<>(
+                url,
+                body,
+                EmptyResponse.class,
+                map,
+                listener,
+                errorListener
+        );
+        appContext.addToRequestQueue(request);
+    }
+
 
 }

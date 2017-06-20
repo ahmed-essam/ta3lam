@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -17,15 +18,21 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.squareup.picasso.Picasso;
 
+import yackeen.education.ta3allam.Capsule.AddedComment;
 import yackeen.education.ta3allam.Capsule.Comment;
 import yackeen.education.ta3allam.Capsule.News;
+import yackeen.education.ta3allam.Capsule.SendMessage;
 import yackeen.education.ta3allam.R;
 import yackeen.education.ta3allam.adapter.CommentsAdapter;
+import yackeen.education.ta3allam.model.dto.request.AddCommentRequest;
 import yackeen.education.ta3allam.model.dto.request.CommentsRequest;
+import yackeen.education.ta3allam.model.dto.request.SendMessageRequest;
 import yackeen.education.ta3allam.model.dto.response.CommentsResponse;
+import yackeen.education.ta3allam.model.dto.response.EmptyResponse;
 import yackeen.education.ta3allam.server.api.API;
 import yackeen.education.ta3allam.util.UserHelper;
 
+import java.util.Date;
 import java.util.List;
 
 public class ForumComentsActivity extends AppCompatActivity {
@@ -39,7 +46,7 @@ public class ForumComentsActivity extends AppCompatActivity {
     private TextView shareNum;
     private TextView likeNum;
     private TextView commentsNum;
-    private EditText addComment;
+    private EditText addCommentEditText;
     private Button addCommentButton;
     private CommentsAdapter commentsAdapter;
 
@@ -52,10 +59,22 @@ public class ForumComentsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_forum_coments);
         bindViewToLayout();
         news = retriveDataIntent();
+        addValueToViews();
         commentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         commentsAdapter = new CommentsAdapter(this);
         feachCommentsFromApi();
         commentsRecyclerView.setAdapter(commentsAdapter);
+        addCommentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (addCommentEditText.getText() != null) {
+                    AddedComment comment = new AddedComment();
+                    comment.setComment(addCommentEditText.getText().toString());
+                    comment.setPostID(news.getPostId());
+                    addCommentUsingAPI(comment);
+                }
+            }
+        });
 
     }
     public void addValueToViews(){
@@ -66,23 +85,33 @@ public class ForumComentsActivity extends AppCompatActivity {
         likeNum.setText(Integer.toString(news.getLike()));
         commentsNum.setText(Integer.toString(news.getComment()));
     }
+    //network call
     public void feachCommentsFromApi(){
         CommentsRequest body = new CommentsRequest();
         body.setUserID(UserHelper.getUserId(this));
         body.setPostID(news.getPostId());
+        Log.e(TAG, "feachCommentsFromApi:"+body.getPostID());
         API.getUserAPIs().getForumComments(body,getCommentsListener(),
                 getCommentsFailedListener(),this);
 
 
     }
-    public Intent newCommentIntent(Context context,News news){
+    public void addCommentUsingAPI(AddedComment addedComment){
+        AddCommentRequest body = new AddCommentRequest();
+        body.setUserID(UserHelper.getUserId(this));
+        API.getUserAPIs().addComment(body,getAddCommentListener(),
+                getCommentsFailedListener(),this);
+    }
+    public static Intent newCommentIntent(Context context,News news){
         Intent intent = new Intent(context,ForumComentsActivity.class);
         intent.putExtra(ARG_COMMENT,news);
         return intent;
     }
     public News retriveDataIntent(){
         Intent intent = getIntent();
-        return (News) intent.getSerializableExtra(ARG_COMMENT);
+        News news=(News) intent.getSerializableExtra(ARG_COMMENT);
+        Log.e(TAG, "retriveDataIntent: "+news.getPostId() );
+        return news;
     }
     public void bindViewToLayout(){
         profileImageView = (ImageView)findViewById(R.id.profile_image_comment);
@@ -93,7 +122,7 @@ public class ForumComentsActivity extends AppCompatActivity {
         shareNum = (TextView)findViewById(R.id.share);
         likeNum=(TextView)findViewById(R.id.like);
         commentsNum=(TextView)findViewById(R.id.comment);
-        addComment = (EditText)findViewById(R.id.add_comment_edit);
+        addCommentEditText = (EditText)findViewById(R.id.add_comment_edit);
         addCommentButton=(Button)findViewById(R.id.add_comment_button);
 
 
@@ -103,8 +132,8 @@ public class ForumComentsActivity extends AppCompatActivity {
         return new Response.Listener<CommentsResponse>() {
             @Override
             public void onResponse(CommentsResponse response) {
-                Log.e(TAG,"network_response:"+response.comments);
-                List<Comment> commentList = response.comments;
+                Log.e(TAG,"network_response:"+response.PostComments.size());
+                List<Comment> commentList = response.PostComments;
                 Log.d(TAG,"network_response:"+commentList.size());
                 commentsAdapter.addAll(commentList);
 
@@ -118,6 +147,20 @@ public class ForumComentsActivity extends AppCompatActivity {
                 Log.e(TAG, "onErrorResponse: ".concat(error.toString()));
                 Toast.makeText(ForumComentsActivity.this, R.string.network_error, Toast.LENGTH_SHORT).show();
 
+            }
+        };
+    }
+    private Response.Listener<EmptyResponse> getAddCommentListener(){
+        return new Response.Listener<EmptyResponse>() {
+            @Override
+            public void onResponse(EmptyResponse response) {
+                if (response != null){
+                    Comment comment = new Comment();
+                    comment.setUserID(UserHelper.getUserId(ForumComentsActivity.this));
+                    comment.setDateTime(Long.toString(new Date().getTime()));
+                    comment.setBody(addCommentEditText.getText().toString());
+                    commentsAdapter.addItem(comment);
+                }
             }
         };
     }

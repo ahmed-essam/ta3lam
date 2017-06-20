@@ -21,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import yackeen.education.ta3allam.Capsule.Message;
@@ -50,6 +51,8 @@ public class ChatActivity extends AppCompatActivity {
     private String USERID;
     private int lastMessageId;
     Toolbar chatToolbar;
+    private boolean loading = true;
+    int pastVisiblesItems, visibleItemCount, totalItemCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,23 +62,45 @@ public class ChatActivity extends AppCompatActivity {
         setSupportActionBar(chatToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         USERID = getUSERIDFromId();
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setReverseLayout(true);
         chatRecyclerView.setLayoutManager(layoutManager);
         lastMessageId=0;
-//        feachConversationFromApi(lastMessageId);
+        feachConversationFromApi(lastMessageId);
         List<Message> userBooksList = new ArrayList<>();
         Message userBooks = new Message();
         userBooks.setBody("اهلا بك ");
         userBooks.setMine(true);
         userBooksList.add(userBooks);
         chatAdapter.addAll(userBooksList);
+        Message message = new Message();
+        message.setBody("اهلا بك ");
+        message.setMine(false);
+        chatAdapter.addItem(message);
+
         chatRecyclerView.setAdapter(chatAdapter);
-        chatRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
+        chatRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
+                if(dy > 0) //check for scroll down
+                {
+                    visibleItemCount = layoutManager.getChildCount();
+                    totalItemCount = layoutManager.getItemCount();
+                    pastVisiblesItems = layoutManager.findFirstVisibleItemPosition();
+
+                    if (loading)
+                    {
+                        if ( (visibleItemCount + pastVisiblesItems) >= totalItemCount)
+                        {
+                            loading = false;
+
+                            feachConversationFromApi(lastMessageId);
+
+                        }
+                    }
+                }
             }
         });
         sendImageButton.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +110,7 @@ public class ChatActivity extends AppCompatActivity {
                     SendMessage sendMessage = new SendMessage();
                     sendMessage.setBody(sendEditText.getText().toString());
                     sendMessage.setToUserID(USERID);
+                    sendMessageUsingAPI(sendMessage);
                 }
 
             }
@@ -134,6 +160,7 @@ public class ChatActivity extends AppCompatActivity {
             public void onResponse(ConversationResponse response) {
                 Log.e(TAG,"network_response:"+response.ConversationMessages.size());
                 messageList = response.ConversationMessages;
+                lastMessageId=messageList.get((messageList.size())-1).getMessageID();
                 Log.d(TAG,"network_response:"+messageList.size());
                 chatAdapter.addAll(messageList);
                 chatName.setText(response.getConversationUserName());
@@ -156,7 +183,11 @@ public class ChatActivity extends AppCompatActivity {
         return new Response.Listener<EmptyResponse>() {
             @Override
             public void onResponse(EmptyResponse response) {
-
+                Message message = new Message();
+                message.setMine(true);
+                message.setBody(sendEditText.getText().toString());
+                message.setDateTime(Long.toString(new Date().getTime()));
+                chatAdapter.addItem(message);
 
             }
         };

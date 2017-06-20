@@ -9,5 +9,5 @@ import java.util.List;
  */
 
 public class CommentsResponse {
-    public List<Comment> comments;
+    public List<Comment> PostComments;
 }

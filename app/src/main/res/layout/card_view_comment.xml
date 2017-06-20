@@ -26,6 +26,16 @@
                 android:orientation="horizontal"
                 android:layout_gravity="right"
                 android:padding="2dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profileimage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher"
+                    card_view:civ_border_color="@color/cardview_light_background"
+                    card_view:civ_border_width="2dp"
+                    android:layout_gravity="right"
+                    />
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -43,16 +53,7 @@
                         android:text="فقه"
                         android:layout_gravity="right"/>
                 </LinearLayout>
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/profileimage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_launcher"
-                    card_view:civ_border_color="@color/cardview_light_background"
-                    card_view:civ_border_width="2dp"
-                    android:layout_gravity="right"
 
-                    />
 
             </LinearLayout>
             <TextView

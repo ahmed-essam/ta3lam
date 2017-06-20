@@ -2,6 +2,8 @@ package yackeen.education.ta3allam.ui.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,8 +18,11 @@ import com.android.volley.VolleyError;
 import com.squareup.picasso.Picasso;
 import yackeen.education.ta3allam.Capsule.Book;
 import yackeen.education.ta3allam.Capsule.BookDetail;
+import yackeen.education.ta3allam.R;
 import yackeen.education.ta3allam.model.dto.request.BookDetailRequest;
+import yackeen.education.ta3allam.model.dto.request.BookFollowRequest;
 import yackeen.education.ta3allam.model.dto.response.BookDetailResponse;
+import yackeen.education.ta3allam.model.dto.response.EmptyResponse;
 import yackeen.education.ta3allam.server.api.API;
 import yackeen.education.ta3allam.util.UserHelper;
 
@@ -39,6 +44,7 @@ public class BookDetailActivity extends AppCompatActivity {
     private TextView shareNumText;
     private TextView followerNumText;
     private Book book;
+    private BookDetail bookDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,15 +59,28 @@ public class BookDetailActivity extends AppCompatActivity {
         Log.e(TAG, "onCreate: "+ UserHelper.getUserId(this));
         feachBookDetailsFromApi();
 
+
     }
     public void feachBookDetailsFromApi(){
         BookDetailRequest body = new BookDetailRequest();
         body.setBookID(book.getId());
         body.setUserID(UserHelper.getUserId(this));
-        API.getUserAPIs().getBookDetails(body,getBookDetailListener(),
+        API.getUserAPIs().getBookDetails(body,getBookDetailListener(), getBookDetailFailedListener(),BookDetailActivity.this);
+    }
+
+    public void followBookUsingApi(){
+        BookFollowRequest body = new BookFollowRequest();
+        body.setBookID(book.getId());
+        body.setUserID(UserHelper.getUserId(this));
+        API.getUserAPIs().followBook(body,getfollowListener(),
                 getBookDetailFailedListener(),BookDetailActivity.this);
-
-
+    }
+    public void unfollowBookUsingApi(){
+        BookFollowRequest body = new BookFollowRequest();
+        body.setBookID(book.getId());
+        body.setUserID(UserHelper.getUserId(this));
+        API.getUserAPIs().unfollowBook(body,getfollowListener(),
+                getBookDetailFailedListener(),BookDetailActivity.this);
     }
     public void initiateOnClickListener(){
         forumIcon.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +88,23 @@ public class BookDetailActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = ForumsShowActivity.newIntentForum(BookDetailActivity.this,book.getId());
                 startActivity(intent);
+
+            }
+        });
+        followButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (bookDetail.isFollower()){
+                    followBookUsingApi();
+                }else{
+                    unfollowBookUsingApi();
+                }
+
+            }
+        });
+        shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
             }
         });
@@ -118,7 +154,7 @@ public class BookDetailActivity extends AppCompatActivity {
         return new Response.Listener<BookDetailResponse>() {
             @Override
             public void onResponse(BookDetailResponse response) {
-                BookDetail bookDetail = response.BookDetails;
+                bookDetail = response.BookDetails;
                 addValuesToView(bookDetail);
 
             }
@@ -132,6 +168,27 @@ public class BookDetailActivity extends AppCompatActivity {
                 Log.e(TAG, "onErrorResponse: ".concat(error.toString()));
 
                 Toast.makeText(BookDetailActivity.this, yackeen.education.ta3allam.R.string.network_error, Toast.LENGTH_SHORT).show();
+            }
+        };
+    }
+    //follow response
+    private Response.Listener<EmptyResponse> getfollowListener(){
+
+        return new Response.Listener<EmptyResponse>() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+            @Override
+            public void onResponse(EmptyResponse response) {
+                if (bookDetail.isFollower()){
+                    followButton.setBackground(getResources().getDrawable(R.drawable.rounded_with_border_button));
+                    followButton.setTextColor(getResources().getColor(R.color.colorPrimary));
+                    followButton.setText(R.string.alreadyafollower);
+                }else{
+                    followButton.setBackground(getResources().getDrawable(R.drawable.rounded_buton_with_white_border));
+                    followButton.setTextColor(getResources().getColor(R.color.colorTextTitle));
+                    followButton.setText(R.string.follow_button_text);
+                }
+
+
             }
         };
     }

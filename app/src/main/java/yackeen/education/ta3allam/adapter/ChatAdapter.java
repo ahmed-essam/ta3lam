@@ -5,6 +5,7 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,8 @@ import java.util.List;
 import yackeen.education.ta3allam.Capsule.Message;
 import yackeen.education.ta3allam.Capsule.MessageItem;
 import yackeen.education.ta3allam.R;
+
+import static com.google.android.gms.plus.PlusOneDummyView.TAG;
 
 /**
  * Created by ahmed essam on 18/06/2017.
@@ -68,7 +71,12 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
     }
 
     public void addItem(Message message){
-        this.messages.add(message);
+        this.messages.add(0,message);
+        Log.e(TAG, "addItem: "+messages.size());
+        notifyDataSetChanged();
+    }
+    public void addSomeItems(List<Message> messages){
+        this.messages.addAll(messages);
         notifyDataSetChanged();
     }
 

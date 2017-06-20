@@ -39,10 +39,11 @@ public class MessagesListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(yackeen.education.ta3allam.R.layout.activity_messages_list);
         messagesToolbar = (Toolbar)findViewById(R.id.messages_toolbar);
-        messagesToolbar.setTitle(null);
+        
         setSupportActionBar(messagesToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         contactsRecyclerView=(RecyclerView)findViewById(R.id.messages_recycler_view);
         contactsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         contactsAdapter= new MessagesListAdapter(this);
