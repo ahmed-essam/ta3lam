@@ -52,7 +52,6 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
         return viewHolder;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.bindView(messages.get(position));
@@ -90,19 +89,18 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
             messageText = (TextView) itemView.findViewById(R.id.message_text_view);
         }
 
-        @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
         public void bindView(Message message) {
             if (message.isMine()) {
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) messageText.getLayoutParams();
                 layoutParams.gravity = Gravity.LEFT;
                 messageText.setLayoutParams(layoutParams);
-                messageText.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.message_background_white));
+                messageText.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.message_background_white));
                 messageText.setTextColor(itemView.getResources().getColor(R.color.mesages_header));
             }else{
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) messageText.getLayoutParams();
                 layoutParams.gravity = Gravity.RIGHT;
                 messageText.setLayoutParams(layoutParams);
-                messageText.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.message_background_green));
+                messageText.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.message_background_green));
                 messageText.setTextColor(itemView.getResources().getColor(R.color.colorCardBackground));
             }
             messageText.setText(message.getBody());

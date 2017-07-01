@@ -123,7 +123,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     }else {
 
-                        startActivity(new Intent(LoginActivity.this, FirstLogin.class));
+                        startActivity(new Intent(LoginActivity.this, Home.class));
                         finish();
 
                     }//end inner if

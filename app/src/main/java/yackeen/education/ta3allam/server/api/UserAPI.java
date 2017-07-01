@@ -16,6 +16,7 @@ import yackeen.education.ta3allam.model.dto.request.FirstLogin1Request;
 import yackeen.education.ta3allam.model.dto.request.FirstLogin2Request;
 import yackeen.education.ta3allam.model.dto.request.FollowerRequest;
 import yackeen.education.ta3allam.model.dto.request.ForumRequest;
+import yackeen.education.ta3allam.model.dto.request.FriendsRequest;
 import yackeen.education.ta3allam.model.dto.request.LikeAndShareRequest;
 import yackeen.education.ta3allam.model.dto.request.LoginRequest;
 import yackeen.education.ta3allam.model.dto.request.MessageListRequest;
@@ -23,8 +24,10 @@ import yackeen.education.ta3allam.model.dto.request.NewsRequest;
 import yackeen.education.ta3allam.model.dto.request.NotificationsRequest;
 import yackeen.education.ta3allam.model.dto.request.RegisterRequest;
 import yackeen.education.ta3allam.model.dto.request.ResetPasswordRequest;
+import yackeen.education.ta3allam.model.dto.request.SearchRequest;
 import yackeen.education.ta3allam.model.dto.request.SendMessageRequest;
 import yackeen.education.ta3allam.model.dto.request.SetUserBookRequest;
+import yackeen.education.ta3allam.model.dto.request.UnSetUserBookRequest;
 import yackeen.education.ta3allam.model.dto.request.UserFollowRequest;
 import yackeen.education.ta3allam.model.dto.response.BookDetailResponse;
 import yackeen.education.ta3allam.model.dto.response.CommentsResponse;
@@ -34,12 +37,14 @@ import yackeen.education.ta3allam.model.dto.response.FirstLoginResponse1;
 import yackeen.education.ta3allam.model.dto.response.FirstLoginResponse2;
 import yackeen.education.ta3allam.model.dto.response.FollwerResponse;
 import yackeen.education.ta3allam.model.dto.response.ForumResponse;
+import yackeen.education.ta3allam.model.dto.response.FriendsResponse;
 import yackeen.education.ta3allam.model.dto.response.LoginResponse;
 import yackeen.education.ta3allam.model.dto.response.MessageListResponse;
 import yackeen.education.ta3allam.model.dto.response.NewsResponse;
 import yackeen.education.ta3allam.model.dto.response.NotificationsResponse;
 import yackeen.education.ta3allam.model.dto.response.RegisterResponse;
 import yackeen.education.ta3allam.model.dto.response.ResetPasswordResponse;
+import yackeen.education.ta3allam.model.dto.response.SearchResponse;
 import yackeen.education.ta3allam.model.dto.response.SetUserBookResponse;
 import yackeen.education.ta3allam.server.request.GsonPostRequest;
 import yackeen.education.ta3allam.services.MyFirebaseInstanceIdService;
@@ -365,7 +370,7 @@ public class UserAPI {
         );
         appContext.addToRequestQueue(request);
     }
-    public void unfollowUser(UserFollowRequest body, Listener<EmptyResponse> listener, ErrorListener errorListener, Context context){
+    public void unFollowUser(UserFollowRequest body, Listener<EmptyResponse> listener, ErrorListener errorListener, Context context){
         String url = AppBaseURL.concat("User/UnfollowUser");
         Map map = new HashMap();
         map.put("UserID", UserHelper.getUserId(context));
@@ -404,6 +409,51 @@ public class UserAPI {
                 url,
                 body,
                 EmptyResponse.class,
+                map,
+                listener,
+                errorListener
+        );
+        appContext.addToRequestQueue(request);
+    }
+    public void unSetUserBook(UnSetUserBookRequest body, Listener<SetUserBookResponse> listener, ErrorListener errorListener, Context context){
+        String url = AppBaseURL.concat("Books/UnSetUserBook");
+        Map map = new HashMap();
+        map.put("UserID", UserHelper.getUserId(context));
+        map.put("Token", MyFirebaseInstanceIdService.getDeviceToken(context));
+        GsonPostRequest<SetUserBookResponse> request = new GsonPostRequest<>(
+                url,
+                body,
+                SetUserBookResponse.class,
+                map,
+                listener,
+                errorListener
+        );
+        appContext.addToRequestQueue(request);
+    }
+    public void getAllUserFollowers(FriendsRequest body, Listener<FriendsResponse> listener, ErrorListener errorListener, Context context){
+        String url = AppBaseURL.concat("User/GetUserFollowers");
+        Map map = new HashMap();
+        map.put("UserID", UserHelper.getUserId(context));
+        map.put("Token", MyFirebaseInstanceIdService.getDeviceToken(context));
+        GsonPostRequest<FriendsResponse> request = new GsonPostRequest<>(
+                url,
+                body,
+                FriendsResponse.class,
+                map,
+                listener,
+                errorListener
+        );
+        appContext.addToRequestQueue(request);
+    }
+    public void searchUser(SearchRequest body, Listener<SearchResponse> listener, ErrorListener errorListener, Context context){
+        String url = AppBaseURL.concat("User/SearchUser");
+        Map map = new HashMap();
+        map.put("UserID", UserHelper.getUserId(context));
+        map.put("Token", MyFirebaseInstanceIdService.getDeviceToken(context));
+        GsonPostRequest<SearchResponse> request = new GsonPostRequest<>(
+                url,
+                body,
+                SearchResponse.class,
                 map,
                 listener,
                 errorListener

@@ -31,15 +31,16 @@
             <TextView
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:textColor="@color/colorPrimaryDark"
                 android:text="احمد السيد"
                 android:textSize="35sp"
-                />
+                android:layout_weight="1" />
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="0dp"
+                android:layout_weight="1">
                 <TextView
                     android:id="@+id/level"
                     android:layout_width="wrap_content"
@@ -134,12 +135,23 @@
             android:textSize="25sp"
             android:textColor="@color/colorPrimary"
             android:layout_gravity="right"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
         <android.support.v7.widget.RecyclerView
             android:layout_width="wrap_content"
             android:orientation="horizontal"
             android:layout_height="wrap_content"
             android:id="@+id/followers_list">
         </android.support.v7.widget.RecyclerView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle_button"
+                android:textColor="@android:color/white"
+                android:id="@+id/follower_num_rounded_text"/>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
 </FrameLayout>

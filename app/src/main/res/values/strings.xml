@@ -42,4 +42,8 @@
     <string name="send_edit">اكتب هنا...</string>
     <string name="yo3alemalan">يُعلم الان</string>
     <string name="alreadyafollower">متابع</string>
+    <string name="alreadysubscribe">مشترك</string>
+    <string name="profile_send_message">رساله</string>
+    <string name="friends_header">الاخوه</string>
+    <string name="search_home">بحث</string>
 </resources>

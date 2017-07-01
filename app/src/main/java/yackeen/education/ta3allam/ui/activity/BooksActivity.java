@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.android.volley.Response;
@@ -51,6 +52,15 @@ public class BooksActivity extends AppCompatActivity{
 
 
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId()==android.R.id.home){
+            this.finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     public void feachBooksFromApi(){
         FirstLogin2Request body = new FirstLogin2Request();
         API.getUserAPIs().getAllbooks(body,getCoursesListener(),

@@ -1,6 +1,7 @@
 package yackeen.education.ta3allam.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.shapes.Shape;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -43,6 +44,9 @@ public class FirstLoginAdapter2 extends RecyclerView.Adapter<FirstLoginAdapter2.
             int index= mBook.indexOf(book);
             if(index == selected_position){
                 bookLinearLayout.setBackgroundColor(itemView.getResources().getColor(yackeen.education.ta3allam.R.color.real_accent_color));
+                nameTextView.setTextColor(itemView.getResources().getColor(R.color.colorTextTitle));
+                levelTextView.setTextColor(itemView.getResources().getColor(R.color.colorTextTitle));
+                teacherTextView.setTextColor(itemView.getResources().getColor(R.color.colorTextTitle));
             }
         }
 

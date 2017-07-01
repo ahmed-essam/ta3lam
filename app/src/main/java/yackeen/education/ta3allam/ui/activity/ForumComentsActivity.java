@@ -1,13 +1,17 @@
 package yackeen.education.ta3allam.ui.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -49,6 +53,7 @@ public class ForumComentsActivity extends AppCompatActivity {
     private EditText addCommentEditText;
     private Button addCommentButton;
     private CommentsAdapter commentsAdapter;
+    private Toolbar toolbar;
 
 
     private News news;
@@ -58,6 +63,10 @@ public class ForumComentsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum_coments);
         bindViewToLayout();
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         news = retriveDataIntent();
         addValueToViews();
         commentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -77,6 +86,14 @@ public class ForumComentsActivity extends AppCompatActivity {
         });
 
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId()==android.R.id.home){
+            this.finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     public void addValueToViews(){
         Picasso.with(this).load(news.getImage()).error(R.drawable.default_emam).into(profileImageView);
         emmamName.setText(news.getName());
@@ -99,6 +116,7 @@ public class ForumComentsActivity extends AppCompatActivity {
     public void addCommentUsingAPI(AddedComment addedComment){
         AddCommentRequest body = new AddCommentRequest();
         body.setUserID(UserHelper.getUserId(this));
+        body.setComment(addedComment);
         API.getUserAPIs().addComment(body,getAddCommentListener(),
                 getCommentsFailedListener(),this);
     }
@@ -114,6 +132,8 @@ public class ForumComentsActivity extends AppCompatActivity {
         return news;
     }
     public void bindViewToLayout(){
+        toolbar =(Toolbar)findViewById(R.id.forum_toolbar);
+        toolbar.setNavigationIcon(R.drawable.close);
         profileImageView = (ImageView)findViewById(R.id.profile_image_comment);
         emmamName= (TextView)findViewById(R.id.emam_name_comments);
         commentsRecyclerView=(RecyclerView)findViewById(R.id.comments_recyclerView);
@@ -126,6 +146,13 @@ public class ForumComentsActivity extends AppCompatActivity {
         addCommentButton=(Button)findViewById(R.id.add_comment_button);
 
 
+    }
+    public static void hideSoftKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) activity.getSystemService(
+                        Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(
+                activity.getCurrentFocus().getWindowToken(), 0);
     }
     //network response
     private Response.Listener<CommentsResponse> getCommentsListener(){
@@ -154,12 +181,15 @@ public class ForumComentsActivity extends AppCompatActivity {
         return new Response.Listener<EmptyResponse>() {
             @Override
             public void onResponse(EmptyResponse response) {
-                if (response != null){
+                if (response.isSuccess()){
+                    Toast.makeText(ForumComentsActivity.this, "comment added", Toast.LENGTH_SHORT).show();
                     Comment comment = new Comment();
                     comment.setUserID(UserHelper.getUserId(ForumComentsActivity.this));
                     comment.setDateTime(Long.toString(new Date().getTime()));
                     comment.setBody(addCommentEditText.getText().toString());
                     commentsAdapter.addItem(comment);
+                    addCommentEditText.setText(null);
+                    hideSoftKeyboard(ForumComentsActivity.this);
                 }
             }
         };

@@ -17,7 +17,8 @@
             android:layout_height="wrap_content"
             app:theme="@style/ThemeOverlay.AppCompat.Dark"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
-            android:id="@+id/book_toolbar">
+            android:id="@+id/user_toolbar"
+            android:layoutDirection="ltr">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -63,9 +64,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_buton_with_white_border"
-                android:id="@+id/subscribe_user_button"
+                android:id="@+id/message_user_button"
                 android:textColor="@android:color/white"
-                android:text="@string/share_button_text"
+                android:text="@string/profile_send_message"
                 android:textSize="18sp"/>
             <Button
                 android:layout_width="wrap_content"

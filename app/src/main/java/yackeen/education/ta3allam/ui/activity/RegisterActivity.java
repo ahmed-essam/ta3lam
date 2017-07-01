@@ -1,5 +1,6 @@
 package yackeen.education.ta3allam.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -150,6 +151,7 @@ public class RegisterActivity extends AppCompatActivity {
                 Log.i(TAG, "onResponse:ErrorMessage " .concat(response.errorMessage));
 
                 if (response.isSuccessful){
+                    startActivity(new Intent(RegisterActivity.this,Home.class));
 
                 }else Toast.makeText(RegisterActivity.this, response.errorMessage, Toast.LENGTH_SHORT).show();
 

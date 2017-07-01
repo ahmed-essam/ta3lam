@@ -1,6 +1,7 @@
 package yackeen.education.ta3allam.ui.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,11 +20,13 @@ import com.android.volley.VolleyError;
 import com.squareup.picasso.Picasso;
 import yackeen.education.ta3allam.Capsule.Follower;
 import yackeen.education.ta3allam.Capsule.UserBooks;
+import yackeen.education.ta3allam.R;
 import yackeen.education.ta3allam.adapter.FollowersAdapter;
 import yackeen.education.ta3allam.adapter.GridCoursesAdapter;
 import yackeen.education.ta3allam.model.dto.request.FollowerRequest;
 import yackeen.education.ta3allam.model.dto.response.FollwerResponse;
 import yackeen.education.ta3allam.server.api.API;
+import yackeen.education.ta3allam.ui.activity.FriendsActivity;
 import yackeen.education.ta3allam.util.UserHelper;
 
 import java.util.ArrayList;
@@ -58,6 +61,7 @@ public class Profile extends Fragment {
     private TextView level;
     private TextView track;
     private TextView about;
+    private TextView followerNumTextView;
     CircleImageView userImage;
     GridView gridView;
     GridCoursesAdapter gridCoursesAdapter;
@@ -98,6 +102,9 @@ public class Profile extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(yackeen.education.ta3allam.R.layout.fragment_profile, container, false);
         name = (TextView)rootView.findViewById(yackeen.education.ta3allam.R.id.name);
+        followerNumTextView = (TextView)rootView.findViewById(R.id.follower_num_rounded_text);
+        followerNumTextView.setVisibility(View.INVISIBLE);
+
         level = (TextView)rootView.findViewById(yackeen.education.ta3allam.R.id.level);
         track = (TextView)rootView.findViewById(yackeen.education.ta3allam.R.id.type);
         about = (TextView)rootView.findViewById(yackeen.education.ta3allam.R.id.about);
@@ -113,17 +120,16 @@ public class Profile extends Fragment {
         followersAdapter = new FollowersAdapter(getContext());
         feachDataFromApi();
         followerRecyclerView.setAdapter(followersAdapter);
-        List<UserBooks> userBooksList = new ArrayList<>();
-        UserBooks userBooks = new UserBooks();
-        userBooks.setBookName("النهضه");
-        userBooks.setTeacherName("احمد الطيب");
-        userBooks.setPercentage(0.37);
-        userBooksList.add(userBooks);
-        gridCoursesAdapter.clear();
-        gridCoursesAdapter.addAll(userBooksList);
-        gridCoursesAdapter.notifyDataSetChanged();
-
         return rootView;
+    }
+    public void addListener(){
+        followerNumTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              Intent intent= FriendsActivity.newFriendsIntent(getContext(),UserHelper.getUserId(getContext()));
+                startActivity(intent);
+            }
+        });
     }
     public void feachDataFromApi(){
         FollowerRequest body = new FollowerRequest();
@@ -149,9 +155,28 @@ public class Profile extends Fragment {
             public void onResponse(FollwerResponse response) {
                 Log.e(TAG, "network_response:" + response.followers.size());
                 addView(response);
-                List<Follower> followers = response.followers;
-                Log.d(TAG, "network_response:" + followers.size());
+                List<Follower> followers = new ArrayList<>();
+                List<UserBooks> userBooksList = new ArrayList<>();
+                if (response.userBooksList.size() > 4){
+                    for (int i=0;i <4 ;i++){
+                    userBooksList.add(response.userBooksList.get(i));
+                }
+                }else{
+                    userBooksList.addAll(response.userBooksList);
+                }
+                if (response.getFollowersNumber()>6){
+                    followerNumTextView.setVisibility(View.VISIBLE);
+                    addListener();
+                    int followernum = response.getFollowersNumber()-6;
+                    followerNumTextView.setText("+"+ followernum);
+                    for (int i=0;i <6 ;i++){
+                    followers.add(response.followers.get(i));
+                }
+                }else{
+                    followers.addAll(response.followers);
+                }
                 followersAdapter.addAll(followers);
+                gridCoursesAdapter.addAll(userBooksList);
             }
         };
     }

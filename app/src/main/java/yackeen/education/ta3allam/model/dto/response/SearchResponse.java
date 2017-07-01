@@ -1,0 +1,13 @@
+package yackeen.education.ta3allam.model.dto.response;
+
+import java.util.List;
+
+import yackeen.education.ta3allam.Capsule.SearchProfile;
+
+/**
+ * Created by ahmed essam on 28/06/2017.
+ */
+
+public class SearchResponse {
+    public List<SearchProfile> SearchUsers;
+}

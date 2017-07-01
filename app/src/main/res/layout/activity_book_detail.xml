@@ -5,129 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.yackeen.ta3allam.yackeen.yackeen.ta3allam.ui.activity.BookDetailActivity">
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.NoActionBar">
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical|right"
-            android:orientation="horizontal"
-            android:layout_marginBottom="40dp"
-            android:layout_gravity="right"
-            android:padding="8dp"
-            android:layout_marginRight="@dimen/margin"
-            >
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/forma_1"
-                android:id="@+id/form_icon"
-                android:layout_marginLeft="6dp"
-                android:padding="10dp"
-                />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/open_book"
-                android:id="@+id/open_book"
-                android:padding="10dp"
-                />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            app:tabGravity="fill"
-            app:tabMode="fixed"
-            android:layout_gravity="bottom|right"
-            android:gravity="right"
-            >
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_buton_with_white_border"
-                android:textColor="@color/cardview_light_background"
-                android:text="@string/share_button_text"
-                android:textSize="30sp"
-                android:id="@+id/share_book_button"
-                />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_buton_with_white_border"
-                android:textColor="@color/cardview_light_background"
-                android:text="@string/follow_button_text"
-                android:textSize="30sp"
-                android:id="@+id/follow_book_button"
-                android:layout_marginLeft="5dp"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_gravity="right"
-                android:gravity="right"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/book_name_id_detail"
-                    android:text="اسم الكتاب"
-                    android:textSize="30sp"
-                    android:textColor="@color/cardview_light_background"
-                    android:textStyle="bold"
-
-                    />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_gravity="right"
-                    android:gravity="right">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="فقه"
-                        android:textColor="@color/cardview_light_background"
-                        android:textStyle="bold"
-                        android:id="@+id/book_category"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=" - "
-                        android:textColor="@color/cardview_light_background"
-                        android:textStyle="bold"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="المستوي الاول "
-                        android:textColor="@color/cardview_light_background"
-                        android:textStyle="bold"
-                        android:id="@+id/book_level"/>
-
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-    </android.support.design.widget.AppBarLayout>
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:padding="10dp"
         >
         <TextView
@@ -162,17 +48,18 @@
             android:layout_gravity="right"
             android:gravity="right">
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="30dp"
+                android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:id="@+id/teacher_image_detail"
                 android:src="@drawable/default_emam"
-                android:layout_weight=".6"
+                android:layout_gravity="right"
                 />
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_weight="2"
+                android:layout_gravity="right"
+                android:gravity="right"
                 >
                 <TextView
                     android:layout_width="match_parent"
@@ -180,14 +67,15 @@
                     android:id="@+id/teacher_name_detail"
                     android:textSize="20sp"
                     android:text="الامام احمد الطيب"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:layout_gravity="right"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/teacher_position_detail"
                     android:text="شيخ الازهر"
                     android:textStyle="bold"
-
+                    android:layout_gravity="right"
                     />
             </LinearLayout>
 
@@ -200,14 +88,26 @@
             android:textColor="@color/colorPrimary"
             android:textSize="30sp"
             android:text="@string/duration_book_detail"/>
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/book_duration_text"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            android:textStyle="bold"
-            android:textSize="20dp"/>
+            android:orientation="vertical"
+            android:layout_gravity="right">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/from_text"
+                android:layout_gravity="right"
+                android:gravity="right"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/to_text"
+                android:layout_gravity="right"
+                android:gravity="right"/>
+        </LinearLayout>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -240,5 +140,135 @@
 
 
     </LinearLayout>
+</ScrollView>
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.NoActionBar">
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/detail_toolbar"
+            android:layoutDirection="ltr">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginBottom="40dp"
+            android:gravity="center_vertical|right"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:layoutDirection="ltr">
+
+            <ImageView
+                android:id="@+id/form_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:padding="10dp"
+                android:src="@drawable/forma_1" />
+
+            <ImageView
+                android:id="@+id/open_book"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:src="@drawable/open_book" />
+
+        </LinearLayout>
+        </android.support.v7.widget.Toolbar>
+
+
+        <RelativeLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:gravity="right"
+            android:padding="15dp"
+            >
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:orientation="vertical"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/follow_book_button"
+                >
+
+                <TextView
+                    android:id="@+id/book_name_id_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="اسم الكتاب"
+                    android:textColor="@color/cardview_light_background"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/book_category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="فقه"
+                        android:textColor="@color/cardview_light_background"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" - "
+                        android:textColor="@color/cardview_light_background"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/book_level"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="المستوي الاول "
+                        android:textColor="@color/cardview_light_background"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/share_book_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:background="@drawable/rounded_buton_with_white_border"
+                android:text="@string/share_button_text"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="25sp"
+                android:layout_alignParentLeft="true"/>
+
+            <Button
+                android:id="@+id/follow_book_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/rounded_buton_with_white_border"
+                android:text="@string/follow_button_text"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="25sp"
+                android:layout_toRightOf="@+id/share_book_button"/>
+        </RelativeLayout>
+    </android.support.design.widget.AppBarLayout>
 
 </android.support.design.widget.CoordinatorLayout>

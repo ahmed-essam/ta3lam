@@ -11,8 +11,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        >
+        android:theme="@style/AppTheme">
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -62,7 +61,8 @@
         <activity android:name=".ui.activity.ForumComentsActivity" />
         <activity android:name=".ui.activity.MessagesListActivity" />
         <activity android:name=".ui.activity.ChatActivity" />
-        <activity android:name=".ui.activity.UserProfileActivity"></activity>
+        <activity android:name=".ui.activity.UserProfileActivity" />
+        <activity android:name=".ui.activity.FriendsActivity"></activity>
     </application>
 
 </manifest>

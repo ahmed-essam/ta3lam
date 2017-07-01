@@ -6,7 +6,9 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,8 +23,11 @@ import yackeen.education.ta3allam.Capsule.BookDetail;
 import yackeen.education.ta3allam.R;
 import yackeen.education.ta3allam.model.dto.request.BookDetailRequest;
 import yackeen.education.ta3allam.model.dto.request.BookFollowRequest;
+import yackeen.education.ta3allam.model.dto.request.SetUserBookRequest;
+import yackeen.education.ta3allam.model.dto.request.UnSetUserBookRequest;
 import yackeen.education.ta3allam.model.dto.response.BookDetailResponse;
 import yackeen.education.ta3allam.model.dto.response.EmptyResponse;
+import yackeen.education.ta3allam.model.dto.response.SetUserBookResponse;
 import yackeen.education.ta3allam.server.api.API;
 import yackeen.education.ta3allam.util.UserHelper;
 
@@ -40,17 +45,23 @@ public class BookDetailActivity extends AppCompatActivity {
     private ImageView teacherImage;
     private TextView teacherName;
     private TextView teacherPosition;
-    private TextView duration;
+    private TextView fromTextView;
+    private TextView toTextView;
     private TextView shareNumText;
     private TextView followerNumText;
     private Book book;
     private BookDetail bookDetail;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(yackeen.education.ta3allam.R.layout.activity_book_detail);
         addViewToActivity();
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         initiateOnClickListener();
         book = retrieveDataFromIntent();
         bookName.setText(book.getName());
@@ -59,8 +70,17 @@ public class BookDetailActivity extends AppCompatActivity {
         Log.e(TAG, "onCreate: "+ UserHelper.getUserId(this));
         feachBookDetailsFromApi();
 
-
+        }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId()==android.R.id.home){
+            this.finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
+
+
+
     public void feachBookDetailsFromApi(){
         BookDetailRequest body = new BookDetailRequest();
         body.setBookID(book.getId());
@@ -79,8 +99,26 @@ public class BookDetailActivity extends AppCompatActivity {
         BookFollowRequest body = new BookFollowRequest();
         body.setBookID(book.getId());
         body.setUserID(UserHelper.getUserId(this));
-        API.getUserAPIs().unfollowBook(body,getfollowListener(),
+        API.getUserAPIs().unfollowBook(body,getunfollowListener(),
                 getBookDetailFailedListener(),BookDetailActivity.this);
+    }
+    public void setUserBooksToApi(int[] bookIds){
+        SetUserBookRequest body = new SetUserBookRequest();
+        body.setUserID(UserHelper.getUserId(this));
+        body.setBooksIDs(bookIds);
+        API.getUserAPIs().setUserBook(body,setBookListener(),
+                getBookDetailFailedListener(),this);
+
+
+    }
+    public void unSetUserBooksToApi(){
+        UnSetUserBookRequest body = new UnSetUserBookRequest();
+        body.setUserID(UserHelper.getUserId(this));
+        body.setBooksID(bookDetail.getID());
+        API.getUserAPIs().unSetUserBook(body,unsetBookListener(),
+                getBookDetailFailedListener(),this);
+
+
     }
     public void initiateOnClickListener(){
         forumIcon.setOnClickListener(new View.OnClickListener() {
@@ -94,17 +132,27 @@ public class BookDetailActivity extends AppCompatActivity {
         followButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                followButton.setEnabled(false);
                 if (bookDetail.isFollower()){
-                    followBookUsingApi();
-                }else{
                     unfollowBookUsingApi();
+                }else{
+                    followBookUsingApi();
                 }
+
 
             }
         });
         shareButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                shareButton.setEnabled(false);
+                if (bookDetail.isSubscriber()){
+                    unSetUserBooksToApi();
+                }else{
+                    int[] bookIds={bookDetail.getID()};
+                    setUserBooksToApi(bookIds);
+
+                }
 
             }
         });
@@ -113,6 +161,7 @@ public class BookDetailActivity extends AppCompatActivity {
 
     public void addViewToActivity(){
         forumIcon = (ImageView)findViewById(yackeen.education.ta3allam.R.id.form_icon);
+        toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         openBookIcon = (ImageView)findViewById(yackeen.education.ta3allam.R.id.open_book);
         bookName = (TextView) findViewById(yackeen.education.ta3allam.R.id.book_name_id_detail);
         bookLevel = (TextView) findViewById(yackeen.education.ta3allam.R.id.book_level);
@@ -123,7 +172,8 @@ public class BookDetailActivity extends AppCompatActivity {
         teacherImage = (ImageView) findViewById(yackeen.education.ta3allam.R.id.teacher_image_detail);
         teacherName = (TextView) findViewById(yackeen.education.ta3allam.R.id.teacher_name_detail);
         teacherPosition = (TextView) findViewById(yackeen.education.ta3allam.R.id.teacher_position_detail);
-        duration = (TextView) findViewById(yackeen.education.ta3allam.R.id.book_duration_text);
+        fromTextView = (TextView) findViewById(R.id.from_text);
+        toTextView = (TextView) findViewById(R.id.to_text);
         shareNumText = (TextView) findViewById(yackeen.education.ta3allam.R.id.book_share_num_text);
         followerNumText = (TextView) findViewById(yackeen.education.ta3allam.R.id.book_follower_num_text);
     }
@@ -143,10 +193,30 @@ public class BookDetailActivity extends AppCompatActivity {
         Picasso.with(this).load(bookDetail.getTeacherPicture()).into(teacherImage);
         teacherName.setText(bookDetail.getTeacherName());
         teacherPosition.setText(bookDetail.getTeacherTitle());
-        String durationString = "من"+bookDetail.getFromDate()+"- الي "+bookDetail.getFromDate();
-        duration.setText(durationString);
+        String durationfromString = " من "+bookDetail.getFromDate();
+        String durationtoString = " الي "+bookDetail.getFromDate();
+        fromTextView.setText(durationfromString);
+        toTextView.setText(durationtoString);
         followerNumText.setText(Integer.toString(bookDetail.getFollowersNumber()));
         shareNumText.setText(Integer.toString(bookDetail.getParticipantsNumber()));
+        if (bookDetail.isFollower()){
+            followButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.send_orage_rounded_button));
+            followButton.setTextColor(getResources().getColor(R.color.colorTextTitle));
+            followButton.setText(R.string.alreadyafollower);
+        }else{
+            followButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.rounded_buton_with_white_border));
+            followButton.setTextColor(getResources().getColor(R.color.colorTextTitle));
+            followButton.setText(R.string.follow_button_text);
+        }
+        if (bookDetail.isSubscriber()){
+            shareButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.send_orage_rounded_button));
+            shareButton.setTextColor(getResources().getColor(R.color.colorTextTitle));
+            shareButton.setText(R.string.alreadysubscribe);
+        }else{
+            shareButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.rounded_buton_with_white_border));
+            shareButton.setTextColor(getResources().getColor(R.color.colorTextTitle));
+            shareButton.setText(R.string.share_button_text);
+        }
     }
 
     private Response.Listener<BookDetailResponse> getBookDetailListener(){
@@ -156,7 +226,6 @@ public class BookDetailActivity extends AppCompatActivity {
             public void onResponse(BookDetailResponse response) {
                 bookDetail = response.BookDetails;
                 addValuesToView(bookDetail);
-
             }
         };
     }
@@ -178,16 +247,53 @@ public class BookDetailActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onResponse(EmptyResponse response) {
-                if (bookDetail.isFollower()){
-                    followButton.setBackground(getResources().getDrawable(R.drawable.rounded_with_border_button));
-                    followButton.setTextColor(getResources().getColor(R.color.colorPrimary));
+                    followButton.setEnabled(true);
+                    followButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.send_orage_rounded_button));
+                    followButton.setTextColor(getResources().getColor(R.color.colorTextTitle));
                     followButton.setText(R.string.alreadyafollower);
-                }else{
-                    followButton.setBackground(getResources().getDrawable(R.drawable.rounded_buton_with_white_border));
+
+
+
+            }
+        };
+    }
+    private Response.Listener<EmptyResponse> getunfollowListener(){
+
+        return new Response.Listener<EmptyResponse>() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+            @Override
+            public void onResponse(EmptyResponse response) {
+                    followButton.setEnabled(true);
+                    followButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.rounded_buton_with_white_border));
                     followButton.setTextColor(getResources().getColor(R.color.colorTextTitle));
                     followButton.setText(R.string.follow_button_text);
-                }
 
+            }
+        };
+    }
+    //subscribe response
+    private Response.Listener<SetUserBookResponse> setBookListener(){
+        return new Response.Listener<SetUserBookResponse>() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+            @Override
+            public void onResponse(SetUserBookResponse response) {
+                shareButton.setEnabled(true);
+                    shareButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.send_orage_rounded_button));
+                    shareButton.setTextColor(getResources().getColor(R.color.colorTextTitle));
+                    shareButton.setText(R.string.alreadysubscribe);
+
+            }
+        };
+    }
+    private Response.Listener<SetUserBookResponse> unsetBookListener(){
+        return new Response.Listener<SetUserBookResponse>() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+            @Override
+            public void onResponse(SetUserBookResponse response) {
+                shareButton.setEnabled(true);
+                shareButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.rounded_buton_with_white_border));
+                shareButton.setTextColor(getResources().getColor(R.color.colorTextTitle));
+                shareButton.setText(R.string.share_button_text);
 
             }
         };

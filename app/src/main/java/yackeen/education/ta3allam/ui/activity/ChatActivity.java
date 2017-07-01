@@ -1,5 +1,6 @@
 package yackeen.education.ta3allam.ui.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +9,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -38,6 +42,8 @@ import yackeen.education.ta3allam.model.dto.response.MessageListResponse;
 import yackeen.education.ta3allam.server.api.API;
 import yackeen.education.ta3allam.util.UserHelper;
 
+import static yackeen.education.ta3allam.ui.activity.ForumComentsActivity.hideSoftKeyboard;
+
 public class ChatActivity extends AppCompatActivity {
     private static final String Userparam ="userID";
     private RecyclerView chatRecyclerView;
@@ -59,6 +65,7 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
         createView();
+        setupUI(chatRecyclerView);
         setSupportActionBar(chatToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -116,6 +123,13 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId()==android.R.id.home){
+            this.finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 
 
@@ -127,6 +141,25 @@ public class ChatActivity extends AppCompatActivity {
         sendEditText=(EditText) findViewById(R.id.send_message_edit);
         sendImageButton=(ImageButton) findViewById(R.id.send_button);
         chatAdapter= new ChatAdapter(this);
+    }
+    public void setupUI(View view) {
+
+        // Set up touch listener for non-text box views to hide keyboard.
+        if (!(view instanceof EditText)) {
+            view.setOnTouchListener(new View.OnTouchListener() {
+                public boolean onTouch(View v, MotionEvent event) {
+                    hideSoftKeyboard(ChatActivity.this);
+                    return false;
+                }
+            });
+        }
+    }
+    public static void hideSoftKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) activity.getSystemService(
+                        Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(
+                activity.getCurrentFocus().getWindowToken(), 0);
     }
     public static Intent newUserChatIntent(Context context, String userID){
         Intent intent = new Intent(context,ChatActivity.class);
@@ -188,6 +221,7 @@ public class ChatActivity extends AppCompatActivity {
                 message.setBody(sendEditText.getText().toString());
                 message.setDateTime(Long.toString(new Date().getTime()));
                 chatAdapter.addItem(message);
+                sendEditText.setText(null);
 
             }
         };

@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 
 import yackeen.education.ta3allam.Capsule.Category;
+import yackeen.education.ta3allam.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +51,14 @@ public class FirstLoginAdapter extends RecyclerView.Adapter<FirstLoginAdapter.Vi
            int index= mCategory.indexOf(category);
             if(index == selected_position){
                 categorylayout.setBackgroundColor(itemView.getResources().getColor(yackeen.education.ta3allam.R.color.real_accent_color));
+                nameTextView.setTextColor(itemView.getResources().getColor(R.color.colorTextTitle));
+                descriptionTextView.setTextColor(itemView.getResources().getColor(R.color.colorTextTitle));
+                levelTextView.setTextColor(itemView.getResources().getColor(R.color.colorTextTitle));
+                teacherTextView.setTextColor(itemView.getResources().getColor(R.color.colorTextTitle));
+                studentTextView.setTextColor(itemView.getResources().getColor(R.color.colorTextTitle));
+                studentTextView.setTextColor(itemView.getResources().getColor(R.color.colorTextTitle));
+                questionTextView.setTextColor(itemView.getResources().getColor(R.color.colorTextTitle));
+
             }
         }
 

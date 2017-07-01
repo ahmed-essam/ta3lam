@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,23 +39,27 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder> 
     private String TAG="forum_adapter";
 
 
-    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class ViewHolder extends RecyclerView.ViewHolder  {
         private String TAG1="forum_view_holder";
         ImageView profileImage;
         ImageView likeImage;
         ImageView shareImage;
-
+        ImageView commentImage;
+        LinearLayout postLinearLayout;
         TextView nameTextView;
         TextView timeTextView;
         TextView descriptionTextView;
         TextView shareTextView;
         TextView commentTextView;
         TextView likeTextView;
+        boolean isLiked;
         public ViewHolder(View itemView) {
             super(itemView);
             profileImage=(ImageView) itemView.findViewById(R.id.profileimage);
             likeImage=(ImageView) itemView.findViewById(R.id.like_image);
             shareImage=(ImageView) itemView.findViewById(R.id.share_image);
+            commentImage=(ImageView) itemView.findViewById(R.id.comment_image);
+            postLinearLayout=(LinearLayout) itemView.findViewById(R.id.post_linear_layout);
             nameTextView=(TextView) itemView.findViewById(R.id.name);
             timeTextView=(TextView) itemView.findViewById(R.id.timewent);
             descriptionTextView=(TextView) itemView.findViewById(R.id.descritption);
@@ -75,7 +80,20 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder> 
 
                 }
             });
-            itemView.setOnClickListener(this);
+            commentImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = ForumComentsActivity.newCommentIntent(mContext,mNews.get(getPosition()));
+                    mContext.startActivity(intent);
+                }
+            });
+            postLinearLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = ForumComentsActivity.newCommentIntent(mContext,mNews.get(getPosition()));
+                    mContext.startActivity(intent);
+                }
+            });
         }
         public void bindView(News news,Context context){
             Picasso.with(context).load(news.getImage()).error(R.drawable.default_emam).into(profileImage);
@@ -85,17 +103,13 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder> 
             shareTextView.setText(news.getShare()+"");
             commentTextView.setText(news.getComment()+"");
             likeTextView.setText(news.getLike()+"");
-
-
-        }
-
-        @Override
-        public void onClick(View view) {
-           Intent intent = ForumComentsActivity.newCommentIntent(mContext,mNews.get(getPosition()));
-            mContext.startActivity(intent);
-
+            isLiked= news.isLiked();
+            if (news.isLiked()){
+                likeImage.setBackgroundDrawable(itemView.getResources().getDrawable(R.drawable.icon_heart_orange));
+            }
 
         }
+
         public void likePostUsingApi(int position){
             LikeAndShareRequest body = new LikeAndShareRequest();
             body.setPostID(mNews.get(position).getPostId());
@@ -126,7 +140,7 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder> 
             return new Response.Listener<EmptyResponse>() {
                 @Override
                 public void onResponse(EmptyResponse response) {
-
+                    likeImage.setBackgroundDrawable(itemView.getResources().getDrawable(R.drawable.icon_heart_orange));
                 }
             };
         }

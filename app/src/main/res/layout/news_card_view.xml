@@ -21,6 +21,13 @@
             android:layout_height="match_parent"
             android:layout_marginRight="2dp"
             android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="right"
+                android:id="@+id/post_linear_layout"
+                >
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -70,6 +77,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -77,7 +85,6 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="0.5"
                 android:gravity="center">
-
                 <TextView
                     android:id="@+id/share"
                     android:layout_width="wrap_content"
@@ -102,6 +109,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_comment"
+                    android:id="@+id/comment_image"
                     />
 
                 <TextView

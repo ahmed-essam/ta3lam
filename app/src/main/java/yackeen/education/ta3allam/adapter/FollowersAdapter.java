@@ -1,6 +1,7 @@
 package yackeen.education.ta3allam.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 import yackeen.education.ta3allam.Capsule.Follower;
+import yackeen.education.ta3allam.ui.activity.UserProfileActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +20,9 @@ import java.util.List;
  */
 
 public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.ViewHolder> {
-    private Context context;
-    List<Follower> followers;
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static Context context;
+    public static List<Follower> followers;
+    public static class ViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener{
         private ImageView followerImage;
         public ViewHolder(View itemView) {
             super(itemView);
@@ -31,6 +33,12 @@ public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.View
             Picasso.with(context).load(follower.getPhotoURL()).error(yackeen.education.ta3allam.R.drawable.default_emam).into(followerImage);
 
         }
+
+        @Override
+        public void onClick(View view) {
+            Intent intent = UserProfileActivity.newUserProfileIntent(context,followers.get(getPosition()).getId());
+            context.startActivity(intent);
+        }
     }
 
     public FollowersAdapter(Context context) {
@@ -38,7 +46,7 @@ public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.View
         followers=new ArrayList<>();
     }
 
-    public Context getContext() {
+    public static Context getContext() {
         return context;
 
     }

@@ -12,6 +12,7 @@
         android:id="@+id/messages_toolbar"
         android:background="@color/mesages_header"
         android:layout_gravity="right"
+        android:layoutDirection="ltr"
         android:gravity="right"
         >
         <LinearLayout

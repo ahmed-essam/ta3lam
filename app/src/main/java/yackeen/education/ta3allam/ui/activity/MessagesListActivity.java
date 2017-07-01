@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.android.volley.Response;
@@ -47,15 +48,16 @@ public class MessagesListActivity extends AppCompatActivity {
         contactsRecyclerView=(RecyclerView)findViewById(R.id.messages_recycler_view);
         contactsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         contactsAdapter= new MessagesListAdapter(this);
-        List<MessageItem> messageItems = new ArrayList<>();
-        MessageItem messageItem = new MessageItem();
-        messageItem.setConversationUserID("132154,kojoph");
-        messageItem.setConversationUserName("احمد عصام ");
-        messageItem.setLastMessage("اهلا بك");
-        messageItems.add(messageItem);
-        contactsAdapter.addAll(messageItems);
+        feachContactsFromApi();
         contactsRecyclerView.setAdapter(contactsAdapter);
 
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId()==android.R.id.home){
+            this.finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void feachContactsFromApi(){
