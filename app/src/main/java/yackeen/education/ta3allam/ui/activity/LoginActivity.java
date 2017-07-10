@@ -105,6 +105,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(LoginResponse response) {
 
+
                 UserHelper.dismissProgressDialog();
 
                 Log.i(TAG, "onResponse:IsSuccess "    .concat(String.valueOf(response.isSuccessful)));
@@ -115,7 +116,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (response.isSuccessful){
                     UserHelper.saveStringInSharedPreferences(UserHelper.USER_ID,response.userID);
-
+                    UserHelper.saveIntInSharedPreferences(UserHelper.USER_TYPE,response.userType);
                     if (response.isFirstTime){
 
                         startActivity(new Intent(LoginActivity.this, FirstLogin.class));

@@ -17,6 +17,7 @@ public class Book implements Serializable {
     @SerializedName("TeacherName")
     private String teacher;
     private String CourseName;
+    private int ParticipantsNumber;
 
     public int getId() {
         return id;
@@ -56,5 +57,13 @@ public class Book implements Serializable {
 
     public void setCourseName(String courseName) {
         CourseName = courseName;
+    }
+
+    public int getParticipantsNumber() {
+        return ParticipantsNumber;
+    }
+
+    public void setParticipantsNumber(int participantsNumber) {
+        ParticipantsNumber = participantsNumber;
     }
 }

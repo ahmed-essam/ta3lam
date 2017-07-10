@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Response;
@@ -34,7 +36,7 @@ public class FriendsActivity extends AppCompatActivity {
     private String selectedUserId;
     private static final String ARGID ="selected_id";
     private String TAG="forum_comments_activity";
-
+private TextView noDataText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +59,9 @@ public class FriendsActivity extends AppCompatActivity {
         friendsRecyclerView = (RecyclerView)findViewById(R.id.friends_recycler_view);
         friendsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         friendsAdapter = new FriendsAdapter(this);
+        noDataText = (TextView) findViewById(R.id.no_data_text);
+        noDataText.setEnabled(false);
+        noDataText.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -85,13 +90,17 @@ public class FriendsActivity extends AppCompatActivity {
         API.getUserAPIs().getAllUserFollowers(body,getCommentsListener(),
                 getCommentsFailedListener(),this);
 
-
     }
     //network response
     private Response.Listener<FriendsResponse> getCommentsListener(){
         return new Response.Listener<FriendsResponse>() {
             @Override
             public void onResponse(FriendsResponse response) {
+                if (response.followersDetails.size() == 0){
+                    noDataText.setVisibility(View.VISIBLE);
+                    noDataText.setText("لاتوجد بيانات");
+                    noDataText.setEnabled(true);
+                }
                 Log.e(TAG,"network_response:"+response.followersDetails.size());
                 List<FollowerDetail> followerList = response.followersDetails;
                 Log.d(TAG,"network_response:"+followerList.size());
@@ -104,6 +113,9 @@ public class FriendsActivity extends AppCompatActivity {
         return new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                noDataText.setVisibility(View.VISIBLE);
+                noDataText.setText("خطأ بالشبكه");
+                noDataText.setEnabled(true);
                 Log.e(TAG, "onErrorResponse: ".concat(error.toString()));
                 Toast.makeText(FriendsActivity.this, R.string.network_error, Toast.LENGTH_SHORT).show();
 

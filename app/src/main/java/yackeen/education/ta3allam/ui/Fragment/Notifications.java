@@ -4,22 +4,26 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import yackeen.education.ta3allam.Capsule.Notification;
+import yackeen.education.ta3allam.R;
 import yackeen.education.ta3allam.adapter.NotificationsAdapter;
 import yackeen.education.ta3allam.model.dto.request.NotificationsRequest;
 import yackeen.education.ta3allam.model.dto.response.NotificationsResponse;
 import yackeen.education.ta3allam.server.api.API;
+import yackeen.education.ta3allam.util.EndlessRecyclerViewScrollListener;
 import yackeen.education.ta3allam.util.UserHelper;
 
 import java.util.List;
@@ -32,7 +36,7 @@ import java.util.List;
  * Use the {@link Notifications#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Notifications extends Fragment {
+public class Notifications extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -44,8 +48,12 @@ public class Notifications extends Fragment {
     private String TAG="notifications_fragment";
     private RecyclerView notificationRecyclerView;
     private NotificationsAdapter notificationsAdapter;
-
+    SwipeRefreshLayout mSwipeRefreshLayout;
+    private EndlessRecyclerViewScrollListener scrollListener;
     private OnFragmentInteractionListener mListener;
+    private int notificationID;
+    private List<Notification> notifications;
+    private TextView noDataText;
 
     public Notifications() {
         // Required empty public constructor
@@ -85,29 +93,56 @@ public class Notifications extends Fragment {
         View rootView=inflater.inflate(yackeen.education.ta3allam.R.layout.fragment_notifications, container, false);
         notificationRecyclerView=(RecyclerView)rootView.findViewById(yackeen.education.ta3allam.R.id.notification_recyclerview);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        noDataText = (TextView) rootView.findViewById(R.id.no_data_text);
+        noDataText.setEnabled(false);
+        noDataText.setVisibility(View.INVISIBLE);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.refresh);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+        mSwipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                mSwipeRefreshLayout.setRefreshing(true);
+            }
+        });
         notificationRecyclerView.setLayoutManager(layoutManager);
+        scrollListener = new EndlessRecyclerViewScrollListener(layoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                // Triggered only when new data needs to be appended to the list
+                // Add whatever code is needed to append new items to the bottom of the list
+                notificationID = notifications.get(notifications.size()-1).getID();
+                feachNotificationsFromApi(notificationID);
+            }
+        };
+        notificationRecyclerView.addOnScrollListener(scrollListener);
         notificationsAdapter = new NotificationsAdapter(getContext());
-        feachNotificationsFromApi();
+        notificationID = 0;
+        feachNotificationsFromApi(notificationID);
         notificationRecyclerView.setAdapter(notificationsAdapter);
         return rootView;
     }
-    public void feachNotificationsFromApi(){
+    public void feachNotificationsFromApi(int notifictionId){
         NotificationsRequest body = new NotificationsRequest();
         body.setUserID(UserHelper.getUserId(getContext()));
+        body.setNotificationID(notifictionId);
         API.getUserAPIs().getAllNotifications(body,getNotificationListener(),
                 getNotificationsFailedListener(),getContext());
-
-
     }
     //network response
     private Response.Listener<NotificationsResponse> getNotificationListener(){
         return new Response.Listener<NotificationsResponse>() {
             @Override
             public void onResponse(NotificationsResponse response) {
+                if (response.AllNotificaions.size() == 0){
+                    noDataText.setVisibility(View.VISIBLE);
+                    noDataText.setText("لاتوجد بيانات");
+                    noDataText.setEnabled(true);
+                }
                 Log.e(TAG,"network_response:"+response.AllNotificaions.size());
-                List<Notification> notifications = response.AllNotificaions;
+                 notifications = response.AllNotificaions;
                 Log.d(TAG,"network_response:"+notifications.size());
                 notificationsAdapter.addAll(notifications);
+                mSwipeRefreshLayout.setRefreshing(false);
             }
 
 
@@ -117,9 +152,12 @@ public class Notifications extends Fragment {
         return new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                noDataText.setVisibility(View.VISIBLE);
+                noDataText.setText("خطأ بالشبكه");
+                noDataText.setEnabled(true);
                 Log.e(TAG, "onErrorResponse: ".concat(error.toString()));
                 Toast.makeText(getActivity(), yackeen.education.ta3allam.R.string.network_error, Toast.LENGTH_SHORT).show();
-
+                mSwipeRefreshLayout.setRefreshing(false);
             }
         };
     }
@@ -147,6 +185,11 @@ public class Notifications extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onRefresh() {
+        feachNotificationsFromApi(notificationID);
     }
 
     /**

@@ -2,14 +2,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="yackeen.education.ta3allam.ui.Fragment.NewsFeed"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    tools:context="yackeen.education.ta3allam.ui.Fragment.NewsFeed">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/news"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/news"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical" />
+
+            <TextView
+                android:id="@+id/no_data_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:textSize="15sp"
+                android:layout_marginTop="@dimen/cast_libraries_material_featurehighlight_text_max_width"
+                />
+
+        </LinearLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
 
 </FrameLayout>

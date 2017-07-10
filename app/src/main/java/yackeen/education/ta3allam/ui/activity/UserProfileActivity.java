@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,13 +53,18 @@ public class UserProfileActivity extends AppCompatActivity {
     private Button messageButton;
     private TextView name;
     private TextView about;
-    CircleImageView userImage;
+    private TextView aboutWord;
+    private TextView studyNow;
+    private TextView showAll;
+    ImageView userImage;
     GridView gridView;
     GridCoursesAdapter gridCoursesAdapter;
     private String USERID;
     FollwerResponse detailResponse;
-    private TextView followerNumTextView;
+     TextView followerNumTextView;
     private Toolbar toolbar;
+    private List<UserBooks> userBooksList;
+    private Button wallButton;
 
 
 
@@ -75,10 +81,22 @@ public class UserProfileActivity extends AppCompatActivity {
         name = (TextView)findViewById(R.id.user_name_text);
         followButton = (Button) findViewById(R.id.follow_user_button);
         messageButton = (Button) findViewById(R.id.message_user_button);
+        wallButton = (Button) findViewById(R.id.btn_wall);
         followerNumTextView = (TextView) findViewById(R.id.follower_num_rounded_text);
         followerNumTextView.setVisibility(View.INVISIBLE);
+        showAll = (TextView)findViewById(R.id.textView_watch_all);
+        showAll.setVisibility(View.INVISIBLE);
+        showAll.setEnabled(false);
         about = (TextView)findViewById(R.id.about);
-        userImage=(CircleImageView)findViewById(R.id.user_profile_image);
+        aboutWord = (TextView)findViewById(R.id.about_word);
+        studyNow = (TextView)findViewById(R.id.study_now);
+        if (UserHelper.getUserType(UserProfileActivity.this) == 1){
+            about.setEnabled(false);
+            about.setVisibility(View.INVISIBLE);
+            aboutWord.setVisibility(View.INVISIBLE);
+            studyNow.setText(getResources().getString(R.string.study_now));
+        }
+        userImage=(ImageView)findViewById(R.id.user_profile_image);
         gridView =(GridView)findViewById(R.id.courses_grid);
         gridCoursesAdapter = new GridCoursesAdapter(this, R.layout.grid_item_laayout);
         gridView.setAdapter(gridCoursesAdapter);
@@ -91,10 +109,7 @@ public class UserProfileActivity extends AppCompatActivity {
         initiateOnClickListener();
         feachDataFromApi();
         followerRecyclerView.setAdapter(followersAdapter);
-        if (detailResponse.isFollowing()){
-            followButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.send_orage_rounded_button));
-            followButton.setText(R.string.alreadyafollower);
-        }
+
 
 
     }
@@ -119,6 +134,27 @@ public class UserProfileActivity extends AppCompatActivity {
 
             }
         });
+        messageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = ChatActivity.newUserChatIntent(UserProfileActivity.this,USERID);
+                startActivity(intent);
+            }
+        });
+        showAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =AllBooksActivity.newِAllBooksIntent(UserProfileActivity.this,userBooksList);
+                startActivity(intent);
+            }
+        });
+        wallButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = UserPostsActivity.newPostsIntent(UserProfileActivity.this,USERID);
+                startActivity(intent);
+            }
+        });
     }
     public void addListener(){
         followerNumTextView.setOnClickListener(new View.OnClickListener() {
@@ -128,6 +164,7 @@ public class UserProfileActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
     public static Intent newUserProfileIntent(Context context, String userID){
         Intent intent = new Intent(context,UserProfileActivity.class);
@@ -166,7 +203,10 @@ public class UserProfileActivity extends AppCompatActivity {
         name.setText(response.getUserName());
 //        level.setText(response.getUserType());
         about.setText(response.getAbout());
-        Picasso.with(this).load(response.getUserPictureURL()).error(yackeen.education.ta3allam.R.drawable.default_emam).into(userImage);
+        Picasso.with(this).load(response.getUserPictureURL())
+                .placeholder(R.drawable.default_emam_larg)
+                .error(R.drawable.default_emam_larg)
+                .into(userImage);
 
     }
     //network response
@@ -174,33 +214,42 @@ public class UserProfileActivity extends AppCompatActivity {
         return new Response.Listener<FollwerResponse>() {
             @Override
             public void onResponse(FollwerResponse response) {
-                Log.e(TAG, "network_response:" + response.followers.size());
-                detailResponse = response;
-                addView(response);
-                List<Follower> followers = new ArrayList<>();
-                List<UserBooks> userBooksList = new ArrayList<>();
-                if (response.userBooksList.size() > 4){
-                    for (int i=0;i <4 ;i++){
-                        userBooksList.add(response.userBooksList.get(i));
+                if (response.isSuccess()) {
+                    Log.e(TAG, "network_response:" + response.followers.size());
+                    detailResponse = response;
+                    if (detailResponse.isFollowing()){
+                        followButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.send_orage_rounded_button));
+                        followButton.setText(R.string.alreadyafollower);
                     }
-                }else{
-                    userBooksList.addAll(response.userBooksList);
-                }
-                if (response.getFollowersNumber()>6){
-                    followerNumTextView.setVisibility(View.VISIBLE);
-                    addListener();
-                    int followernum = response.getFollowersNumber()-6;
-                    followerNumTextView.setText("+"+ followernum);
-                    for (int i=0;i <6 ;i++){
-                        followers.add(response.followers.get(i));
+                    addView(response);
+                    List<Follower> followers = new ArrayList<>();
+                    userBooksList = new ArrayList<>();
+                    if (response.userBooksList.size() > 4) {
+                        showAll.setEnabled(true);
+                        showAll.setVisibility(View.VISIBLE);
+                        for (int i = 0; i < 4; i++) {
+                            userBooksList.add(response.userBooksList.get(i));
+                        }
+                    } else {
+                        userBooksList.addAll(response.userBooksList);
                     }
-                }else{
-                    followers.addAll(response.followers);
+                    if (response.getFollowersNumber() > 6) {
+                        followerNumTextView.setVisibility(View.VISIBLE);
+                        addListener();
+                        int followernum = response.getFollowersNumber() - 6;
+                        followerNumTextView.setText("+" + followernum);
+                        for (int i = 0; i < 6; i++) {
+                            followers.add(response.followers.get(i));
+                        }
+                    } else {
+                        followers.addAll(response.followers);
+                    }
+                    followersAdapter.addAll(followers);
+                    gridCoursesAdapter.addAll(userBooksList);
                 }
-                followersAdapter.addAll(followers);
-                gridCoursesAdapter.addAll(userBooksList);
             }
         };
+
     }
     private Response.ErrorListener getProfileDataFailedListener(){
         return new Response.ErrorListener() {

@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:layoutDirection="rtl"
     android:descendantFocusability="beforeDescendants"
-    android:focusableInTouchMode="true">
+    android:focusableInTouchMode="true"
+    android:background="@drawable/login_bg">
 
 
     <ImageView

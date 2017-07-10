@@ -4,9 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:theme="@style/ThemeOverlay.AppCompat"
     >
 
     <LinearLayout
@@ -19,6 +16,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/forum_toolbar"
             android:background="@color/colorPrimary"
+            android:layoutDirection="ltr"
             >
 
             <LinearLayout
@@ -46,6 +44,7 @@
             </LinearLayout>
         </android.support.v7.widget.Toolbar>
 
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -70,16 +69,52 @@
         android:elevation="@dimen/toolbarElevation"
         android:orientation="vertical"
         android:background="@android:color/transparent"
-        >
+        android:weightSum="1">
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/forum_recyclerView"/>
+            android:layout_height="0dp"
+            android:id="@+id/forum_recyclerView"
+            android:layout_weight="1" />
+        <TextView
+            android:id="@+id/no_data_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:textSize="15sp"
+            android:layout_marginTop="@dimen/cast_libraries_material_featurehighlight_text_max_width"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/edit_text_padding"
+            android:paddingBottom="@dimen/edit_text_padding"
+            android:orientation="horizontal"
+            >
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:shadowColor="@color/cardViewComent"
+                android:textColorHint="@color/cardViewComent"
+                android:layout_weight="80"
+                android:hint="@string/add_post"
+                android:id="@+id/add_post"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:padding="4dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/send_orage_rounded_button"
+                android:id="@+id/add_post_btton"
+                android:textColor="@android:color/white"
+                android:text="@string/add_comment_button"
+                android:textSize="20dp"/>
 
+        </LinearLayout>
 
 
     </LinearLayout>
+
 
 </FrameLayout>
 

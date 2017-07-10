@@ -3,6 +3,7 @@ package yackeen.education.ta3allam.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,7 +24,11 @@ import yackeen.education.ta3allam.server.api.API;
 import yackeen.education.ta3allam.ui.activity.ForumComentsActivity;
 import yackeen.education.ta3allam.util.UserHelper;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -35,13 +40,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         private String TAG1="news_view_holder";
         ImageView profileImage;
         ImageView likeImage;
-        ImageView shareImage;
         ImageView commentImage;
         LinearLayout postLinearLayout;
         TextView nameTextView;
         TextView timeTextView;
         TextView descriptionTextView;
-        TextView shareTextView;
         TextView commentTextView;
         TextView likeTextView;
 
@@ -49,13 +52,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
             super(itemView);
             profileImage=(ImageView) itemView.findViewById(yackeen.education.ta3allam.R.id.profileimage);
             likeImage=(ImageView) itemView.findViewById(R.id.like_image);
-            shareImage=(ImageView) itemView.findViewById(R.id.share_image);
             commentImage=(ImageView) itemView.findViewById(R.id.comment_image);
             postLinearLayout=(LinearLayout) itemView.findViewById(R.id.post_linear_layout);
             nameTextView=(TextView) itemView.findViewById(yackeen.education.ta3allam.R.id.name);
             timeTextView=(TextView) itemView.findViewById(yackeen.education.ta3allam.R.id.timewent);
             descriptionTextView=(TextView) itemView.findViewById(yackeen.education.ta3allam.R.id.descritption);
-            shareTextView=(TextView) itemView.findViewById(yackeen.education.ta3allam.R.id.share);
             commentTextView=(TextView) itemView.findViewById(yackeen.education.ta3allam.R.id.comment);
             likeTextView=(TextView) itemView.findViewById(yackeen.education.ta3allam.R.id.like);
             addListener();
@@ -69,13 +70,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
                 }
             });
-            shareImage.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    sharePostUsingApi(getPosition());
 
-                }
-            });
             commentImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -98,13 +93,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
             API.getUserAPIs().likePost(body,getLikeListener(),
                     getFailedListener(),mContext);
         }
-        public void sharePostUsingApi(int position){
-            LikeAndShareRequest body = new LikeAndShareRequest();
-            body.setPostID(mNews.get(position).getPostId());
-            body.setUserID(UserHelper.getUserId(mContext));
-            API.getUserAPIs().sharePost(body,getShareListener(),
-                    getFailedListener(),mContext);
-        }
+
         //network response
         private Response.ErrorListener getFailedListener(){
             return new Response.ErrorListener() {
@@ -120,20 +109,20 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
             return new Response.Listener<EmptyResponse>() {
                 @Override
                 public void onResponse(EmptyResponse response) {
-                    likeImage.setBackgroundDrawable(itemView.getResources().getDrawable(R.drawable.icon_heart_orange));
-                    int num = mNews.get(getPosition()).getLike()+1;
-                    likeTextView.setText(""+num);
-                }
-            };
-        }
-        private Response.Listener<EmptyResponse> getShareListener(){
-            return new Response.Listener<EmptyResponse>() {
-                @Override
-                public void onResponse(EmptyResponse response) {
+                    if (! mNews.get(getPosition()).isLiked()) {
+                        likeImage.setImageResource(R.drawable.heart_orange);
+                        int num = mNews.get(getPosition()).getLike() + 1;
+                        likeTextView.setText("" + num);
+                        mNews.get(getPosition()).setLike(num);
+                        mNews.get(getPosition()).setLiked(true);
 
+                    }else {
+                        Toast.makeText(mContext, "already liked", Toast.LENGTH_SHORT).show();
+                    }
                 }
             };
         }
+
     }
     public static List<News> mNews;
     public static Context mContext;
@@ -162,23 +151,30 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     public void onBindViewHolder(NewsAdapter.ViewHolder viewHolder,int position)
     {
         News news=mNews.get(position);
+        try {
+            String strDate = news.getTime();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.S");
+            Date date = dateFormat.parse(strDate);
+            TextView time=viewHolder.timeTextView;
+            time.setText(DateUtils.getRelativeTimeSpanString(date.getTime(), new Date().getTime(), DateUtils.DAY_IN_MILLIS)+"");
+        } catch (ParseException e) {
+            Log.d(TAG, "onBindViewHolder: "+e.getMessage());
+            e.printStackTrace();
+        }
+
         ImageView profileImage=viewHolder.profileImage;
         Picasso.with(getmContext()).load(news.getImage()).placeholder(R.drawable.default_emam).error(yackeen.education.ta3allam.R.drawable.default_emam).into(profileImage);
         TextView name=viewHolder.nameTextView;
         name.setText(news.getName());
-        TextView time=viewHolder.timeTextView;
-        time.setText(news.getTime());
         TextView description=viewHolder.descriptionTextView;
         description.setText(news.getDescription());
-        TextView share=viewHolder.shareTextView;
-        share.setText(news.getShare()+"");
         TextView comment=viewHolder.commentTextView;
         comment.setText(news.getComment()+"");
         TextView like=viewHolder.likeTextView;
         like.setText(news.getLike()+"");
         isLiked= news.isLiked();
         if (news.isLiked()){
-            viewHolder.likeImage.setBackgroundDrawable(getmContext().getResources().getDrawable(R.drawable.icon_heart_orange));
+            viewHolder.likeImage.setImageResource(R.drawable.heart_orange);
         }
     }
     @Override

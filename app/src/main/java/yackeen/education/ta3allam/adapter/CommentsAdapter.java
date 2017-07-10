@@ -2,6 +2,7 @@ package yackeen.education.ta3allam.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +14,11 @@ import com.squareup.picasso.Picasso;
 import yackeen.education.ta3allam.Capsule.Comment;
 import yackeen.education.ta3allam.Capsule.Message;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static com.google.android.gms.plus.PlusOneDummyView.TAG;
@@ -40,7 +45,16 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
         public void bindView(Comment comment, Context context){
             Picasso.with(context).load(comment.getUserPictureURL()).error(yackeen.education.ta3allam.R.drawable.default_emam).into(profileImage);
             nameTextView.setText(comment.getUserName());
-            timeTextView.setText(comment.getDateTime());
+            String strDate = comment.getDateTime();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.S");
+            Date date = null;
+            try {
+                date = dateFormat.parse(strDate);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            timeTextView.setText(DateUtils.getRelativeTimeSpanString(date.getTime(), new Date().getTime(), DateUtils.DAY_IN_MILLIS)+"");
+
             descriptionTextView.setText(comment.getBody());
 
         }

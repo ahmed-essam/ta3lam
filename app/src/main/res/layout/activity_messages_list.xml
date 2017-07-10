@@ -32,11 +32,12 @@
             android:gravity="right"/>
     </LinearLayout>
     </android.support.v7.widget.Toolbar>
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/messages_toolbar"
         android:padding="10dp"
+        android:orientation="vertical"
 
         >
 
@@ -47,7 +48,16 @@
         android:layout_below="@+id/messages_toolbar"
         android:id="@+id/messages_recycler_view"
         />
-    </FrameLayout>
+        <TextView
+            android:id="@+id/no_data_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:textSize="15sp"
+            android:layout_marginTop="@dimen/cast_libraries_material_featurehighlight_text_max_width"
+            />
+
+    </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="@dimen/com_facebook_profilepictureview_preset_size_normal"
@@ -57,6 +67,8 @@
         android:layout_marginLeft="34dp"
         android:layout_marginBottom="34dp"
         android:src="@drawable/rounded_speech_bubble"
+        android:id="@+id/floating_list_button"
+        app:fabSize="normal"
         />
 
 </RelativeLayout>

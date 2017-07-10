@@ -6,6 +6,7 @@
     android:id="@+id/category_linear"
     android:gravity="right"
     android:background="@android:color/white"
+    android:padding="5dp"
     >
     <TextView
     android:id="@+id/name"
@@ -28,13 +29,15 @@
         android:layout_gravity="left"
         android:orientation="horizontal"
         android:layout_marginRight="100dp"
+
         >
         <TextView
             android:id="@+id/level"
             android:textColor="#29B973"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="left"/>
+            android:gravity="left"
+            />
         <TextView
             android:textColor="#29B973"
             android:layout_width="wrap_content"
@@ -70,7 +73,8 @@
             android:textColor="#29B973"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="left"/>
+            android:gravity="left"
+            android:maxLines="1"/>
     </LinearLayout>
     <View
         android:layout_width="match_parent"

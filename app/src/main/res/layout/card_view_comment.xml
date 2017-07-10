@@ -50,7 +50,6 @@
                         android:id="@+id/timewent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="فقه"
                         android:layout_gravity="right"/>
                 </LinearLayout>
 

@@ -1,10 +1,12 @@
 package yackeen.education.ta3allam.Capsule;
 
+import java.io.Serializable;
+
 /**
  * Created by ahmed essam on 07/06/2017.
  */
 
-public class UserBooks {
+public class UserBooks implements Serializable {
     private int BookID;
     private String BookName;
     private double Percentage;

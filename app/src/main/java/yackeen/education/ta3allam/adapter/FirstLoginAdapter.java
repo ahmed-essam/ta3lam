@@ -66,6 +66,7 @@ public class FirstLoginAdapter extends RecyclerView.Adapter<FirstLoginAdapter.Vi
         public void onClick(View view) {
             notifyItemChanged(selected_position);
             selected_position = getPosition();
+            Log.e(TAG, "onClick: "+ selected_position );
             notifyItemChanged(selected_position);
             Toast.makeText(mContext,"clicked",Toast.LENGTH_SHORT).show();
         }

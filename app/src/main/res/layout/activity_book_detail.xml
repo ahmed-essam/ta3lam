@@ -65,7 +65,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/teacher_name_detail"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:text="الامام احمد الطيب"
                     android:textStyle="bold"
                     android:layout_gravity="right"/>
@@ -100,13 +100,15 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/from_text"
                 android:layout_gravity="right"
-                android:gravity="right"/>
+                android:gravity="right"
+                android:textSize="18sp"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/to_text"
                 android:layout_gravity="right"
-                android:gravity="right"/>
+                android:gravity="right"
+                android:textSize="18sp"/>
         </LinearLayout>
         <TextView
             android:layout_width="match_parent"
@@ -121,7 +123,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:textStyle="bold"
-            android:textSize="20dp"/>
+            android:textSize="18sp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -135,7 +137,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:textStyle="bold"
-            android:textSize="20dp"/>
+            android:textSize="18sp"/>
 
 
 
@@ -254,7 +256,7 @@
                 android:background="@drawable/rounded_buton_with_white_border"
                 android:text="@string/share_button_text"
                 android:textColor="@color/cardview_light_background"
-                android:textSize="25sp"
+                android:textSize="18sp"
                 android:layout_alignParentLeft="true"/>
 
             <Button
@@ -266,7 +268,7 @@
                 android:background="@drawable/rounded_buton_with_white_border"
                 android:text="@string/follow_button_text"
                 android:textColor="@color/cardview_light_background"
-                android:textSize="25sp"
+                android:textSize="18sp"
                 android:layout_toRightOf="@+id/share_book_button"/>
         </RelativeLayout>
     </android.support.design.widget.AppBarLayout>

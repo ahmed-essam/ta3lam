@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,6 +37,9 @@ import yackeen.education.ta3allam.model.dto.response.EmptyResponse;
 import yackeen.education.ta3allam.server.api.API;
 import yackeen.education.ta3allam.util.UserHelper;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -44,18 +48,16 @@ public class ForumComentsActivity extends AppCompatActivity {
     private String TAG="forum_comments_activity";
     private ImageView profileImageView;
     private TextView emmamName;
-    private TextView courseNmae;
+    private TextView time;
     private TextView detailTextView;
     private RecyclerView commentsRecyclerView;
-    private TextView shareNum;
     private TextView likeNum;
     private TextView commentsNum;
     private EditText addCommentEditText;
     private Button addCommentButton;
     private CommentsAdapter commentsAdapter;
     private Toolbar toolbar;
-
-
+    private TextView noDataText;
     private News news;
 
     @Override
@@ -67,6 +69,9 @@ public class ForumComentsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        noDataText = (TextView) findViewById(R.id.no_data_text);
+        noDataText.setEnabled(false);
+        noDataText.setVisibility(View.INVISIBLE);
         news = retriveDataIntent();
         addValueToViews();
         commentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -97,8 +102,17 @@ public class ForumComentsActivity extends AppCompatActivity {
     public void addValueToViews(){
         Picasso.with(this).load(news.getImage()).error(R.drawable.default_emam).into(profileImageView);
         emmamName.setText(news.getName());
+        String strDate = news.getTime();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.S");
+        Date date = null;
+        try {
+            date = dateFormat.parse(strDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        time.setText(DateUtils.getRelativeTimeSpanString(date.getTime(), new Date().getTime(), DateUtils.DAY_IN_MILLIS)+"");
+
         detailTextView.setText(news.getDescription());
-        shareNum.setText(Integer.toString(news.getShare()));
         likeNum.setText(Integer.toString(news.getLike()));
         commentsNum.setText(Integer.toString(news.getComment()));
     }
@@ -137,9 +151,8 @@ public class ForumComentsActivity extends AppCompatActivity {
         profileImageView = (ImageView)findViewById(R.id.profile_image_comment);
         emmamName= (TextView)findViewById(R.id.emam_name_comments);
         commentsRecyclerView=(RecyclerView)findViewById(R.id.comments_recyclerView);
-        courseNmae= (TextView)findViewById(R.id.course_name_comments);
+        time= (TextView)findViewById(R.id.course_time_comments);
         detailTextView=(TextView)findViewById(R.id.descritption);
-        shareNum = (TextView)findViewById(R.id.share);
         likeNum=(TextView)findViewById(R.id.like);
         commentsNum=(TextView)findViewById(R.id.comment);
         addCommentEditText = (EditText)findViewById(R.id.add_comment_edit);
@@ -159,6 +172,11 @@ public class ForumComentsActivity extends AppCompatActivity {
         return new Response.Listener<CommentsResponse>() {
             @Override
             public void onResponse(CommentsResponse response) {
+                if (response.PostComments.size() == 0){
+                    noDataText.setVisibility(View.VISIBLE);
+                    noDataText.setText("لاتوجد بيانات");
+                    noDataText.setEnabled(true);
+                }
                 Log.e(TAG,"network_response:"+response.PostComments.size());
                 List<Comment> commentList = response.PostComments;
                 Log.d(TAG,"network_response:"+commentList.size());
@@ -171,6 +189,9 @@ public class ForumComentsActivity extends AppCompatActivity {
         return new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                noDataText.setVisibility(View.VISIBLE);
+                noDataText.setText("خطأ بالشبكه");
+                noDataText.setEnabled(true);
                 Log.e(TAG, "onErrorResponse: ".concat(error.toString()));
                 Toast.makeText(ForumComentsActivity.this, R.string.network_error, Toast.LENGTH_SHORT).show();
 
@@ -187,6 +208,8 @@ public class ForumComentsActivity extends AppCompatActivity {
                     comment.setUserID(UserHelper.getUserId(ForumComentsActivity.this));
                     comment.setDateTime(Long.toString(new Date().getTime()));
                     comment.setBody(addCommentEditText.getText().toString());
+                    comment.setUserName(UserHelper.getUserName(ForumComentsActivity.this));
+                    comment.setUserPictureURL(UserHelper.getPhotoUrl(ForumComentsActivity.this));
                     commentsAdapter.addItem(comment);
                     addCommentEditText.setText(null);
                     hideSoftKeyboard(ForumComentsActivity.this);

@@ -2,6 +2,9 @@ package yackeen.education.ta3allam.ui.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +21,15 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.squareup.picasso.Picasso;
+
+import java.net.URI;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+
 import yackeen.education.ta3allam.Capsule.Book;
 import yackeen.education.ta3allam.Capsule.BookDetail;
 import yackeen.education.ta3allam.R;
@@ -64,9 +76,8 @@ public class BookDetailActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         initiateOnClickListener();
         book = retrieveDataFromIntent();
-        bookName.setText(book.getName());
-        bookLevel.setText(Integer.toString(book.getLevel()));
         bookCategory.setText(book.getCourseName());
+
         Log.e(TAG, "onCreate: "+ UserHelper.getUserId(this));
         feachBookDetailsFromApi();
 
@@ -129,6 +140,18 @@ public class BookDetailActivity extends AppCompatActivity {
 
             }
         });
+
+        openBookIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                Uri uri = Uri.parse(bookDetail.getLink());
+                Log.d(TAG, "onClick: "+uri);
+                intent.setDataAndType(Uri.parse("http://docs.google.com/viewer?url=" + bookDetail.getLink()), "text/html");
+                startActivity(Intent.createChooser(intent,"choose to open pdf"));
+            }
+        });
+
         followButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -189,16 +212,18 @@ public class BookDetailActivity extends AppCompatActivity {
         return book;
     }
     public void addValuesToView(BookDetail bookDetail){
+        bookName.setText(bookDetail.getName());
+        bookLevel.setText(""+bookDetail.getLevelNumber());
         aboutText.setText(bookDetail.getAbout());
         Picasso.with(this).load(bookDetail.getTeacherPicture()).into(teacherImage);
         teacherName.setText(bookDetail.getTeacherName());
         teacherPosition.setText(bookDetail.getTeacherTitle());
-        String durationfromString = " من "+bookDetail.getFromDate();
-        String durationtoString = " الي "+bookDetail.getFromDate();
+        String durationfromString = " من "+formatDate(bookDetail.getFromDate());
+        String durationtoString = " الي "+formatDate(bookDetail.getToDate());
         fromTextView.setText(durationfromString);
         toTextView.setText(durationtoString);
-        followerNumText.setText(Integer.toString(bookDetail.getFollowersNumber()));
-        shareNumText.setText(Integer.toString(bookDetail.getParticipantsNumber()));
+        followerNumText.setText(Integer.toString(bookDetail.getFollowersNumber())+"متابع");
+        shareNumText.setText(Integer.toString(bookDetail.getParticipantsNumber())+"مشترك");
         if (bookDetail.isFollower()){
             followButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.send_orage_rounded_button));
             followButton.setTextColor(getResources().getColor(R.color.colorTextTitle));
@@ -218,14 +243,33 @@ public class BookDetailActivity extends AppCompatActivity {
             shareButton.setText(R.string.share_button_text);
         }
     }
+    public String formatDate(String dateString){
+        String wantedDateStr;
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.S");
+        Date date = null;
+        try {
+            date = dateFormat.parse(dateString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        DateFormat targetDateFormat = new SimpleDateFormat("dd MMMM, yyyy", Locale.getDefault());
+        wantedDateStr =targetDateFormat.format(date);
+
+        return wantedDateStr;
+    }
 
     private Response.Listener<BookDetailResponse> getBookDetailListener(){
 
         return new Response.Listener<BookDetailResponse>() {
             @Override
             public void onResponse(BookDetailResponse response) {
-                bookDetail = response.BookDetails;
-                addValuesToView(bookDetail);
+                if (response.BookDetails != null) {
+                    bookDetail = response.BookDetails;
+                    addValuesToView(bookDetail);
+                }else{
+                    Toast.makeText(BookDetailActivity.this,"الكتاب غير متوفر",Toast.LENGTH_SHORT).show();
+                }
             }
         };
     }

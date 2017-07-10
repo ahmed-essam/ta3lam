@@ -1,5 +1,6 @@
 package yackeen.education.ta3allam.ui.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
@@ -13,8 +14,11 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -27,9 +31,11 @@ import yackeen.education.ta3allam.Capsule.UserBooks;
 import yackeen.education.ta3allam.R;
 import yackeen.education.ta3allam.adapter.SearchAutoCompleteAdapter;
 import yackeen.education.ta3allam.model.dto.request.FollowerRequest;
+import yackeen.education.ta3allam.model.dto.request.NewsRequest;
 import yackeen.education.ta3allam.model.dto.request.SearchRequest;
 import yackeen.education.ta3allam.model.dto.response.FollwerResponse;
 import yackeen.education.ta3allam.model.dto.response.SearchResponse;
+import yackeen.education.ta3allam.model.dto.response.UnreadeMessageNumResponse;
 import yackeen.education.ta3allam.server.api.API;
 import yackeen.education.ta3allam.ui.Fragment.NewsFeed;
 import yackeen.education.ta3allam.ui.Fragment.Notifications;
@@ -47,6 +53,7 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
     ViewPager viewPager;
     TabLayout tabLayout;
     ImageView messagesIcon;
+    ImageView unreadeMessages;
     AutoCompleteTextView autoCompleteTextView;
     SearchAutoCompleteAdapter searchAutoCompleteAdapter;
     private int[] tabIcons = {
@@ -66,12 +73,14 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
         String languageToLoad = "ar"; // your language
         Locale locale = new Locale(languageToLoad);
         Locale.setDefault(locale);
+
         Configuration config = new Configuration();
         config.locale = locale;
         getBaseContext().getResources().updateConfiguration(config,
                 getBaseContext().getResources().getDisplayMetrics());
         setContentView(yackeen.education.ta3allam.R.layout.activity_home);
         autoCompleteTextView = (AutoCompleteTextView)findViewById(R.id.home_search);
+        autoCompleteTextView.setText(null);
         searchAutoCompleteAdapter = new SearchAutoCompleteAdapter(this,R.layout.search_item_layout);
         autoCompleteTextView.setAdapter(searchAutoCompleteAdapter);
         autoCompleteTextView.addTextChangedListener(new TextWatcher() {
@@ -82,12 +91,9 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//                String query = autoCompleteTextView.getText().toString();
-//                searchUserFromApi(query);
-                SearchProfile searchProfile = new SearchProfile();
-                searchProfile.setUserName("احمد ");
-                searchProfile.setUserPictureURL("http://www.adweek.com/socialtimes/wp-content/uploads/sites/2/2011/10/twitter-default-avatar-egg.jpg");
-                searchAutoCompleteAdapter.add(searchProfile);
+                String query = autoCompleteTextView.getText().toString();
+                searchUserFromApi(query);
+
             }
 
             @Override
@@ -96,8 +102,11 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
             }
         });
         viewPager = (ViewPager) findViewById(yackeen.education.ta3allam.R.id.viewpager);
+        setupUI(viewPager);
         setupViewPager(viewPager);
         messagesIcon= (ImageView)findViewById(R.id.messages);
+        unreadeMessages= (ImageView)findViewById(R.id.unreade_messages);
+        unreadeMessages.setVisibility(View.INVISIBLE);
         messagesIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -166,6 +175,12 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
         API.getUserAPIs().searchUser(body,getSearchListener(),
                 getSearchFailedListener(),this);
 
+    }
+    public void getMessagesNum(){
+        NewsRequest body = new NewsRequest();
+        body.setUserID(UserHelper.getUserId(this));
+        API.getUserAPIs().getUnreadeMessagesNum(body,getMessagesNumListener(),
+                getSearchFailedListener(),this);
 
     }
     private void setupViewPager(ViewPager viewPager) {
@@ -181,6 +196,25 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
         tabLayout.getTabAt(1).setIcon(tabIcons[1]);
         tabLayout.getTabAt(2).setIcon(tabIcons[2]);
         tabLayout.getTabAt(3).setIcon(yackeen.education.ta3allam.R.drawable.home_active);
+    }
+    public void setupUI(View view) {
+
+        // Set up touch listener for non-text box views to hide keyboard.
+        if (!(view instanceof EditText)) {
+            view.setOnTouchListener(new View.OnTouchListener() {
+                public boolean onTouch(View v, MotionEvent event) {
+                    hideSoftKeyboard(Home.this);
+                    return false;
+                }
+            });
+        }
+    }
+    public static void hideSoftKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) activity.getSystemService(
+                        Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(
+                activity.getCurrentFocus().getWindowToken(), 0);
     }
 
 
@@ -211,11 +245,16 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
         return new Response.Listener<SearchResponse>() {
             @Override
             public void onResponse(SearchResponse response) {
-                List<SearchProfile> searchProfiles = response.SearchUsers;
-                searchAutoCompleteAdapter.addAll(searchProfiles);
+                if (response.isSuccess()) {
+                    List<SearchProfile> searchProfiles = response.SearchUsers;
+                    Log.e(TAG, "onResponse: " + searchProfiles.size());
+                    searchAutoCompleteAdapter.addAll(searchProfiles);
+                    autoCompleteTextView.showDropDown();
+                }
             }
         };
     }
+
     private Response.ErrorListener getSearchFailedListener(){
         return new Response.ErrorListener() {
             @Override
@@ -223,6 +262,18 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
                 Log.e(TAG, "onErrorResponse: ".concat(error.toString()));
                 Toast.makeText(Home.this, yackeen.education.ta3allam.R.string.network_error, Toast.LENGTH_SHORT).show();
 
+            }
+        };
+    }
+    private Response.Listener<UnreadeMessageNumResponse> getMessagesNumListener(){
+        return new Response.Listener<UnreadeMessageNumResponse>() {
+            @Override
+            public void onResponse(UnreadeMessageNumResponse response) {
+                if (response.isSuccess()) {
+                    if (response.getCount()>0){
+                        unreadeMessages.setVisibility(View.VISIBLE);
+                    }
+                }
             }
         };
     }

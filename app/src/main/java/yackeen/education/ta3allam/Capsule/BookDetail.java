@@ -13,11 +13,20 @@ public class BookDetail {
     private String FromDate;
     private String ToDate;
     private int ParticipantsNumber;
+    private int LevelNumber;
     private int FollowersNumber;
     private boolean IsFollower;
     private boolean IsSubscriber;
     private String About;
     private String Link;
+
+    public int getLevelNumber() {
+        return LevelNumber;
+    }
+
+    public void setLevelNumber(int levelNumber) {
+        LevelNumber = levelNumber;
+    }
 
     public int getID() {
         return ID;

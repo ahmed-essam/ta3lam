@@ -39,6 +39,7 @@ public class FirstLogin1Fragment extends Fragment {
         firstLoginAdapter= new FirstLoginAdapter(getContext());
         feachCategoriesFromApi();
         firstLoginRecyclerView.setAdapter(firstLoginAdapter);
+        Log.e(TAG, "onCreateView: "+firstLoginAdapter.getSelected_position() );
 
         return rootView;
     }
@@ -59,9 +60,8 @@ public class FirstLogin1Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (firstLoginAdapter.getSelected_position() !=-1) {
-                    Fragment fragment = FirstLogin2Fragment.newInstance(categories.get(firstLoginAdapter.getSelected_position()).getId());
-
-                    ((FirstLogin) getActivity()).switchFragment(new FirstLogin2Fragment());
+                    FirstLogin2Fragment fragment = FirstLogin2Fragment.newInstance(categories.get(firstLoginAdapter.getSelected_position()).getId());
+                    ((FirstLogin) getActivity()).switchFragment(fragment);
                 }else{
                     Toast.makeText(getContext(), "اختر فئه اولا", Toast.LENGTH_SHORT).show();
                 }

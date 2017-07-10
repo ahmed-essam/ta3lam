@@ -10,4 +10,13 @@ import java.util.List;
 
 public class NewsResponse {
    public List<News> HomePosts;
+   private boolean IsSuccess;
+
+   public boolean isSuccess() {
+      return IsSuccess;
+   }
+
+   public void setSuccess(boolean success) {
+      IsSuccess = success;
+   }
 }

@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
+import yackeen.education.ta3allam.R;
 import yackeen.education.ta3allam.model.dto.request.ResetPasswordRequest;
 import yackeen.education.ta3allam.model.dto.response.ResetPasswordResponse;
 import yackeen.education.ta3allam.server.api.API;
@@ -76,7 +77,7 @@ public class NewPasswordFragment extends Fragment{
 
                 if (!TextHelper.isEditTextEmpty(new EditText[]{emailEditText})
                         && TextHelper.isEmail(emailEditText)){
-
+                    UserHelper.showProgressDialog(getContext(),getString(R.string.send),getString(R.string.sendingCodenow));
                     ResetPasswordRequest body = new ResetPasswordRequest();
                     body.email = emailEditText.getText().toString().trim();
 
@@ -94,6 +95,10 @@ public class NewPasswordFragment extends Fragment{
             public void onResponse(ResetPasswordResponse response) {
 
                 UserHelper.dismissProgressDialog();
+                ResetPasswordFragment resetPasswordFragment = new ResetPasswordFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString(ResetPasswordFragment.EMAILARG,emailEditText.getText().toString());
+                resetPasswordFragment.setArguments(bundle);
 
                 if (response.isSuccessful) activity.switchFragment(new ResetPasswordFragment());
                 else Toast.makeText(activity, response.errorMessage, Toast.LENGTH_SHORT).show();

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,7 +28,11 @@ import yackeen.education.ta3allam.adapter.GridCoursesAdapter;
 import yackeen.education.ta3allam.model.dto.request.FollowerRequest;
 import yackeen.education.ta3allam.model.dto.response.FollwerResponse;
 import yackeen.education.ta3allam.server.api.API;
+import yackeen.education.ta3allam.ui.activity.AllBooksActivity;
+import yackeen.education.ta3allam.ui.activity.EditProfileActivity;
 import yackeen.education.ta3allam.ui.activity.FriendsActivity;
+import yackeen.education.ta3allam.ui.activity.LoginActivity;
+import yackeen.education.ta3allam.ui.activity.UserProfileActivity;
 import yackeen.education.ta3allam.util.UserHelper;
 
 import java.util.ArrayList;
@@ -53,18 +59,24 @@ public class Profile extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private int type;
 
     private OnFragmentInteractionListener mListener;
     private RecyclerView followerRecyclerView;
     private FollowersAdapter followersAdapter;
     private TextView name;
-    private TextView level;
-    private TextView track;
     private TextView about;
+    private TextView aboutWord;
+    private TextView studyNow;
+    private TextView showAll;
     private TextView followerNumTextView;
+    private Button logOut;
+    private FloatingActionButton floatingAction;
     CircleImageView userImage;
     GridView gridView;
     GridCoursesAdapter gridCoursesAdapter;
+    private static FollwerResponse profileResponse;
+    private List<UserBooks> userBooksList;
     public Profile() {
         // Required empty public constructor
     }
@@ -101,18 +113,31 @@ public class Profile extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(yackeen.education.ta3allam.R.layout.fragment_profile, container, false);
+        type = UserHelper.getUserType(getContext());
         name = (TextView)rootView.findViewById(yackeen.education.ta3allam.R.id.name);
         followerNumTextView = (TextView)rootView.findViewById(R.id.follower_num_rounded_text);
         followerNumTextView.setVisibility(View.INVISIBLE);
-
-        level = (TextView)rootView.findViewById(yackeen.education.ta3allam.R.id.level);
-        track = (TextView)rootView.findViewById(yackeen.education.ta3allam.R.id.type);
+        showAll = (TextView)rootView.findViewById(R.id.show_all_text);
+        showAll.setEnabled(false);
+        showAll.setVisibility(View.INVISIBLE);
         about = (TextView)rootView.findViewById(yackeen.education.ta3allam.R.id.about);
+        aboutWord = (TextView)rootView.findViewById(R.id.about_text_view);
+        studyNow = (TextView)rootView.findViewById(R.id.study_now_fragment);
+        if (type == 1){
+            about.setEnabled(false);
+            about.setVisibility(View.INVISIBLE);
+            aboutWord.setVisibility(View.INVISIBLE);
+            aboutWord.setEnabled(false);
+            studyNow.setText(getResources().getString(R.string.study_now));
+        }
         userImage=(CircleImageView)rootView.findViewById(yackeen.education.ta3allam.R.id.profile_image);
+        logOut=(Button) rootView.findViewById(R.id.btn_log_out);
+        floatingAction=(FloatingActionButton) rootView.findViewById(R.id.edit_floating_button);
         gridView =(GridView)rootView.findViewById(yackeen.education.ta3allam.R.id.courses_grid);
         gridCoursesAdapter = new GridCoursesAdapter(getContext(), yackeen.education.ta3allam.R.layout.grid_item_laayout);
         gridView.setAdapter(gridCoursesAdapter);
         followerRecyclerView = (RecyclerView)rootView.findViewById(yackeen.education.ta3allam.R.id.followers_list);
+        addListener();
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         manager.setOrientation(LinearLayoutManager.HORIZONTAL);
         followerRecyclerView.setLayoutManager(manager);
@@ -130,6 +155,30 @@ public class Profile extends Fragment {
                 startActivity(intent);
             }
         });
+        floatingAction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              Intent intent=  EditProfileActivity.newEditProfileActivtyIntent(getContext(),profileResponse.getUserPictureURL(),profileResponse.getUserName(),profileResponse.getAbout());
+            getContext().startActivity(intent);
+            }
+        });
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UserHelper.removeFromSharedPreferences(UserHelper.USER_ID);
+                UserHelper.removeFromSharedPreferences(UserHelper.USER_TYPE);
+                UserHelper.removeFromSharedPreferences(UserHelper.security_token);
+                getContext().startActivity(new Intent(getContext(), LoginActivity.class));
+
+            }
+        });
+        showAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = AllBooksActivity.newِAllBooksIntent(getContext(),userBooksList);
+                startActivity(intent);
+            }
+        });
     }
     public void feachDataFromApi(){
         FollowerRequest body = new FollowerRequest();
@@ -137,14 +186,15 @@ public class Profile extends Fragment {
         body.setSelectedUserID(UserHelper.getUserId(getContext()));
         API.getUserAPIs().getUserProfileDetail(body,getProfileDataListener(),
                 getProfileDataFailedListener(),getContext());
-
-
     }
     public void addView(FollwerResponse response){
         name.setText(response.getUserName());
 //        level.setText(response.getUserType());
+        UserHelper.saveStringInSharedPreferences(UserHelper.User_name,response.getUserName());
+        UserHelper.saveStringInSharedPreferences(UserHelper.Photo_url,response.getUserPictureURL());
         about.setText(response.getAbout());
-        Picasso.with(getContext()).load(response.getUserPictureURL()).error(yackeen.education.ta3allam.R.drawable.default_emam).into(userImage);
+        Picasso.with(getContext()).load(response.getUserPictureURL()).placeholder(R.drawable.default_emam_larg
+        ).error(R.drawable.default_emam_larg).into(userImage);
 
     }
 
@@ -155,9 +205,12 @@ public class Profile extends Fragment {
             public void onResponse(FollwerResponse response) {
                 Log.e(TAG, "network_response:" + response.followers.size());
                 addView(response);
+                profileResponse = response;
                 List<Follower> followers = new ArrayList<>();
-                List<UserBooks> userBooksList = new ArrayList<>();
+                 userBooksList = new ArrayList<>();
                 if (response.userBooksList.size() > 4){
+                    showAll.setEnabled(true);
+                    showAll.setVisibility(View.VISIBLE);
                     for (int i=0;i <4 ;i++){
                     userBooksList.add(response.userBooksList.get(i));
                 }

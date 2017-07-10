@@ -24,6 +24,16 @@ public class FollwerResponse {
     private boolean IsFollowing;
     private int UserType;
 
+    public boolean isSuccess() {
+        return IsSuccess;
+    }
+
+    public void setSuccess(boolean success) {
+        IsSuccess = success;
+    }
+
+    private boolean IsSuccess;
+
 
 
 

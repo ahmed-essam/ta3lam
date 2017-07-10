@@ -4,18 +4,21 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import yackeen.education.ta3allam.Capsule.Category;
+import yackeen.education.ta3allam.R;
 import yackeen.education.ta3allam.adapter.TracksAdapter;
 import yackeen.education.ta3allam.model.dto.request.FirstLogin1Request;
 import yackeen.education.ta3allam.model.dto.response.FirstLoginResponse1;
@@ -31,7 +34,7 @@ import java.util.List;
  * Use the {@link Tracks#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Tracks extends Fragment {
+public class Tracks extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -44,6 +47,9 @@ public class Tracks extends Fragment {
     private TracksAdapter tracksAdapter;
     private RecyclerView tracksRecyclerView;
     private String TAG="Tracks_fragmnet";
+    SwipeRefreshLayout mSwipeRefreshLayout;
+    private static TextView noDataText;
+
 
     public Tracks() {
         // Required empty public constructor
@@ -84,6 +90,17 @@ public class Tracks extends Fragment {
         tracksRecyclerView = (RecyclerView)rootView.findViewById(yackeen.education.ta3allam.R.id.track_recyclerview);
         tracksRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         tracksRecyclerView.setHasFixedSize(true);
+        noDataText = (TextView) rootView.findViewById(R.id.no_data_text);
+        noDataText.setEnabled(false);
+        noDataText.setVisibility(View.INVISIBLE);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.refresh);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+        mSwipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                mSwipeRefreshLayout.setRefreshing(true);
+            }
+        });
         tracksAdapter=new TracksAdapter(getContext());
         feachCategoriesFromApi();
         tracksRecyclerView.setAdapter(tracksAdapter);
@@ -122,6 +139,11 @@ public class Tracks extends Fragment {
         mListener = null;
     }
 
+    @Override
+    public void onRefresh() {
+        feachCategoriesFromApi();
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -141,10 +163,16 @@ public class Tracks extends Fragment {
         return new Response.Listener<FirstLoginResponse1>() {
             @Override
             public void onResponse(FirstLoginResponse1 response) {
+                if (response.CoursesList.size() == 0){
+                    noDataText.setVisibility(View.VISIBLE);
+                    noDataText.setText("لاتوجد بيانات");
+                    noDataText.setEnabled(true);
+                }
                 Log.e(TAG,"track_network_response:"+response.CoursesList.size());
                 List<Category> courses = response.CoursesList;
                 Log.d(TAG,"track_network_response:"+courses.size());
                 tracksAdapter.addAll(courses);
+                mSwipeRefreshLayout.setRefreshing(false);
 
             }
         };
@@ -153,8 +181,12 @@ public class Tracks extends Fragment {
         return new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                noDataText.setVisibility(View.VISIBLE);
+                noDataText.setText("خطأ بالشبكه");
+                noDataText.setEnabled(true);
                 Log.e(TAG, "onErrorResponse: ".concat(error.toString()));
                 Toast.makeText(getActivity(), yackeen.education.ta3allam.R.string.network_error, Toast.LENGTH_SHORT).show();
+                mSwipeRefreshLayout.setRefreshing(false);
 
             }
         };

@@ -6,8 +6,14 @@ package yackeen.education.ta3allam.model.dto.response;
 
 public class EmptyResponse {
     private boolean IsSuccess;
+    private String ErrorMessage;
 
     public boolean isSuccess() {
         return IsSuccess;
     }
+
+    public String getErrorMessage() {
+        return ErrorMessage;
+    }
+
 }

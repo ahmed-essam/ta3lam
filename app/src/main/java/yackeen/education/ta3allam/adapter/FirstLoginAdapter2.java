@@ -38,7 +38,7 @@ public class FirstLoginAdapter2 extends RecyclerView.Adapter<FirstLoginAdapter2.
         }
         public void bindView(Book book){
             nameTextView.setText(book.getName());
-            levelTextView.setText(Integer.toString(book.getLevel()));
+            levelTextView.setText("مستوي"+Integer.toString(book.getLevel()));
             teacherTextView.setText(book.getTeacher());
             Log.e(TAG, "bindView2: "+book.getName());
             int index= mBook.indexOf(book);
@@ -54,7 +54,7 @@ public class FirstLoginAdapter2 extends RecyclerView.Adapter<FirstLoginAdapter2.
         public void onClick(View view) {
             notifyItemChanged(selected_position);
             selected_position = getPosition();
-            Log.e(TAG, "onClick: "+selected_position);
+            Log.e(TAG, "onClick:" + getSelected_position());
             notifyItemChanged(selected_position);
         }
 

@@ -53,7 +53,7 @@
                             android:text="احمد السيد"
                             android:textColor="@android:color/white"/>
                         <TextView
-                            android:id="@+id/course_name_comments"
+                            android:id="@+id/course_time_comments"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="فقه"
@@ -83,19 +83,13 @@
                     android:gravity="center"
                     android:layout_gravity="center_horizontal"
                     android:layout_weight="0.5">
-                    <TextView
-                        android:text="60"
-                        android:textSize="20sp"
-                        android:id="@+id/share"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@android:color/white"
-                        android:paddingRight="5dp"
-                        android:paddingLeft="5dp"/>
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/path"/>
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
+
                     <TextView
                         android:text="40"
                         android:textSize="20sp"
@@ -104,11 +98,20 @@
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/white"
                         android:paddingRight="5dp"
-                        android:paddingLeft="5dp"/>
+                        android:paddingLeft="5dp"
+                        android:layout_gravity="center_vertical"/>
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/comment_white"/>
+                        android:src="@drawable/comment_white"
+                        android:layout_gravity="center_vertical"/>
+                        </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
                     <TextView
                         android:id="@+id/like"
                         android:textSize="20sp"
@@ -117,11 +120,14 @@
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/white"
                         android:paddingRight="5dp"
-                        android:paddingLeft="5dp"/>
+                        android:paddingLeft="5dp"
+                        android:layout_gravity="center_vertical"/>
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/heart"/>
+                        android:src="@drawable/heart"
+                        android:layout_gravity="center_vertical"/>
+                        </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>
@@ -133,6 +139,15 @@
             android:layout_weight="80"
             android:id="@+id/comments_recyclerView"
             android:paddingTop="5dp"/>
+        <TextView
+            android:id="@+id/no_data_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:textSize="15sp"
+            android:layout_marginTop="200dp"
+            />
+
 
         <LinearLayout
             android:layout_width="match_parent"

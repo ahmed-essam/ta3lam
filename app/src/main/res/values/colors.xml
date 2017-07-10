@@ -4,7 +4,7 @@
     <color name="colorPrimaryLight">#2FD484</color>
     <color name="colorPrimary">#29B973</color>
     <color name="colorPrimaryDark">#239F63</color>
-    <color name="colorAccent">#EDC74B</color>
+    <color name="colorAccent">#F7B044</color>
 
     <!--Text-->
     <color name="colorTextPrimary">#212121</color>
@@ -15,7 +15,7 @@
 
     <!--Background-->
     <color name="colorCardBackground">#FFFFFF</color>
-    <color name="colorLayoutBackground">#DDDDDD</color>
+    <color name="colorLayoutBackground">#F1F4F6</color>
     <color name="colorDivider">#BDBDBD</color>
     <color name="bookItemBackground">#FDFDFE</color>
     <color name="commentsHeader">#1C7E51</color>

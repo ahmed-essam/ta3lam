@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Response;
@@ -22,6 +24,7 @@ import yackeen.education.ta3allam.R;
 import yackeen.education.ta3allam.model.dto.request.NewsRequest;
 import yackeen.education.ta3allam.model.dto.response.NewsResponse;
 import yackeen.education.ta3allam.server.api.API;
+import yackeen.education.ta3allam.util.EndlessRecyclerViewScrollListener;
 import yackeen.education.ta3allam.util.UserHelper;
 
 import java.util.ArrayList;
@@ -35,9 +38,9 @@ import static com.google.android.gms.plus.PlusOneDummyView.TAG;
  * {@link NewsFeed.OnFragmentInteractionListener} interface
  * to handle interaction events.
  * Use the {@link NewsFeed#newInstance} factory method to
- * create an instance of this fragment.
+ * create an instance Nof this fragment.
  */
-public class NewsFeed extends Fragment {
+public class NewsFeed extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -46,12 +49,16 @@ public class NewsFeed extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
     private static NewsAdapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
+    private LinearLayoutManager layoutManager;
     private static RecyclerView recyclerView;
-    private static ArrayList<News> news;
+    private static TextView noDataText;
+    private static List<News> news;
+     int postID;
     private OnFragmentInteractionListener mListener;
+    SwipeRefreshLayout mSwipeRefreshLayout;
+    private EndlessRecyclerViewScrollListener scrollListener;
+
 
     public NewsFeed() {
         // Required empty public constructor
@@ -92,16 +99,40 @@ public class NewsFeed extends Fragment {
         recyclerView = (RecyclerView) view.findViewById(R.id.news);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getContext());
+        news = new ArrayList<>();
         recyclerView.setLayoutManager(layoutManager);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.refresh);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+        mSwipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                mSwipeRefreshLayout.setRefreshing(true);
+            }
+        });
+        noDataText = (TextView) view.findViewById(R.id.no_data_text);
+        noDataText.setEnabled(false);
+        noDataText.setVisibility(View.INVISIBLE);
+        scrollListener = new EndlessRecyclerViewScrollListener(layoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                // Triggered only when new data needs to be appended to the list
+                // Add whatever code is needed to append new items to the bottom of the list
+                feachNewsFromApi(postID);
+            }
+        };
+        recyclerView.addOnScrollListener(scrollListener);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         adapter = new NewsAdapter(getContext());
-        FeachNewsFromApi();
+        postID=0;
+        feachNewsFromApi(postID);
         recyclerView.setAdapter(adapter);
+
         return view;
     }
-    public void FeachNewsFromApi(){
+    public void feachNewsFromApi(int postId){
         NewsRequest body = new NewsRequest();
         body.setUserID(UserHelper.getUserId(getContext()));
+        body.setPostID(postId);
         Log.e(TAG, "FeachNewsFromApi: "+body.getUserID());
         API.getUserAPIs().getAllNews(body,getNewsListener(),
                 getNewsFailedListener(),getContext());
@@ -132,6 +163,13 @@ public class NewsFeed extends Fragment {
         mListener = null;
     }
 
+    @Override
+    public void onRefresh() {
+        postID = 0;
+        feachNewsFromApi(postID);
+
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -151,10 +189,17 @@ public class NewsFeed extends Fragment {
         return new Response.Listener<NewsResponse>() {
             @Override
             public void onResponse(NewsResponse response) {
+                if (response.HomePosts.size() == 0){
+                    noDataText.setVisibility(View.VISIBLE);
+                    noDataText.setText("لاتوجد بيانات");
+                    noDataText.setEnabled(true);
+                }
                 Log.e(TAG,"network_response:"+response.HomePosts.size());
                 List<News> newsList = response.HomePosts;
                 Log.d(TAG,"network_response:"+newsList.size());
+                postID = newsList.get(newsList.size()-1).getPostId();
                 adapter.addAll(newsList);
+                mSwipeRefreshLayout.setRefreshing(false);
             }
 
         };
@@ -163,8 +208,13 @@ public class NewsFeed extends Fragment {
         return new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+
+                noDataText.setVisibility(View.VISIBLE);
+                noDataText.setText("خطأ بالشبكه");
+                noDataText.setEnabled(true);
                 Log.e(TAG, "onErrorResponse: ".concat(error.toString()));
                 Toast.makeText(getActivity(), R.string.network_error, Toast.LENGTH_SHORT).show();
+                mSwipeRefreshLayout.setRefreshing(false);
 
             }
         };

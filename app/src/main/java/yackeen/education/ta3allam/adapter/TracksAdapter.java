@@ -57,17 +57,14 @@ public class TracksAdapter extends RecyclerView.Adapter<TracksAdapter.TracksView
         @Override
         public void onClick(View view) {
             Category category = mCategory.get(getPosition());
-            Intent intent = BooksActivity.newIntent(getmContext(),category.getId());
+            Intent intent = BooksActivity.newIntent(getmContext(),category.getId(),category.getName());
             getmContext().startActivity(intent);
-            notifyItemChanged(selected_position);
-            selected_position = getPosition();
-            notifyItemChanged(selected_position);
+
         }
     }
 
     private List<Category> mCategory;
     private Context mContext;
-    int selected_position = -1;
 
     public TracksAdapter(Context context)
     {

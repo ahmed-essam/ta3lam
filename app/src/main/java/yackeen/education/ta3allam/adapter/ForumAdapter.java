@@ -57,13 +57,11 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder> 
             super(itemView);
             profileImage=(ImageView) itemView.findViewById(R.id.profileimage);
             likeImage=(ImageView) itemView.findViewById(R.id.like_image);
-            shareImage=(ImageView) itemView.findViewById(R.id.share_image);
             commentImage=(ImageView) itemView.findViewById(R.id.comment_image);
             postLinearLayout=(LinearLayout) itemView.findViewById(R.id.post_linear_layout);
             nameTextView=(TextView) itemView.findViewById(R.id.name);
             timeTextView=(TextView) itemView.findViewById(R.id.timewent);
             descriptionTextView=(TextView) itemView.findViewById(R.id.descritption);
-            shareTextView=(TextView) itemView.findViewById(R.id.share);
             commentTextView=(TextView) itemView.findViewById(R.id.comment);
             likeTextView=(TextView) itemView.findViewById(R.id.like);
             likeImage.setOnClickListener(new View.OnClickListener() {
@@ -105,7 +103,7 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder> 
             likeTextView.setText(news.getLike()+"");
             isLiked= news.isLiked();
             if (news.isLiked()){
-                likeImage.setBackgroundDrawable(itemView.getResources().getDrawable(R.drawable.icon_heart_orange));
+                likeImage.setImageResource(R.drawable.heart_orange);
             }
 
         }
@@ -140,7 +138,7 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder> 
             return new Response.Listener<EmptyResponse>() {
                 @Override
                 public void onResponse(EmptyResponse response) {
-                    likeImage.setBackgroundDrawable(itemView.getResources().getDrawable(R.drawable.icon_heart_orange));
+                    likeImage.setImageResource(R.drawable.heart_orange);
                 }
             };
         }
@@ -186,6 +184,10 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder> 
         Log.e(TAG, "addAll: "+newsList.size());
         mNews.clear();
         mNews.addAll(newsList);
+        notifyDataSetChanged();
+    }
+    public void addItem(News news){
+        mNews.add(news);
         notifyDataSetChanged();
     }
 

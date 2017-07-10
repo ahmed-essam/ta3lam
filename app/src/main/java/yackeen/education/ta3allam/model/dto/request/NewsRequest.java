@@ -6,6 +6,7 @@ package yackeen.education.ta3allam.model.dto.request;
 
 public class NewsRequest {
     private String UserID;
+    private int PostId;
 
     public String getUserID() {
         return UserID;
@@ -13,5 +14,13 @@ public class NewsRequest {
 
     public void setUserID(String userID) {
         UserID = userID;
+    }
+
+    public int getPostID() {
+        return PostId;
+    }
+
+    public void setPostID(int postId) {
+        PostId = postId;
     }
 }

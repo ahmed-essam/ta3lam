@@ -31,19 +31,37 @@
     <string name="sign_up"><u>ليس لديك حساب؟ سجل الان</u></string>
     <string name="name">الاسم</string>
     <string name="register">تسجيل</string>
+    <string name="forgetPassword">ارسال</string>
+
     <string name="next">التالي</string>
     <string name="finish">انتهاء</string>
     <string name="network_error">خطأ بالشبكة</string>
     <string name="signing_in">جاري تسجيل الدخول..</string>
     <string name="registering">جاري التسجيل..</string>
+    <string name="sendingCode">يتم ارسال الكود..</string>
+
     <string name="add_comment">اضف تعليق</string>
     <string name="add_comment_button">اضف</string>
     <string name="message_tittle">الرسائل</string>
     <string name="send_edit">اكتب هنا...</string>
     <string name="yo3alemalan">يُعلم الان</string>
-    <string name="alreadyafollower">متابع</string>
-    <string name="alreadysubscribe">مشترك</string>
+    <string name="alreadyafollower">الغاءالمتابعه</string>
+    <string name="alreadysubscribe">الغاءالمشاركه</string>
     <string name="profile_send_message">رساله</string>
     <string name="friends_header">الاخوه</string>
     <string name="search_home">بحث</string>
+    <string name="logout">تسجيل الخروج</string>
+    <string name="edit">تعديل</string>
+    <string name="name_edit">الاسم</string>
+    <string name="about_edit">عن</string>
+    <string name="all_books_header">الدورات</string>
+    <string name="all_book_header">الكتب</string>
+    <string name="sending">ارسال</string>
+    <string name="send">ارسال</string>
+    <string name="sendingCodenow">يتم ارسال الكود</string>
+    <string name="personal_code">الرمز الشخصي</string>
+    <string name="confirm_password">تأكيد كلمه المرور</string>
+    <string name="study_now">يدرس الان</string>
+    <string name="add_post">اضف منشور</string>
+    <string name="wall">الحائط</string>
 </resources>

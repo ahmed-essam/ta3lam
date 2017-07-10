@@ -6,6 +6,7 @@ package yackeen.education.ta3allam.model.dto.request;
 
 public class NotificationsRequest {
     private String UserID;
+    private int NotificationID;
 
     public String getUserID() {
         return UserID;
@@ -13,5 +14,13 @@ public class NotificationsRequest {
 
     public void setUserID(String userID) {
         UserID = userID;
+    }
+
+    public int getNotificationID() {
+        return NotificationID;
+    }
+
+    public void setNotificationID(int notificationID) {
+        NotificationID = notificationID;
     }
 }

@@ -5,13 +5,13 @@ package yackeen.education.ta3allam.model.dto.request;
  */
 
 public class FirstLogin2Request {
-private int CourseIDs ;
+private int[] CourseIDs ;
 
-    public int getCourseIDs() {
+    public int[] getCourseIDs() {
         return CourseIDs;
     }
 
-    public void setCourseIDs(int courseIDs) {
+    public void setCourseIDs(int[] courseIDs) {
         CourseIDs = courseIDs;
     }
 }

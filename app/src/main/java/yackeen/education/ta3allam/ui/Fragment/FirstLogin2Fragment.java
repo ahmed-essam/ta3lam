@@ -62,7 +62,8 @@ public class FirstLogin2Fragment extends Fragment {
     }
     public void feachBooksFromApi(){
         FirstLogin2Request body = new FirstLogin2Request();
-        body.setCourseIDs(courseID);
+        int[] courseIds = {courseID};
+        body.setCourseIDs(courseIds);
         API.getUserAPIs().getAllbooks(body,getCoursesListener(),
                 getCoursesFailedListener(),getContext());
 

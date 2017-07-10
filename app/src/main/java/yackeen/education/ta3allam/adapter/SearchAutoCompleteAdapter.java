@@ -14,6 +14,9 @@ import android.widget.TextView;
 import com.github.lzyzsd.circleprogress.DonutProgress;
 import com.squareup.picasso.Picasso;
 
+import java.util.Collection;
+import java.util.List;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 import yackeen.education.ta3allam.Capsule.SearchProfile;
 import yackeen.education.ta3allam.R;
@@ -27,9 +30,27 @@ public class SearchAutoCompleteAdapter extends ArrayAdapter<SearchProfile>  impl
     private Context context;
     SearchHolder searchHolder;
     SearchProfile searchProfile;
+    List<SearchProfile> searchProfiles;
     public SearchAutoCompleteAdapter(@NonNull Context context, @LayoutRes int resource) {
         super(context, resource);
         this.context = context;
+    }
+
+    public void addAll(List<SearchProfile> searchProfiles) {
+        this.searchProfiles = searchProfiles;
+        notifyDataSetChanged();
+    }
+
+
+    @Override
+    public int getCount() {
+        return searchProfiles.size();
+    }
+
+    @Nullable
+    @Override
+    public SearchProfile getItem(int position) {
+        return searchProfiles.get(position);
     }
 
     @NonNull
