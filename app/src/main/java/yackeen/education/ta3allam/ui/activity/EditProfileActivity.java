@@ -8,7 +8,9 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,17 +35,18 @@ import yackeen.education.ta3allam.server.api.API;
 import yackeen.education.ta3allam.util.SelectImageUtil;
 import yackeen.education.ta3allam.util.UserHelper;
 
-public class EditProfileActivity extends AppCompatActivity implements SelectImageUtil.SelectImageUtilListener{
+public class EditProfileActivity extends AppCompatActivity implements SelectImageUtil.SelectImageUtilListener {
     private ImageView profileImage;
     private ImageView iconEditImage;
     private Button editButton;
+    private Toolbar editToolbar;
     private EditText nameEditText;
     private EditText aboutEditText;
     private TextView aboutword;
-    private final String TAG="Edit_Profile_Activity";
-    private static final String PhotoParam="photo_url";
-    private static final String NameParam="user_name";
-    private static final String AboutParam="user_about";
+    private final String TAG = "Edit_Profile_Activity";
+    private static final String PhotoParam = "photo_url";
+    private static final String NameParam = "user_name";
+    private static final String AboutParam = "user_about";
     private String photoUrl;
     private String userName;
     private String userabout;
@@ -60,56 +63,67 @@ public class EditProfileActivity extends AppCompatActivity implements SelectImag
         addListener();
 
     }
-    public static Intent newEditProfileActivtyIntent(Context context,String photoUrl,String name,String about){
-        Intent intent = new Intent(context,EditProfileActivity.class);
-        intent.putExtra(PhotoParam,photoUrl);
-        intent.putExtra(NameParam,name);
-        intent.putExtra(AboutParam,about);
+
+    public static Intent newEditProfileActivtyIntent(Context context, String photoUrl, String name, String about) {
+        Intent intent = new Intent(context, EditProfileActivity.class);
+        intent.putExtra(PhotoParam, photoUrl);
+        intent.putExtra(NameParam, name);
+        intent.putExtra(AboutParam, about);
         return intent;
     }
-    public void retrieveDataFromIntent(){
+
+    public void retrieveDataFromIntent() {
         Intent intent = getIntent();
         photoUrl = intent.getStringExtra(PhotoParam);
         userName = intent.getStringExtra(NameParam);
         userabout = intent.getStringExtra(AboutParam);
     }
-    public void createView(){
-        profileImage = (ImageView)findViewById(R.id.edit_profile_image);
-        iconEditImage = (ImageView)findViewById(R.id.edit_icon);
+
+    public void createView() {
+        profileImage = (ImageView) findViewById(R.id.edit_profile_image);
+        iconEditImage = (ImageView) findViewById(R.id.edit_icon);
         editButton = (Button) findViewById(R.id.btn_log_out);
+        editToolbar = (Toolbar) findViewById(R.id.edit_profile_toolbar);
+        setSupportActionBar(editToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         nameEditText = (EditText) findViewById(R.id.edit_name_edit_text);
         aboutEditText = (EditText) findViewById(R.id.edit_about_edit_text);
         aboutword = (TextView) findViewById(R.id.about_word_edit);
-        if (UserHelper.getUserType(this) == 1){
+        if (UserHelper.getUserType(this) == 1) {
             aboutword.setVisibility(View.INVISIBLE);
             aboutEditText.setEnabled(false);
             aboutEditText.setVisibility(View.INVISIBLE);
         }
 
     }
-    public void addValuesToView(){
-        if (photoUrl != null){
+
+    public void addValuesToView() {
+        if (photoUrl != null) {
             Picasso.with(this).load(photoUrl).placeholder(R.drawable.default_emam).error(R.drawable.default_emam).into(profileImage);
         }
-        if (userName != null){
+        if (userName != null) {
             nameEditText.setText(userName);
         }
-        if (userabout != null){
+        if (userabout != null) {
             aboutEditText.setText(userabout);
         }
     }
-    public void addListener(){
+
+    public void addListener() {
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (nameEditText.getText() != null){
+
+                if (nameEditText.getText() != null) {
                     editProfile();
                     if (profileImage != null) {
                         editProfilePicture();
-                    }else{
+                    } else {
                         Toast.makeText(EditProfileActivity.this, "اختر صوره", Toast.LENGTH_SHORT).show();
                     }
-                }else{
+                } else {
                     Toast.makeText(EditProfileActivity.this, "املأ خانه الاسم", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -118,7 +132,7 @@ public class EditProfileActivity extends AppCompatActivity implements SelectImag
             @Override
             public void onClick(View view) {
                 if (selectImageUtil == null)
-                    selectImageUtil = new SelectImageUtil(EditProfileActivity.this,EditProfileActivity.this);
+                    selectImageUtil = new SelectImageUtil(EditProfileActivity.this, EditProfileActivity.this);
                 selectImageUtil.showDialog();
             }
         });
@@ -132,57 +146,73 @@ public class EditProfileActivity extends AppCompatActivity implements SelectImag
             profileImage.setImageURI(selectImageUtil.getMediaUri());
         }
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId()==android.R.id.home){
+            this.finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
-    public void editProfile(){
+
+    public void editProfile() {
         EditProfileRequest body = new EditProfileRequest();
         body.setName(nameEditText.getText().toString());
-        if(UserHelper.getUserType(this)==2) {
+
+        if (UserHelper.getUserType(this) == 2) {
             body.setAbout(aboutEditText.getText().toString());
+        } else {
+            body.setAbout("no");
         }
+
         body.setUserID(UserHelper.getUserId(this));
-        API.getUserAPIs().editProfile(body,getEditProfileListener(),
-                getEditProfileFailedListener(),this);
+        API.getUserAPIs().editProfile(body, getEditProfileListener(),
+                getEditProfileFailedListener(), this);
 
 
     }
-    public void editProfilePicture(){
-        EditProfilePictureRequest body = new EditProfilePictureRequest();
-        byte[] imageAsBytes=selectImageUtil.getImageAsBytes();
-        body.setImage(imageAsBytes);
-        API.getUserAPIs().editProfilePicture(body,getEditProfilePictureListener(),
-                getEditProfileFailedListener(),this);
+
+    public void editProfilePicture() {
+//        EditProfilePictureRequest body = new EditProfilePictureRequest();
+//        byte[] imageAsBytes = selectImageUtil.getImageAsBytes();
+//        body.setImage(imageAsBytes);
+        API.getUserAPIs().editProfilePicture(selectImageUtil.getUploadMap(), getEditProfilePictureListener(),
+                getEditProfileFailedListener(), this);
 
 
     }
+
     //network response
-    private Response.Listener<EditProfileResponse> getEditProfileListener(){
+    private Response.Listener<EditProfileResponse> getEditProfileListener() {
         return new Response.Listener<EditProfileResponse>() {
             @Override
             public void onResponse(EditProfileResponse response) {
-                if (response.isSuccess()){
-                    Toast.makeText(EditProfileActivity.this,"تم التعديل ", Toast.LENGTH_LONG).show();
+                if (response.isSuccess()) {
+                    Toast.makeText(EditProfileActivity.this, "تم التعديل ", Toast.LENGTH_LONG).show();
                     UserHelper.dismissProgressDialog();
-                }else{
-                    Toast.makeText(EditProfileActivity.this,"الاسم ربما يكون خاطأ", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(EditProfileActivity.this, "الاسم ربما يكون خاطأ", Toast.LENGTH_LONG).show();
                 }
             }
         };
     }
-    private Response.Listener<EditProfilePictureResponse> getEditProfilePictureListener(){
+
+    private Response.Listener<EditProfilePictureResponse> getEditProfilePictureListener() {
         return new Response.Listener<EditProfilePictureResponse>() {
             @Override
             public void onResponse(EditProfilePictureResponse response) {
-                if (response.isSuccess()){
-                    Toast.makeText(EditProfileActivity.this,"تم التعديل ", Toast.LENGTH_LONG).show();
+                if (response.isSuccess()) {
+                    Toast.makeText(EditProfileActivity.this, "تم التعديل ", Toast.LENGTH_LONG).show();
                     UserHelper.dismissProgressDialog();
-                }else{
-                    Log.e(TAG, "onResponse: "+response.getErrorMessage() );
-                    Toast.makeText(EditProfileActivity.this,"تاكد من اختيار الصوره", Toast.LENGTH_LONG).show();
+                } else {
+                    Log.e(TAG, "onResponse: " + response.getErrorMessage());
+                    Toast.makeText(EditProfileActivity.this, "تاكد من اختيار الصوره", Toast.LENGTH_LONG).show();
                 }
             }
         };
     }
-    private Response.ErrorListener getEditProfileFailedListener(){
+
+    private Response.ErrorListener getEditProfileFailedListener() {
         return new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {

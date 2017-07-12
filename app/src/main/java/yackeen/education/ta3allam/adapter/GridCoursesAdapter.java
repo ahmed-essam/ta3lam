@@ -17,6 +17,7 @@ import yackeen.education.ta3allam.Capsule.Book;
 import yackeen.education.ta3allam.Capsule.BookDetail;
 import yackeen.education.ta3allam.Capsule.UserBooks;
 import yackeen.education.ta3allam.ui.activity.BookDetailActivity;
+import yackeen.education.ta3allam.ui.activity.ForumsShowActivity;
 
 /**
  * Created by ahmed essam on 08/06/2017.
@@ -66,9 +67,7 @@ public class GridCoursesAdapter extends ArrayAdapter<UserBooks> implements View.
 
     @Override
     public void onClick(View view) {
-        Book book = new Book();
-        book.setId(userBook.getBookID());
-        Intent intent =BookDetailActivity.newDetailIntent(getContext(),book);
+        Intent intent = ForumsShowActivity.newIntentForum(getContext(),userBook.getBookID());
         getContext().startActivity(intent);
     }
 

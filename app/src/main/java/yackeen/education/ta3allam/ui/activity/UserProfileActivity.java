@@ -23,28 +23,36 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.squareup.picasso.Picasso;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import yackeen.education.ta3allam.Capsule.Book;
 import yackeen.education.ta3allam.Capsule.Follower;
+import yackeen.education.ta3allam.Capsule.Message;
 import yackeen.education.ta3allam.Capsule.UserBooks;
 import yackeen.education.ta3allam.R;
+import yackeen.education.ta3allam.adapter.FirstLoginAdapter2;
 import yackeen.education.ta3allam.adapter.FollowersAdapter;
 import yackeen.education.ta3allam.adapter.GridCoursesAdapter;
 import yackeen.education.ta3allam.model.dto.request.BookFollowRequest;
 import yackeen.education.ta3allam.model.dto.request.FollowerRequest;
 import yackeen.education.ta3allam.model.dto.request.UserFollowRequest;
+import yackeen.education.ta3allam.model.dto.response.ChatNotificationResponse;
 import yackeen.education.ta3allam.model.dto.response.EmptyResponse;
 import yackeen.education.ta3allam.model.dto.response.FollwerResponse;
 import yackeen.education.ta3allam.server.api.API;
 import yackeen.education.ta3allam.ui.Fragment.Profile;
 import yackeen.education.ta3allam.util.UserHelper;
 
-import static com.google.android.gms.plus.PlusOneDummyView.TAG;
 
 public class UserProfileActivity extends AppCompatActivity {
+    public static final String TAG = UserProfileActivity.class.getSimpleName();
+
     private static final String Userparam ="userID";
     private Profile.OnFragmentInteractionListener mListener;
     private RecyclerView followerRecyclerView;
@@ -92,8 +100,8 @@ public class UserProfileActivity extends AppCompatActivity {
         studyNow = (TextView)findViewById(R.id.study_now);
         if (UserHelper.getUserType(UserProfileActivity.this) == 1){
             about.setEnabled(false);
-            about.setVisibility(View.INVISIBLE);
-            aboutWord.setVisibility(View.INVISIBLE);
+            about.setVisibility(View.GONE);
+            aboutWord.setVisibility(View.GONE);
             studyNow.setText(getResources().getString(R.string.study_now));
         }
         userImage=(ImageView)findViewById(R.id.user_profile_image);
@@ -176,6 +184,14 @@ public class UserProfileActivity extends AppCompatActivity {
        String user = intent.getStringExtra(Userparam);
         return user;
     }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(ChatNotificationResponse notificationResponse) {
+        if (notificationResponse.type==2) {
+            Log.d(TAG, "onMessageEvent: ");
+            feachDataFromApi();
+        }
+
+    }
     public void feachDataFromApi(){
         FollowerRequest body = new FollowerRequest();
         body.setUserID(UserHelper.getUserId(this));
@@ -198,6 +214,17 @@ public class UserProfileActivity extends AppCompatActivity {
         body.setSelectedUserID(USERID);
         API.getUserAPIs().unFollowUser(body,getunfollowListener(),
                 getProfileDataFailedListener(),this);
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
     }
     public void addView(FollwerResponse response){
         name.setText(response.getUserName());
@@ -225,27 +252,33 @@ public class UserProfileActivity extends AppCompatActivity {
                     List<Follower> followers = new ArrayList<>();
                     userBooksList = new ArrayList<>();
                     if (response.userBooksList.size() > 4) {
+                        userBooksList.clear();
                         showAll.setEnabled(true);
                         showAll.setVisibility(View.VISIBLE);
                         for (int i = 0; i < 4; i++) {
                             userBooksList.add(response.userBooksList.get(i));
                         }
                     } else {
+                        userBooksList.clear();
                         userBooksList.addAll(response.userBooksList);
                     }
                     if (response.getFollowersNumber() > 6) {
                         followerNumTextView.setVisibility(View.VISIBLE);
                         addListener();
+                        followers.clear();
                         int followernum = response.getFollowersNumber() - 6;
                         followerNumTextView.setText("+" + followernum);
                         for (int i = 0; i < 6; i++) {
                             followers.add(response.followers.get(i));
                         }
                     } else {
+                        followers.clear();
                         followers.addAll(response.followers);
                     }
                     followersAdapter.addAll(followers);
+                    gridCoursesAdapter.clear();
                     gridCoursesAdapter.addAll(userBooksList);
+                    gridCoursesAdapter.notifyDataSetChanged();
                 }
             }
         };

@@ -30,6 +30,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by devar on 8/22/16.
@@ -127,6 +128,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     public static List<News> mNews;
     public static Context mContext;
     public static boolean isLiked;
+    ViewHolder viewHolder;
     public NewsAdapter(Context context)
     {
         mContext=context;
@@ -153,10 +155,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         News news=mNews.get(position);
         try {
             String strDate = news.getTime();
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.S");
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.S", Locale.getDefault());
             Date date = dateFormat.parse(strDate);
             TextView time=viewHolder.timeTextView;
-            time.setText(DateUtils.getRelativeTimeSpanString(date.getTime(), new Date().getTime(), DateUtils.DAY_IN_MILLIS)+"");
+            String displayedDate = (String) DateUtils.getRelativeTimeSpanString(date.getTime(), new Date().getTime(), DateUtils.DAY_IN_MILLIS);
+            time.setText(displayedDate);
         } catch (ParseException e) {
             Log.d(TAG, "onBindViewHolder: "+e.getMessage());
             e.printStackTrace();
@@ -187,5 +190,19 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         this.mNews.clear();
         this.mNews.addAll(newsList);
         notifyDataSetChanged();
+    }
+    public void editcommentNumber(int postId){
+        for (int i = 0;i<mNews.size();i++){
+            if (postId ==mNews.get(i).getPostId()){
+                viewHolder.commentTextView.setText(Integer.parseInt(viewHolder.commentTextView.getText().toString())+1);
+            }
+        }
+    }
+    public void editLikesNumber(int postId){
+        for (int i = 0;i<mNews.size();i++){
+            if (postId ==mNews.get(i).getPostId()){
+                viewHolder.likeTextView.setText(Integer.parseInt(viewHolder.likeTextView.getText().toString())+1);
+            }
+        }
     }
 }

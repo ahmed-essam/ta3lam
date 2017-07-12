@@ -18,6 +18,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 import yackeen.education.ta3allam.model.dto.response.LoginResponse;
+import yackeen.education.ta3allam.model.dto.response.RegisterResponse;
+import yackeen.education.ta3allam.ui.activity.RegisterActivity;
 import yackeen.education.ta3allam.util.UserHelper;
 
 public class GsonPostRequest<T> extends JsonRequest<T> {
@@ -63,7 +65,7 @@ public class GsonPostRequest<T> extends JsonRequest<T> {
     @Override
     protected Response<T> parseNetworkResponse(NetworkResponse response) {
         try {
-            if (clazz == LoginResponse.class) {
+            if (clazz == LoginResponse.class || clazz == RegisterResponse.class) {
                UserHelper.saveStringInSharedPreferences(UserHelper.security_token,response.headers.get("Token"));
                 Log.d("token", ":"+response.headers.get("Token"));
             }

@@ -16,14 +16,20 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.List;
 
 import yackeen.education.ta3allam.Capsule.Comment;
 import yackeen.education.ta3allam.Capsule.FollowerDetail;
+import yackeen.education.ta3allam.Capsule.Message;
 import yackeen.education.ta3allam.R;
 import yackeen.education.ta3allam.adapter.FriendsAdapter;
 import yackeen.education.ta3allam.model.dto.request.CommentsRequest;
 import yackeen.education.ta3allam.model.dto.request.FriendsRequest;
+import yackeen.education.ta3allam.model.dto.response.ChatNotificationResponse;
 import yackeen.education.ta3allam.model.dto.response.CommentsResponse;
 import yackeen.education.ta3allam.model.dto.response.FriendsResponse;
 import yackeen.education.ta3allam.server.api.API;
@@ -82,7 +88,24 @@ private TextView noDataText;
         String user = intent.getStringExtra(ARGID);
         return user;
     }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(ChatNotificationResponse notificationResponse) {
+        Log.d(TAG, "onMessageEvent: ");
+        if (notificationResponse.type==2) {
+            feachFollowersFromApi();
+        }
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
 
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
+    }
     //network call
     public void feachFollowersFromApi(){
         FriendsRequest body = new FriendsRequest();

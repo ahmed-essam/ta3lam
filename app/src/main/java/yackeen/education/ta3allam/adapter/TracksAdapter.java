@@ -17,13 +17,14 @@ import yackeen.education.ta3allam.ui.activity.BooksActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.google.android.gms.plus.PlusOneDummyView.TAG;
 
 /**
  * Created by ahmed essam on 09/06/2017.
  */
 
 public class TracksAdapter extends RecyclerView.Adapter<TracksAdapter.TracksViewHolder>{
+    public static final String TAG = TracksAdapter.class.getSimpleName();
+
     public class TracksViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView nameTextView;
         public TextView descriptionTextView;

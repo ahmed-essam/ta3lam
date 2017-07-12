@@ -23,8 +23,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.squareup.picasso.Picasso;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import yackeen.education.ta3allam.Capsule.AddedComment;
 import yackeen.education.ta3allam.Capsule.Comment;
+import yackeen.education.ta3allam.Capsule.Message;
 import yackeen.education.ta3allam.Capsule.News;
 import yackeen.education.ta3allam.Capsule.SendMessage;
 import yackeen.education.ta3allam.R;
@@ -32,8 +37,11 @@ import yackeen.education.ta3allam.adapter.CommentsAdapter;
 import yackeen.education.ta3allam.model.dto.request.AddCommentRequest;
 import yackeen.education.ta3allam.model.dto.request.CommentsRequest;
 import yackeen.education.ta3allam.model.dto.request.SendMessageRequest;
+import yackeen.education.ta3allam.model.dto.response.ChatNotificationResponse;
 import yackeen.education.ta3allam.model.dto.response.CommentsResponse;
 import yackeen.education.ta3allam.model.dto.response.EmptyResponse;
+import yackeen.education.ta3allam.model.dto.response.OtherNotificationResponse;
+import yackeen.education.ta3allam.model.dto.response.PostCommentNotificationBody;
 import yackeen.education.ta3allam.server.api.API;
 import yackeen.education.ta3allam.util.UserHelper;
 
@@ -115,6 +123,14 @@ public class ForumComentsActivity extends AppCompatActivity {
         detailTextView.setText(news.getDescription());
         likeNum.setText(Integer.toString(news.getLike()));
         commentsNum.setText(Integer.toString(news.getComment()));
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(OtherNotificationResponse notificationResponse) {
+        Log.d(TAG, "onMessageEvent: ");
+        if (notificationResponse.type == 3) {
+            feachCommentsFromApi();
+        }
     }
     //network call
     public void feachCommentsFromApi(){
@@ -216,5 +232,16 @@ public class ForumComentsActivity extends AppCompatActivity {
                 }
             }
         };
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
     }
 }

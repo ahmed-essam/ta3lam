@@ -43,13 +43,11 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder> 
         private String TAG1="forum_view_holder";
         ImageView profileImage;
         ImageView likeImage;
-        ImageView shareImage;
         ImageView commentImage;
         LinearLayout postLinearLayout;
         TextView nameTextView;
         TextView timeTextView;
         TextView descriptionTextView;
-        TextView shareTextView;
         TextView commentTextView;
         TextView likeTextView;
         boolean isLiked;
@@ -71,13 +69,7 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder> 
 
                 }
             });
-            shareImage.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    sharePostUsingApi(getPosition());
 
-                }
-            });
             commentImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -98,7 +90,6 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder> 
             nameTextView.setText(news.getName());
             timeTextView.setText(news.getTime());
             descriptionTextView.setText(news.getDescription());
-            shareTextView.setText(news.getShare()+"");
             commentTextView.setText(news.getComment()+"");
             likeTextView.setText(news.getLike()+"");
             isLiked= news.isLiked();
@@ -115,13 +106,7 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder> 
             API.getUserAPIs().likePost(body,getLikeListener(),
                     getFailedListener(),mContext);
         }
-        public void sharePostUsingApi(int position){
-            LikeAndShareRequest body = new LikeAndShareRequest();
-            body.setPostID(mNews.get(position).getPostId());
-            body.setUserID(UserHelper.getUserId(mContext));
-            API.getUserAPIs().sharePost(body,getShareListener(),
-                    getFailedListener(),mContext);
-        }
+
 
         //network response
         private Response.ErrorListener getFailedListener(){
@@ -142,19 +127,13 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder> 
                 }
             };
         }
-        private Response.Listener<EmptyResponse> getShareListener(){
-            return new Response.Listener<EmptyResponse>() {
-                @Override
-                public void onResponse(EmptyResponse response) {
 
-                }
-            };
-        }
     }
 
 
      public static List<News> mNews;
      public static Context mContext;
+    ViewHolder viewHolder;
 
     public ForumAdapter(Context mContext) {
         this.mContext = mContext;
@@ -177,6 +156,7 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        viewHolder = holder;
         holder.bindView(mNews.get(position),getmContext());
 
     }
@@ -187,8 +167,22 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder> 
         notifyDataSetChanged();
     }
     public void addItem(News news){
-        mNews.add(news);
+        mNews.add(0,news);
         notifyDataSetChanged();
+    }
+    public void editcommentNumber(int postId){
+        for (int i = 0;i<mNews.size();i++){
+            if (postId ==mNews.get(i).getPostId()){
+                viewHolder.commentTextView.setText(Integer.parseInt(viewHolder.commentTextView.getText().toString())+1);
+            }
+        }
+    }
+    public void editLikesNumber(int postId){
+        for (int i = 0;i<mNews.size();i++){
+            if (postId ==mNews.get(i).getPostId()){
+                viewHolder.likeTextView.setText(Integer.parseInt(viewHolder.likeTextView.getText().toString())+1);
+            }
+        }
     }
 
     @Override

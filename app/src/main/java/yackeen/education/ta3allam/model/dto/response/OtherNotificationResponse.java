@@ -29,4 +29,8 @@ public class OtherNotificationResponse extends NotificationResponse {
         PostCommentNotificationBody postCommentNotificationBody = getMessageBody();
         return postCommentNotificationBody.getContent();
     }
+    public int getPostId(){
+        PostCommentNotificationBody postCommentNotificationBody = getMessageBody();
+        return postCommentNotificationBody.getPostID();
+    }
 }

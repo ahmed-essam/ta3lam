@@ -1,5 +1,7 @@
 package yackeen.education.ta3allam.model.dto.request;
 
+import com.google.gson.annotations.SerializedName;
+
 import yackeen.education.ta3allam.Capsule.SendMessage;
 
 /**
@@ -7,8 +9,10 @@ import yackeen.education.ta3allam.Capsule.SendMessage;
  */
 
 public class SendMessageRequest {
+    @SerializedName("UserID")
     private String UserID;
-    private SendMessage sendMessage;
+    @SerializedName("Message")
+    private SendMessage Message;
 
     public String getUserID() {
         return UserID;
@@ -18,11 +22,11 @@ public class SendMessageRequest {
         UserID = userID;
     }
 
-    public SendMessage getSendMessage() {
-        return sendMessage;
+    public SendMessage getMessage() {
+        return Message;
     }
 
-    public void setSendMessage(SendMessage sendMessage) {
-        this.sendMessage = sendMessage;
+    public void setMessage(SendMessage message) {
+        this.Message = message;
     }
 }

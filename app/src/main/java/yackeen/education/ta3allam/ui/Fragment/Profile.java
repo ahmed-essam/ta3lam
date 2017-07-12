@@ -14,18 +14,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.squareup.picasso.Picasso;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import yackeen.education.ta3allam.Capsule.Follower;
+import yackeen.education.ta3allam.Capsule.Message;
 import yackeen.education.ta3allam.Capsule.UserBooks;
 import yackeen.education.ta3allam.R;
+import yackeen.education.ta3allam.adapter.FirstLoginAdapter2;
 import yackeen.education.ta3allam.adapter.FollowersAdapter;
 import yackeen.education.ta3allam.adapter.GridCoursesAdapter;
 import yackeen.education.ta3allam.model.dto.request.FollowerRequest;
+import yackeen.education.ta3allam.model.dto.response.ChatNotificationResponse;
 import yackeen.education.ta3allam.model.dto.response.FollwerResponse;
 import yackeen.education.ta3allam.server.api.API;
 import yackeen.education.ta3allam.ui.activity.AllBooksActivity;
@@ -40,7 +49,6 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-import static com.google.android.gms.plus.PlusOneDummyView.TAG;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -53,6 +61,8 @@ import static com.google.android.gms.plus.PlusOneDummyView.TAG;
 public class Profile extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    public static final String TAG = Profile.class.getSimpleName();
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -71,12 +81,12 @@ public class Profile extends Fragment {
     private TextView showAll;
     private TextView followerNumTextView;
     private Button logOut;
-    private FloatingActionButton floatingAction;
     CircleImageView userImage;
     GridView gridView;
     GridCoursesAdapter gridCoursesAdapter;
     private static FollwerResponse profileResponse;
     private List<UserBooks> userBooksList;
+
     public Profile() {
         // Required empty public constructor
     }
@@ -114,29 +124,28 @@ public class Profile extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(yackeen.education.ta3allam.R.layout.fragment_profile, container, false);
         type = UserHelper.getUserType(getContext());
-        name = (TextView)rootView.findViewById(yackeen.education.ta3allam.R.id.name);
-        followerNumTextView = (TextView)rootView.findViewById(R.id.follower_num_rounded_text);
+        name = (TextView) rootView.findViewById(yackeen.education.ta3allam.R.id.name);
+        followerNumTextView = (TextView) rootView.findViewById(R.id.follower_num_rounded_text);
         followerNumTextView.setVisibility(View.INVISIBLE);
-        showAll = (TextView)rootView.findViewById(R.id.show_all_text);
+        showAll = (TextView) rootView.findViewById(R.id.show_all_text);
         showAll.setEnabled(false);
         showAll.setVisibility(View.INVISIBLE);
-        about = (TextView)rootView.findViewById(yackeen.education.ta3allam.R.id.about);
-        aboutWord = (TextView)rootView.findViewById(R.id.about_text_view);
-        studyNow = (TextView)rootView.findViewById(R.id.study_now_fragment);
-        if (type == 1){
+        about = (TextView) rootView.findViewById(yackeen.education.ta3allam.R.id.about);
+        aboutWord = (TextView) rootView.findViewById(R.id.about_text_view);
+        studyNow = (TextView) rootView.findViewById(R.id.study_now_fragment);
+        if (type == 1) {
             about.setEnabled(false);
-            about.setVisibility(View.INVISIBLE);
-            aboutWord.setVisibility(View.INVISIBLE);
+            about.setVisibility(View.GONE);
+            aboutWord.setVisibility(View.GONE);
             aboutWord.setEnabled(false);
             studyNow.setText(getResources().getString(R.string.study_now));
         }
-        userImage=(CircleImageView)rootView.findViewById(yackeen.education.ta3allam.R.id.profile_image);
-        logOut=(Button) rootView.findViewById(R.id.btn_log_out);
-        floatingAction=(FloatingActionButton) rootView.findViewById(R.id.edit_floating_button);
-        gridView =(GridView)rootView.findViewById(yackeen.education.ta3allam.R.id.courses_grid);
+        userImage = (CircleImageView) rootView.findViewById(yackeen.education.ta3allam.R.id.profile_image);
+        logOut = (Button) rootView.findViewById(R.id.btn_log_out);
+        gridView = (GridView) rootView.findViewById(yackeen.education.ta3allam.R.id.courses_grid);
         gridCoursesAdapter = new GridCoursesAdapter(getContext(), yackeen.education.ta3allam.R.layout.grid_item_laayout);
         gridView.setAdapter(gridCoursesAdapter);
-        followerRecyclerView = (RecyclerView)rootView.findViewById(yackeen.education.ta3allam.R.id.followers_list);
+        followerRecyclerView = (RecyclerView) rootView.findViewById(yackeen.education.ta3allam.R.id.followers_list);
         addListener();
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         manager.setOrientation(LinearLayoutManager.HORIZONTAL);
@@ -147,21 +156,44 @@ public class Profile extends Fragment {
         followerRecyclerView.setAdapter(followersAdapter);
         return rootView;
     }
-    public void addListener(){
+
+    private void setDynamicHeight(GridView gridView) {
+        ListAdapter gridViewAdapter = gridView.getAdapter();
+        if (gridViewAdapter == null) {
+            // pre-condition
+            return;
+        }
+
+        int totalHeight = 0;
+        int items = gridViewAdapter.getCount();
+        int rows = 0;
+
+        View listItem = gridViewAdapter.getView(0, null, gridView);
+        listItem.measure(0, 0);
+        totalHeight = listItem.getMeasuredHeight();
+
+        float x = 1;
+        if (items > 5) {
+            x = items / 5;
+            rows = (int) (x + 1);
+            totalHeight *= rows;
+        }
+
+        ViewGroup.LayoutParams params = gridView.getLayoutParams();
+        params.height = totalHeight;
+        gridView.setLayoutParams(params);
+    }
+
+
+    public void addListener() {
         followerNumTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              Intent intent= FriendsActivity.newFriendsIntent(getContext(),UserHelper.getUserId(getContext()));
+                Intent intent = FriendsActivity.newFriendsIntent(getContext(), UserHelper.getUserId(getContext()));
                 startActivity(intent);
             }
         });
-        floatingAction.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-              Intent intent=  EditProfileActivity.newEditProfileActivtyIntent(getContext(),profileResponse.getUserPictureURL(),profileResponse.getUserName(),profileResponse.getAbout());
-            getContext().startActivity(intent);
-            }
-        });
+
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -169,29 +201,39 @@ public class Profile extends Fragment {
                 UserHelper.removeFromSharedPreferences(UserHelper.USER_TYPE);
                 UserHelper.removeFromSharedPreferences(UserHelper.security_token);
                 getContext().startActivity(new Intent(getContext(), LoginActivity.class));
-
+                getActivity().finish();
             }
         });
         showAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = AllBooksActivity.newِAllBooksIntent(getContext(),userBooksList);
+                Intent intent = AllBooksActivity.newِAllBooksIntent(getContext(), userBooksList);
                 startActivity(intent);
             }
         });
     }
-    public void feachDataFromApi(){
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(ChatNotificationResponse notificationResponse) {
+        Log.d(TAG, "onMessageEvent: ");
+        if (notificationResponse.type == 2) {
+            feachDataFromApi();
+        }
+    }
+
+    public void feachDataFromApi() {
         FollowerRequest body = new FollowerRequest();
         body.setUserID(UserHelper.getUserId(getContext()));
         body.setSelectedUserID(UserHelper.getUserId(getContext()));
-        API.getUserAPIs().getUserProfileDetail(body,getProfileDataListener(),
-                getProfileDataFailedListener(),getContext());
+        API.getUserAPIs().getUserProfileDetail(body, getProfileDataListener(),
+                getProfileDataFailedListener(), getContext());
     }
-    public void addView(FollwerResponse response){
+
+    public void addView(FollwerResponse response) {
         name.setText(response.getUserName());
 //        level.setText(response.getUserType());
-        UserHelper.saveStringInSharedPreferences(UserHelper.User_name,response.getUserName());
-        UserHelper.saveStringInSharedPreferences(UserHelper.Photo_url,response.getUserPictureURL());
+        UserHelper.saveStringInSharedPreferences(UserHelper.User_name, response.getUserName());
+        UserHelper.saveStringInSharedPreferences(UserHelper.Photo_url, response.getUserPictureURL());
         about.setText(response.getAbout());
         Picasso.with(getContext()).load(response.getUserPictureURL()).placeholder(R.drawable.default_emam_larg
         ).error(R.drawable.default_emam_larg).into(userImage);
@@ -199,7 +241,7 @@ public class Profile extends Fragment {
     }
 
     //network response
-    private Response.Listener<FollwerResponse> getProfileDataListener(){
+    private Response.Listener<FollwerResponse> getProfileDataListener() {
         return new Response.Listener<FollwerResponse>() {
             @Override
             public void onResponse(FollwerResponse response) {
@@ -207,33 +249,41 @@ public class Profile extends Fragment {
                 addView(response);
                 profileResponse = response;
                 List<Follower> followers = new ArrayList<>();
-                 userBooksList = new ArrayList<>();
-                if (response.userBooksList.size() > 4){
+                userBooksList = new ArrayList<>();
+                if (response.userBooksList.size() > 4) {
                     showAll.setEnabled(true);
                     showAll.setVisibility(View.VISIBLE);
-                    for (int i=0;i <4 ;i++){
-                    userBooksList.add(response.userBooksList.get(i));
-                }
-                }else{
+                    userBooksList.clear();
+                    for (int i = 0; i < 4; i++) {
+                        userBooksList.add(response.userBooksList.get(i));
+                    }
+                } else {
+                    userBooksList.clear();
                     userBooksList.addAll(response.userBooksList);
                 }
-                if (response.getFollowersNumber()>6){
+                if (response.getFollowersNumber() > 6) {
                     followerNumTextView.setVisibility(View.VISIBLE);
                     addListener();
-                    int followernum = response.getFollowersNumber()-6;
-                    followerNumTextView.setText("+"+ followernum);
-                    for (int i=0;i <6 ;i++){
-                    followers.add(response.followers.get(i));
-                }
-                }else{
+                    int followernum = response.getFollowersNumber() - 6;
+                    followerNumTextView.setText("+" + followernum);
+                    followers.clear();
+                    for (int i = 0; i < 6; i++) {
+                        followers.add(response.followers.get(i));
+                    }
+                } else {
+                    followers.clear();
                     followers.addAll(response.followers);
                 }
                 followersAdapter.addAll(followers);
+                gridCoursesAdapter.clear();
                 gridCoursesAdapter.addAll(userBooksList);
+                gridCoursesAdapter.notifyDataSetChanged();
+//                setDynamicHeight(gridView);
             }
         };
     }
-    private Response.ErrorListener getProfileDataFailedListener(){
+
+    private Response.ErrorListener getProfileDataFailedListener() {
         return new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
@@ -242,6 +292,12 @@ public class Profile extends Fragment {
 
             }
         };
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        feachDataFromApi();
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -281,5 +337,17 @@ public class Profile extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
     }
 }

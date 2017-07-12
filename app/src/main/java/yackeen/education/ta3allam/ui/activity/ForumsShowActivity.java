@@ -20,14 +20,21 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+import yackeen.education.ta3allam.Capsule.Message;
 import yackeen.education.ta3allam.Capsule.News;
 import yackeen.education.ta3allam.Capsule.Post;
 import yackeen.education.ta3allam.R;
 import yackeen.education.ta3allam.adapter.ForumAdapter;
 import yackeen.education.ta3allam.model.dto.request.AddPostRequest;
 import yackeen.education.ta3allam.model.dto.request.ForumRequest;
+import yackeen.education.ta3allam.model.dto.response.ChatNotificationResponse;
 import yackeen.education.ta3allam.model.dto.response.EmptyResponse;
 import yackeen.education.ta3allam.model.dto.response.ForumResponse;
+import yackeen.education.ta3allam.model.dto.response.OtherNotificationResponse;
 import yackeen.education.ta3allam.server.api.API;
 import yackeen.education.ta3allam.util.TextHelper;
 import yackeen.education.ta3allam.util.UserHelper;
@@ -47,7 +54,6 @@ public class ForumsShowActivity extends AppCompatActivity {
     private TextView courseName;
     private EditText addPostEdit;
     private Button addPostButton;
-
     private RecyclerView forumRecyclerView;
     private ForumAdapter forumAdapter;
     private Toolbar forumToolbar;
@@ -72,9 +78,9 @@ public class ForumsShowActivity extends AppCompatActivity {
         addPostButton=(Button) findViewById(R.id.add_post_btton);
         if (UserHelper.getUserType(this)== 1){
             addPostEdit.setEnabled(false);
-            addPostEdit.setVisibility(View.INVISIBLE);
+            addPostEdit.setVisibility(View.GONE);
             addPostButton.setEnabled(false);
-            addPostButton.setVisibility(View.INVISIBLE);
+            addPostButton.setVisibility(View.GONE);
         }
         addPostButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,6 +110,17 @@ public class ForumsShowActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(OtherNotificationResponse notificationResponse) {
+        Log.d(TAG, "onMessageEvent: ");
+        if (notificationResponse.type == 3){
+            forumAdapter.editcommentNumber(notificationResponse.getPostId());
+        }else{
+            if (notificationResponse.type == 4){
+                forumAdapter.editLikesNumber(notificationResponse.getPostId());
+            }
+        }
+    }
 
     public void feachBookForumFromApi(){
         ForumRequest body = new ForumRequest();
@@ -114,6 +131,7 @@ public class ForumsShowActivity extends AppCompatActivity {
 
 
     }
+
     public void addPost(Post post){
         AddPostRequest body = new AddPostRequest();
         body.setPost(post);
@@ -204,5 +222,16 @@ public class ForumsShowActivity extends AppCompatActivity {
                 Toast.makeText(ForumsShowActivity.this, yackeen.education.ta3allam.R.string.network_error, Toast.LENGTH_SHORT).show();
             }
         };
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
     }
 }

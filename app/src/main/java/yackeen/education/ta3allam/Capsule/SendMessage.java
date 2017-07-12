@@ -1,11 +1,15 @@
 package yackeen.education.ta3allam.Capsule;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by ahmed essam on 19/06/2017.
  */
 
 public class SendMessage {
+    @SerializedName("ToUserID")
     private String ToUserID;
+    @SerializedName("Body")
     private String Body;
 
     public String getToUserID() {

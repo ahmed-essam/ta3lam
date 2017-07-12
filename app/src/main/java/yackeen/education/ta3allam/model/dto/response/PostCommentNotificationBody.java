@@ -6,7 +6,7 @@ package yackeen.education.ta3allam.model.dto.response;
 
 public class PostCommentNotificationBody {
     private String Content;
-    private String PostID;
+    private int PostID;
 
     public String getContent() {
         return Content;
@@ -16,11 +16,11 @@ public class PostCommentNotificationBody {
         Content = content;
     }
 
-    public String getPostID() {
+    public int getPostID() {
         return PostID;
     }
 
-    public void setPostID(String postID) {
+    public void setPostID(int postID) {
         PostID = postID;
     }
 }

@@ -21,12 +21,16 @@ import android.widget.Toast;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import yackeen.education.ta3allam.BuildConfig;
 import yackeen.education.ta3allam.R;
+import yackeen.education.ta3allam.server.request.MultipartRequest;
 
 import static android.app.Activity.RESULT_OK;
 import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE;
@@ -36,6 +40,20 @@ import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE;
  */
 
 public class SelectImageUtil {
+    public Map<String, MultipartRequest.DataPart> getUploadMap() {
+        Map<String, MultipartRequest.DataPart> partMap = new HashMap<>();
+        try {
+            Bitmap bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(), mediaUri);
+            byte[] inputData = getBytes(bitmap);
+            MultipartRequest.DataPart dataPart = new MultipartRequest.DataPart("image", inputData);
+            partMap.put("image", dataPart);
+            return partMap;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     private static final String TAG = SelectImageUtil.class.getSimpleName();
     public final int TAKE_PHOTO_REQUEST = 20;
     public final int PICK_PHOTO_REQUEST = 21;

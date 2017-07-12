@@ -6,8 +6,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.icu.util.TimeUnit;
-import android.support.multidex.MultiDex;
-import android.support.multidex.MultiDexApplication;
 import android.support.v4.util.TimeUtils;
 import android.text.format.DateUtils;
 import android.util.Base64;
@@ -17,8 +15,6 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
-import com.raizlabs.android.dbflow.config.FlowConfig;
-import com.raizlabs.android.dbflow.config.FlowManager;
 
 import yackeen.education.ta3allam.util.LruBitmapCache;
 
@@ -30,7 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class AppController extends MultiDexApplication {
+public class AppController extends Application {
 
     //Tags
     public final String TAG = AppController.class.getSimpleName();
@@ -48,7 +44,6 @@ public class AppController extends MultiDexApplication {
 
         instance = this;
 
-        FlowManager.init(new FlowConfig.Builder(this).build());
 
         requestQueue = Volley.newRequestQueue(this);
         requestQueue.start();
@@ -77,7 +72,6 @@ public class AppController extends MultiDexApplication {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-        MultiDex.install(this);
     }
 
 

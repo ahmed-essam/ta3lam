@@ -19,7 +19,8 @@
             app:theme="@style/ThemeOverlay.AppCompat.Dark"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
             android:id="@+id/book_toolbar"
-            android:layoutDirection="ltr">
+            android:layoutDirection="ltr"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -41,7 +42,7 @@
         </android.support.v7.widget.Toolbar>
 
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -50,7 +51,6 @@
                 app:tabGravity="fill"
                 app:tabMode="fixed"
                 android:layout_gravity="right"
-                android:layoutDirection="ltr"
 
                 >
 
@@ -60,9 +60,9 @@
                     android:text="اسم الفقه"
                     android:textColor="@color/cardview_light_background"
                     android:textSize="30dp"
-                    android:layout_gravity="right"
-                    android:id="@+id/course_name"/>
-            </LinearLayout>
+                    android:id="@+id/course_name"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
             </android.support.design.widget.AppBarLayout>
     <LinearLayout
         android:layout_width="match_parent"

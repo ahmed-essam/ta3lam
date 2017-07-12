@@ -93,9 +93,9 @@ public class Notifications extends Fragment implements SwipeRefreshLayout.OnRefr
         View rootView=inflater.inflate(yackeen.education.ta3allam.R.layout.fragment_notifications, container, false);
         notificationRecyclerView=(RecyclerView)rootView.findViewById(yackeen.education.ta3allam.R.id.notification_recyclerview);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        noDataText = (TextView) rootView.findViewById(R.id.no_data_text);
+        noDataText = (TextView) rootView.findViewById(R.id.no1_data_text);
+        noDataText.setVisibility(View.GONE);
         noDataText.setEnabled(false);
-        noDataText.setVisibility(View.INVISIBLE);
         mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.refresh);
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mSwipeRefreshLayout.post(new Runnable() {
@@ -133,15 +133,27 @@ public class Notifications extends Fragment implements SwipeRefreshLayout.OnRefr
         return new Response.Listener<NotificationsResponse>() {
             @Override
             public void onResponse(NotificationsResponse response) {
-                if (response.AllNotificaions.size() == 0){
+                if (response.AllNotificaions.size() == 0 && notificationID ==0){
                     noDataText.setVisibility(View.VISIBLE);
                     noDataText.setText("لاتوجد بيانات");
                     noDataText.setEnabled(true);
+                }else {
+                    Log.e(TAG, "network_response:" + response.AllNotificaions.size());
+                    if (notificationID ==0) {
+                        notifications = response.AllNotificaions;
+                        notificationID = response.AllNotificaions.get(response.AllNotificaions.size() - 1).getID();
+                        Log.d(TAG, "network_response:" + notifications.size());
+                        notificationsAdapter.addAll(notifications);
+                    }else {
+                        notifications.addAll(response.AllNotificaions);
+                        if (response.AllNotificaions.size()>0) {
+                            notificationID = response.AllNotificaions.get(response.AllNotificaions.size() - 1).getID();
+                        }
+                        notificationsAdapter.addAll(notifications);
+
+                    }
+
                 }
-                Log.e(TAG,"network_response:"+response.AllNotificaions.size());
-                 notifications = response.AllNotificaions;
-                Log.d(TAG,"network_response:"+notifications.size());
-                notificationsAdapter.addAll(notifications);
                 mSwipeRefreshLayout.setRefreshing(false);
             }
 
@@ -152,9 +164,11 @@ public class Notifications extends Fragment implements SwipeRefreshLayout.OnRefr
         return new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                noDataText.setVisibility(View.VISIBLE);
-                noDataText.setText("خطأ بالشبكه");
-                noDataText.setEnabled(true);
+                if (notificationID ==0) {
+                    noDataText.setVisibility(View.VISIBLE);
+                    noDataText.setText("خطأ بالشبكه");
+                    noDataText.setEnabled(true);
+                }
                 Log.e(TAG, "onErrorResponse: ".concat(error.toString()));
                 Toast.makeText(getActivity(), yackeen.education.ta3allam.R.string.network_error, Toast.LENGTH_SHORT).show();
                 mSwipeRefreshLayout.setRefreshing(false);

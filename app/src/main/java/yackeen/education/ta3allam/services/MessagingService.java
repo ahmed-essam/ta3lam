@@ -22,6 +22,7 @@ import yackeen.education.ta3allam.Capsule.Message;
 import yackeen.education.ta3allam.R;
 import yackeen.education.ta3allam.model.dto.response.ChatNotificationResponse;
 import yackeen.education.ta3allam.model.dto.response.NotificationResponse;
+import yackeen.education.ta3allam.model.dto.response.OtherNotificationResponse;
 import yackeen.education.ta3allam.ui.activity.Home;
 import yackeen.education.ta3allam.ui.activity.MessagesListActivity;
 
@@ -44,10 +45,9 @@ public class MessagingService extends FirebaseMessagingService {
 
         NotificationResponse notificationResponse = gson.fromJson(jsonString, NotificationResponse.class);
         if (notificationResponse.type == 1 || notificationResponse.type == 2) {
-            notificationResponse = new ChatNotificationResponse
-                    (notificationResponse);
-        } else {
             notificationResponse = new ChatNotificationResponse(notificationResponse);
+        } else {
+            notificationResponse = new OtherNotificationResponse(notificationResponse);
         }
         Map<String, String> data = remoteMessage.getData();
         for (String s : data.keySet()) {
@@ -76,7 +76,7 @@ public class MessagingService extends FirebaseMessagingService {
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        notificationManager.notify(0, mNotificationBuilder.build());
+        notificationManager.notify(12, mNotificationBuilder.build());
     }
 
 }

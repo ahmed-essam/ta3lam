@@ -48,14 +48,14 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="18"
+            android:layout_weight="1"
             android:elevation="@dimen/fabElevation"
             android:background="@color/colorPrimary"/>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="75"
+            android:layout_weight="4"
             android:background="@color/colorTextTitle"/>
 
     </LinearLayout>
@@ -68,8 +68,7 @@
         android:layout_marginRight="@dimen/margin"
         android:elevation="@dimen/toolbarElevation"
         android:orientation="vertical"
-        android:background="@android:color/transparent"
-        android:weightSum="1">
+        android:background="@android:color/transparent">
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"

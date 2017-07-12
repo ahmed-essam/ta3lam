@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -29,6 +30,7 @@ import yackeen.education.ta3allam.Capsule.Follower;
 import yackeen.education.ta3allam.Capsule.SearchProfile;
 import yackeen.education.ta3allam.Capsule.UserBooks;
 import yackeen.education.ta3allam.R;
+import yackeen.education.ta3allam.adapter.FirstLoginAdapter2;
 import yackeen.education.ta3allam.adapter.SearchAutoCompleteAdapter;
 import yackeen.education.ta3allam.model.dto.request.FollowerRequest;
 import yackeen.education.ta3allam.model.dto.request.NewsRequest;
@@ -47,9 +49,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import static com.google.android.gms.plus.PlusOneDummyView.TAG;
 
 public class Home extends AppCompatActivity implements NewsFeed.OnFragmentInteractionListener,Tracks.OnFragmentInteractionListener,Notifications.OnFragmentInteractionListener,Profile.OnFragmentInteractionListener {
+    public static final String TAG = Home.class.getSimpleName();
+    FloatingActionButton floatingActionButton;
     ViewPager viewPager;
     TabLayout tabLayout;
     ImageView messagesIcon;
@@ -81,6 +84,9 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
         setContentView(yackeen.education.ta3allam.R.layout.activity_home);
         autoCompleteTextView = (AutoCompleteTextView)findViewById(R.id.home_search);
         autoCompleteTextView.setText(null);
+        floatingActionButton = (FloatingActionButton)findViewById(R.id.edit_floating_button);
+        floatingActionButton.setEnabled(false);
+        floatingActionButton.setVisibility(View.INVISIBLE);
         searchAutoCompleteAdapter = new SearchAutoCompleteAdapter(this,R.layout.search_item_layout);
         autoCompleteTextView.setAdapter(searchAutoCompleteAdapter);
         autoCompleteTextView.addTextChangedListener(new TextWatcher() {
@@ -99,6 +105,14 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
             @Override
             public void afterTextChanged(Editable editable) {
 
+            }
+        });
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=  EditProfileActivity.newEditProfileActivtyIntent(Home.this,UserHelper.getPhotoUrl(Home.this),UserHelper.getUserName(Home.this),"");
+                startActivity(intent);
             }
         });
         viewPager = (ViewPager) findViewById(yackeen.education.ta3allam.R.id.viewpager);
@@ -129,6 +143,8 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
                         tabLayout.getTabAt(1).setIcon(tabIcons[1]);
                         tabLayout.getTabAt(2).setIcon(tabIcons[2]);
                         tabLayout.getTabAt(3).setIcon(tabIcons[3]);
+                        floatingActionButton.setVisibility(View.VISIBLE);
+                        floatingActionButton.setEnabled(true);
                         break;
                     case 1:
                         tab.setIcon(yackeen.education.ta3allam.R.drawable.notifications_active);
@@ -158,16 +174,24 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
+                floatingActionButton.setEnabled(false);
+                floatingActionButton.setVisibility(View.INVISIBLE);
 
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
+                if (tab.getPosition()==0){
+                    floatingActionButton.setVisibility(View.VISIBLE);
+                    floatingActionButton.setEnabled(true);
+                }
 
             }
         });
 
     }
+
+
 
     public void searchUserFromApi(String searchQuery){
         SearchRequest body = new SearchRequest();

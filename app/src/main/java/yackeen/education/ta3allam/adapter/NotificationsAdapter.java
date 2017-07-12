@@ -29,13 +29,14 @@ import yackeen.education.ta3allam.ui.activity.FriendsActivity;
 import yackeen.education.ta3allam.ui.activity.UserProfileActivity;
 import yackeen.education.ta3allam.util.UserHelper;
 
-import static com.google.android.gms.plus.PlusOneDummyView.TAG;
 
 /**
  * Created by ahmed essam on 11/06/2017.
  */
 
 public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdapter.ViewHolder>{
+    public static final String TAG = NotificationsAdapter.class.getSimpleName();
+
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView nameTextView;
         public TextView notificationDetail;
@@ -60,10 +61,11 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
                 nameTextView.setText(messageNotificationBody.getUserName());
                 notificationDetail.setText(messageNotificationBody.getContent());
             }
-            if (notification.getType() == 3 || notification.getType() == 4) {
+            else {
                 MessageNotificationBody messageNotificationBody = new Gson().fromJson(bodyString, MessageNotificationBody.class);
                 notificationDetail.setText(messageNotificationBody.getContent());
             }
+
 
             Picasso.with(mContext)
                     .load(notification.getUserPictureURL())

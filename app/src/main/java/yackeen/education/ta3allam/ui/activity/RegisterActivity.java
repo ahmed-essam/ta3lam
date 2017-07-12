@@ -151,7 +151,19 @@ public class RegisterActivity extends AppCompatActivity {
                 Log.i(TAG, "onResponse:ErrorMessage " .concat(response.errorMessage));
 
                 if (response.isSuccessful){
-                    startActivity(new Intent(RegisterActivity.this,Home.class));
+                    UserHelper.removeFromSharedPreferences(UserHelper.USER_ID);
+                    UserHelper.removeFromSharedPreferences(UserHelper.USER_TYPE);
+                    UserHelper.removeFromSharedPreferences(UserHelper.security_token);
+                    UserHelper.saveStringInSharedPreferences(UserHelper.USER_ID,response.userId);
+                    UserHelper.saveIntInSharedPreferences(UserHelper.USER_TYPE,response.userType);
+                    if (response.isFirstTime){
+                        startActivity(new Intent(RegisterActivity.this,FirstLogin.class));
+                        finish();
+                    }else {
+                        startActivity(new Intent(RegisterActivity.this, Home.class));
+                        finish();
+                    }
+
 
                 }else Toast.makeText(RegisterActivity.this, response.errorMessage, Toast.LENGTH_SHORT).show();
 

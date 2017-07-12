@@ -13,7 +13,6 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -24,30 +23,26 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.squareup.picasso.Picasso;
 
+import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import yackeen.education.ta3allam.Capsule.Message;
 import yackeen.education.ta3allam.Capsule.SendMessage;
-import yackeen.education.ta3allam.Capsule.UserBooks;
 import yackeen.education.ta3allam.R;
 import yackeen.education.ta3allam.adapter.ChatAdapter;
 import yackeen.education.ta3allam.model.dto.request.ConversationRequest;
-import yackeen.education.ta3allam.model.dto.request.MessageListRequest;
 import yackeen.education.ta3allam.model.dto.request.SendMessageRequest;
 import yackeen.education.ta3allam.model.dto.response.ChatNotificationResponse;
 import yackeen.education.ta3allam.model.dto.response.ConversationResponse;
 import yackeen.education.ta3allam.model.dto.response.EmptyResponse;
-import yackeen.education.ta3allam.model.dto.response.MessageListResponse;
-import yackeen.education.ta3allam.model.dto.response.NotificationResponse;
 import yackeen.education.ta3allam.server.api.API;
+import yackeen.education.ta3allam.util.EndlessRecyclerViewScrollListener;
+import yackeen.education.ta3allam.util.TextHelper;
 import yackeen.education.ta3allam.util.UserHelper;
-
-import static yackeen.education.ta3allam.ui.activity.ForumComentsActivity.hideSoftKeyboard;
 
 public class ChatActivity extends AppCompatActivity {
     private static final String Userparam = "userID";
@@ -64,6 +59,8 @@ public class ChatActivity extends AppCompatActivity {
     Toolbar chatToolbar;
     private boolean loading = true;
     int pastVisiblesItems, visibleItemCount, totalItemCount;
+    private EndlessRecyclerViewScrollListener scrollListener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,30 +79,19 @@ public class ChatActivity extends AppCompatActivity {
         lastMessageId = 0;
         feachConversationFromApi(lastMessageId);
         chatRecyclerView.setAdapter(chatAdapter);
-        chatRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        scrollListener = new EndlessRecyclerViewScrollListener(layoutManager) {
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                if (dy > 0) //check for scroll down
-                {
-                    visibleItemCount = layoutManager.getChildCount();
-                    totalItemCount = layoutManager.getItemCount();
-                    pastVisiblesItems = layoutManager.findFirstVisibleItemPosition();
-
-                    if (loading) {
-                        if ((visibleItemCount + pastVisiblesItems) >= totalItemCount) {
-                            loading = false;
-
-                            feachConversationFromApi(lastMessageId);
-
-                        }
-                    }
-                }
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                // Triggered only when new data needs to be appended to the list
+                // Add whatever code is needed to append new items to the bottom of the list
+                feachConversationFromApi(lastMessageId);
             }
-        });
+        };
+        chatRecyclerView.addOnScrollListener(scrollListener);
         sendImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (sendEditText.getText() != null) {
+                if (!TextHelper.isEditTextEmpty(new EditText[]{sendEditText})) {
                     SendMessage sendMessage = new SendMessage();
                     sendMessage.setBody(sendEditText.getText().toString());
                     sendMessage.setToUserID(USERID);
@@ -114,6 +100,7 @@ public class ChatActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
     @Override
@@ -171,11 +158,14 @@ public class ChatActivity extends AppCompatActivity {
     //notification listener
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(ChatNotificationResponse notificationResponse) {
-        if ((notificationResponse.getMessageBody().FromUserID).equals(USERID)) {
-            Message message = new Message();
-            message.setBody(notificationResponse.getMessageBody().Content);
-            message.setMine(false);
-            chatAdapter.addItem(message);
+        Log.d(TAG, "onMessageEvent: ");
+        if (notificationResponse.type ==1) {
+            if ((notificationResponse.getMessageBody().FromUserID).equals(USERID)) {
+                Message message = new Message();
+                message.setBody(notificationResponse.getMessageBody().Content);
+                message.setMine(false);
+                chatAdapter.addItem(message);
+            }
         }
     }
 
@@ -197,11 +187,10 @@ public class ChatActivity extends AppCompatActivity {
         API.getUserAPIs().getNewConversationMessages(body, getNewconversationListener(),
                 getConversationFailedListener(), this);
     }
-
     public void sendMessageUsingAPI(SendMessage sendMessage) {
         SendMessageRequest body = new SendMessageRequest();
         body.setUserID(UserHelper.getUserId(this));
-        body.setSendMessage(sendMessage);
+        body.setMessage(sendMessage);
         API.getUserAPIs().getSendMessages(body, getSendMessageListener(),
                 getConversationFailedListener(), this);
     }
@@ -211,13 +200,23 @@ public class ChatActivity extends AppCompatActivity {
         return new Response.Listener<ConversationResponse>() {
             @Override
             public void onResponse(ConversationResponse response) {
-                Log.e(TAG, "network_response:" + response.ConversationMessages.size());
-                messageList = response.ConversationMessages;
-                lastMessageId = messageList.get((messageList.size()) - 1).getMessageID();
-                Log.d(TAG, "network_response:" + messageList.size());
-                chatAdapter.addAll(messageList);
-                chatName.setText(response.getConversationUserName());
-                Picasso.with(ChatActivity.this).load(response.getConversationUserImageUrl()).placeholder(R.drawable.default_emam).error(R.drawable.default_emam).into(chatImage);
+                if (lastMessageId ==0) {
+                    Log.e(TAG, "network_response:" + response.ConversationMessages.size());
+                    messageList = response.ConversationMessages;
+                    if (messageList.size() > 0) {
+                        lastMessageId = messageList.get((messageList.size()) - 1).getMessageID();
+                    }
+                    Log.d(TAG, "network_response:" + messageList.size());
+                    chatAdapter.addAll(messageList);
+                    chatName.setText(response.getConversationUserName());
+                    Picasso.with(ChatActivity.this).load(response.getConversationUserImageUrl()).placeholder(R.drawable.default_emam).error(R.drawable.default_emam).into(chatImage);
+                }else{
+                    if (response.ConversationMessages != null && response.ConversationMessages.size() != 0){
+                        messageList.addAll(response.ConversationMessages);
+                        lastMessageId = messageList.get((messageList.size()) - 1).getMessageID();
+                        chatAdapter.addSomeItems(response.ConversationMessages);
+                    }
+                }
 
             }
         };
@@ -245,6 +244,7 @@ public class ChatActivity extends AppCompatActivity {
                     message.setDateTime(Long.toString(new Date().getTime()));
                     chatAdapter.addItem(message);
                     sendEditText.setText(null);
+                    chatRecyclerView.scrollToPosition(0);
                 }else {
                     Log.d(TAG, "onResponse: "+response.getErrorMessage());
                 }
@@ -265,5 +265,18 @@ public class ChatActivity extends AppCompatActivity {
 
             }
         };
+    }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
     }
 }

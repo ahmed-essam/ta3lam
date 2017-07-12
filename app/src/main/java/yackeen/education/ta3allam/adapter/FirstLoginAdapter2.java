@@ -16,12 +16,13 @@ import yackeen.education.ta3allam.Capsule.Book;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.google.android.gms.plus.PlusOneDummyView.TAG;
 
 /**
  * Created by devar on 8/7/16.
  */
 public class FirstLoginAdapter2 extends RecyclerView.Adapter<FirstLoginAdapter2.ViewHolder> {
+    public static final String TAG = FirstLoginAdapter2.class.getSimpleName();
+
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public TextView nameTextView;

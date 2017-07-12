@@ -23,7 +23,6 @@ import yackeen.education.ta3allam.Capsule.Message;
 import yackeen.education.ta3allam.Capsule.MessageItem;
 import yackeen.education.ta3allam.R;
 
-import static com.google.android.gms.plus.PlusOneDummyView.TAG;
 
 /**
  * Created by ahmed essam on 18/06/2017.
@@ -46,7 +45,6 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-
         View categoryView = inflater.inflate(R.layout.chat_item_layout, parent, false);
         ViewHolder viewHolder = new ViewHolder(categoryView);
         return viewHolder;
@@ -68,6 +66,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
         this.messages.addAll(messageList);
         notifyDataSetChanged();
     }
+    public static final String TAG = ChatAdapter.class.getSimpleName();
 
     public void addItem(Message message){
         this.messages.add(0,message);

@@ -17,17 +17,20 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
+import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import yackeen.education.ta3allam.Capsule.Message;
 import yackeen.education.ta3allam.Capsule.MessageItem;
 import yackeen.education.ta3allam.R;
 import yackeen.education.ta3allam.adapter.MessagesListAdapter;
 import yackeen.education.ta3allam.model.dto.request.FirstLogin1Request;
 import yackeen.education.ta3allam.model.dto.request.MessageListRequest;
+import yackeen.education.ta3allam.model.dto.response.ChatNotificationResponse;
 import yackeen.education.ta3allam.model.dto.response.FirstLoginResponse1;
 import yackeen.education.ta3allam.model.dto.response.MessageListResponse;
 import yackeen.education.ta3allam.model.dto.response.NotificationResponse;
@@ -88,11 +91,19 @@ public class MessagesListActivity extends AppCompatActivity {
 
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(ChatNotificationResponse notificationResponse) {
+        Log.d(TAG, "onMessageEvent: ");
+        if (notificationResponse.type == 1) {
+            feachContactsFromApi();
+        }
+    }
 
     @Override
     protected void onStart() {
         super.onStart();
         feachContactsFromApi();
+        EventBus.getDefault().register(this);
     }
 
     //network response
@@ -125,6 +136,13 @@ public class MessagesListActivity extends AppCompatActivity {
 
             }
         };
+    }
+
+
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
     }
 
 }

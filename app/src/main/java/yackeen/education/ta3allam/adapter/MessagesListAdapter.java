@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.android.gms.nearby.messages.Message;
 import com.squareup.picasso.Picasso;
 
 import java.text.DateFormat;
@@ -28,13 +27,14 @@ import yackeen.education.ta3allam.R;
 import yackeen.education.ta3allam.ui.activity.ChatActivity;
 import yackeen.education.ta3allam.util.UserHelper;
 
-import static com.google.android.gms.plus.PlusOneDummyView.TAG;
 
 /**
  * Created by ahmed essam on 16/06/2017.
  */
 
 public class MessagesListAdapter extends RecyclerView.Adapter<MessagesListAdapter.ViewHolder> {
+    public static final String TAG = MessagesListAdapter.class.getSimpleName();
+
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private ImageView profileIMage;
         private ImageView readeOrUnreade;
@@ -79,7 +79,7 @@ public class MessagesListAdapter extends RecyclerView.Adapter<MessagesListAdapte
 
         @Override
         public void onClick(View view) {
-            Intent intent = ChatActivity.newUserChatIntent(getContext(), UserHelper.getUserId(getContext()));
+            Intent intent = ChatActivity.newUserChatIntent(getContext(),contactsList.get(getPosition()).getConversationUserID());
             getContext().startActivity(intent);
 
         }

@@ -245,7 +245,7 @@ public class BookDetailActivity extends AppCompatActivity {
     }
     public String formatDate(String dateString){
         String wantedDateStr;
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.S");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         Date date = null;
         try {
             date = dateFormat.parse(dateString);

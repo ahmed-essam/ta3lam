@@ -72,21 +72,26 @@ public class LoginActivity extends AppCompatActivity {
 
         if (!TextHelper.isEditTextEmpty(new EditText[]{emailEditText, passwordEditText})
                 && TextHelper.isEmail(emailEditText)
-                && TextHelper.isPassword(passwordEditText)){
+                ) {
 
             UserHelper.showProgressDialog(this, getString(yackeen.education.ta3allam.R.string.sign_in), getString(yackeen.education.ta3allam.R.string.signing_in));
+            if (MyFirebaseInstanceIdService.getDeviceToken(this)!= null) {
 
-            LoginRequest body = new LoginRequest();
-            body.isByFacebook = false;
-            body.FacebookID = "";
-            body.Email = emailEditText.getText().toString();
-            body.Password = passwordEditText.getText().toString();
-            body.DeviceToken = MyFirebaseInstanceIdService.getDeviceToken(this);
+                LoginRequest body = new LoginRequest();
+                body.isByFacebook = false;
+                body.FacebookID = "";
+                body.Email = emailEditText.getText().toString();
+                body.Password = passwordEditText.getText().toString();
+                body.DeviceToken = MyFirebaseInstanceIdService.getDeviceToken(this);
 
-            API.getUserAPIs().login(
-                    body,
-                    getLoginListener(),
-                    getLoginFailedListener());
+                API.getUserAPIs().login(
+                        body,
+                        getLoginListener(),
+                        getLoginFailedListener());
+            }
+            else{
+                Toast.makeText(this, "اعد تثبيت البرنامج", Toast.LENGTH_SHORT).show();
+            }
         }
     }
     public void onTextSignUpClick(View view) {
@@ -113,21 +118,14 @@ public class LoginActivity extends AppCompatActivity {
                 Log.i(TAG, "onResponse:UserType "     .concat(String.valueOf(response.userType)));
                 Log.i(TAG, "onResponse:UserID "       .concat(response.userID));
                 Log.i(TAG, "onResponse:ErrorMessage " .concat(response.errorMessage));
-
                 if (response.isSuccessful){
                     UserHelper.saveStringInSharedPreferences(UserHelper.USER_ID,response.userID);
                     UserHelper.saveIntInSharedPreferences(UserHelper.USER_TYPE,response.userType);
-                    if (response.isFirstTime){
 
                         startActivity(new Intent(LoginActivity.this, FirstLogin.class));
                         finish();
 
-                    }else {
-
-                        startActivity(new Intent(LoginActivity.this, Home.class));
-                        finish();
-
-                    }//end inner if
+                   //end inner if
 
                 }else Toast.makeText(LoginActivity.this, response.errorMessage, Toast.LENGTH_SHORT).show();
                 //end outer if

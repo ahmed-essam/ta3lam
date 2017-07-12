@@ -118,7 +118,7 @@
         android:layout_marginTop="26dp"
         android:paddingTop="@dimen/edit_text_padding"
         android:paddingBottom="@dimen/edit_text_padding"
-        android:text="@string/logout"
+        android:text="@string/edit"
         android:textAllCaps="false"
         android:textColor="@color/colorTextTitle"
         android:textSize="@dimen/text_subheading_size"

@@ -21,13 +21,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static com.google.android.gms.plus.PlusOneDummyView.TAG;
 
 /**
  * Created by ahmed essam on 13/06/2017.
  */
 
 public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHolder>{
+    public static final String TAG = CommentsAdapter.class.getSimpleName();
+
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         ImageView profileImage;
         TextView nameTextView;

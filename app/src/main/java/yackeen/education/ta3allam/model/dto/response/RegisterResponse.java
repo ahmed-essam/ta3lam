@@ -9,4 +9,11 @@ public class RegisterResponse {
 
     @SerializedName("ErrorMessage")
     public String errorMessage;
+    @SerializedName("IsFirstTime")
+    public boolean isFirstTime;
+    @SerializedName("UserType")
+    public int userType;
+    @SerializedName("UserID")
+    public String userId;
+
 }

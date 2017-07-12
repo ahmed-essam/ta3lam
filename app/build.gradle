@@ -11,7 +11,6 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
-        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -34,17 +33,14 @@ dependencies {
     //Android
 
     //Back-end
-    annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
-    compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
-    compile "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
-    compile "com.github.Raizlabs.DBFlow:dbflow-sqlcipher:${dbflow_version}"
-    compile "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:${dbflow_version}"
+//    annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
+//    compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
+//    compile "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
 
     //Front-end
 
     //Firebase
 
-    compile 'com.android.support:multidex:1.0.1'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.android.support:design:25.3.1'
@@ -54,7 +50,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.4'
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
     compile 'com.android.volley:volley:1.0.0'
-    compile 'com.facebook.stetho:stetho:1.4.1'
+//    compile 'com.facebook.stetho:stetho:1.4.1'
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
     compile 'com.github.bumptech.glide:glide:3.6.1'
@@ -62,7 +58,7 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'com.github.lzyzsd:circleprogress:1.2.1'
     compile 'com.google.firebase:firebase-messaging:10.0.1'
-    compile 'com.google.android.gms:play-services:10.0.1'
+//    compile 'com.google.android.gms:play-services:10.0.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'org.greenrobot:eventbus:3.0.0'
     testCompile 'junit:junit:4.12'

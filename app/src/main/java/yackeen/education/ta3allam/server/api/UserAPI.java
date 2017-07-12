@@ -3,6 +3,8 @@ package yackeen.education.ta3allam.server.api;
 import android.content.Context;
 import android.util.Log;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 
@@ -56,6 +58,7 @@ import yackeen.education.ta3allam.model.dto.response.SetUserBookResponse;
 import yackeen.education.ta3allam.model.dto.response.UnreadeMessageNumResponse;
 import yackeen.education.ta3allam.model.dto.response.UnreadeNotificationNumResponse;
 import yackeen.education.ta3allam.server.request.GsonPostRequest;
+import yackeen.education.ta3allam.server.request.MultipartRequest;
 import yackeen.education.ta3allam.services.MyFirebaseInstanceIdService;
 import yackeen.education.ta3allam.ui.activity.EditProfileActivity;
 import yackeen.education.ta3allam.util.UserHelper;
@@ -383,6 +386,11 @@ public class UserAPI {
                 listener,
                 errorListener
         );
+
+        request.setRetryPolicy(new DefaultRetryPolicy(
+                30000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         appContext.addToRequestQueue(request);
     }
 
@@ -562,21 +570,35 @@ public class UserAPI {
         appContext.addToRequestQueue(request);
     }
 
-    public void editProfilePicture(EditProfilePictureRequest body, Listener<EditProfilePictureResponse> listener, ErrorListener errorListener, Context context) {
+    public void editProfilePicture(final Map<String, MultipartRequest.DataPart> data, Listener<EditProfilePictureResponse> listener, ErrorListener errorListener, Context context) {
         String url = AppBaseURL.concat("User/EditProfilePictureDetails/?UserID=" + UserHelper.getUserId(context));
-        Map map = new HashMap();
+        final Map map = new HashMap();
         map.put("UserID", UserHelper.getUserId(context));
         map.put("Token", UserHelper.getSecurityToken(context));
-        GsonPostRequest<EditProfilePictureResponse> request = new GsonPostRequest<>(
-                url,
-                body,
-                EditProfilePictureResponse.class,
-                map,
-                listener,
-                errorListener
-        );
+        MultipartRequest request = new MultipartRequest(
+                url, map, listener, errorListener
+        ) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return map;
+            }
+
+            @Override
+            protected Map<String, DataPart> getByteData() throws AuthFailureError {
+                return data;
+            }
+        };
+//        GsonPostRequest<EditProfilePictureResponse> request = new GsonPostRequest<>(
+//                url,
+//                body,
+//                EditProfilePictureResponse.class,
+//                map,
+//                listener,
+//                errorListener
+//        );
         appContext.addToRequestQueue(request);
     }
+
     public void getUnreadeMessagesNum(NewsRequest body, Listener<UnreadeMessageNumResponse> listener, ErrorListener errorListener, Context context) {
         String url = AppBaseURL.concat("Messages/UserUnreadMessagesNumber");
         Map map = new HashMap();
@@ -592,6 +614,7 @@ public class UserAPI {
         );
         appContext.addToRequestQueue(request);
     }
+
     public void getNotificationNum(NewsRequest body, Listener<UnreadeNotificationNumResponse> listener, ErrorListener errorListener, Context context) {
         String url = AppBaseURL.concat("Notifications/GetNoitificationNumber");
         Map map = new HashMap();

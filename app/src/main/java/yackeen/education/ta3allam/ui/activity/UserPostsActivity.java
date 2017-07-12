@@ -21,6 +21,7 @@ import java.util.List;
 
 import yackeen.education.ta3allam.Capsule.News;
 import yackeen.education.ta3allam.R;
+import yackeen.education.ta3allam.adapter.FirstLoginAdapter2;
 import yackeen.education.ta3allam.adapter.NewsAdapter;
 import yackeen.education.ta3allam.model.dto.request.NewsRequest;
 import yackeen.education.ta3allam.model.dto.response.NewsResponse;
@@ -28,9 +29,10 @@ import yackeen.education.ta3allam.server.api.API;
 import yackeen.education.ta3allam.util.EndlessRecyclerViewScrollListener;
 import yackeen.education.ta3allam.util.UserHelper;
 
-import static com.google.android.gms.plus.PlusOneDummyView.TAG;
 
 public class UserPostsActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
+    public static final String TAG = UserPostsActivity.class.getSimpleName();
+
     private Toolbar toolbar;
     private TextView noDataText;
     private RecyclerView postsRecyclerView;
