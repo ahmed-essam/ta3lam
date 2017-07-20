@@ -76,6 +76,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
                 @Override
                 public void onClick(View view) {
                     Intent intent = ForumComentsActivity.newCommentIntent(mContext,mNews.get(getPosition()));
+                    Log.d("NewsAdapter", "onClick: "+mNews.get(getPosition()).getPostId());
                     mContext.startActivity(intent);
                 }
             });
@@ -84,6 +85,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
                 public void onClick(View view) {
                     Intent intent = ForumComentsActivity.newCommentIntent(mContext,mNews.get(getPosition()));
                     mContext.startActivity(intent);
+                    Log.d("NewsAdapter", "onClick: "+mNews.get(getPosition()).getPostId());
+
                 }
             });
         }

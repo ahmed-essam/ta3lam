@@ -61,12 +61,12 @@
 
         </LinearLayout>
     </LinearLayout>
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginRight="3dp"
         android:id="@+id/profile_image_messages"
         android:src="@drawable/default_emam"
-        android:layout_gravity="right"
+        android:layout_gravity="right|center_vertical"
         />
 </LinearLayout>

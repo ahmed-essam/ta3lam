@@ -47,7 +47,6 @@ public class LoginActivity extends AppCompatActivity {
         passwordEditText = (EditText) findViewById(yackeen.education.ta3allam.R.id.edit_text_password);
     }
     private void initializeFacebookFragment(Bundle savedInstanceState){
-
         // Check that the activity is using the layout version with
         // the fragment_container FrameLayout
         if (findViewById(yackeen.education.ta3allam.R.id.fragment_facebook_container) != null) {
@@ -122,8 +121,13 @@ public class LoginActivity extends AppCompatActivity {
                     UserHelper.saveStringInSharedPreferences(UserHelper.USER_ID,response.userID);
                     UserHelper.saveIntInSharedPreferences(UserHelper.USER_TYPE,response.userType);
 
+                    if (response.isFirstTime) {
                         startActivity(new Intent(LoginActivity.this, FirstLogin.class));
                         finish();
+                    }else{
+                        startActivity(new Intent(LoginActivity.this, Home.class));
+                        finish();
+                    }
 
                    //end inner if
 

@@ -12,9 +12,12 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import yackeen.education.ta3allam.R;
+import yackeen.education.ta3allam.model.dto.request.LoginRequest;
+import yackeen.education.ta3allam.model.dto.response.LoginResponse;
 import yackeen.education.ta3allam.model.dto.response.RegisterResponse;
 import yackeen.education.ta3allam.server.api.API;
 import yackeen.education.ta3allam.model.dto.request.RegisterRequest;
+import yackeen.education.ta3allam.services.MyFirebaseInstanceIdService;
 import yackeen.education.ta3allam.util.TextHelper;
 import yackeen.education.ta3allam.util.UserHelper;
 
@@ -52,7 +55,6 @@ public class RegisterActivity extends AppCompatActivity {
     private void initializeLayoutElements() {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.register);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -108,8 +110,24 @@ public class RegisterActivity extends AppCompatActivity {
                         getRegisterByEmailBody(),
                         getRegisterListener(),
                         getRegisterFailedListener());
+
+
             }
         }
+    }
+
+    public void loginCal(){
+        LoginRequest body = new LoginRequest();
+        body.isByFacebook = false;
+        body.FacebookID = "";
+        body.Email = emailEditText.getText().toString();
+        body.Password = passwordEditText.getText().toString();
+        body.DeviceToken = MyFirebaseInstanceIdService.getDeviceToken(RegisterActivity.this);
+
+        API.getUserAPIs().login(
+                body,
+                getLoginRegisterListener(),
+                getRegisterFailedListener());
     }
 
     //Action
@@ -145,31 +163,49 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onResponse(RegisterResponse response) {
 
-                UserHelper.dismissProgressDialog();
+
 
                 Log.i(TAG, "onResponse:IsSuccess "    .concat(String.valueOf(response.isSuccessful)));
                 Log.i(TAG, "onResponse:ErrorMessage " .concat(response.errorMessage));
 
                 if (response.isSuccessful){
-                    UserHelper.removeFromSharedPreferences(UserHelper.USER_ID);
-                    UserHelper.removeFromSharedPreferences(UserHelper.USER_TYPE);
-                    UserHelper.removeFromSharedPreferences(UserHelper.security_token);
-                    UserHelper.saveStringInSharedPreferences(UserHelper.USER_ID,response.userId);
-                    UserHelper.saveIntInSharedPreferences(UserHelper.USER_TYPE,response.userType);
-                    if (response.isFirstTime){
-                        startActivity(new Intent(RegisterActivity.this,FirstLogin.class));
-                        finish();
-                    }else {
-                        startActivity(new Intent(RegisterActivity.this, Home.class));
-                        finish();
-                    }
+                    Toast.makeText(RegisterActivity.this, "تم السجيل", Toast.LENGTH_SHORT).show();
+                    loginCal();
 
+                }else{
 
-                }else Toast.makeText(RegisterActivity.this, response.errorMessage, Toast.LENGTH_SHORT).show();
-
+                    UserHelper.dismissProgressDialog();
+                    Toast.makeText(RegisterActivity.this, response.errorMessage, Toast.LENGTH_SHORT).show();}
             }
         };
     }
+
+    private Response.Listener<LoginResponse> getLoginRegisterListener(){
+
+        return new Response.Listener<LoginResponse>() {
+            @Override
+            public void onResponse(LoginResponse response) {
+
+
+                UserHelper.dismissProgressDialog();
+                Log.d(TAG, ":"+UserHelper.getSecurityToken(RegisterActivity.this));
+
+                Log.i(TAG, "onResponse:IsSuccess "    .concat(String.valueOf(response.isSuccessful)));
+                Log.i(TAG, "onResponse:isFirstTime: " .concat(String.valueOf(response.isFirstTime)));
+                Log.i(TAG, "onResponse:UserType "     .concat(String.valueOf(response.userType)));
+                Log.i(TAG, "onResponse:UserID "       .concat(response.userID));
+                Log.i(TAG, "onResponse:ErrorMessage " .concat(response.errorMessage));
+                if (response.isSuccessful){
+                    UserHelper.saveStringInSharedPreferences(UserHelper.USER_ID,response.userID);
+                    UserHelper.saveIntInSharedPreferences(UserHelper.USER_TYPE,response.userType);
+                    Intent intent = new Intent(RegisterActivity.this, FirstLogin.class);
+                        startActivity(intent);
+                    finish();
+                }else {Toast.makeText(RegisterActivity.this, response.errorMessage, Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, "onResponse: "+response.errorMessage);}
+
+            }
+        };}
     private Response.ErrorListener getRegisterFailedListener(){
 
         return new Response.ErrorListener() {

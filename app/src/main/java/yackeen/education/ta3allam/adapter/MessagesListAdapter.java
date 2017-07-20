@@ -18,8 +18,10 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import yackeen.education.ta3allam.Capsule.Category;
 import yackeen.education.ta3allam.Capsule.MessageItem;
@@ -38,7 +40,6 @@ public class MessagesListAdapter extends RecyclerView.Adapter<MessagesListAdapte
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private ImageView profileIMage;
         private ImageView readeOrUnreade;
-
         private TextView nameText;
         private TextView lastMessage;
         private TextView timeText;
@@ -62,18 +63,17 @@ public class MessagesListAdapter extends RecyclerView.Adapter<MessagesListAdapte
             if (messageItem.isSeen()){
                 readeOrUnreade.setImageResource(R.drawable.reade_gray);
             }
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.S");
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.S", Locale.getDefault());
             Date date = null;
             try {
                 date = dateFormat.parse(strDate);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            timeText.setText(DateUtils.getRelativeTimeSpanString(date.getTime(), new Date().getTime(), DateUtils.DAY_IN_MILLIS)+"");
+            String displayedDate = (String) DateUtils.getRelativeTimeSpanString(date.getTime(), new Date().getTime(), DateUtils.DAY_IN_MILLIS);
+            timeText.setText(displayedDate);
 
-            timeText.setText(messageItem.getLastMessageDate());
             Log.e(TAG, "bindView: MessageListAdapter");
-
 
         }
 
@@ -123,8 +123,10 @@ public class MessagesListAdapter extends RecyclerView.Adapter<MessagesListAdapte
     public void addAll(List<MessageItem> messageItems) {
         Log.e(TAG, "addAll: MessageListAdapter" + messageItems.size());
         this.contactsList.clear();
+        Collections.reverse(messageItems);
         this.contactsList.addAll(messageItems);
         notifyDataSetChanged();
+
     }
 
     public void addItem(MessageItem messageItem) {

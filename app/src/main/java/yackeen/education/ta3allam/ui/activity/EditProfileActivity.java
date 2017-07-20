@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +40,7 @@ public class EditProfileActivity extends AppCompatActivity implements SelectImag
     private ImageView profileImage;
     private ImageView iconEditImage;
     private Button editButton;
+    private ProgressBar editProgressBar;
     private Toolbar editToolbar;
     private EditText nameEditText;
     private EditText aboutEditText;
@@ -83,6 +85,8 @@ public class EditProfileActivity extends AppCompatActivity implements SelectImag
         profileImage = (ImageView) findViewById(R.id.edit_profile_image);
         iconEditImage = (ImageView) findViewById(R.id.edit_icon);
         editButton = (Button) findViewById(R.id.btn_log_out);
+        editProgressBar = (ProgressBar) findViewById(R.id.edit_progress);
+        editProgressBar.setVisibility(View.GONE);
         editToolbar = (Toolbar) findViewById(R.id.edit_profile_toolbar);
         setSupportActionBar(editToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -117,6 +121,7 @@ public class EditProfileActivity extends AppCompatActivity implements SelectImag
             public void onClick(View view) {
 
                 if (nameEditText.getText() != null) {
+                    editProgressBar.setVisibility(View.VISIBLE);
                     editProfile();
                     if (profileImage != null) {
                         editProfilePicture();
@@ -126,6 +131,8 @@ public class EditProfileActivity extends AppCompatActivity implements SelectImag
                 } else {
                     Toast.makeText(EditProfileActivity.this, "املأ خانه الاسم", Toast.LENGTH_SHORT).show();
                 }
+                editProgressBar.setVisibility(View.GONE);
+                finish();
             }
         });
         profileImage.setOnClickListener(new View.OnClickListener() {
@@ -176,8 +183,12 @@ public class EditProfileActivity extends AppCompatActivity implements SelectImag
 //        EditProfilePictureRequest body = new EditProfilePictureRequest();
 //        byte[] imageAsBytes = selectImageUtil.getImageAsBytes();
 //        body.setImage(imageAsBytes);
-        API.getUserAPIs().editProfilePicture(selectImageUtil.getUploadMap(), getEditProfilePictureListener(),
-                getEditProfileFailedListener(), this);
+        if (selectImageUtil != null) {
+            if (selectImageUtil.isFileSelected()) {
+                API.getUserAPIs().editProfilePicture(selectImageUtil.getUploadMap(), getEditProfilePictureListener(),
+                        getEditProfileFailedListener(), this);
+            }
+        }
 
 
     }
@@ -189,9 +200,10 @@ public class EditProfileActivity extends AppCompatActivity implements SelectImag
             public void onResponse(EditProfileResponse response) {
                 if (response.isSuccess()) {
                     Toast.makeText(EditProfileActivity.this, "تم التعديل ", Toast.LENGTH_LONG).show();
-                    UserHelper.dismissProgressDialog();
+
                 } else {
                     Toast.makeText(EditProfileActivity.this, "الاسم ربما يكون خاطأ", Toast.LENGTH_LONG).show();
+                    Log.d(TAG, "onResponse: "+response.getErrorMessage());
                 }
             }
         };
@@ -204,9 +216,12 @@ public class EditProfileActivity extends AppCompatActivity implements SelectImag
                 if (response.isSuccess()) {
                     Toast.makeText(EditProfileActivity.this, "تم التعديل ", Toast.LENGTH_LONG).show();
                     UserHelper.dismissProgressDialog();
+
                 } else {
                     Log.e(TAG, "onResponse: " + response.getErrorMessage());
                     Toast.makeText(EditProfileActivity.this, "تاكد من اختيار الصوره", Toast.LENGTH_LONG).show();
+                    Log.d(TAG, "onResponse: "+response.getErrorMessage());
+
                 }
             }
         };

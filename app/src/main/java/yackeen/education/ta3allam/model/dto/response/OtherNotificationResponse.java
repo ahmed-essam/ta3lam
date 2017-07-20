@@ -18,8 +18,9 @@ public class OtherNotificationResponse extends NotificationResponse {
         this.id = notificationResponse.id;
         this.badge = notificationResponse.badge;
         this.body = (notificationResponse.body);
-
+        this.title = notificationResponse.title;
     }
+
     public PostCommentNotificationBody getMessageBody() {
         return new Gson().fromJson(this.body, PostCommentNotificationBody.class);
     }
@@ -29,7 +30,8 @@ public class OtherNotificationResponse extends NotificationResponse {
         PostCommentNotificationBody postCommentNotificationBody = getMessageBody();
         return postCommentNotificationBody.getContent();
     }
-    public int getPostId(){
+
+    public int getPostId() {
         PostCommentNotificationBody postCommentNotificationBody = getMessageBody();
         return postCommentNotificationBody.getPostID();
     }

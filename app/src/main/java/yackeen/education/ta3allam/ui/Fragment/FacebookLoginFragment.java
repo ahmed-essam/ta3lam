@@ -26,6 +26,7 @@ import yackeen.education.ta3allam.provider.AuthFacebook;
 import yackeen.education.ta3allam.server.api.API;
 import yackeen.education.ta3allam.services.MyFirebaseInstanceIdService;
 import yackeen.education.ta3allam.ui.activity.FirstLogin;
+import yackeen.education.ta3allam.ui.activity.Home;
 import yackeen.education.ta3allam.ui.activity.RegisterActivity;
 import yackeen.education.ta3allam.util.UserHelper;
 
@@ -89,7 +90,7 @@ public class FacebookLoginFragment extends Fragment {
 
         }else {
 
-            getActivity().startActivity(new Intent(getActivity(), FirstLogin.class));
+            getActivity().startActivity(new Intent(getActivity(), Home.class));
             getActivity().finish();
 
         }//end inner if
@@ -179,7 +180,12 @@ public class FacebookLoginFragment extends Fragment {
                 Log.i(TAG, "onResponse:UserID "       .concat(response.userID));
                 Log.i(TAG, "onResponse:ErrorMessage " .concat(response.errorMessage));
 
-                if (response.isSuccessful) login(response.isFirstTime);
+                if (response.isSuccessful) {
+                    UserHelper.saveStringInSharedPreferences(UserHelper.USER_ID,response.userID);
+                    UserHelper.saveIntInSharedPreferences(UserHelper.USER_TYPE,response.userType);
+                    login(response.isFirstTime);
+
+                }
                 else registerNewUser();
             }
         };

@@ -34,9 +34,13 @@ import yackeen.education.ta3allam.adapter.FirstLoginAdapter2;
 import yackeen.education.ta3allam.adapter.FollowersAdapter;
 import yackeen.education.ta3allam.adapter.GridCoursesAdapter;
 import yackeen.education.ta3allam.model.dto.request.FollowerRequest;
+import yackeen.education.ta3allam.model.dto.request.LogOutRequest;
 import yackeen.education.ta3allam.model.dto.response.ChatNotificationResponse;
+import yackeen.education.ta3allam.model.dto.response.EmptyResponse;
 import yackeen.education.ta3allam.model.dto.response.FollwerResponse;
+import yackeen.education.ta3allam.model.dto.response.UnreadeNotificationNumResponse;
 import yackeen.education.ta3allam.server.api.API;
+import yackeen.education.ta3allam.services.MyFirebaseInstanceIdService;
 import yackeen.education.ta3allam.ui.activity.AllBooksActivity;
 import yackeen.education.ta3allam.ui.activity.EditProfileActivity;
 import yackeen.education.ta3allam.ui.activity.FriendsActivity;
@@ -200,8 +204,16 @@ public class Profile extends Fragment {
                 UserHelper.removeFromSharedPreferences(UserHelper.USER_ID);
                 UserHelper.removeFromSharedPreferences(UserHelper.USER_TYPE);
                 UserHelper.removeFromSharedPreferences(UserHelper.security_token);
-                getContext().startActivity(new Intent(getContext(), LoginActivity.class));
-                getActivity().finish();
+                getContext().startActivity(new Intent(getContext(),LoginActivity.class));
+//                UserHelper.showProgressDialog(getContext(),"تسجيل الخروج","جاري تسجيل الخروج...");
+//                if (UserHelper.getUserId(getContext())==null){
+//                    UserHelper.dismissProgressDialog();
+//                    Toast.makeText(getContext(), "UserID not exist", Toast.LENGTH_SHORT).show();
+//                }else{
+//                    LogOutApi();
+//                }
+
+
             }
         });
         showAll.setOnClickListener(new View.OnClickListener() {
@@ -226,6 +238,13 @@ public class Profile extends Fragment {
         body.setUserID(UserHelper.getUserId(getContext()));
         body.setSelectedUserID(UserHelper.getUserId(getContext()));
         API.getUserAPIs().getUserProfileDetail(body, getProfileDataListener(),
+                getProfileDataFailedListener(), getContext());
+    }
+    public void LogOutApi() {
+        LogOutRequest body = new LogOutRequest();
+        body.setUserID(UserHelper.getUserId(getContext()));
+        body.setDeviceToken(MyFirebaseInstanceIdService.getDeviceToken(getContext()));
+        API.getUserAPIs().logOut(body, getLogOutListener(),
                 getProfileDataFailedListener(), getContext());
     }
 
@@ -290,6 +309,21 @@ public class Profile extends Fragment {
                 Log.e(TAG, "onErrorResponse: ".concat(error.toString()));
                 Toast.makeText(getActivity(), yackeen.education.ta3allam.R.string.network_error, Toast.LENGTH_SHORT).show();
 
+            }
+        };
+    }
+
+    private Response.Listener<EmptyResponse> getLogOutListener(){
+        return new Response.Listener<EmptyResponse>() {
+            @Override
+            public void onResponse(EmptyResponse response) {
+                if (response.isSuccess()) {
+                    UserHelper.removeFromSharedPreferences(UserHelper.USER_ID);
+                    UserHelper.removeFromSharedPreferences(UserHelper.USER_TYPE);
+                    UserHelper.removeFromSharedPreferences(UserHelper.security_token);
+                    getContext().startActivity(new Intent(getContext(),LoginActivity.class));
+                    getActivity().finish();
+                }
             }
         };
     }

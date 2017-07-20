@@ -65,9 +65,10 @@ public class GsonPostRequest<T> extends JsonRequest<T> {
     @Override
     protected Response<T> parseNetworkResponse(NetworkResponse response) {
         try {
-            if (clazz == LoginResponse.class || clazz == RegisterResponse.class) {
+            if (clazz == LoginResponse.class ) {
                UserHelper.saveStringInSharedPreferences(UserHelper.security_token,response.headers.get("Token"));
                 Log.d("token", ":"+response.headers.get("Token"));
+
             }
             String json = new String(
                     response.data,

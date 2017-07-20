@@ -47,9 +47,8 @@ public class FirstLogin1Fragment extends Fragment {
         FirstLogin1Request body = new FirstLogin1Request();
         API.getUserAPIs().getAllCourses(body,getCoursesListener(),
                 getCoursesFailedListener(),getContext());
-
-
     }
+
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {

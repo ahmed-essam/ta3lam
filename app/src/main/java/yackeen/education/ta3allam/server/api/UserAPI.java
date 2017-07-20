@@ -23,6 +23,7 @@ import yackeen.education.ta3allam.model.dto.request.FollowerRequest;
 import yackeen.education.ta3allam.model.dto.request.ForumRequest;
 import yackeen.education.ta3allam.model.dto.request.FriendsRequest;
 import yackeen.education.ta3allam.model.dto.request.LikeAndShareRequest;
+import yackeen.education.ta3allam.model.dto.request.LogOutRequest;
 import yackeen.education.ta3allam.model.dto.request.LoginRequest;
 import yackeen.education.ta3allam.model.dto.request.MessageListRequest;
 import yackeen.education.ta3allam.model.dto.request.NewsRequest;
@@ -35,6 +36,7 @@ import yackeen.education.ta3allam.model.dto.request.SendMessageRequest;
 import yackeen.education.ta3allam.model.dto.request.SetUserBookRequest;
 import yackeen.education.ta3allam.model.dto.request.UnSetUserBookRequest;
 import yackeen.education.ta3allam.model.dto.request.UserFollowRequest;
+import yackeen.education.ta3allam.model.dto.request.UserSeenNotificationRequest;
 import yackeen.education.ta3allam.model.dto.response.BookDetailResponse;
 import yackeen.education.ta3allam.model.dto.response.CommentsResponse;
 import yackeen.education.ta3allam.model.dto.response.ConversationResponse;
@@ -624,6 +626,36 @@ public class UserAPI {
                 url,
                 body,
                 UnreadeNotificationNumResponse.class,
+                map,
+                listener,
+                errorListener
+        );
+        appContext.addToRequestQueue(request);
+    }
+    public void updateSeenNotification(UserSeenNotificationRequest body, Listener<EmptyResponse> listener, ErrorListener errorListener, Context context) {
+        String url = AppBaseURL.concat("Notifications/UserUpdateSeenNotification");
+        Map map = new HashMap();
+        map.put("UserID", UserHelper.getUserId(context));
+        map.put("Token", UserHelper.getSecurityToken(context));
+        GsonPostRequest<EmptyResponse> request = new GsonPostRequest<>(
+                url,
+                body,
+                EmptyResponse.class,
+                map,
+                listener,
+                errorListener
+        );
+        appContext.addToRequestQueue(request);
+    }
+    public void logOut(LogOutRequest body, Listener<EmptyResponse> listener, ErrorListener errorListener, Context context) {
+        String url = AppBaseURL.concat("User/LogOut");
+        Map map = new HashMap();
+        map.put("UserID", UserHelper.getUserId(context));
+        map.put("Token", UserHelper.getSecurityToken(context));
+        GsonPostRequest<EmptyResponse> request = new GsonPostRequest<>(
+                url,
+                body,
+                EmptyResponse.class,
                 map,
                 listener,
                 errorListener

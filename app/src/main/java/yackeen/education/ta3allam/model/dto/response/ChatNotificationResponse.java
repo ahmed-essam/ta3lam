@@ -18,7 +18,7 @@ public class ChatNotificationResponse extends NotificationResponse {
         this.id = notificationResponse.id;
         this.badge = notificationResponse.badge;
         this.body = (notificationResponse.body);
-
+        this.title = notificationResponse.title;
     }
 
     public body getMessageBody() {

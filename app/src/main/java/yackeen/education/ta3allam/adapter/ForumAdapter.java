@@ -86,7 +86,7 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder> 
             });
         }
         public void bindView(News news,Context context){
-            Picasso.with(context).load(news.getImage()).error(R.drawable.default_emam).into(profileImage);
+            Picasso.with(context).load(news.getImage()).placeholder(R.drawable.default_emam).error(R.drawable.default_emam).into(profileImage);
             nameTextView.setText(news.getName());
             timeTextView.setText(news.getTime());
             descriptionTextView.setText(news.getDescription());

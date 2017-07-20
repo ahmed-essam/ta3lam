@@ -17,6 +17,7 @@ import com.google.gson.Gson;
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.Map;
+import java.util.Random;
 
 import yackeen.education.ta3allam.Capsule.Message;
 import yackeen.education.ta3allam.R;
@@ -32,6 +33,7 @@ import yackeen.education.ta3allam.ui.activity.MessagesListActivity;
 
 public class MessagingService extends FirebaseMessagingService {
     private static final String TAG = "MyAndroidFCMService";
+    private static Random random = new Random();
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
@@ -42,14 +44,20 @@ public class MessagingService extends FirebaseMessagingService {
         Log.d(TAG, "onMessageReceived: ");
         String jsonString = remoteMessage.getData().get("body");
         Gson gson = new Gson();
+        Map<String, String> data = remoteMessage.getData();
 
-        NotificationResponse notificationResponse = gson.fromJson(jsonString, NotificationResponse.class);
+        NotificationResponse notificationResponse = new NotificationResponse();
+        notificationResponse.type = Integer.parseInt(data.get("type"));
+        notificationResponse.id = Long.parseLong(data.get("id"));
+        notificationResponse.body = data.get("body");
+        notificationResponse.title = data.get("title");
         if (notificationResponse.type == 1 || notificationResponse.type == 2) {
             notificationResponse = new ChatNotificationResponse(notificationResponse);
+        } else if (notificationResponse.type == 3) {
+            // do nothing
         } else {
             notificationResponse = new OtherNotificationResponse(notificationResponse);
         }
-        Map<String, String> data = remoteMessage.getData();
         for (String s : data.keySet()) {
             Log.d(TAG, s + ": " + data.get(s));
         }
@@ -62,12 +70,12 @@ public class MessagingService extends FirebaseMessagingService {
 
     private void createNotification(NotificationResponse notificationResponse) {
 
-        Intent intent = new Intent(MessagingService.this,Home.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this,1,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent intent = new Intent(MessagingService.this, Home.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder mNotificationBuilder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("تعلم")
+                .setContentTitle(notificationResponse.title)
                 .setContentText(notificationResponse.getBodyDisplayData())
                 .setAutoCancel(true)
                 .setDefaults(Notification.DEFAULT_ALL)
@@ -76,7 +84,7 @@ public class MessagingService extends FirebaseMessagingService {
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        notificationManager.notify(12, mNotificationBuilder.build());
+        notificationManager.notify(random.nextInt(100), mNotificationBuilder.build());
     }
 
 }

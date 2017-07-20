@@ -118,8 +118,8 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
     }
 
     public void addAll(List<Notification> notifications){
-        mNotifications.clear();
-        mNotifications.addAll(notifications);
+        this.mNotifications.clear();
+        this.mNotifications.addAll(notifications);
         notifyDataSetChanged();
     }
 

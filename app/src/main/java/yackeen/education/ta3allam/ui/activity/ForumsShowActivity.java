@@ -193,7 +193,7 @@ public class ForumsShowActivity extends AppCompatActivity {
                     news.setComment(0);
                     news.setImage(UserHelper.getPhotoUrl(ForumsShowActivity.this));
                     news.setName(UserHelper.getUserName(ForumsShowActivity.this));
-                    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.S");
+                    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
                     String dateString = String.valueOf(new Date().getTime());
 
                     try {
@@ -204,6 +204,9 @@ public class ForumsShowActivity extends AppCompatActivity {
                     addPostEdit.setText(null);
                     forumAdapter.addItem(news);
                     hideSoftKeyboard(ForumsShowActivity.this);
+                }
+                else{
+                    Toast.makeText(ForumsShowActivity.this, ""+response.getErrorMessage(), Toast.LENGTH_SHORT).show();
                 }
 
             }

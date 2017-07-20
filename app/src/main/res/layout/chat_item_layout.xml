@@ -8,6 +8,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/message_text_view"
         android:textSize="20sp"
-        android:padding="3dp"/>
+        android:padding="3dp"
+        android:paddingRight="4dp"
+        android:paddingLeft="4dp"/>
 
 </FrameLayout>

@@ -59,9 +59,11 @@
                     android:layout_height="wrap_content"
                     android:text="اسم الفقه"
                     android:textColor="@color/cardview_light_background"
-                    android:textSize="30dp"
+                    android:textSize="30sp"
                     android:id="@+id/course_name"
-                    android:layout_alignParentRight="true"/>
+                    android:layout_alignParentRight="true"
+                    />
+
             </RelativeLayout>
             </android.support.design.widget.AppBarLayout>
     <LinearLayout

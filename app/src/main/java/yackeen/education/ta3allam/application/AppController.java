@@ -50,7 +50,7 @@ public class AppController extends Application {
 
         try {
             String strDate = "2017-07-03T13:44:37.57";
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.S");
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
             Date date = dateFormat.parse(strDate);
 
             DateFormat targetDateFormate = new SimpleDateFormat("dd MMMM, yyyy", Locale.getDefault());

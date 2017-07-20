@@ -26,18 +26,14 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import yackeen.education.ta3allam.Capsule.Follower;
 import yackeen.education.ta3allam.Capsule.SearchProfile;
-import yackeen.education.ta3allam.Capsule.UserBooks;
 import yackeen.education.ta3allam.R;
-import yackeen.education.ta3allam.adapter.FirstLoginAdapter2;
 import yackeen.education.ta3allam.adapter.SearchAutoCompleteAdapter;
-import yackeen.education.ta3allam.model.dto.request.FollowerRequest;
 import yackeen.education.ta3allam.model.dto.request.NewsRequest;
 import yackeen.education.ta3allam.model.dto.request.SearchRequest;
-import yackeen.education.ta3allam.model.dto.response.FollwerResponse;
 import yackeen.education.ta3allam.model.dto.response.SearchResponse;
 import yackeen.education.ta3allam.model.dto.response.UnreadeMessageNumResponse;
+import yackeen.education.ta3allam.model.dto.response.UnreadeNotificationNumResponse;
 import yackeen.education.ta3allam.server.api.API;
 import yackeen.education.ta3allam.ui.Fragment.NewsFeed;
 import yackeen.education.ta3allam.ui.Fragment.Notifications;
@@ -57,13 +53,15 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
     TabLayout tabLayout;
     ImageView messagesIcon;
     ImageView unreadeMessages;
+    ImageView unreadeNotifications;
     AutoCompleteTextView autoCompleteTextView;
     SearchAutoCompleteAdapter searchAutoCompleteAdapter;
+
     private int[] tabIcons = {
-           yackeen.education.ta3allam.R.drawable.profile,
+            yackeen.education.ta3allam.R.drawable.profile,
             yackeen.education.ta3allam.R.drawable.notifications,
             yackeen.education.ta3allam.R.drawable.tracks,
-            yackeen.education.ta3allam.R.drawable.home
+            yackeen.education.ta3allam.R.drawable.home_active
     };
     public void onFragmentInteraction(Uri uri)
     {
@@ -76,7 +74,6 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
         String languageToLoad = "ar"; // your language
         Locale locale = new Locale(languageToLoad);
         Locale.setDefault(locale);
-
         Configuration config = new Configuration();
         config.locale = locale;
         getBaseContext().getResources().updateConfiguration(config,
@@ -87,6 +84,7 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
         floatingActionButton = (FloatingActionButton)findViewById(R.id.edit_floating_button);
         floatingActionButton.setEnabled(false);
         floatingActionButton.setVisibility(View.INVISIBLE);
+
         searchAutoCompleteAdapter = new SearchAutoCompleteAdapter(this,R.layout.search_item_layout);
         autoCompleteTextView.setAdapter(searchAutoCompleteAdapter);
         autoCompleteTextView.addTextChangedListener(new TextWatcher() {
@@ -121,6 +119,10 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
         messagesIcon= (ImageView)findViewById(R.id.messages);
         unreadeMessages= (ImageView)findViewById(R.id.unreade_messages);
         unreadeMessages.setVisibility(View.INVISIBLE);
+        unreadeNotifications= (ImageView)findViewById(R.id.unreade_notification);
+//        unreadeNotifications.setVisibility(View.INVISIBLE);
+        getMessagesNum();
+        getNotificationNum();
         messagesIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -148,6 +150,7 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
                         break;
                     case 1:
                         tab.setIcon(yackeen.education.ta3allam.R.drawable.notifications_active);
+//                        tab.getCustomView().setVisibility(View.INVISIBLE);
                         tabLayout.getTabAt(0).setIcon(tabIcons[0]);
                         tabLayout.getTabAt(2).setIcon(tabIcons[2]);
                         tabLayout.getTabAt(3).setIcon(tabIcons[3]);
@@ -191,7 +194,11 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
 
     }
 
-
+    @Override
+    public void onBackPressed() {
+        finish();
+        super.onBackPressed();
+    }
 
     public void searchUserFromApi(String searchQuery){
         SearchRequest body = new SearchRequest();
@@ -204,6 +211,13 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
         NewsRequest body = new NewsRequest();
         body.setUserID(UserHelper.getUserId(this));
         API.getUserAPIs().getUnreadeMessagesNum(body,getMessagesNumListener(),
+                getSearchFailedListener(),this);
+
+    }
+    public void getNotificationNum(){
+        NewsRequest body = new NewsRequest();
+        body.setUserID(UserHelper.getUserId(this));
+        API.getUserAPIs().getNotificationNum(body,getNotificationsNumListener(),
                 getSearchFailedListener(),this);
 
     }
@@ -220,6 +234,8 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
         tabLayout.getTabAt(1).setIcon(tabIcons[1]);
         tabLayout.getTabAt(2).setIcon(tabIcons[2]);
         tabLayout.getTabAt(3).setIcon(yackeen.education.ta3allam.R.drawable.home_active);
+//        tabLayout.getTabAt(1).setCustomView(R.layout.tab_icon);
+
     }
     public void setupUI(View view) {
 
@@ -296,6 +312,18 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
                 if (response.isSuccess()) {
                     if (response.getCount()>0){
                         unreadeMessages.setVisibility(View.VISIBLE);
+                    }
+                }
+            }
+        };
+    }
+    private Response.Listener<UnreadeNotificationNumResponse> getNotificationsNumListener(){
+        return new Response.Listener<UnreadeNotificationNumResponse>() {
+            @Override
+            public void onResponse(UnreadeNotificationNumResponse response) {
+                if (response.isSuccess()) {
+                    if (response.getNotificationNumber()>0){
+//                        unreadeNotifications.setVisibility(View.VISIBLE);
                     }
                 }
             }

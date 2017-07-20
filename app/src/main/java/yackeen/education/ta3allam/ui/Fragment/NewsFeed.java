@@ -137,7 +137,13 @@ public class NewsFeed extends Fragment implements SwipeRefreshLayout.OnRefreshLi
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         adapter = new NewsAdapter(getContext());
         postID = 0;
-        feachNewsFromApi(postID);
+        if (UserHelper.getUserId(getContext())==null){
+            noDataText.setEnabled(true);
+            noDataText.setVisibility(View.VISIBLE);
+            noDataText.setText("userID is Missing");
+        }else {
+            feachNewsFromApi(postID);
+        }
         recyclerView.setAdapter(adapter);
 
         return view;
@@ -243,7 +249,7 @@ public class NewsFeed extends Fragment implements SwipeRefreshLayout.OnRefreshLi
                 noDataText.setText("خطأ بالشبكه");
                 noDataText.setEnabled(true);
                 Log.e(TAG, "onErrorResponse: ".concat(error.toString()));
-                Toast.makeText(getActivity(), R.string.network_error, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.network_error, Toast.LENGTH_SHORT).show();
                 mSwipeRefreshLayout.setRefreshing(false);
 
             }

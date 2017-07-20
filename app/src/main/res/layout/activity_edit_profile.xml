@@ -110,6 +110,11 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             />
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/edit_progress"/>
     </LinearLayout>
     <Button
         android:id="@+id/btn_log_out"

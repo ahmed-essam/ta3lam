@@ -37,7 +37,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="احمد السيد"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="35sp" />
 

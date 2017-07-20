@@ -6,13 +6,14 @@ import com.google.gson.annotations.SerializedName;
  * Created by ahmed essam on 05/07/2017.
  */
 
-public abstract class NotificationResponse<T> {
+public class NotificationResponse<T> {
     public int type;
     @SerializedName("aps")
     public aps aps;
     public long id;
-    protected String body;
+    public String body;
     public int badge;
+    public String title;
 
     public NotificationResponse() {
     }

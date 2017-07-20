@@ -93,6 +93,7 @@ public class ForumComentsActivity extends AppCompatActivity {
                     AddedComment comment = new AddedComment();
                     comment.setComment(addCommentEditText.getText().toString());
                     comment.setPostID(news.getPostId());
+                    Log.d(TAG, "onClick: "+news.getPostId());
                     addCommentUsingAPI(comment);
                 }
             }
@@ -108,10 +109,10 @@ public class ForumComentsActivity extends AppCompatActivity {
     }
 
     public void addValueToViews(){
-        Picasso.with(this).load(news.getImage()).error(R.drawable.default_emam).into(profileImageView);
+        Picasso.with(this).load(this.news.getImage()).placeholder(R.drawable.default_emam).error(R.drawable.default_emam).into(profileImageView);
         emmamName.setText(news.getName());
         String strDate = news.getTime();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.S");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         Date date = null;
         try {
             date = dateFormat.parse(strDate);
@@ -132,6 +133,7 @@ public class ForumComentsActivity extends AppCompatActivity {
             feachCommentsFromApi();
         }
     }
+
     //network call
     public void feachCommentsFromApi(){
         CommentsRequest body = new CommentsRequest();
@@ -143,6 +145,7 @@ public class ForumComentsActivity extends AppCompatActivity {
 
 
     }
+
     public void addCommentUsingAPI(AddedComment addedComment){
         AddCommentRequest body = new AddCommentRequest();
         body.setUserID(UserHelper.getUserId(this));
@@ -150,20 +153,23 @@ public class ForumComentsActivity extends AppCompatActivity {
         API.getUserAPIs().addComment(body,getAddCommentListener(),
                 getCommentsFailedListener(),this);
     }
+
     public static Intent newCommentIntent(Context context,News news){
         Intent intent = new Intent(context,ForumComentsActivity.class);
         intent.putExtra(ARG_COMMENT,news);
         return intent;
     }
+
     public News retriveDataIntent(){
         Intent intent = getIntent();
-        News news=(News) intent.getSerializableExtra(ARG_COMMENT);
+        this.news =(News) intent.getSerializableExtra(ARG_COMMENT);
         Log.e(TAG, "retriveDataIntent: "+news.getPostId() );
         return news;
     }
+
     public void bindViewToLayout(){
         toolbar =(Toolbar)findViewById(R.id.forum_toolbar);
-        toolbar.setNavigationIcon(R.drawable.close);
+        toolbar.setNavigationIcon(R.drawable.ic_close_white_24dp);
         profileImageView = (ImageView)findViewById(R.id.profile_image_comment);
         emmamName= (TextView)findViewById(R.id.emam_name_comments);
         commentsRecyclerView=(RecyclerView)findViewById(R.id.comments_recyclerView);
@@ -173,8 +179,6 @@ public class ForumComentsActivity extends AppCompatActivity {
         commentsNum=(TextView)findViewById(R.id.comment);
         addCommentEditText = (EditText)findViewById(R.id.add_comment_edit);
         addCommentButton=(Button)findViewById(R.id.add_comment_button);
-
-
     }
     public static void hideSoftKeyboard(Activity activity) {
         InputMethodManager inputMethodManager =
@@ -219,16 +223,20 @@ public class ForumComentsActivity extends AppCompatActivity {
             @Override
             public void onResponse(EmptyResponse response) {
                 if (response.isSuccess()){
-                    Toast.makeText(ForumComentsActivity.this, "comment added", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ForumComentsActivity.this, "تمت الاضافه", Toast.LENGTH_SHORT).show();
                     Comment comment = new Comment();
                     comment.setUserID(UserHelper.getUserId(ForumComentsActivity.this));
-                    comment.setDateTime(Long.toString(new Date().getTime()));
+                    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SS");
+                    String dateString =dateFormat.format(new Date());
+                    comment.setDateTime(dateString);
                     comment.setBody(addCommentEditText.getText().toString());
                     comment.setUserName(UserHelper.getUserName(ForumComentsActivity.this));
                     comment.setUserPictureURL(UserHelper.getPhotoUrl(ForumComentsActivity.this));
                     commentsAdapter.addItem(comment);
                     addCommentEditText.setText(null);
                     hideSoftKeyboard(ForumComentsActivity.this);
+                }else{
+                    Toast.makeText(ForumComentsActivity.this, ""+response.getErrorMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         };

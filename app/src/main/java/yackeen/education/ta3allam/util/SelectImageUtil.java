@@ -45,8 +45,8 @@ public class SelectImageUtil {
         try {
             Bitmap bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(), mediaUri);
             byte[] inputData = getBytes(bitmap);
-            MultipartRequest.DataPart dataPart = new MultipartRequest.DataPart("image", inputData);
-            partMap.put("image", dataPart);
+            MultipartRequest.DataPart dataPart = new MultipartRequest.DataPart("image.jpg", inputData);
+            partMap.put("image.jpg", dataPart);
             return partMap;
         } catch (IOException e) {
             e.printStackTrace();

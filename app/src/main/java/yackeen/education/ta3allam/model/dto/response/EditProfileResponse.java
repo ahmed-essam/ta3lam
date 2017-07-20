@@ -9,6 +9,7 @@ import com.google.gson.annotations.SerializedName;
 public class EditProfileResponse {
     @SerializedName("IsSuccess")
     private boolean success;
+    private  String ErrorMessage;
 
     public boolean isSuccess() {
         return success;
@@ -16,5 +17,13 @@ public class EditProfileResponse {
 
     public void setSuccess(boolean success) {
         this.success = success;
+    }
+
+    public String getErrorMessage() {
+        return ErrorMessage;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        ErrorMessage = errorMessage;
     }
 }

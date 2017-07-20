@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import yackeen.education.ta3allam.Capsule.Comment;
 import yackeen.education.ta3allam.Capsule.Message;
+import yackeen.education.ta3allam.R;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -44,10 +45,10 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
 
         }
         public void bindView(Comment comment, Context context){
-            Picasso.with(context).load(comment.getUserPictureURL()).error(yackeen.education.ta3allam.R.drawable.default_emam).into(profileImage);
+            Picasso.with(context).load(comment.getUserPictureURL()).placeholder(R.drawable.default_emam).error(yackeen.education.ta3allam.R.drawable.default_emam).into(profileImage);
             nameTextView.setText(comment.getUserName());
             String strDate = comment.getDateTime();
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.S");
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SS");
             Date date = null;
             try {
                 date = dateFormat.parse(strDate);
