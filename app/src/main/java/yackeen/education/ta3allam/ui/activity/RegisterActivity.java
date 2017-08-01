@@ -140,7 +140,6 @@ public class RegisterActivity extends AppCompatActivity {
         body.password = password;
         body.confirmPassword = password;
         body.facebookID = "";
-
         return body;
     }
     private RegisterRequest getRegisterByFacebookBody(){
@@ -158,12 +157,9 @@ public class RegisterActivity extends AppCompatActivity {
 
     //Network Listener
     private Response.Listener<RegisterResponse> getRegisterListener(){
-
         return new Response.Listener<RegisterResponse>() {
             @Override
             public void onResponse(RegisterResponse response) {
-
-
 
                 Log.i(TAG, "onResponse:IsSuccess "    .concat(String.valueOf(response.isSuccessful)));
                 Log.i(TAG, "onResponse:ErrorMessage " .concat(response.errorMessage));

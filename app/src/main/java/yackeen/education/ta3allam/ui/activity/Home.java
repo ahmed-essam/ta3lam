@@ -61,7 +61,7 @@ public class Home extends AppCompatActivity implements NewsFeed.OnFragmentIntera
             yackeen.education.ta3allam.R.drawable.profile,
             yackeen.education.ta3allam.R.drawable.notifications,
             yackeen.education.ta3allam.R.drawable.tracks,
-            yackeen.education.ta3allam.R.drawable.home_active
+            R.drawable.home
     };
     public void onFragmentInteraction(Uri uri)
     {

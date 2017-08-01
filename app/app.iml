@@ -106,7 +106,7 @@
     <orderEntry type="jdk" jdkName="Android API 25 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="firebase-analytics-10.0.1" level="project" />
-    <orderEntry type="library" exported="" name="facebook-android-sdk-4.24.0" level="project" />
+    <orderEntry type="library" exported="" name="facebook-android-sdk-4.25.0" level="project" />
     <orderEntry type="library" exported="" name="firebase-core-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="picasso-2.4.0" level="project" />
     <orderEntry type="library" exported="" name="constraint-layout-1.0.2" level="project" />
