@@ -114,7 +114,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
                 @Override
                 public void onResponse(EmptyResponse response) {
                     if (! mNews.get(getPosition()).isLiked()) {
-                        likeImage.setImageResource(R.drawable.heart_orange);
+                        likeImage.setImageResource(R.drawable.heart_orange_new);
                         int num = mNews.get(getPosition()).getLike() + 1;
                         likeTextView.setText("" + num);
                         mNews.get(getPosition()).setLike(num);
@@ -180,7 +180,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         like.setText(news.getLike()+"");
         isLiked= news.isLiked();
         if (news.isLiked()){
-            viewHolder.likeImage.setImageResource(R.drawable.heart_orange);
+            viewHolder.likeImage.setImageResource(R.drawable.heart_orange_new);
         }
     }
     @Override

@@ -94,7 +94,7 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder> 
             likeTextView.setText(news.getLike()+"");
             isLiked= news.isLiked();
             if (news.isLiked()){
-                likeImage.setImageResource(R.drawable.heart_orange);
+                likeImage.setImageResource(R.drawable.heart_orange_new);
             }
 
         }
@@ -123,7 +123,7 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder> 
             return new Response.Listener<EmptyResponse>() {
                 @Override
                 public void onResponse(EmptyResponse response) {
-                    likeImage.setImageResource(R.drawable.heart_orange);
+                    likeImage.setImageResource(R.drawable.heart_orange_new);
                 }
             };
         }
